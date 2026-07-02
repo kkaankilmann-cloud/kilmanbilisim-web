@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog — Kılman Bilişim | Yapay Zeka &amp; Otomasyon İçerikleri</title>
+<meta name="description" content="Kılman Bilişim blog: Yapay zeka, otomasyon, dijital dönüşüm ve teknoloji hakkında güncel yazılar ve rehberler."/>
+<meta name="keywords" content="yapay zeka blog, AI otomasyon, dijital dönüşüm, iş otomasyonu, gayrimenkul otomasyon"/>
+<meta name="author" content="Kılman Bilişim Sistemleri"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://kilmanbilisim.com/blog/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://kilmanbilisim.com/blog/"/>
+<meta property="og:title" content="Blog — Kılman Bilişim"/>
+<meta property="og:description" content="Yapay zeka, otomasyon ve dijital dönüşüm hakkında güncel yazılar."/>
+<meta property="og:locale" content="tr_TR"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg-main:#0D1117;--bg-card:#161B22;--neon:#00D4FF;--text-main:#E6EDF3;--text-muted:#8B949E;--accent-purple:#8B5CF6;--border:rgba(255,255,255,0.06);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg-main);color:var(--text-main);line-height:1.7;}
+a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}
+a:hover{opacity:0.8;}
+
+.blog-nav{background:rgba(13,17,23,0.95);border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
+.blog-nav-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.blog-nav-left{display:flex;align-items:center;gap:16px;}
+.blog-nav-logo{font-weight:700;font-size:1.1rem;color:var(--neon);}
+.blog-nav a.back{font-size:0.9rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;}
+.blog-nav a.back:hover{color:var(--neon);}
+.blog-lang{display:flex;gap:4px;}
+.blog-lang button{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;cursor:pointer;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;transition:all 0.2s;}
+.blog-lang button:hover{border-color:var(--neon);color:var(--neon);}
+.blog-lang button.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
+
+.blog-hero{text-align:center;padding:80px 24px 40px;max-width:900px;margin:0 auto;}
+.blog-hero h1{font-size:2.5rem;font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,var(--neon),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.blog-hero p{color:var(--text-muted);font-size:1.05rem;max-width:600px;margin:0 auto;}
+
+.blog-grid{max-width:900px;margin:0 auto;padding:0 24px 80px;display:grid;gap:32px;}
+
+.blog-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:transform 0.3s,border-color 0.3s;}
+.blog-card:hover{transform:translateY(-4px);border-color:rgba(0,212,255,0.3);}
+.blog-card-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:0.82rem;color:var(--text-muted);}
+.blog-card-tag{background:rgba(0,212,255,0.1);color:var(--neon);padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;}
+.blog-card h2{font-size:1.4rem;font-weight:700;margin-bottom:12px;color:var(--text-main);}
+.blog-card h2 a{color:var(--text-main);}
+.blog-card h2 a:hover{color:var(--neon);}
+.blog-card p{color:var(--text-muted);font-size:0.95rem;margin-bottom:20px;}
+.blog-card .read-more{font-weight:600;font-size:0.9rem;color:var(--neon);display:inline-flex;align-items:center;gap:6px;}
+
+.blog-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.85rem;}
+
+@media(max-width:600px){
+  .blog-hero h1{font-size:1.8rem;}
+  .blog-card{padding:24px;}
+  .blog-nav-inner{justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<nav class="blog-nav">
+  <div class="blog-nav-inner">
+    <div class="blog-nav-left">
+      <a href="/" class="blog-nav-logo">Kılman Bilişim</a>
+      <a href="/" class="back" data-i18n="back_home">← Ana Sayfaya Dön</a>
+    </div>
+    <div class="blog-lang">
+      <button class="active" data-lang="tr">TR</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="de">DE</button>
+      <button data-lang="es">ES</button>
+      <button data-lang="fr">FR</button>
+      <button data-lang="ru">RU</button>
+    </div>
+  </div>
+</nav>
+
+<div class="blog-hero">
+  <h1 data-i18n="blog_title">Blog</h1>
+  <p data-i18n="blog_sub">Yapay zeka, otomasyon ve dijital dönüşüm hakkında güncel yazılar, rehberler ve sektör analizleri.</p>
+</div>
+
+<div class="blog-grid">
+
+  <!-- Post 2 -->
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag" data-i18n="tag_ai">🤖 Yapay Zeka</span>
+      <span>📅 2 Temmuz 2026</span>
+      <span data-i18n="read_6">⏱️ 6 dk okuma</span>
+    </div>
+    <h2><a href="/blog/chatbot-vs-ai-asistan-isletmeniz-icin-dogru-secim.html" data-i18n="post2_title">Chatbot vs AI Asistan: Hangisi İşletmeniz İçin Doğru?</a></h2>
+    <p data-i18n="post2_desc">Geleneksel chatbot ile yapay zeka destekli AI asistan arasındaki farkları keşfedin. Sektörel karşılaştırma, maliyet analizi ve doğru seçim rehberi.</p>
+    <a href="/blog/chatbot-vs-ai-asistan-isletmeniz-icin-dogru-secim.html" class="read-more" data-i18n="read_more">Devamını Oku →</a>
+  </article>
+
+  <!-- Post 1 -->
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag" data-i18n="tag_ai">🤖 Yapay Zeka</span>
+      <span>📅 2 Temmuz 2026</span>
+      <span data-i18n="read_5">⏱️ 5 dk okuma</span>
+    </div>
+    <h2><a href="/blog/yapay-zeka-ile-is-otomasyonu-rehberi.html" data-i18n="post1_title">Yapay Zeka ile İş Otomasyonu: 2026 Rehberi</a></h2>
+    <p data-i18n="post1_desc">İş süreçlerinizi yapay zeka ile otomatikleştirmek neden artık bir lüks değil, zorunluluk? Gayrimenkulden e-ticarete, AI otomasyonunun işletmenize sağlayacağı somut faydaları ve başlangıç adımlarını keşfedin.</p>
+    <a href="/blog/yapay-zeka-ile-is-otomasyonu-rehberi.html" class="read-more" data-i18n="read_more">Devamını Oku →</a>
+  </article>
+
+</div>
+
+<footer class="blog-footer">
+  <p>© <script>document.write(new Date().getFullYear())</script> Kılman Bilişim Sistemleri Ltd. Şti. <span data-i18n="footer_rights">Tüm hakları saklıdır.</span></p>
+</footer>
+
+<script>
+const blogTranslations = {
+  tr: {
+    back_home: '← Ana Sayfaya Dön',
+    blog_title: 'Blog',
+    blog_sub: 'Yapay zeka, otomasyon ve dijital dönüşüm hakkında güncel yazılar, rehberler ve sektör analizleri.',
+    tag_ai: '🤖 Yapay Zeka',
+    read_5: '⏱️ 5 dk okuma', read_6: '⏱️ 6 dk okuma',
+    read_more: 'Devamını Oku →',
+    post1_title: 'Yapay Zeka ile İş Otomasyonu: 2026 Rehberi',
+    post1_desc: 'İş süreçlerinizi yapay zeka ile otomatikleştirmek neden artık bir lüks değil, zorunluluk? Gayrimenkulden e-ticarete, AI otomasyonunun işletmenize sağlayacağı somut faydaları ve başlangıç adımlarını keşfedin.',
+    post2_title: 'Chatbot vs AI Asistan: Hangisi İşletmeniz İçin Doğru?',
+    post2_desc: 'Geleneksel chatbot ile yapay zeka destekli AI asistan arasındaki farkları keşfedin. Sektörel karşılaştırma, maliyet analizi ve doğru seçim rehberi.',
+    footer_rights: 'Tüm hakları saklıdır.',
+  },
+  en: {
+    back_home: '← Back to Home',
+    blog_title: 'Blog',
+    blog_sub: 'Articles, guides and industry insights on artificial intelligence, automation and digital transformation.',
+    tag_ai: '🤖 Artificial Intelligence',
+    read_5: '⏱️ 5 min read', read_6: '⏱️ 6 min read',
+    read_more: 'Read More →',
+    post1_title: 'AI Business Automation: The 2026 Guide',
+    post1_desc: 'Why automating your business processes with AI is no longer a luxury but a necessity. Discover the concrete benefits from real estate to e-commerce.',
+    post2_title: 'Chatbot vs AI Assistant: Which Is Right for Your Business?',
+    post2_desc: 'Discover the differences between traditional chatbots and AI-powered assistants. Industry comparison, cost analysis and decision guide.',
+    footer_rights: 'All rights reserved.',
+  },
+  de: {
+    back_home: '← Zurück zur Startseite',
+    blog_title: 'Blog',
+    blog_sub: 'Aktuelle Artikel, Leitfäden und Branchenanalysen zu KI, Automatisierung und digitaler Transformation.',
+    tag_ai: '🤖 Künstliche Intelligenz',
+    read_5: '⏱️ 5 Min. Lesezeit', read_6: '⏱️ 6 Min. Lesezeit',
+    read_more: 'Weiterlesen →',
+    post1_title: 'KI-Geschäftsautomatisierung: Der Leitfaden 2026',
+    post1_desc: 'Warum die Automatisierung Ihrer Geschäftsprozesse mit KI keine Luxus mehr ist. Entdecken Sie die konkreten Vorteile.',
+    post2_title: 'Chatbot vs KI-Assistent: Was ist richtig für Ihr Unternehmen?',
+    post2_desc: 'Entdecken Sie die Unterschiede zwischen traditionellen Chatbots und KI-Assistenten. Branchenvergleich und Kostenanalyse.',
+    footer_rights: 'Alle Rechte vorbehalten.',
+  },
+  es: {
+    back_home: '← Volver al Inicio',
+    blog_title: 'Blog',
+    blog_sub: 'Artículos, guías y análisis del sector sobre inteligencia artificial, automatización y transformación digital.',
+    tag_ai: '🤖 Inteligencia Artificial',
+    read_5: '⏱️ 5 min lectura', read_6: '⏱️ 6 min lectura',
+    read_more: 'Leer Más →',
+    post1_title: 'Automatización Empresarial con IA: Guía 2026',
+    post1_desc: 'Por qué automatizar sus procesos con IA ya no es un lujo sino una necesidad. Descubra los beneficios concretos.',
+    post2_title: 'Chatbot vs Asistente IA: ¿Cuál es el adecuado para su empresa?',
+    post2_desc: 'Descubra las diferencias entre chatbots tradicionales y asistentes de IA. Comparación sectorial y análisis de costes.',
+    footer_rights: 'Todos los derechos reservados.',
+  },
+  fr: {
+    back_home: '← Retour à l\'accueil',
+    blog_title: 'Blog',
+    blog_sub: 'Articles, guides et analyses sectorielles sur l\'IA, l\'automatisation et la transformation numérique.',
+    tag_ai: '🤖 Intelligence Artificielle',
+    read_5: '⏱️ 5 min de lecture', read_6: '⏱️ 6 min de lecture',
+    read_more: 'Lire la suite →',
+    post1_title: 'Automatisation d\'entreprise par l\'IA : Guide 2026',
+    post1_desc: 'Pourquoi l\'automatisation de vos processus par l\'IA n\'est plus un luxe mais une nécessité. Découvrez les avantages concrets.',
+    post2_title: 'Chatbot vs Assistant IA : Lequel convient à votre entreprise ?',
+    post2_desc: 'Découvrez les différences entre chatbots traditionnels et assistants IA. Comparaison sectorielle et analyse des coûts.',
+    footer_rights: 'Tous droits réservés.',
+  },
+  ru: {
+    back_home: '← На главную',
+    blog_title: 'Блог',
+    blog_sub: 'Статьи, руководства и отраслевые обзоры по ИИ, автоматизации и цифровой трансформации.',
+    tag_ai: '🤖 Искусственный интеллект',
+    read_5: '⏱️ 5 мин чтения', read_6: '⏱️ 6 мин чтения',
+    read_more: 'Читать далее →',
+    post1_title: 'Автоматизация бизнеса с ИИ: Руководство 2026',
+    post1_desc: 'Почему автоматизация процессов с помощью ИИ больше не роскошь, а необходимость. Узнайте о конкретных преимуществах.',
+    post2_title: 'Чат-бот vs ИИ-ассистент: Что подходит вашему бизнесу?',
+    post2_desc: 'Узнайте различия между традиционными чат-ботами и ИИ-ассистентами. Отраслевое сравнение и анализ затрат.',
+    footer_rights: 'Все права защищены.',
+  }
+};
+
+let currentLang = localStorage.getItem('kilman_lang') || 'tr';
+
+function applyBlogLang() {
+  const t = blogTranslations[currentLang] || blogTranslations.tr;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.textContent = t[key];
+  });
+  document.querySelectorAll('.blog-lang button').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
+  });
+}
+
+document.querySelectorAll('.blog-lang button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentLang = btn.getAttribute('data-lang');
+    localStorage.setItem('kilman_lang', currentLang);
+    applyBlogLang();
+  });
+});
+
+applyBlogLang();
+</script>
+
+</body>
+</html>

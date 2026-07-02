@@ -470,9 +470,9 @@ ul { list-style: none; }
 }
 @media (max-width: 700px) {
   .nav-links, .nav-lang { display: none; }
-  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: rgba(8,11,18,0.98); backdrop-filter: blur(16px); padding: 20px 5% 10px; border-bottom: 1px solid var(--border); z-index: 999; gap: 4px; }
-  .nav-lang.open { display: flex; flex-wrap: wrap; padding: 10px 5% 16px; background: rgba(8,11,18,0.98); backdrop-filter: blur(16px); position: absolute; left: 0; right: 0; border-bottom: 1px solid var(--border); z-index: 998; gap: 6px; justify-content: flex-start; }
-  .hamburger { display: flex; }
+  .nav-lang.open { display: flex; flex-wrap: wrap; position: fixed; top: 70px; left: 0; right: 0; padding: 10px 5% 10px; background: rgba(8,11,18,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); z-index: 1000; gap: 6px; justify-content: center; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; left: 0; right: 0; background: rgba(8,11,18,0.98); backdrop-filter: blur(16px); padding: 12px 5% 16px; border-bottom: 1px solid var(--border); z-index: 999; gap: 4px; }
+  .hamburger { display: flex; z-index: 1001; position: relative; }
   .nav-wa-btn { display: none; }
   .sticky-wa { display: flex; }
   .hero-stats { gap: 24px; }
@@ -1631,18 +1631,28 @@ function initNavbar() {
 
   if (hamburger) {
     hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      navLang && navLang.classList.toggle('open');
+      const isOpen = !navLinks.classList.contains('open');
+      navLinks.classList.toggle('open', isOpen);
+      navLang && navLang.classList.toggle('open', isOpen);
       const spans = hamburger.querySelectorAll('span');
-      const isOpen = navLinks.classList.contains('open');
       hamburger.classList.toggle('active', isOpen);
       if (overlay) overlay.style.display = isOpen ? 'block' : 'none';
       if (isOpen) {
         spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
         spans[1].style.opacity = '0';
         spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+        // Position nav-links below nav-lang dynamically
+        requestAnimationFrame(() => {
+          if (navLang) {
+            const langHeight = navLang.offsetHeight;
+            navLinks.style.top = (70 + langHeight) + 'px';
+          } else {
+            navLinks.style.top = '70px';
+          }
+        });
       } else {
         spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+        navLinks.style.top = '';
       }
     });
   }

@@ -49,8 +49,10 @@ a:hover{opacity:0.8;}
 .blog-lang button{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;cursor:pointer;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;transition:all 0.2s;}
 .blog-lang button:hover{border-color:var(--neon);color:var(--neon);}
 .blog-lang button.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
-.blog-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
-.blog-hamburger span{display:block;width:24px;height:2px;background:var(--neon);border-radius:2px;transition:all 0.3s;}
+.blog-hamburger{display:none;width:36px;height:36px;cursor:pointer;padding:6px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.15);border-radius:8px;align-items:center;justify-content:center;flex-direction:column;gap:4px;transition:all 0.3s;}
+.blog-hamburger:hover{background:rgba(0,212,255,0.12);border-color:rgba(0,212,255,0.3);box-shadow:0 0 12px rgba(0,212,255,0.15);}
+.blog-hamburger span{display:block;width:18px;height:2px;background:var(--neon);border-radius:2px;transition:all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55);}
+.blog-hamburger.active{background:rgba(0,212,255,0.12);border-color:var(--neon);box-shadow:0 0 16px rgba(0,212,255,0.2);}
 
 .post-header{max-width:800px;margin:0 auto;padding:90px 24px 32px;text-align:center;}
 .post-tag{background:rgba(0,212,255,0.1);color:var(--neon);padding:6px 16px;border-radius:20px;font-size:0.8rem;font-weight:600;display:inline-block;margin-bottom:16px;}
@@ -87,7 +89,7 @@ a:hover{opacity:0.8;}
 @media(max-width:700px){
   .blog-nav-links,.blog-lang{display:none;}
   .blog-nav-links.open{display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);padding:24px 5%;border-bottom:1px solid var(--border);z-index:999;gap:4px;}
-  .blog-lang.open{display:flex;padding:0 5% 20px;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);position:fixed;top:auto;left:0;right:0;border-bottom:1px solid var(--border);z-index:998;}
+  .blog-lang.open{display:flex;flex-wrap:wrap;padding:12px 5% 16px;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);position:fixed;top:auto;left:0;right:0;border-bottom:1px solid var(--border);z-index:998;gap:4px;}
   .blog-hamburger{display:flex;}
   .post-header h1{font-size:1.6rem;}
   .comparison-table{font-size:0.82rem;}
@@ -114,6 +116,9 @@ a:hover{opacity:0.8;}
         <button data-lang="es">ES</button>
         <button data-lang="fr">FR</button>
         <button data-lang="ru">RU</button>
+        <button data-lang="ko">KO</button>
+        <button data-lang="zh">ZH</button>
+        <button data-lang="ja">JA</button>
       </div>
       <button class="blog-hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
     </div>
@@ -308,12 +313,21 @@ if (blogHamburger) {
     blogLang && blogLang.classList.toggle('open');
     const spans = blogHamburger.querySelectorAll('span');
     const isOpen = blogNavLinks.classList.contains('open');
+    blogHamburger.classList.toggle('active', isOpen);
     if (isOpen) {
       spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
       spans[1].style.opacity = '0';
       spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
     } else {
       spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+  window.addEventListener('scroll', () => {
+    if (blogNavLinks.classList.contains('open')) {
+      blogNavLinks.classList.remove('open');
+      blogLang && blogLang.classList.remove('open');
+      blogHamburger.classList.remove('active');
+      blogHamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
     }
   });
 }

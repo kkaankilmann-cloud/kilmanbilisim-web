@@ -36,8 +36,10 @@ a:hover{opacity:0.8;}
 .blog-lang button{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;cursor:pointer;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;transition:all 0.2s;}
 .blog-lang button:hover{border-color:var(--neon);color:var(--neon);}
 .blog-lang button.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
-.blog-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
-.blog-hamburger span{display:block;width:24px;height:2px;background:var(--neon);border-radius:2px;transition:all 0.3s;}
+.blog-hamburger{display:none;width:36px;height:36px;cursor:pointer;padding:6px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.15);border-radius:8px;align-items:center;justify-content:center;flex-direction:column;gap:4px;transition:all 0.3s;}
+.blog-hamburger:hover{background:rgba(0,212,255,0.12);border-color:rgba(0,212,255,0.3);box-shadow:0 0 12px rgba(0,212,255,0.15);}
+.blog-hamburger span{display:block;width:18px;height:2px;background:var(--neon);border-radius:2px;transition:all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55);}
+.blog-hamburger.active{background:rgba(0,212,255,0.12);border-color:var(--neon);box-shadow:0 0 16px rgba(0,212,255,0.2);}
 
 .blog-hero{text-align:center;padding:110px 24px 40px;max-width:900px;margin:0 auto;}
 .blog-hero h1{font-size:2.5rem;font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,var(--neon),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -60,7 +62,7 @@ a:hover{opacity:0.8;}
 @media(max-width:700px){
   .blog-nav-links,.blog-lang{display:none;}
   .blog-nav-links.open{display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);padding:24px 5%;border-bottom:1px solid var(--border);z-index:999;gap:4px;}
-  .blog-lang.open{display:flex;padding:0 5% 20px;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);position:fixed;top:auto;left:0;right:0;border-bottom:1px solid var(--border);z-index:998;}
+  .blog-lang.open{display:flex;flex-wrap:wrap;padding:12px 5% 16px;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);position:fixed;top:auto;left:0;right:0;border-bottom:1px solid var(--border);z-index:998;gap:4px;}
   .blog-hamburger{display:flex;}
   .blog-hero h1{font-size:1.8rem;}
   .blog-card{padding:24px;}
@@ -86,6 +88,9 @@ a:hover{opacity:0.8;}
         <button data-lang="es">ES</button>
         <button data-lang="fr">FR</button>
         <button data-lang="ru">RU</button>
+        <button data-lang="ko">KO</button>
+        <button data-lang="zh">ZH</button>
+        <button data-lang="ja">JA</button>
       </div>
       <button class="blog-hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
     </div>
@@ -208,6 +213,42 @@ const blogTranslations = {
     post2_title: 'Чат-бот vs ИИ-ассистент: Что подходит вашему бизнесу?',
     post2_desc: 'Узнайте различия между традиционными чат-ботами и ИИ-ассистентами. Отраслевое сравнение и анализ затрат.',
     footer_rights: 'Все права защищены.',
+  },
+  ko: {
+    blog_title: '블로그',
+    blog_sub: 'AI, 자동화 및 디지털 전환에 대한 최신 기사, 가이드 및 업계 분석.',
+    tag_ai: '🤖 인공지능',
+    read_5: '⏱️ 5분 읽기', read_6: '⏱️ 6분 읽기',
+    read_more: '더 읽기 →',
+    post1_title: 'AI 비즈니스 자동화: 2026 가이드',
+    post1_desc: 'AI로 비즈니스 프로세스를 자동화하는 것이 왜 더 이상 사치가 아닌 필수인지 알아보세요.',
+    post2_title: '챗봇 vs AI 어시스턴트: 어느 것이 적합할까?',
+    post2_desc: '기존 챗봇과 AI 어시스턴트의 차이를 알아보세요. 업계 비교 및 비용 분석.',
+    footer_rights: '모든 권리 보유.',
+  },
+  zh: {
+    blog_title: '博客',
+    blog_sub: '关于人工智能、自动化和数字化转型的最新文章、指南和行业分析。',
+    tag_ai: '🤖 人工智能',
+    read_5: '⏱️ 5分钟阅读', read_6: '⏱️ 6分钟阅读',
+    read_more: '阅读更多 →',
+    post1_title: 'AI业务自动化：2026指南',
+    post1_desc: '了解为什么用AI自动化业务流程不再是奢侈品，而是必需品。',
+    post2_title: '聊天机器人 vs AI助手：哪个适合您的企业？',
+    post2_desc: '了解传统聊天机器人和AI助手之间的区别。行业比较和成本分析。',
+    footer_rights: '版权所有。',
+  },
+  ja: {
+    blog_title: 'ブログ',
+    blog_sub: 'AI、オートメーション、デジタルトランスフォーメーションに関する最新記事、ガイド、業界分析。',
+    tag_ai: '🤖 人工知能',
+    read_5: '⏱️ 5分で読める', read_6: '⏱️ 6分で読める',
+    read_more: '続きを読む →',
+    post1_title: 'AIビジネス自動化：2026ガイド',
+    post1_desc: 'AIによる業務自動化がもはや贅沢ではなく必須である理由をご覧ください。',
+    post2_title: 'チャットボット vs AIアシスタント：どちらが最適？',
+    post2_desc: '従来のチャットボットとAIアシスタントの違いを発見。業界比較とコスト分析。',
+    footer_rights: '全著作権所有。',
   }
 };
 
@@ -244,12 +285,22 @@ if (blogHamburger) {
     blogLang && blogLang.classList.toggle('open');
     const spans = blogHamburger.querySelectorAll('span');
     const isOpen = blogNavLinks.classList.contains('open');
+    blogHamburger.classList.toggle('active', isOpen);
     if (isOpen) {
       spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
       spans[1].style.opacity = '0';
       spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
     } else {
       spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+  // Close on scroll
+  window.addEventListener('scroll', () => {
+    if (blogNavLinks.classList.contains('open')) {
+      blogNavLinks.classList.remove('open');
+      blogLang && blogLang.classList.remove('open');
+      blogHamburger.classList.remove('active');
+      blogHamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
     }
   });
 }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8"/>
@@ -185,8 +185,10 @@ ul { list-style: none; }
 .nav-wa-btn:hover { background: #fff; box-shadow: var(--neon-glow); transform: translateY(-1px); }
 .nav-wa-btn svg { flex-shrink: 0; }
 
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--neon); border-radius: 2px; transition: var(--transition); }
+.hamburger { display: none; width: 36px; height: 36px; cursor: pointer; padding: 6px; background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.15); border-radius: 8px; position: relative; transition: var(--transition); align-items: center; justify-content: center; flex-direction: column; gap: 4px; }
+.hamburger:hover { background: rgba(0,212,255,0.12); border-color: rgba(0,212,255,0.3); box-shadow: 0 0 12px rgba(0,212,255,0.15); }
+.hamburger span { display: block; width: 18px; height: 2px; background: var(--neon); border-radius: 2px; transition: all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55); }
+.hamburger.active { background: rgba(0,212,255,0.12); border-color: var(--neon); box-shadow: 0 0 16px rgba(0,212,255,0.2); }
 
 /* ─── HERO ───────────────────────────────── */
 .hero {
@@ -413,9 +415,10 @@ ul { list-style: none; }
 .footer-bottom a:hover { color: var(--neon); }
 
 /* ─── STICKY WA BUTTON (mobile) ─────────── */
-.sticky-wa { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 999; }
-.sticky-wa a { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: #25D366; border-radius: 50%; box-shadow: 0 4px 20px rgba(37,211,102,0.5); transition: var(--transition); }
-.sticky-wa a:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.7); }
+.sticky-wa { display: none; position: fixed; bottom: 16px; right: 12px; z-index: 999; opacity: 0.65; transition: opacity 0.3s; }
+.sticky-wa:hover { opacity: 1; }
+.sticky-wa a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #25D366; border-radius: 50%; box-shadow: 0 2px 10px rgba(37,211,102,0.4); transition: var(--transition); }
+.sticky-wa a:hover { transform: scale(1.08); }
 
 /* ─── PAGE HEADER ────────────────────────── */
 .page-hero { padding: 130px 5% 60px; text-align: center; background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,212,255,0.06) 0%, transparent 70%), var(--bg); border-bottom: 1px solid var(--border); }
@@ -457,6 +460,10 @@ ul { list-style: none; }
 @keyframes glow-pulse { 0%,100%{box-shadow:var(--neon-glow-sm)}50%{box-shadow:var(--neon-glow)} }
 .glow-pulse { animation: glow-pulse 2.5s ease-in-out infinite; }
 
+/* ─── GLOBAL TEXT OVERFLOW FIX ────────────── */
+* { overflow-wrap: break-word; word-break: break-word; }
+.nav-wa-btn span, .hero h1, .hero p, .section-head h2, .section-head p, .pricing-title, .pricing-banner h3, .pricing-banner p, button, a { overflow-wrap: break-word; word-break: break-word; hyphens: auto; }
+
 /* ─── RESPONSIVE ─────────────────────────── */
 @media (max-width: 900px) {
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -465,16 +472,18 @@ ul { list-style: none; }
 @media (max-width: 700px) {
   .nav-links, .nav-lang { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; background: rgba(8,11,18,0.98); backdrop-filter: blur(16px); padding: 24px 5%; border-bottom: 1px solid var(--border); z-index: 999; gap: 4px; }
-  .nav-lang.open { display: flex; padding: 0 5% 20px; background: rgba(8,11,18,0.98); backdrop-filter: blur(16px); position: fixed; top: auto; left: 0; right: 0; border-bottom: 1px solid var(--border); z-index: 998; }
+  .nav-lang.open { display: flex; flex-wrap: wrap; padding: 12px 5% 16px; background: rgba(8,11,18,0.98); backdrop-filter: blur(16px); position: fixed; top: auto; left: 0; right: 0; border-bottom: 1px solid var(--border); z-index: 998; gap: 4px; }
   .hamburger { display: flex; }
   .nav-wa-btn { display: none; }
-  .sticky-wa { display: block; }
+  .sticky-wa { display: flex; }
   .hero-stats { gap: 24px; }
   .footer-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .pricing-banner { padding: 32px 24px; }
   .hero-logo { width: 180px; height: 180px; }
 }
+/* Mobile menu overlay */
+.menu-overlay { display: none; position: fixed; inset: 0; z-index: 990; background: rgba(0,0,0,0.4); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
@@ -509,6 +518,9 @@ ul { list-style: none; }
       <button class="lang-btn" data-lang="es">ES</button>
       <button class="lang-btn" data-lang="fr">FR</button>
       <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="ko">KO</button>
+      <button class="lang-btn" data-lang="zh">ZH</button>
+      <button class="lang-btn" data-lang="ja">JA</button>
     </div>
     <a href="#" class="nav-wa-btn wa-link" target="_blank" rel="noopener">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -516,6 +528,7 @@ ul { list-style: none; }
     </a>
     <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
   </div>
+  <div class="menu-overlay" id="menuOverlay"></div>
 </nav>
 
 <!-- ════════════════════════════════════════
@@ -873,12 +886,12 @@ ul { list-style: none; }
   </div>
 </footer>
 
-<div class="sticky-wa" style="display:flex;gap:12px;">
+<div class="sticky-wa" style="display:flex;flex-direction:column;gap:8px;">
   <a href="#" class="wa-link" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
-  <a href="https://t.me/kilmanbilisim" target="_blank" rel="noopener" aria-label="Telegram" style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#0088cc,#00aaee);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,136,204,0.4);transition:transform 0.2s;">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+  <a href="https://t.me/kilmanbilisim" target="_blank" rel="noopener" aria-label="Telegram" style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0088cc,#00aaee);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,136,204,0.3);transition:transform 0.2s;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
   </a>
 </div>
 
@@ -1352,6 +1365,198 @@ const translations = {
     emlak_pro_badge: 'Рекомендуем', emlak_pro_label: 'Pro-пакет', emlak_pro_title: 'Недвижимость Pro',
     emlak_p1: 'ИИ-ассистент (многоканальный)', emlak_p2: 'Автопланирование + отслеживание', emlak_p3: 'Управление IBAN и квитанциями', emlak_p4: 'Автоматизация счетов и контрактов', emlak_p5: 'Ежедневный отчёт + аналитика', emlak_p6: 'Приоритетная поддержка 24/7', emlak_p7: 'Персональный дашборд',
     emlak_cta: 'Запросить предложение',
+  },
+  ko: {
+    nav_home: '홈', nav_about: '회사소개', nav_solutions: '서비스',
+    nav_references: '레퍼런스', nav_contact: '문의', nav_card: '명함',
+    nav_wa: 'WhatsApp 견적 받기',
+    hero_eyebrow: '인공지능 & 자동화',
+    hero_h1_1: '차세대', hero_h1_accent: 'AI 기반',
+    hero_h1_2: '자동화 시스템',
+    hero_sub: '비즈니스 프로세스를 자동화하고 효율성을 극대화하세요. Kılman Bilişim과 함께 미래로 나아가세요.',
+    hero_cta1: 'AI 견적 받기', hero_cta2: '서비스 보기',
+    hero_stat1_num: '$500+', hero_stat1_label: '시작 가격',
+    hero_stat2_num: '5+', hero_stat2_label: '서비스 분야',
+    hero_stat3_num: '24/7', hero_stat3_label: '지원',
+    lc_total: '총 방문자', lc_online: '현재 온라인',
+    strip1: '맞춤형 AI 솔루션', strip2: '비즈니스 자동화', strip3: '24/7 고객 지원',
+    strip4: '디지털 전환', strip5: '데이터 분석', strip6: 'AI 통합',
+    about_label: '회사소개', about_h1: '우리는 누구인가',
+    about_p1: 'Kılman Bilişim은 2024년에 설립된 AI 자동화 전문 기업입니다.',
+    about_p2: '우리의 사명은 AI 기반 솔루션으로 비즈니스 프로세스를 혁신하는 것입니다.',
+    about_h2: '핵심 역량',
+    about_skill1: '맞춤형 AI 챗봇 및 어시스턴트',
+    about_skill2: '비즈니스 프로세스 자동화',
+    about_skill3: '데이터 분석 및 보고',
+    about_skill4: '시스템 통합',
+    about_done: '완료된 프로젝트', about_lang: '다국어 지원', about_exp: '기술 전문성',
+    sol_label: '서비스', sol_h1: 'AI 솔루션',
+    sol_sub: '카드를 클릭하여 WhatsApp으로 무료 견적을 받으세요.',
+    sol_cta: 'WhatsApp 견적 받기',
+    sol1_title: 'AI 고객 어시스턴트', sol1_desc: '24/7 지능형 고객 응대 자동화.',
+    sol2_title: 'AI 판매 자동화', sol2_desc: '리드 추적부터 계약까지 자동 판매 관리.',
+    sol3_title: '문서 & 회계 자동화', sol3_desc: '송장, 계약, 영수증 자동 처리.',
+    sol4_title: '부동산 자동화', sol4_desc: '부동산 부문을 위한 맞춤형 AI 솔루션.',
+    sol5_title: '맞춤형 AI 프로젝트', sol5_desc: '기업 맞춤형 AI 솔루션 개발.',
+    pricing_cta: 'WhatsApp 무료 견적',
+    ref_label: '레퍼런스', ref_h1: '프로젝트',
+    ref_done: '완료된 프로젝트',
+    ref_done1_title: '기업 웹사이트', ref_done1_desc: 'kilmanbilisim.com — 다국어 SEO 최적화 기업 사이트.',
+    ref_done2_title: 'NFC 디지털 명함', ref_done2_desc: 'QR코드 및 NFC 디지털 명함.',
+    status_done: '완료',
+    ref_ongoing: '진행 중인 프로젝트',
+    ref1_title: '부동산 자동화', ref1_desc: 'AI 기반 고객 관리 및 예약 시스템.',
+    ref2_title: '스마트 어시스턴트', ref2_desc: '멀티 채널 AI 지원 (Telegram, WhatsApp, Web).',
+    ref3_title: '기업 포털', ref3_desc: '금융 부문 AI 데이터 관리 포털.',
+    status_dev: '🔄 개발 중', status_pilot: '🔄 파일럿', status_plan: '🔄 기획 단계',
+    con_label: '문의', con_h1: '연락하기',
+    con_top: '견적, 파트너십 또는 질문이 있으시면 연락주세요. 빠른 답변은 WhatsApp을 이용하세요.',
+    con_form_title: '메시지 보내기',
+    lbl_name: '이름 *', lbl_email: '이메일 *', lbl_phone: '전화', lbl_company: '회사 / 기관', lbl_message: '메시지 *',
+    btn_send: '보내기', msg_success: '메시지가 전송되었습니다. 곧 답변드리겠습니다.',
+    con_alt_title: '다른 연락 방법',
+    con_wa_note: '빠른 답변:',
+    btn_wa: 'WhatsApp으로 연락',
+    footer_desc: 'AI 자동화로 비즈니스 프로세스를 미래로 이끕니다.',
+    footer_nav: '탐색', footer_contact: '연락처', footer_copy: '© ' + new Date().getFullYear() + ' Kılman Bilişim Sistemleri Ltd. Şti. 모든 권리 보유.',
+    footer_card: '디지털 명함',
+    nav_blog: '블로그',
+    emlak_label: '🏠 주요 제품', emlak_title: '부동산 자동화', emlak_sub: '부동산 부문을 위한 종합 AI 솔루션.',
+    emlak_b1: 'AI 고객 관리', emlak_b2: '자동 예약', emlak_b3: '리드 분석',
+    emlak_b4: '멀티 채널 소통', emlak_b5: '스마트 추적', emlak_b6: '성과 보고',
+    emlak_std_label: '스탠다드 패키지', emlak_std_title: '부동산 스탠다드',
+    emlak_s1: 'AI 어시스턴트 (단일 채널)', emlak_s2: '자동 예약', emlak_s3: '고객 추적 패널', emlak_s4: '주간 보고서', emlak_s5: '이메일/WhatsApp 지원',
+    emlak_pro_badge: '추천', emlak_pro_label: 'Pro 패키지', emlak_pro_title: '부동산 Pro',
+    emlak_p1: 'AI 어시스턴트 (멀티 채널)', emlak_p2: '자동 예약 + 추적', emlak_p3: 'IBAN 및 영수증 관리', emlak_p4: '송장/계약 자동화', emlak_p5: '일간 보고 + 분석', emlak_p6: '24/7 우선 지원', emlak_p7: '맞춤 대시보드',
+    emlak_cta: '견적 받기',
+  },
+  zh: {
+    nav_home: '首页', nav_about: '关于我们', nav_solutions: '服务',
+    nav_references: '案例', nav_contact: '联系', nav_card: '名片',
+    nav_wa: 'WhatsApp获取报价',
+    hero_eyebrow: '人工智能 & 自动化',
+    hero_h1_1: '新一代', hero_h1_accent: 'AI驱动',
+    hero_h1_2: '自动化系统',
+    hero_sub: '自动化您的业务流程，倍增效率。与Kılman Bilişim一起迈向未来。',
+    hero_cta1: 'AI报价', hero_cta2: '查看服务',
+    hero_stat1_num: '$500+', hero_stat1_label: '起步价',
+    hero_stat2_num: '5+', hero_stat2_label: '服务领域',
+    hero_stat3_num: '24/7', hero_stat3_label: '支持',
+    lc_total: '总访客', lc_online: '当前在线',
+    strip1: '定制AI方案', strip2: '业务自动化', strip3: '24/7客服',
+    strip4: '数字化转型', strip5: '数据分析', strip6: 'AI集成',
+    about_label: '关于我们', about_h1: '我们是谁',
+    about_p1: 'Kılman Bilişim成立于2024年，是一家AI自动化专业公司。',
+    about_p2: '我们的使命是通过AI解决方案革新业务流程。',
+    about_h2: '核心能力',
+    about_skill1: '定制AI聊天机器人',
+    about_skill2: '业务流程自动化',
+    about_skill3: '数据分析与报告',
+    about_skill4: '系统集成',
+    about_done: '已完成项目', about_lang: '多语言支持', about_exp: '技术专长',
+    sol_label: '服务', sol_h1: 'AI解决方案',
+    sol_sub: '点击卡片通过WhatsApp获取免费报价。',
+    sol_cta: 'WhatsApp获取报价',
+    sol1_title: 'AI客服助手', sol1_desc: '24/7智能客户服务自动化。',
+    sol2_title: 'AI销售自动化', sol2_desc: '从线索追踪到签约的自动销售管理。',
+    sol3_title: '文档与会计自动化', sol3_desc: '发票、合同、收据自动处理。',
+    sol4_title: '房地产自动化', sol4_desc: '房地产行业定制AI解决方案。',
+    sol5_title: '定制AI项目', sol5_desc: '企业定制AI解决方案开发。',
+    pricing_cta: 'WhatsApp免费报价',
+    ref_label: '案例', ref_h1: '项目',
+    ref_done: '已完成项目',
+    ref_done1_title: '企业网站', ref_done1_desc: 'kilmanbilisim.com — 多语言SEO优化企业网站。',
+    ref_done2_title: 'NFC数字名片', ref_done2_desc: 'QR码和NFC数字名片系统。',
+    status_done: '已完成',
+    ref_ongoing: '进行中的项目',
+    ref1_title: '房地产自动化', ref1_desc: 'AI客户管理和自动预约系统。',
+    ref2_title: '智能助手', ref2_desc: '多渠道AI客服（Telegram、WhatsApp、Web）。',
+    ref3_title: '企业门户', ref3_desc: '金融行业AI数据管理门户。',
+    status_dev: '🔄 开发中', status_pilot: '🔄 试点中', status_plan: '🔄 规划中',
+    con_label: '联系', con_h1: '联系我们',
+    con_top: '获取报价、探索合作或提问。快速回复请使用WhatsApp。',
+    con_form_title: '发送消息',
+    lbl_name: '姓名 *', lbl_email: '邮箱 *', lbl_phone: '电话', lbl_company: '公司/机构', lbl_message: '留言 *',
+    btn_send: '发送', msg_success: '消息已发送。我们将尽快回复。',
+    con_alt_title: '其他联系方式',
+    con_wa_note: '快速回复：',
+    btn_wa: 'WhatsApp联系',
+    footer_desc: '以AI自动化引领您的业务走向未来。',
+    footer_nav: '导航', footer_contact: '联系方式', footer_copy: '© ' + new Date().getFullYear() + ' Kılman Bilişim Sistemleri Ltd. Şti. 版权所有。',
+    footer_card: '数字名片',
+    nav_blog: '博客',
+    emlak_label: '🏠 主打产品', emlak_title: '房地产自动化', emlak_sub: '房地产行业综合AI解决方案。',
+    emlak_b1: 'AI客户管理', emlak_b2: '自动预约', emlak_b3: '线索分析',
+    emlak_b4: '多渠道沟通', emlak_b5: '智能追踪', emlak_b6: '绩效报告',
+    emlak_std_label: '标准套餐', emlak_std_title: '房地产标准版',
+    emlak_s1: 'AI助手（单渠道）', emlak_s2: '自动预约', emlak_s3: '客户追踪面板', emlak_s4: '周报', emlak_s5: '邮件/WhatsApp支持',
+    emlak_pro_badge: '推荐', emlak_pro_label: 'Pro套餐', emlak_pro_title: '房地产Pro版',
+    emlak_p1: 'AI助手（多渠道）', emlak_p2: '自动预约+追踪', emlak_p3: 'IBAN和收据管理', emlak_p4: '发票/合同自动化', emlak_p5: '日报+分析', emlak_p6: '24/7优先支持', emlak_p7: '定制仪表盘',
+    emlak_cta: '获取报价',
+  },
+  ja: {
+    nav_home: 'ホーム', nav_about: '会社概要', nav_solutions: 'サービス',
+    nav_references: '実績', nav_contact: 'お問合せ', nav_card: '名刺',
+    nav_wa: 'WhatsAppで見積り',
+    hero_eyebrow: 'AI & オートメーション',
+    hero_h1_1: '次世代', hero_h1_accent: 'AI搭載',
+    hero_h1_2: '自動化システム',
+    hero_sub: 'ビジネスプロセスを自動化し、効率を最大化。Kılman Bilişimと共に未来へ。',
+    hero_cta1: 'AI見積り', hero_cta2: 'サービスを見る',
+    hero_stat1_num: '$500+', hero_stat1_label: '開始価格',
+    hero_stat2_num: '5+', hero_stat2_label: 'サービス分野',
+    hero_stat3_num: '24/7', hero_stat3_label: 'サポート',
+    lc_total: '総訪問者', lc_online: '現在オンライン',
+    strip1: 'カスタムAI', strip2: '業務自動化', strip3: '24/7サポート',
+    strip4: 'DX推進', strip5: 'データ分析', strip6: 'AI統合',
+    about_label: '会社概要', about_h1: '私たちについて',
+    about_p1: 'Kılman Bilişimは2024年設立のAI自動化専門企業です。',
+    about_p2: 'AI ソリューションでビジネスプロセスを革新することが私たちの使命です。',
+    about_h2: 'コア能力',
+    about_skill1: 'カスタムAIチャットボット',
+    about_skill2: 'ビジネスプロセス自動化',
+    about_skill3: 'データ分析・レポート',
+    about_skill4: 'システム統合',
+    about_done: '完了プロジェクト', about_lang: '多言語対応', about_exp: '技術専門性',
+    sol_label: 'サービス', sol_h1: 'AIソリューション',
+    sol_sub: 'カードをクリックしてWhatsAppで無料見積りを。',
+    sol_cta: 'WhatsApp見積り',
+    sol1_title: 'AI顧客アシスタント', sol1_desc: '24/7インテリジェントな顧客対応自動化。',
+    sol2_title: 'AI営業自動化', sol2_desc: 'リード追跡から契約まで自動営業管理。',
+    sol3_title: '文書・会計自動化', sol3_desc: '請求書・契約書・領収書の自動処理。',
+    sol4_title: '不動産自動化', sol4_desc: '不動産業界向けカスタムAIソリューション。',
+    sol5_title: 'カスタムAIプロジェクト', sol5_desc: '企業向けカスタムAI開発。',
+    pricing_cta: 'WhatsApp無料見積り',
+    ref_label: '実績', ref_h1: 'プロジェクト',
+    ref_done: '完了プロジェクト',
+    ref_done1_title: 'コーポレートサイト', ref_done1_desc: 'kilmanbilisim.com — 多言語SEO最適化サイト。',
+    ref_done2_title: 'NFCデジタル名刺', ref_done2_desc: 'QRコード・NFCデジタル名刺システム。',
+    status_done: '完了',
+    ref_ongoing: '進行中のプロジェクト',
+    ref1_title: '不動産自動化', ref1_desc: 'AI顧客管理・自動予約システム。',
+    ref2_title: 'スマートアシスタント', ref2_desc: 'マルチチャネルAIサポート（Telegram、WhatsApp、Web）。',
+    ref3_title: '企業ポータル', ref3_desc: '金融セクターAIデータ管理ポータル。',
+    status_dev: '🔄 開発中', status_pilot: '🔄 パイロット', status_plan: '🔄 企画段階',
+    con_label: 'お問合せ', con_h1: 'お問い合わせ',
+    con_top: 'お見積り・パートナーシップ・ご質問はお気軽にどうぞ。迅速な対応にはWhatsAppをご利用ください。',
+    con_form_title: 'メッセージを送る',
+    lbl_name: 'お名前 *', lbl_email: 'メール *', lbl_phone: '電話番号', lbl_company: '会社名', lbl_message: 'メッセージ *',
+    btn_send: '送信', msg_success: 'メッセージが送信されました。折り返しご連絡いたします。',
+    con_alt_title: 'その他の連絡方法',
+    con_wa_note: '迅速対応：',
+    btn_wa: 'WhatsAppで連絡',
+    footer_desc: 'AI自動化でビジネスプロセスを未来へ導きます。',
+    footer_nav: 'ナビゲーション', footer_contact: '連絡先', footer_copy: '© ' + new Date().getFullYear() + ' Kılman Bilişim Sistemleri Ltd. Şti. All rights reserved.',
+    footer_card: 'デジタル名刺',
+    nav_blog: 'ブログ',
+    emlak_label: '🏠 注目製品', emlak_title: '不動産自動化', emlak_sub: '不動産業界向け総合AIソリューション。',
+    emlak_b1: 'AI顧客管理', emlak_b2: '自動予約', emlak_b3: 'リード分析',
+    emlak_b4: 'マルチチャネル連絡', emlak_b5: 'スマート追跡', emlak_b6: 'パフォーマンスレポート',
+    emlak_std_label: 'スタンダード', emlak_std_title: '不動産スタンダード',
+    emlak_s1: 'AIアシスタント（単一チャネル）', emlak_s2: '自動予約', emlak_s3: '顧客追跡パネル', emlak_s4: '週間レポート', emlak_s5: 'メール/WhatsAppサポート',
+    emlak_pro_badge: 'おすすめ', emlak_pro_label: 'Proプラン', emlak_pro_title: '不動産Pro',
+    emlak_p1: 'AIアシスタント（マルチチャネル）', emlak_p2: '自動予約+追跡', emlak_p3: 'IBAN・領収書管理', emlak_p4: '請求書・契約自動化', emlak_p5: '日次レポート+分析', emlak_p6: '24/7優先サポート', emlak_p7: 'カスタムダッシュボード',
+    emlak_cta: '見積りを取得',
   }
 };
 
@@ -1386,23 +1591,45 @@ function switchLang(lang) {
 }
 
 // ─── NAVBAR ─────────────────────────────
+function closeMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const navLang = document.querySelector('.nav-lang');
+  const hamburger = document.querySelector('.hamburger');
+  const overlay = document.getElementById('menuOverlay');
+  if (navLinks) navLinks.classList.remove('open');
+  if (navLang) navLang.classList.remove('open');
+  if (hamburger) {
+    hamburger.classList.remove('active');
+    hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }
+  if (overlay) overlay.style.display = 'none';
+}
+
 function initNavbar() {
   const navbar = document.querySelector('.navbar');
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
   const navLang = document.querySelector('.nav-lang');
+  const overlay = document.getElementById('menuOverlay');
 
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 30);
+    closeMenu();
   });
+
+  if (overlay) {
+    overlay.addEventListener('click', closeMenu);
+  }
 
   if (hamburger) {
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('open');
       navLang && navLang.classList.toggle('open');
       const spans = hamburger.querySelectorAll('span');
-      const open = navLinks.classList.contains('open');
-      if (open) {
+      const isOpen = navLinks.classList.contains('open');
+      hamburger.classList.toggle('active', isOpen);
+      if (overlay) overlay.style.display = isOpen ? 'block' : 'none';
+      if (isOpen) {
         spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
         spans[1].style.opacity = '0';
         spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
@@ -1411,6 +1638,11 @@ function initNavbar() {
       }
     });
   }
+
+  // Close menu when clicking nav links
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
 
   // Active link
   const path = window.location.pathname.split('/').pop() || 'index.html';
@@ -1526,14 +1758,7 @@ function showPage(name) {
   const footer = document.getElementById('main-footer');
   if (footer) footer.style.display = name === 'card' ? 'none' : 'block';
   // Close mobile menu fully
-  const navLinks = document.querySelector('.nav-links');
-  const navLang = document.querySelector('.nav-lang');
-  const hamburger = document.querySelector('.hamburger');
-  if (navLinks) navLinks.classList.remove('open');
-  if (navLang) navLang.classList.remove('open');
-  if (hamburger) {
-    hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-  }
+  closeMenu();
 }
 
 // QR Code

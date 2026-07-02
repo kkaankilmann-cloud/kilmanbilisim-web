@@ -37,18 +37,22 @@ body{font-family:'Inter',sans-serif;background:var(--bg-main);color:var(--text-m
 a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}
 a:hover{opacity:0.8;}
 
-.blog-nav{background:rgba(13,17,23,0.95);border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
-.blog-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.blog-nav{background:rgba(13,17,23,0.95);border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px);}
+.blog-nav-inner{max-width:1200px;margin:0 auto;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;}
 .blog-nav-left{display:flex;align-items:center;gap:16px;}
 .blog-nav-logo{font-weight:700;font-size:1.1rem;color:var(--neon);}
-.blog-nav a.back{font-size:0.9rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;}
-.blog-nav a.back:hover{color:var(--neon);}
+.blog-nav-links{display:flex;align-items:center;gap:8px;}
+.blog-nav-links a{font-size:0.88rem;font-weight:500;color:var(--text-muted);padding:6px 14px;border-radius:6px;transition:all 0.2s;}
+.blog-nav-links a:hover,.blog-nav-links a.active{color:var(--neon);background:rgba(0,212,255,0.08);opacity:1;}
+.blog-nav-right{display:flex;align-items:center;gap:8px;}
 .blog-lang{display:flex;gap:4px;}
 .blog-lang button{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;cursor:pointer;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;transition:all 0.2s;}
 .blog-lang button:hover{border-color:var(--neon);color:var(--neon);}
 .blog-lang button.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
+.blog-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.blog-hamburger span{display:block;width:24px;height:2px;background:var(--neon);border-radius:2px;transition:all 0.3s;}
 
-.post-header{max-width:800px;margin:0 auto;padding:60px 24px 32px;text-align:center;}
+.post-header{max-width:800px;margin:0 auto;padding:90px 24px 32px;text-align:center;}
 .post-tag{background:rgba(0,212,255,0.1);color:var(--neon);padding:6px 16px;border-radius:20px;font-size:0.8rem;font-weight:600;display:inline-block;margin-bottom:16px;}
 .post-header h1{font-size:2.4rem;font-weight:800;line-height:1.2;margin-bottom:16px;background:linear-gradient(135deg,var(--neon),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .post-meta{color:var(--text-muted);font-size:0.9rem;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
@@ -80,11 +84,14 @@ a:hover{opacity:0.8;}
 
 .blog-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.85rem;}
 
-@media(max-width:600px){
+@media(max-width:700px){
+  .blog-nav-links,.blog-lang{display:none;}
+  .blog-nav-links.open{display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);padding:24px 5%;border-bottom:1px solid var(--border);z-index:999;gap:4px;}
+  .blog-lang.open{display:flex;padding:0 5% 20px;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);position:fixed;top:auto;left:0;right:0;border-bottom:1px solid var(--border);z-index:998;}
+  .blog-hamburger{display:flex;}
   .post-header h1{font-size:1.6rem;}
   .comparison-table{font-size:0.82rem;}
   .comparison-table th,.comparison-table td{padding:10px 8px;}
-  .blog-nav-inner{justify-content:center;}
 }
 </style>
 </head>
@@ -93,16 +100,22 @@ a:hover{opacity:0.8;}
 <nav class="blog-nav">
   <div class="blog-nav-inner">
     <div class="blog-nav-left">
-      <a href="/" class="blog-nav-logo">Kılman Bilişim</a>
-      <a href="/blog/" class="back" data-i18n="back_blog">← Blog'a Dön</a>
+      <a href="/" class="blog-nav-logo">KILMAN<span style="display:block;font-size:0.75rem;color:var(--text-muted);letter-spacing:0.08em;">BİLİŞİM</span></a>
     </div>
-    <div class="blog-lang">
-      <button class="active" data-lang="tr">TR</button>
-      <button data-lang="en">EN</button>
-      <button data-lang="de">DE</button>
-      <button data-lang="es">ES</button>
-      <button data-lang="fr">FR</button>
-      <button data-lang="ru">RU</button>
+    <ul class="blog-nav-links">
+      <li style="list-style:none;"><a href="/">Ana Sayfa</a></li>
+      <li style="list-style:none;"><a href="/blog/" class="active">Blog</a></li>
+    </ul>
+    <div class="blog-nav-right">
+      <div class="blog-lang">
+        <button class="active" data-lang="tr">TR</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="de">DE</button>
+        <button data-lang="es">ES</button>
+        <button data-lang="fr">FR</button>
+        <button data-lang="ru">RU</button>
+      </div>
+      <button class="blog-hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
@@ -284,6 +297,26 @@ document.querySelectorAll('.blog-lang button').forEach(btn => {
 });
 
 applyLang();
+
+// Hamburger toggle
+const blogHamburger = document.querySelector('.blog-hamburger');
+const blogNavLinks = document.querySelector('.blog-nav-links');
+const blogLang = document.querySelector('.blog-lang');
+if (blogHamburger) {
+  blogHamburger.addEventListener('click', () => {
+    blogNavLinks.classList.toggle('open');
+    blogLang && blogLang.classList.toggle('open');
+    const spans = blogHamburger.querySelectorAll('span');
+    const isOpen = blogNavLinks.classList.contains('open');
+    if (isOpen) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+    } else {
+      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+}
 </script>
 
 </body>

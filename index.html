@@ -1835,6 +1835,11 @@ document.addEventListener('DOMContentLoaded', () => {
   applyLang();
   updateWaLinks();
 
+  // /kartvizit yolu ile gelindiyse dijital kartvizit sayfasini ac
+  if (window.location.pathname.replace(/\/$/, '') === '/kartvizit') {
+    showPage('card');
+  }
+
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => { switchLang(btn.dataset.lang); updateWaLinks(); });
   });

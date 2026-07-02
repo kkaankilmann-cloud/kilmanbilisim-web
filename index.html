@@ -460,9 +460,8 @@ ul { list-style: none; }
 @keyframes glow-pulse { 0%,100%{box-shadow:var(--neon-glow-sm)}50%{box-shadow:var(--neon-glow)} }
 .glow-pulse { animation: glow-pulse 2.5s ease-in-out infinite; }
 
-/* ─── GLOBAL TEXT OVERFLOW FIX ────────────── */
-* { overflow-wrap: break-word; word-break: break-word; }
-.nav-wa-btn span, .hero h1, .hero p, .section-head h2, .section-head p, .pricing-title, .pricing-banner h3, .pricing-banner p, button, a { overflow-wrap: break-word; word-break: break-word; hyphens: auto; }
+/* ─── GERMAN TEXT OVERFLOW FIX ────────────── */
+.hero h1, .hero p, .section-head h2, .section-head p, .pricing-title, .pricing-banner h3, .pricing-banner p { overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
 
 /* ─── RESPONSIVE ─────────────────────────── */
 @media (max-width: 900px) {
@@ -471,8 +470,8 @@ ul { list-style: none; }
 }
 @media (max-width: 700px) {
   .nav-links, .nav-lang { display: none; }
-  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; background: rgba(8,11,18,0.98); backdrop-filter: blur(16px); padding: 24px 5%; border-bottom: 1px solid var(--border); z-index: 999; gap: 4px; }
-  .nav-lang.open { display: flex; flex-wrap: wrap; padding: 12px 5% 16px; background: rgba(8,11,18,0.98); backdrop-filter: blur(16px); position: fixed; top: auto; left: 0; right: 0; border-bottom: 1px solid var(--border); z-index: 998; gap: 4px; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: rgba(8,11,18,0.98); backdrop-filter: blur(16px); padding: 20px 5% 10px; border-bottom: 1px solid var(--border); z-index: 999; gap: 4px; }
+  .nav-lang.open { display: flex; flex-wrap: wrap; padding: 10px 5% 16px; background: rgba(8,11,18,0.98); backdrop-filter: blur(16px); position: absolute; left: 0; right: 0; border-bottom: 1px solid var(--border); z-index: 998; gap: 6px; justify-content: flex-start; }
   .hamburger { display: flex; }
   .nav-wa-btn { display: none; }
   .sticky-wa { display: flex; }
@@ -677,7 +676,7 @@ ul { list-style: none; }
     <div class="pricing-amount"><sup>$</sup>500</div>
     <div class="pricing-label" data-i18n="pricing_from">USD'den itibaren</div>
     <p class="pricing-note" data-i18n="pricing_note">Kapsam ve iş yüküne göre USD, EUR veya TL olarak özel teklif. Teklif almak ücretsizdir.</p>
-    <div class="pricing-currencies"><span class="currency-tag">💵 USD</span><span class="currency-tag">💶 EUR</span><span class="currency-tag">₺ TL</span></div>
+    <div class="pricing-currencies"><span class="currency-tag">$ USD</span><span class="currency-tag">&euro; EUR</span><span class="currency-tag">&#8378; TL</span></div>
     <a href="#" class="btn-primary wa-link" target="_blank"><span data-i18n="pricing_cta">WhatsApp'tan Ücretsiz Teklif Al</span></a>
   </div>
 </section>

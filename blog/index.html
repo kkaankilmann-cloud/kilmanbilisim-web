@@ -167,7 +167,7 @@ const blogTranslations = {
     post2_title: 'Chatbot vs AI Asistan: Hangisi İşletmeniz İçin Doğru?',
     post2_desc: 'Geleneksel chatbot ile yapay zeka destekli AI asistan arasındaki farkları keşfedin. Sektörel karşılaştırma, maliyet analizi ve doğru seçim rehberi.',
     tag_dt: '🚀 Dijital Dönüşüm',
-    post3_title: 'KOBİ''ler İçin Yapay Zeka: 5 Adımda Dijital Dönüşüm',
+    post3_title: 'KOBİ\'ler İçin Yapay Zeka: 5 Adımda Dijital Dönüşüm',
     post3_desc: 'Küçük ve orta ölçekli işletmeler yapay zekayı nasıl kullanabilir? 5 somut adımla dijital dönüşüm rehberi.',
     footer_rights: 'Tüm hakları saklıdır.',
   },
@@ -231,8 +231,8 @@ const blogTranslations = {
     post2_title: 'Chatbot vs Assistant IA : Lequel convient à votre entreprise ?',
     post2_desc: 'Découvrez les différences entre chatbots traditionnels et assistants IA. Comparaison sectorielle et analyse des coûts.',
     tag_dt: '🚀 Transformation Numérique',
-    post3_title: 'L''IA pour les PME : Transformation Numérique en 5 Étapes',
-    post3_desc: 'Comment les PME peuvent-elles utiliser l''IA ? Guide de transformation numérique en 5 étapes.',
+    post3_title: 'L\'IA pour les PME : Transformation Numérique en 5 Étapes',
+    post3_desc: 'Comment les PME peuvent-elles utiliser l\'IA ? Guide de transformation numérique en 5 étapes.',
     footer_rights: 'Tous droits réservés.',
   },
   ru: {
@@ -298,7 +298,7 @@ const blogTranslations = {
   }
 };
 
-let currentLang = localStorage.getItem('kilman_lang') || 'tr';
+let currentLang = sessionStorage.getItem('kilman_lang') || 'tr';
 
 function applyBlogLang() {
   const t = blogTranslations[currentLang] || blogTranslations.tr;
@@ -314,7 +314,7 @@ function applyBlogLang() {
 document.querySelectorAll('.blog-lang button').forEach(btn => {
   btn.addEventListener('click', () => {
     currentLang = btn.getAttribute('data-lang');
-    localStorage.setItem('kilman_lang', currentLang);
+    sessionStorage.setItem('kilman_lang', currentLang);
     applyBlogLang();
   });
 });

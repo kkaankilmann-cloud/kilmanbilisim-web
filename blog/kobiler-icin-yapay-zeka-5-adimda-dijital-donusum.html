@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8"/>
@@ -404,7 +404,7 @@ article blockquote{border-left:3px solid var(--accent-purple);padding:16px 20px;
 </footer>
 
 <script>
-let currentLang = localStorage.getItem('kilman_lang') || 'tr';
+let currentLang = sessionStorage.getItem('kilman_lang') || 'tr';
 
 function applyLang() {
   document.querySelectorAll('.lang-content').forEach(el => {
@@ -418,7 +418,7 @@ function applyLang() {
 document.querySelectorAll('.blog-lang button').forEach(btn => {
   btn.addEventListener('click', () => {
     currentLang = btn.getAttribute('data-lang');
-    localStorage.setItem('kilman_lang', currentLang);
+    sessionStorage.setItem('kilman_lang', currentLang);
     applyLang();
   });
 });

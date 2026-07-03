@@ -1620,7 +1620,7 @@ const translations = {
   }
 };
 
-let currentLang = localStorage.getItem('kilman_lang') || 'tr';
+let currentLang = sessionStorage.getItem('kilman_lang') || 'tr';
 
 function t(key) { return translations[currentLang][key] || key; }
 
@@ -1651,7 +1651,7 @@ function applyLang() {
 
 function switchLang(lang) {
   currentLang = lang;
-  localStorage.setItem('kilman_lang', lang);
+  sessionStorage.setItem('kilman_lang', lang);
   applyLang();
 }
 

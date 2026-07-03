@@ -284,7 +284,7 @@ const uiTexts = {
   ru: { back_blog: '← Назад к блогу', footer_rights: 'Все права защищены.' }
 };
 
-let currentLang = localStorage.getItem('kilman_lang') || 'tr';
+let currentLang = sessionStorage.getItem('kilman_lang') || 'tr';
 
 function applyLang() {
   const t = uiTexts[currentLang] || uiTexts.tr;
@@ -303,7 +303,7 @@ function applyLang() {
 document.querySelectorAll('.blog-lang button').forEach(btn => {
   btn.addEventListener('click', () => {
     currentLang = btn.getAttribute('data-lang');
-    localStorage.setItem('kilman_lang', currentLang);
+    sessionStorage.setItem('kilman_lang', currentLang);
     applyLang();
   });
 });

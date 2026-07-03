@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kilmanbilisim.com/</loc>
@@ -21,6 +21,12 @@
   <url>
     <loc>https://kilmanbilisim.com/blog/chatbot-vs-ai-asistan-isletmeniz-icin-dogru-secim.html</loc>
     <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kilmanbilisim.com/blog/kobiler-icin-yapay-zeka-5-adimda-dijital-donusum.html</loc>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

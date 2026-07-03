@@ -264,6 +264,9 @@ article blockquote{border-left:3px solid var(--accent-purple);padding:16px 20px;
 </article>
 
 <footer class="blog-footer">
+<div style="text-align:center; margin-bottom:12px; font-size:0.9rem; color:#00D4FF;">
+  👥 <span id="lcTotalFooter">—</span> &nbsp;·&nbsp; <span style="color:#22c55e;">●</span> <span id="lcOnlineFooter">—</span>
+</div>
   <p>© <script>document.write(new Date().getFullYear())</script> Kılman Bilişim Sistemleri Ltd. Şti. <span data-i18n="footer_rights">Tüm hakları saklıdır.</span></p>
 </footer>
 
@@ -341,5 +344,61 @@ if (blogHamburger) {
 }
 </script>
 
+
+<!-- CANLI ZIYARETCI SAYACI (Supabase) -->
+<script>
+(function(){
+  const SUPABASE_URL = 'https://glpwxyaqcaqyiupesyay.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdscHd4eWFxY2FxeWl1cGVzeWF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3NDU1NDIsImV4cCI6MjA5NzMyMTU0Mn0.iuK71d5caVQzpRWAA0rfMy24Ne5KGsie9T7F6Ku5M5g';
+
+  function rpc(fn, body){
+    return fetch(SUPABASE_URL + '/rest/v1/rpc/' + fn, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body || {})
+    }).then(r => r.ok ? r.json() : null);
+  }
+
+  function fmt(n){ return (typeof n === 'number') ? n.toLocaleString('tr-TR') : n; }
+
+  let vid = sessionStorage.getItem('kb_vid');
+  if(!vid){ vid = 'v_' + Date.now() + '_' + Math.random().toString(36).slice(2,9); sessionStorage.setItem('kb_vid', vid); }
+
+  const _p = new URLSearchParams(location.search);
+  if (_p.get('dev') === '1') localStorage.setItem('kb_ignore', '1');
+  const isInternal = navigator.webdriver || localStorage.getItem('kb_ignore') === '1';
+
+  const elTotalF = document.getElementById('lcTotalFooter');
+  const elOnlineF = document.getElementById('lcOnlineFooter');
+
+  function setTotal(v){ const t = fmt(v); if(elTotalF) elTotalF.textContent = t; }
+  function setOnline(v){ const t = fmt(v); if(elOnlineF) elOnlineF.textContent = t; }
+
+  if (isInternal) {
+    rpc('get_total').then(total => { if (total != null) setTotal(total); }).catch(()=>{});
+  } else if (!sessionStorage.getItem('kb_counted')) {
+    rpc('increment_visit').then(total => {
+      sessionStorage.setItem('kb_counted', '1');
+      if (total != null) setTotal(total);
+    }).catch(()=>{});
+  } else {
+    rpc('get_total').then(total => { if (total != null) setTotal(total); }).catch(()=>{});
+  }
+
+  function beat(){
+    rpc('heartbeat', { p_vid: vid }).then(online => {
+      if(online != null) setOnline(online);
+    }).catch(()=>{});
+  }
+  if (!isInternal) {
+    beat();
+    setInterval(beat, 20000);
+  }
+})();
+</script>
 </body>
 </html>

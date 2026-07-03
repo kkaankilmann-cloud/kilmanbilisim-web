@@ -1920,6 +1920,11 @@ function downloadVCard() {
   let vid = sessionStorage.getItem('kb_vid');
   if(!vid){ vid = 'v_' + Date.now() + '_' + Math.random().toString(36).slice(2,9); sessionStorage.setItem('kb_vid', vid); }
 
+  // Ic trafik & dev modu kontrolu
+  const _p = new URLSearchParams(location.search);
+  if (_p.get('dev') === '1') localStorage.setItem('kb_ignore', '1');
+  const isInternal = navigator.webdriver || localStorage.getItem('kb_ignore') === '1';
+
   const elTotal = document.getElementById('lcTotal');
   const elOnline = document.getElementById('lcOnline');
   const elTotalF = document.getElementById('lcTotalFooter');
@@ -1928,19 +1933,28 @@ function downloadVCard() {
   function setTotal(v){ const t = fmt(v); if(elTotal) elTotal.textContent = t; if(elTotalF) elTotalF.textContent = t; }
   function setOnline(v){ const t = fmt(v); if(elOnline) elOnline.textContent = t; if(elOnlineF) elOnlineF.textContent = t; }
 
-  // İlk açılış: toplam +1
-  rpc('increment_visit').then(total => {
-    if(total != null) setTotal(total);
-  }).catch(()=>{});
+  // Ilk acilis: mukerrer ve ic trafik engeli
+  if (isInternal) {
+    rpc('get_total').then(total => { if (total != null) setTotal(total); }).catch(()=>{});
+  } else if (!sessionStorage.getItem('kb_counted')) {
+    rpc('increment_visit').then(total => {
+      sessionStorage.setItem('kb_counted', '1');
+      if (total != null) setTotal(total);
+    }).catch(()=>{});
+  } else {
+    rpc('get_total').then(total => { if (total != null) setTotal(total); }).catch(()=>{});
+  }
 
-  // Heartbeat: online sayısını al + güncelle
+  // Heartbeat: ic trafik online listesine yazilmaz
   function beat(){
     rpc('heartbeat', { p_vid: vid }).then(online => {
       if(online != null) setOnline(online);
     }).catch(()=>{});
   }
-  beat();
-  setInterval(beat, 20000); // her 20 sn
+  if (!isInternal) {
+    beat();
+    setInterval(beat, 20000);
+  }
 })();
 </script>
 </body>

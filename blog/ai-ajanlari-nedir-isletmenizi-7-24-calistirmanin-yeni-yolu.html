@@ -654,6 +654,10 @@ if (blogHamburger) {
   if (!isInternal) {
     beat();
     setInterval(beat, 20000);
+  } else {
+    const readOnline = () => rpc('get_online').then(online => { if (online != null) setOnline(online); }).catch(()=>{});
+    readOnline();
+    setInterval(readOnline, 20000);
   }
 })();
 </script>

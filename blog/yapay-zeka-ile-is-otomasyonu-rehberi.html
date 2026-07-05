@@ -268,16 +268,20 @@ article blockquote{border-left:3px solid var(--accent-purple);padding:16px 20px;
   👥 <span id="lcTotalFooter">—</span> &nbsp;·&nbsp; <span style="color:#22c55e;">●</span> <span id="lcOnlineFooter">—</span>
 </div>
   <p>© <script>document.write(new Date().getFullYear())</script> Kılman Bilişim Sistemleri Ltd. Şti. <span data-i18n="footer_rights">Tüm hakları saklıdır.</span></p>
+  <p style="margin-top:8px;"><a href="/gizlilik.html" style="color:#8B949E;font-size:0.82rem;" data-i18n="privacy_link">Gizlilik Politikası</a></p>
 </footer>
 
 <script>
 const uiTexts = {
-  tr: { back_blog: '← Blog\'a Dön', footer_rights: 'Tüm hakları saklıdır.' },
-  en: { back_blog: '← Back to Blog', footer_rights: 'All rights reserved.' },
-  de: { back_blog: '← Zurück zum Blog', footer_rights: 'Alle Rechte vorbehalten.' },
-  es: { back_blog: '← Volver al Blog', footer_rights: 'Todos los derechos reservados.' },
-  fr: { back_blog: '← Retour au Blog', footer_rights: 'Tous droits réservés.' },
-  ru: { back_blog: '← Назад к блогу', footer_rights: 'Все права защищены.' }
+  tr: { back_blog: '← Blog\'a Dön', footer_rights: 'Tüm hakları saklıdır.', privacy_link: 'Gizlilik Politikası' },
+  en: { back_blog: '← Back to Blog', footer_rights: 'All rights reserved.', privacy_link: 'Privacy Policy' },
+  de: { back_blog: '← Zurück zum Blog', footer_rights: 'Alle Rechte vorbehalten.', privacy_link: 'Datenschutz' },
+  es: { back_blog: '← Volver al Blog', footer_rights: 'Todos los derechos reservados.', privacy_link: 'Política de Privacidad' },
+  fr: { back_blog: '← Retour au Blog', footer_rights: 'Tous droits réservés.', privacy_link: 'Politique de Confidentialité' },
+  ru: { back_blog: '← Назад к блогу', footer_rights: 'Все права защищены.', privacy_link: 'Политика конфиденциальности' },
+  ko: { back_blog: '← 블로그로 돌아가기', footer_rights: '모든 권리 보유.', privacy_link: '개인정보 처리방침' },
+  zh: { back_blog: '← 返回博客', footer_rights: '版权所有。', privacy_link: '隐私政策' },
+  ja: { back_blog: '← ブログに戻る', footer_rights: '全著作権所有。', privacy_link: 'プライバシーポリシー' }
 };
 
 let currentLang = sessionStorage.getItem('kilman_lang') || 'tr';

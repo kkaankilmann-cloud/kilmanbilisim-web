@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://kilmanbilisim.com/blog/</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -33,6 +33,12 @@
   <url>
     <loc>https://kilmanbilisim.com/blog/ai-ajanlari-nedir-isletmenizi-7-24-calistirmanin-yeni-yolu.html</loc>
     <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kilmanbilisim.com/blog/isletmeniz-icin-whatsapp-otomasyonu.html</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

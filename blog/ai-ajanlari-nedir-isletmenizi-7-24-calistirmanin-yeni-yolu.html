@@ -43,7 +43,6 @@
 body{font-family:'Inter',sans-serif;background:var(--bg-main);color:var(--text-main);line-height:1.8;}
 a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}
 a:hover{opacity:0.8;}
-
 .blog-nav{background:rgba(13,17,23,0.95);border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px);}
 .blog-nav-inner{max-width:1200px;margin:0 auto;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;}
 .blog-nav-left{display:flex;align-items:center;gap:16px;}
@@ -60,12 +59,10 @@ a:hover{opacity:0.8;}
 .blog-hamburger:hover{background:rgba(0,212,255,0.12);border-color:rgba(0,212,255,0.3);box-shadow:0 0 12px rgba(0,212,255,0.15);}
 .blog-hamburger span{display:block;width:18px;height:2px;background:var(--neon);border-radius:2px;transition:all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55);}
 .blog-hamburger.active{background:rgba(0,212,255,0.12);border-color:var(--neon);box-shadow:0 0 16px rgba(0,212,255,0.2);}
-
 .post-header{max-width:800px;margin:0 auto;padding:90px 24px 32px;text-align:center;}
 .post-tag{background:rgba(0,212,255,0.1);color:var(--neon);padding:6px 16px;border-radius:20px;font-size:0.8rem;font-weight:600;display:inline-block;margin-bottom:16px;}
 .post-header h1{font-size:2.4rem;font-weight:800;line-height:1.2;margin-bottom:16px;background:linear-gradient(135deg,var(--neon),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .post-meta{color:var(--text-muted);font-size:0.9rem;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
-
 .post-content{max-width:800px;margin:0 auto;padding:0 24px 80px;}
 .post-content h2{font-size:1.6rem;font-weight:700;margin:48px 0 16px;color:var(--neon);}
 .post-content h3{font-size:1.2rem;font-weight:600;margin:32px 0 12px;color:var(--text-main);}
@@ -73,25 +70,19 @@ a:hover{opacity:0.8;}
 .post-content ul,.post-content ol{color:var(--text-muted);padding-left:24px;margin-bottom:20px;}
 .post-content li{margin-bottom:10px;}
 .post-content strong{color:var(--text-main);}
-
 .lang-content{display:none;}
 .lang-content.active{display:block;}
-
 .highlight-box{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--neon);border-radius:12px;padding:24px;margin:24px 0;}
 .highlight-box p{margin-bottom:0;}
-
-.step-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:16px 0;transition:border-color 0.3s;}
-.step-card:hover{border-color:rgba(0,212,255,0.3);}
-.step-card h3{margin-top:0;color:var(--neon);}
-
+.step-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:16px 0;}
+.step-card h3{margin-top:0;}
+.step-card p{margin-bottom:0;}
 .cta-box{background:linear-gradient(135deg,rgba(0,212,255,0.1),rgba(139,92,246,0.1));border:1px solid rgba(0,212,255,0.2);border-radius:16px;padding:40px;text-align:center;margin:48px 0;}
 .cta-box h3{font-size:1.3rem;margin-bottom:12px;color:var(--text-main);}
 .cta-box p{color:var(--text-muted);margin-bottom:20px;}
 .cta-btn{display:inline-block;background:var(--neon);color:var(--bg-main);padding:14px 32px;border-radius:30px;font-weight:700;font-size:0.95rem;transition:transform 0.2s,box-shadow 0.2s;}
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,212,255,0.3);opacity:1;}
-
 .blog-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.85rem;}
-
 @media(max-width:700px){
   .blog-nav-links,.blog-lang{display:none;}
   .blog-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center;}
@@ -138,48 +129,24 @@ a:hover{opacity:0.8;}
 </header>
 <main class="post-content">
   <p>Bir emlak danışmanı düşünün: Gece saat 3'te bir müşteri WhatsApp'tan "Kadıköy'de 2+1, 15.000 TL'ye kiralık daire var mı?" diye yazıyor. Ertesi sabah danışman mesajı görüyor ama müşteri çoktan başka bir firmadan randevu almış. <strong>İşte AI ajanları tam olarak bu sorunu çözüyor.</strong></p>
-
   <h2>AI Ajanı Nedir?</h2>
   <p>AI ajanı (AI Agent), belirli bir hedefe ulaşmak için <strong>kendi başına karar verebilen, plan yapabilen ve harekete geçebilen</strong> yapay zeka sistemidir. Sıradan bir chatbot'tan farkı büyüktür: Chatbot sadece sorulan soruya cevap verir, AI ajanı ise bir görevi baştan sona <strong>otonom olarak</strong> tamamlayabilir.</p>
-
-  <div class="highlight-box">
-    <p>💡 <strong>Basit bir benzetme:</strong> Chatbot bir telefon sekreteri gibidir — mesaj alır, ilgili kişiye yönlendirir. AI ajanı ise bir <strong>tam yetkili asistan</strong> gibidir — mesajı anlar, takvimi kontrol eder, randevuyu oluşturur, müşteriye onay gönderir ve size rapor sunar.</p>
-  </div>
-
+  <div class="highlight-box"><p>💡 <strong>Basit bir benzetme:</strong> Chatbot bir telefon sekreteri gibidir — mesaj alır, ilgili kişiye yönlendirir. AI ajanı ise bir <strong>tam yetkili asistan</strong> gibidir — mesajı anlar, takvimi kontrol eder, randevuyu oluşturur, müşteriye onay gönderir ve size rapor sunar.</p></div>
   <h2>AI Ajanı vs Chatbot vs AI Asistan: Fark Ne?</h2>
-
-  <div class="step-card">
-    <h3>🤖 Chatbot (Kural Tabanlı)</h3>
-    <p>Önceden tanımlanmış senaryolarla çalışır. "Çalışma saatleriniz nedir?" gibi standart sorulara cevap verir. Beklenmedik bir soru gelirse tıkanır.</p>
-  </div>
-
-  <div class="step-card">
-    <h3>🧠 AI Asistan (LLM Tabanlı)</h3>
-    <p>Doğal dili anlar, bağlam takip eder, yaratıcı cevaplar üretir. Ancak genellikle <strong>reaktiftir</strong> — siz sormadan harekete geçmez.</p>
-  </div>
-
-  <div class="step-card">
-    <h3>⚡ AI Ajanı (Otonom)</h3>
-    <p>Kendi başına hedef belirler, alt görevlere böler, araçları kullanır (e-posta gönderir, veritabanı sorgular, API çağırır), sonuçları değerlendirir ve gerekirse planını revize eder. <strong>Proaktiftir</strong> — siz uyurken bile çalışır.</p>
-  </div>
-
+  <div class="step-card"><h3>🤖 Chatbot (Kural Tabanlı)</h3><p>Önceden tanımlanmış senaryolarla çalışır. "Çalışma saatleriniz nedir?" gibi standart sorulara cevap verir. Beklenmedik bir soru gelirse tıkanır.</p></div>
+  <div class="step-card"><h3>🧠 AI Asistan (LLM Tabanlı)</h3><p>Doğal dili anlar, bağlam takip eder, yaratıcı cevaplar üretir. Ancak genellikle <strong>reaktiftir</strong> — siz sormadan harekete geçmez.</p></div>
+  <div class="step-card"><h3>⚡ AI Ajanı (Otonom)</h3><p>Kendi başına hedef belirler, alt görevlere böler, araçları kullanır (e-posta gönderir, veritabanı sorgular, API çağırır), sonuçları değerlendirir ve gerekirse planını revize eder. <strong>Proaktiftir</strong> — siz uyurken bile çalışır.</p></div>
   <h2>Gerçek Dünyada AI Ajanları: 5 Kullanım Alanı</h2>
-
   <h3>1. 🏠 Gayrimenkul — 7/24 Müşteri Yönetimi</h3>
   <p>AI ajanı gelen talebi analiz eder, portföyden uygun ilanları eşleştirir, müşteriye detayları gönderir, randevu oluşturur ve danışmana özetini sunar. Gece-gündüz fark etmez.</p>
-
   <h3>2. 🛒 E-Ticaret — Sipariş Sonrası Süreç Otomasyonu</h3>
   <p>Sipariş alındığında stok kontrolü yapar, kargoya verir, müşteriye takip numarasını gönderir, iade talebi geldiğinde süreci baştan sona yönetir.</p>
-
   <h3>3. 📊 Finans — Raporlama ve Analiz</h3>
   <p>Her sabah satış verilerini toplar, haftalık karşılaştırma raporu oluşturur, anormal durumları tespit edip yöneticiye bildirim gönderir.</p>
-
   <h3>4. 📱 Sosyal Medya — İçerik Planlaması</h3>
   <p>Sektör trendlerini izler, içerik takvimi oluşturur, taslak hazırlar, onay bekler, zamanlanmış paylaşımları yapar ve performans raporunu sunar.</p>
-
   <h3>5. 🏥 Sağlık — Randevu ve Takip Otomasyonu</h3>
   <p>Hasta randevu taleplerini değerlendirir, uygun doktor ve saati eşleştirir, hatırlatma mesajları gönderir, kontrol randevularını otomatik planlar.</p>
-
   <h2>AI Ajanları Nasıl Çalışır?</h2>
   <p>Bir AI ajanının çalışma döngüsü 4 adımdan oluşur:</p>
   <ol>
@@ -188,24 +155,14 @@ a:hover{opacity:0.8;}
     <li><strong>Harekete Geç (Act):</strong> Araçlarını kullanır — veritabanı sorgular, mesaj gönderir, dosya oluşturur, API çağırır.</li>
     <li><strong>Öğren (Learn):</strong> Sonuçları değerlendirir, geri bildirimden öğrenir, bir sonraki sefere daha iyi performans gösterir.</li>
   </ol>
-
   <h2>İşletmeniz İçin AI Ajanı: Nereden Başlamalı?</h2>
-  <p>Hemen karmaşık sistemlere geçmenize gerek yok. İşte 3 adımlık başlangıç planı:</p>
   <ol>
     <li><strong>Tekrarlayan görevi tespit edin:</strong> Haftada kaç saat hangi göreve harcıyorsunuz? En çok zaman alan ve kural tabanlı olan görevi seçin.</li>
-    <li><strong>Küçük başlayın:</strong> Tek bir süreci otomatikleştiren bir AI ajanı ile başlayın. Örneğin: "Gelen talepleri sınıflandır ve uygun kişiye yönlendir."</li>
+    <li><strong>Küçük başlayın:</strong> Tek bir süreci otomatikleştiren bir AI ajanı ile başlayın.</li>
     <li><strong>Ölçün ve genişletin:</strong> Tasarruf edilen zaman ve müşteri memnuniyetini ölçün. Sonuçlar iyi ise diğer süreçlere de AI ajanı ekleyin.</li>
   </ol>
-
-  <div class="highlight-box">
-    <p>⚡ <strong>2026 Gerçeği:</strong> Bir AI ajanı kurulumu artık aylar süren bir proje değil. Doğru araçlarla <strong>birkaç gün içinde</strong> ilk AI ajanınızı çalıştırabilirsiniz. Önemli olan doğru süreci seçmek ve güvenilir bir teknoloji ortağıyla çalışmaktır.</p>
-  </div>
-
-  <div class="cta-box">
-    <h3>İşletmenize Özel AI Ajanı mı Kurdurmak İstiyorsunuz?</h3>
-    <p>Süreçlerinizi analiz ediyor, size özel AI ajanları geliştiriyoruz. İlk danışmanlık ücretsiz.</p>
-    <a href="https://wa.me/905321732767?text=Merhaba%2C%20i%C5%9Fletmem%20i%C3%A7in%20AI%20ajan%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="cta-btn" target="_blank" rel="noopener">💬 Ücretsiz Danışmanlık Al</a>
-  </div>
+  <div class="highlight-box"><p>⚡ <strong>2026 Gerçeği:</strong> Bir AI ajanı kurulumu artık aylar süren bir proje değil. Doğru araçlarla <strong>birkaç gün içinde</strong> ilk AI ajanınızı çalıştırabilirsiniz.</p></div>
+  <div class="cta-box"><h3>İşletmenize Özel AI Ajanı mı Kurdurmak İstiyorsunuz?</h3><p>Süreçlerinizi analiz ediyor, size özel AI ajanları geliştiriyoruz. İlk danışmanlık ücretsiz.</p><a href="https://wa.me/905321732767?text=Merhaba%2C%20i%C5%9Fletmem%20i%C3%A7in%20AI%20ajan%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="cta-btn" target="_blank" rel="noopener">💬 Ücretsiz Danışmanlık Al</a></div>
 </main>
 </div>
 
@@ -218,43 +175,39 @@ a:hover{opacity:0.8;}
 </header>
 <main class="post-content">
   <p>Imagine a real estate agent: At 3 AM, a client messages on WhatsApp asking about available rentals. By morning, that client has already booked a viewing with a competitor. <strong>This is exactly the problem AI agents solve.</strong></p>
-
   <h2>What Is an AI Agent?</h2>
   <p>An AI agent is an artificial intelligence system that can <strong>make decisions, create plans, and take action autonomously</strong> to achieve a specific goal. Unlike a simple chatbot that only responds to questions, an AI agent can complete an entire task <strong>from start to finish on its own</strong>.</p>
-
-  <div class="highlight-box">
-    <p>💡 <strong>Simple analogy:</strong> A chatbot is like a phone receptionist — it takes messages and redirects. An AI agent is like a <strong>full-authority assistant</strong> — it understands the message, checks the calendar, creates the appointment, sends confirmation, and reports back to you.</p>
-  </div>
-
+  <div class="highlight-box"><p>💡 <strong>Simple analogy:</strong> A chatbot is like a phone receptionist — it takes messages and redirects. An AI agent is like a <strong>full-authority assistant</strong> — it understands the message, checks the calendar, creates the appointment, sends confirmation, and reports back to you.</p></div>
+  <h2>AI Agent vs Chatbot vs AI Assistant</h2>
+  <div class="step-card"><h3>🤖 Chatbot (Rule-Based)</h3><p>Works with predefined scenarios. Answers standard questions like "What are your working hours?" Gets stuck with unexpected questions.</p></div>
+  <div class="step-card"><h3>🧠 AI Assistant (LLM-Based)</h3><p>Understands natural language, tracks context, generates creative responses. But it's usually <strong>reactive</strong> — doesn't act unless you ask.</p></div>
+  <div class="step-card"><h3>⚡ AI Agent (Autonomous)</h3><p>Sets its own goals, breaks them into subtasks, uses tools (sends emails, queries databases, calls APIs), evaluates results, and revises its plan if needed. It's <strong>proactive</strong> — works even while you sleep.</p></div>
   <h2>Real-World AI Agents: 5 Use Cases</h2>
-
   <h3>1. 🏠 Real Estate — 24/7 Client Management</h3>
   <p>The AI agent analyzes incoming requests, matches properties from your portfolio, sends details to clients, schedules viewings, and presents a summary to the agent. Day or night.</p>
-
   <h3>2. 🛒 E-Commerce — Post-Order Automation</h3>
-  <p>Checks stock, arranges shipping, sends tracking numbers, and manages returns end-to-end.</p>
-
+  <p>When an order comes in, it checks stock, arranges shipping, sends tracking numbers to the customer, and manages returns end-to-end.</p>
   <h3>3. 📊 Finance — Reporting and Analysis</h3>
   <p>Collects sales data every morning, creates weekly comparison reports, detects anomalies and notifies management.</p>
-
   <h3>4. 📱 Social Media — Content Planning</h3>
-  <p>Monitors trends, creates content calendars, prepares drafts, and manages scheduled posts.</p>
-
+  <p>Monitors industry trends, creates content calendars, prepares drafts, waits for approval, posts on schedule, and presents performance reports.</p>
   <h3>5. 🏥 Healthcare — Appointment Automation</h3>
-  <p>Evaluates appointment requests, matches available doctors and times, sends reminders, and auto-schedules follow-ups.</p>
-
-  <h2>How to Get Started</h2>
+  <p>Evaluates patient appointment requests, matches available doctors and times, sends reminders, and auto-schedules follow-ups.</p>
+  <h2>How Do AI Agents Work?</h2>
+  <ol>
+    <li><strong>Perceive:</strong> Understands incoming data — customer message, email, form submission, API signal.</li>
+    <li><strong>Plan:</strong> Determines steps to reach the goal — "First scan the portfolio, then compare prices, then recommend to the client."</li>
+    <li><strong>Act:</strong> Uses its tools — queries databases, sends messages, creates files, calls APIs.</li>
+    <li><strong>Learn:</strong> Evaluates results, learns from feedback, performs better next time.</li>
+  </ol>
+  <h2>Getting Started with AI Agents</h2>
   <ol>
     <li><strong>Identify repetitive tasks:</strong> Find the most time-consuming, rule-based task in your workflow.</li>
-    <li><strong>Start small:</strong> Automate a single process with one AI agent.</li>
-    <li><strong>Measure and scale:</strong> Track time saved and customer satisfaction, then expand.</li>
+    <li><strong>Start small:</strong> Begin with one AI agent automating a single process.</li>
+    <li><strong>Measure and scale:</strong> Track time saved and customer satisfaction, then expand to other processes.</li>
   </ol>
-
-  <div class="cta-box">
-    <h3>Want a Custom AI Agent for Your Business?</h3>
-    <p>We analyze your processes and develop custom AI agents. First consultation is free.</p>
-    <a href="https://wa.me/905321732767?text=Hello%2C%20I%20want%20to%20learn%20about%20AI%20agent%20solutions%20for%20my%20business." class="cta-btn" target="_blank" rel="noopener">💬 Get Free Consultation</a>
-  </div>
+  <div class="highlight-box"><p>⚡ <strong>2026 Reality:</strong> Setting up an AI agent is no longer a months-long project. With the right tools, you can have your first AI agent running <strong>within days</strong>.</p></div>
+  <div class="cta-box"><h3>Want a Custom AI Agent for Your Business?</h3><p>We analyze your processes and develop custom AI agents. First consultation is free.</p><a href="https://wa.me/905321732767?text=Hello%2C%20I%20want%20to%20learn%20about%20AI%20agent%20solutions%20for%20my%20business." class="cta-btn" target="_blank" rel="noopener">💬 Get Free Consultation</a></div>
 </main>
 </div>
 
@@ -266,32 +219,40 @@ a:hover{opacity:0.8;}
   <div class="post-meta"><span>📅 4. Juli 2026</span><span>⏱️ 8 Min. Lesezeit</span><span>✍️ Kılman Bilişim</span></div>
 </header>
 <main class="post-content">
-  <p>Ein KI-Agent ist ein System der künstlichen Intelligenz, das <strong>eigenständig Entscheidungen treffen, Pläne erstellen und Maßnahmen ergreifen</strong> kann, um ein bestimmtes Ziel zu erreichen.</p>
-
-  <div class="highlight-box">
-    <p>💡 <strong>Einfache Analogie:</strong> Ein Chatbot ist wie eine Telefonrezeption — er nimmt Nachrichten entgegen. Ein KI-Agent ist wie ein <strong>vollbefugter Assistent</strong> — er versteht, plant, handelt und berichtet.</p>
-  </div>
-
-  <h2>Praktische Einsatzgebiete</h2>
-  <h3>🏠 Immobilien — 24/7 Kundenmanagement</h3>
-  <p>Der KI-Agent analysiert Anfragen, gleicht Immobilien ab, plant Besichtigungen und berichtet dem Makler.</p>
-  <h3>🛒 E-Commerce — Automatisierung nach der Bestellung</h3>
-  <p>Bestandskontrolle, Versandabwicklung, Sendungsverfolgung und Retourenmanagement.</p>
-  <h3>📊 Finanzen — Berichterstattung</h3>
-  <p>Sammelt täglich Verkaufsdaten, erstellt Wochenberichte und meldet Anomalien.</p>
-
-  <h2>Wie Sie beginnen</h2>
+  <p>Stellen Sie sich einen Immobilienmakler vor: Um 3 Uhr nachts schreibt ein Kunde auf WhatsApp: „Gibt es eine 2-Zimmer-Wohnung zur Miete in Kadıköy?" Am Morgen sieht der Makler die Nachricht — aber der Kunde hat bereits bei einem Konkurrenten einen Termin gebucht. <strong>Genau dieses Problem lösen KI-Agenten.</strong></p>
+  <h2>Was ist ein KI-Agent?</h2>
+  <p>Ein KI-Agent ist ein System der künstlichen Intelligenz, das <strong>eigenständig Entscheidungen treffen, Pläne erstellen und Maßnahmen ergreifen</strong> kann, um ein bestimmtes Ziel zu erreichen. Anders als ein Chatbot kann ein KI-Agent eine Aufgabe <strong>von Anfang bis Ende autonom</strong> abschließen.</p>
+  <div class="highlight-box"><p>💡 <strong>Einfache Analogie:</strong> Ein Chatbot ist wie eine Telefonrezeption — er nimmt Nachrichten entgegen. Ein KI-Agent ist wie ein <strong>vollbefugter Assistent</strong> — er versteht die Nachricht, prüft den Kalender, erstellt den Termin, sendet die Bestätigung und erstattet Ihnen Bericht.</p></div>
+  <h2>KI-Agent vs Chatbot vs KI-Assistent</h2>
+  <div class="step-card"><h3>🤖 Chatbot (Regelbasiert)</h3><p>Arbeitet mit vordefinierten Szenarien. Beantwortet Standardfragen. Blockiert bei unerwarteten Fragen.</p></div>
+  <div class="step-card"><h3>🧠 KI-Assistent (LLM-basiert)</h3><p>Versteht natürliche Sprache, verfolgt Kontext, erzeugt kreative Antworten. Ist aber meist <strong>reaktiv</strong>.</p></div>
+  <div class="step-card"><h3>⚡ KI-Agent (Autonom)</h3><p>Setzt eigene Ziele, teilt in Teilaufgaben auf, nutzt Werkzeuge, bewertet Ergebnisse und passt seinen Plan bei Bedarf an. Ist <strong>proaktiv</strong> — arbeitet auch während Sie schlafen.</p></div>
+  <h2>KI-Agenten in der Praxis: 5 Einsatzgebiete</h2>
+  <h3>1. 🏠 Immobilien — 24/7 Kundenmanagement</h3>
+  <p>Der KI-Agent analysiert Anfragen, gleicht Objekte aus dem Portfolio ab, sendet Details, plant Besichtigungen und präsentiert dem Makler eine Zusammenfassung.</p>
+  <h3>2. 🛒 E-Commerce — Automatisierung nach der Bestellung</h3>
+  <p>Bestandskontrolle, Versandabwicklung, Sendungsverfolgung und komplettes Retourenmanagement.</p>
+  <h3>3. 📊 Finanzen — Berichterstattung und Analyse</h3>
+  <p>Sammelt täglich Verkaufsdaten, erstellt Wochenvergleiche, erkennt Anomalien und benachrichtigt das Management.</p>
+  <h3>4. 📱 Social Media — Inhaltsplanung</h3>
+  <p>Verfolgt Branchentrends, erstellt Inhaltspläne, bereitet Entwürfe vor, postet planmäßig und liefert Leistungsberichte.</p>
+  <h3>5. 🏥 Gesundheitswesen — Terminautomatisierung</h3>
+  <p>Bewertet Terminanfragen, ordnet Ärzte und Zeiten zu, sendet Erinnerungen und plant Nachkontrollen automatisch.</p>
+  <h2>Wie funktionieren KI-Agenten?</h2>
+  <ol>
+    <li><strong>Wahrnehmen:</strong> Eingehende Daten verstehen — Kundennachricht, E-Mail, Formular, API-Signal.</li>
+    <li><strong>Planen:</strong> Schritte zum Ziel festlegen — „Erst Portfolio durchsuchen, dann Preise vergleichen, dann dem Kunden empfehlen."</li>
+    <li><strong>Handeln:</strong> Werkzeuge einsetzen — Datenbanken abfragen, Nachrichten senden, Dateien erstellen.</li>
+    <li><strong>Lernen:</strong> Ergebnisse bewerten, aus Feedback lernen, beim nächsten Mal besser abschneiden.</li>
+  </ol>
+  <h2>Erste Schritte</h2>
   <ol>
     <li><strong>Wiederkehrende Aufgaben identifizieren</strong></li>
-    <li><strong>Klein anfangen:</strong> Einen Prozess automatisieren</li>
-    <li><strong>Messen und skalieren</strong></li>
+    <li><strong>Klein anfangen:</strong> Einen Prozess mit einem KI-Agenten automatisieren</li>
+    <li><strong>Messen und skalieren:</strong> Zeitersparnis verfolgen und auf weitere Prozesse ausweiten</li>
   </ol>
-
-  <div class="cta-box">
-    <h3>Maßgeschneiderter KI-Agent für Ihr Unternehmen?</h3>
-    <p>Wir analysieren Ihre Prozesse und entwickeln individuelle KI-Agenten.</p>
-    <a href="https://wa.me/905321732767?text=Hallo%2C%20ich%20m%C3%B6chte%20mehr%20%C3%BCber%20KI-Agenten%20erfahren." class="cta-btn" target="_blank" rel="noopener">💬 Kostenlose Beratung</a>
-  </div>
+  <div class="highlight-box"><p>⚡ <strong>Realität 2026:</strong> Die Einrichtung eines KI-Agenten dauert nicht mehr Monate. Mit den richtigen Tools kann Ihr erster KI-Agent <strong>innerhalb weniger Tage</strong> laufen.</p></div>
+  <div class="cta-box"><h3>Maßgeschneiderter KI-Agent für Ihr Unternehmen?</h3><p>Wir analysieren Ihre Prozesse und entwickeln individuelle KI-Agenten. Erstberatung kostenlos.</p><a href="https://wa.me/905321732767?text=Hallo%2C%20ich%20m%C3%B6chte%20mehr%20%C3%BCber%20KI-Agenten%20erfahren." class="cta-btn" target="_blank" rel="noopener">💬 Kostenlose Beratung</a></div>
 </main>
 </div>
 
@@ -303,32 +264,39 @@ a:hover{opacity:0.8;}
   <div class="post-meta"><span>📅 4 de julio de 2026</span><span>⏱️ 8 min lectura</span><span>✍️ Kılman Bilişim</span></div>
 </header>
 <main class="post-content">
-  <p>Un agente IA es un sistema de inteligencia artificial que puede <strong>tomar decisiones, crear planes y actuar de forma autónoma</strong> para lograr un objetivo específico.</p>
-
-  <div class="highlight-box">
-    <p>💡 <strong>Analogía simple:</strong> Un chatbot es como una recepcionista telefónica — toma mensajes. Un agente IA es como un <strong>asistente con plena autoridad</strong> — entiende, planifica, actúa e informa.</p>
-  </div>
-
-  <h2>Casos de uso reales</h2>
-  <h3>🏠 Inmobiliario — Gestión de clientes 24/7</h3>
-  <p>El agente IA analiza solicitudes, busca propiedades compatibles, agenda visitas y presenta informes al agente inmobiliario.</p>
-  <h3>🛒 E-Commerce — Automatización post-venta</h3>
-  <p>Control de stock, envío, números de seguimiento y gestión de devoluciones.</p>
-  <h3>📊 Finanzas — Informes y análisis</h3>
-  <p>Recopila datos de ventas diarios, crea informes semanales y detecta anomalías.</p>
-
+  <p>Imagine un agente inmobiliario: A las 3 de la madrugada, un cliente escribe por WhatsApp preguntando por un alquiler disponible. Por la mañana, el agente ve el mensaje, pero el cliente ya ha reservado una visita con la competencia. <strong>Exactamente este problema resuelven los agentes IA.</strong></p>
+  <h2>¿Qué es un agente IA?</h2>
+  <p>Un agente IA es un sistema de inteligencia artificial que puede <strong>tomar decisiones, crear planes y actuar de forma autónoma</strong> para lograr un objetivo específico. A diferencia de un chatbot, puede completar una tarea <strong>de principio a fin por sí mismo</strong>.</p>
+  <div class="highlight-box"><p>💡 <strong>Analogía simple:</strong> Un chatbot es como una recepcionista telefónica — toma mensajes. Un agente IA es como un <strong>asistente con plena autoridad</strong> — entiende, verifica el calendario, crea la cita, envía confirmación e informa.</p></div>
+  <h2>Agente IA vs Chatbot vs Asistente IA</h2>
+  <div class="step-card"><h3>🤖 Chatbot (Basado en reglas)</h3><p>Funciona con escenarios predefinidos. Responde preguntas estándar. Se bloquea con preguntas inesperadas.</p></div>
+  <div class="step-card"><h3>🧠 Asistente IA (Basado en LLM)</h3><p>Comprende lenguaje natural, sigue contexto, genera respuestas creativas. Pero suele ser <strong>reactivo</strong>.</p></div>
+  <div class="step-card"><h3>⚡ Agente IA (Autónomo)</h3><p>Establece objetivos propios, los divide en subtareas, usa herramientas, evalúa resultados y revisa su plan si es necesario. Es <strong>proactivo</strong> — trabaja mientras usted duerme.</p></div>
+  <h2>Agentes IA en el mundo real: 5 casos de uso</h2>
+  <h3>1. 🏠 Inmobiliario — Gestión de clientes 24/7</h3>
+  <p>El agente IA analiza solicitudes, busca propiedades compatibles, envía detalles, agenda visitas y presenta un resumen al agente inmobiliario.</p>
+  <h3>2. 🛒 E-Commerce — Automatización post-venta</h3>
+  <p>Control de stock, envío, números de seguimiento y gestión completa de devoluciones.</p>
+  <h3>3. 📊 Finanzas — Informes y análisis</h3>
+  <p>Recopila datos de ventas diarios, crea informes semanales comparativos, detecta anomalías y notifica a la gerencia.</p>
+  <h3>4. 📱 Redes sociales — Planificación de contenido</h3>
+  <p>Monitorea tendencias, crea calendarios de contenido, prepara borradores, programa publicaciones y presenta informes de rendimiento.</p>
+  <h3>5. 🏥 Salud — Automatización de citas</h3>
+  <p>Evalúa solicitudes de cita, asigna médicos y horarios, envía recordatorios y planifica seguimientos automáticamente.</p>
+  <h2>¿Cómo funcionan los agentes IA?</h2>
+  <ol>
+    <li><strong>Percibir:</strong> Comprende los datos entrantes — mensaje del cliente, email, formulario, señal API.</li>
+    <li><strong>Planificar:</strong> Determina los pasos — "Primero buscar en el portafolio, luego comparar precios, después recomendar."</li>
+    <li><strong>Actuar:</strong> Usa sus herramientas — consulta bases de datos, envía mensajes, crea archivos.</li>
+    <li><strong>Aprender:</strong> Evalúa resultados, aprende del feedback, mejora continuamente.</li>
+  </ol>
   <h2>Cómo empezar</h2>
   <ol>
     <li><strong>Identifique tareas repetitivas</strong></li>
     <li><strong>Comience en pequeño:</strong> Automatice un solo proceso</li>
-    <li><strong>Mida y escale</strong></li>
+    <li><strong>Mida y escale:</strong> Rastree el ahorro de tiempo y expanda</li>
   </ol>
-
-  <div class="cta-box">
-    <h3>¿Necesita un Agente IA personalizado?</h3>
-    <p>Analizamos sus procesos y desarrollamos agentes IA a medida.</p>
-    <a href="https://wa.me/905321732767?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20agentes%20IA%20para%20mi%20empresa." class="cta-btn" target="_blank" rel="noopener">💬 Consulta gratuita</a>
-  </div>
+  <div class="cta-box"><h3>¿Necesita un agente IA personalizado?</h3><p>Analizamos sus procesos y desarrollamos agentes IA a medida. Primera consulta gratuita.</p><a href="https://wa.me/905321732767?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20agentes%20IA%20para%20mi%20empresa." class="cta-btn" target="_blank" rel="noopener">💬 Consulta gratuita</a></div>
 </main>
 </div>
 
@@ -340,32 +308,39 @@ a:hover{opacity:0.8;}
   <div class="post-meta"><span>📅 4 juillet 2026</span><span>⏱️ 8 min de lecture</span><span>✍️ Kılman Bilişim</span></div>
 </header>
 <main class="post-content">
-  <p>Un agent IA est un système d'intelligence artificielle capable de <strong>prendre des décisions, créer des plans et agir de manière autonome</strong> pour atteindre un objectif spécifique.</p>
-
-  <div class="highlight-box">
-    <p>💡 <strong>Analogie simple :</strong> Un chatbot est comme une réceptionniste — il prend les messages. Un agent IA est comme un <strong>assistant pleinement habilité</strong> — il comprend, planifie, agit et fait un rapport.</p>
-  </div>
-
-  <h2>Cas d'utilisation concrets</h2>
-  <h3>🏠 Immobilier — Gestion clients 24h/24</h3>
-  <p>L'agent IA analyse les demandes, recherche les biens compatibles, planifie les visites et présente un rapport à l'agent immobilier.</p>
-  <h3>🛒 E-Commerce — Automatisation post-commande</h3>
-  <p>Contrôle des stocks, expédition, suivi et gestion des retours.</p>
-  <h3>📊 Finance — Rapports et analyses</h3>
-  <p>Collecte quotidienne des données de vente, rapports hebdomadaires et détection d'anomalies.</p>
-
+  <p>Imaginez un agent immobilier : à 3h du matin, un client envoie un message WhatsApp demandant un appartement à louer. Au matin, le client a déjà pris rendez-vous avec un concurrent. <strong>C'est exactement le problème que résolvent les agents IA.</strong></p>
+  <h2>Qu'est-ce qu'un agent IA ?</h2>
+  <p>Un agent IA est un système d'intelligence artificielle capable de <strong>prendre des décisions, créer des plans et agir de manière autonome</strong> pour atteindre un objectif spécifique. Contrairement à un chatbot, il peut accomplir une tâche <strong>du début à la fin de manière autonome</strong>.</p>
+  <div class="highlight-box"><p>💡 <strong>Analogie simple :</strong> Un chatbot est comme une réceptionniste — il prend les messages. Un agent IA est comme un <strong>assistant pleinement habilité</strong> — il comprend, vérifie l'agenda, crée le rendez-vous, envoie la confirmation et vous fait un rapport.</p></div>
+  <h2>Agent IA vs Chatbot vs Assistant IA</h2>
+  <div class="step-card"><h3>🤖 Chatbot (Basé sur des règles)</h3><p>Fonctionne avec des scénarios prédéfinis. Répond aux questions standard. Se bloque face à l'inattendu.</p></div>
+  <div class="step-card"><h3>🧠 Assistant IA (Basé sur LLM)</h3><p>Comprend le langage naturel, suit le contexte, génère des réponses créatives. Mais il est généralement <strong>réactif</strong>.</p></div>
+  <div class="step-card"><h3>⚡ Agent IA (Autonome)</h3><p>Fixe ses propres objectifs, les décompose en sous-tâches, utilise des outils, évalue les résultats et révise son plan si nécessaire. Il est <strong>proactif</strong> — travaille pendant que vous dormez.</p></div>
+  <h2>Agents IA en pratique : 5 cas d'usage</h2>
+  <h3>1. 🏠 Immobilier — Gestion clients 24h/24</h3>
+  <p>L'agent IA analyse les demandes, recherche les biens compatibles, envoie les détails, planifie les visites et présente un résumé à l'agent immobilier.</p>
+  <h3>2. 🛒 E-Commerce — Automatisation post-commande</h3>
+  <p>Contrôle des stocks, expédition, envoi des numéros de suivi et gestion complète des retours.</p>
+  <h3>3. 📊 Finance — Rapports et analyses</h3>
+  <p>Collecte quotidienne des données de vente, rapports hebdomadaires comparatifs, détection d'anomalies et notification à la direction.</p>
+  <h3>4. 📱 Réseaux sociaux — Planification de contenu</h3>
+  <p>Surveille les tendances, crée des calendriers de contenu, prépare des brouillons, publie selon le planning et livre des rapports de performance.</p>
+  <h3>5. 🏥 Santé — Automatisation des rendez-vous</h3>
+  <p>Évalue les demandes de rendez-vous, attribue médecins et créneaux, envoie des rappels et planifie automatiquement les suivis.</p>
+  <h2>Comment fonctionnent les agents IA ?</h2>
+  <ol>
+    <li><strong>Percevoir :</strong> Comprendre les données entrantes — message client, email, formulaire, signal API.</li>
+    <li><strong>Planifier :</strong> Déterminer les étapes — « D'abord chercher dans le portefeuille, puis comparer les prix, puis recommander. »</li>
+    <li><strong>Agir :</strong> Utiliser ses outils — interroger des bases de données, envoyer des messages, créer des fichiers.</li>
+    <li><strong>Apprendre :</strong> Évaluer les résultats, apprendre du feedback, s'améliorer continuellement.</li>
+  </ol>
   <h2>Comment commencer</h2>
   <ol>
     <li><strong>Identifiez les tâches répétitives</strong></li>
     <li><strong>Commencez petit :</strong> Automatisez un seul processus</li>
     <li><strong>Mesurez et développez</strong></li>
   </ol>
-
-  <div class="cta-box">
-    <h3>Besoin d'un Agent IA sur mesure ?</h3>
-    <p>Nous analysons vos processus et développons des agents IA personnalisés.</p>
-    <a href="https://wa.me/905321732767?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20les%20agents%20IA." class="cta-btn" target="_blank" rel="noopener">💬 Consultation gratuite</a>
-  </div>
+  <div class="cta-box"><h3>Besoin d'un agent IA sur mesure ?</h3><p>Nous analysons vos processus et développons des agents IA personnalisés. Première consultation gratuite.</p><a href="https://wa.me/905321732767?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20les%20agents%20IA." class="cta-btn" target="_blank" rel="noopener">💬 Consultation gratuite</a></div>
 </main>
 </div>
 
@@ -377,32 +352,39 @@ a:hover{opacity:0.8;}
   <div class="post-meta"><span>📅 4 июля 2026</span><span>⏱️ 8 мин чтения</span><span>✍️ Kılman Bilişim</span></div>
 </header>
 <main class="post-content">
-  <p>ИИ-агент — это система искусственного интеллекта, способная <strong>самостоятельно принимать решения, создавать планы и действовать</strong> для достижения конкретной цели.</p>
-
-  <div class="highlight-box">
-    <p>💡 <strong>Простая аналогия:</strong> Чат-бот — это как секретарь на телефоне — принимает сообщения. ИИ-агент — это <strong>полноправный помощник</strong> — понимает, планирует, действует и отчитывается.</p>
-  </div>
-
-  <h2>Практические области применения</h2>
-  <h3>🏠 Недвижимость — Управление клиентами 24/7</h3>
-  <p>ИИ-агент анализирует запросы, подбирает объекты, планирует показы и отчитывается агенту.</p>
-  <h3>🛒 Электронная коммерция — Автоматизация после заказа</h3>
-  <p>Контроль запасов, отправка, отслеживание и управление возвратами.</p>
-  <h3>📊 Финансы — Отчётность и аналитика</h3>
-  <p>Ежедневный сбор данных о продажах, еженедельные отчёты и обнаружение аномалий.</p>
-
+  <p>Представьте агента по недвижимости: в 3 часа ночи клиент пишет в WhatsApp с вопросом о доступной аренде. К утру агент видит сообщение — но клиент уже записался на просмотр к конкуренту. <strong>Именно эту проблему решают ИИ-агенты.</strong></p>
+  <h2>Что такое ИИ-агент?</h2>
+  <p>ИИ-агент — это система искусственного интеллекта, способная <strong>самостоятельно принимать решения, создавать планы и действовать</strong> для достижения конкретной цели. В отличие от чат-бота, ИИ-агент может завершить задачу <strong>от начала до конца автономно</strong>.</p>
+  <div class="highlight-box"><p>💡 <strong>Простая аналогия:</strong> Чат-бот — как секретарь на телефоне — принимает сообщения. ИИ-агент — это <strong>полноправный помощник</strong> — понимает сообщение, проверяет календарь, создаёт встречу, отправляет подтверждение и отчитывается вам.</p></div>
+  <h2>ИИ-агент vs Чат-бот vs ИИ-ассистент</h2>
+  <div class="step-card"><h3>🤖 Чат-бот (Правиловой)</h3><p>Работает с предопределёнными сценариями. Отвечает на стандартные вопросы. Зависает при неожиданных вопросах.</p></div>
+  <div class="step-card"><h3>🧠 ИИ-ассистент (На базе LLM)</h3><p>Понимает естественный язык, отслеживает контекст, генерирует креативные ответы. Но обычно <strong>реактивен</strong>.</p></div>
+  <div class="step-card"><h3>⚡ ИИ-агент (Автономный)</h3><p>Ставит собственные цели, разбивает на подзадачи, использует инструменты, оценивает результаты и корректирует план при необходимости. <strong>Проактивен</strong> — работает, пока вы спите.</p></div>
+  <h2>ИИ-агенты в реальном мире: 5 сценариев</h2>
+  <h3>1. 🏠 Недвижимость — Управление клиентами 24/7</h3>
+  <p>ИИ-агент анализирует запросы, подбирает объекты из портфолио, отправляет детали, планирует показы и представляет сводку агенту.</p>
+  <h3>2. 🛒 Электронная коммерция — Автоматизация после заказа</h3>
+  <p>Контроль запасов, отправка, трекинг-номера и полное управление возвратами.</p>
+  <h3>3. 📊 Финансы — Отчётность и аналитика</h3>
+  <p>Ежедневный сбор данных о продажах, еженедельные сравнительные отчёты, обнаружение аномалий и уведомление руководства.</p>
+  <h3>4. 📱 Социальные сети — Планирование контента</h3>
+  <p>Мониторинг трендов, создание контент-планов, подготовка черновиков, публикация по расписанию и отчёты о результатах.</p>
+  <h3>5. 🏥 Здравоохранение — Автоматизация записи</h3>
+  <p>Оценка заявок на приём, подбор врачей и времени, напоминания и автоматическое планирование контрольных визитов.</p>
+  <h2>Как работают ИИ-агенты?</h2>
+  <ol>
+    <li><strong>Воспринимать:</strong> Понять входящие данные — сообщение клиента, email, форму, API-сигнал.</li>
+    <li><strong>Планировать:</strong> Определить шаги — «Сначала просмотреть портфолио, затем сравнить цены, потом рекомендовать.»</li>
+    <li><strong>Действовать:</strong> Использовать инструменты — запрашивать базы данных, отправлять сообщения, создавать файлы.</li>
+    <li><strong>Учиться:</strong> Оценивать результаты, учиться на обратной связи, улучшаться непрерывно.</li>
+  </ol>
   <h2>С чего начать</h2>
   <ol>
     <li><strong>Определите повторяющиеся задачи</strong></li>
     <li><strong>Начните с малого:</strong> Автоматизируйте один процесс</li>
     <li><strong>Измеряйте и масштабируйте</strong></li>
   </ol>
-
-  <div class="cta-box">
-    <h3>Нужен индивидуальный ИИ-агент?</h3>
-    <p>Мы анализируем ваши процессы и разрабатываем персональных ИИ-агентов.</p>
-    <a href="https://wa.me/905321732767?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BE%D0%B1%20%D0%98%D0%98-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D0%B0%D1%85." class="cta-btn" target="_blank" rel="noopener">💬 Бесплатная консультация</a>
-  </div>
+  <div class="cta-box"><h3>Нужен индивидуальный ИИ-агент?</h3><p>Мы анализируем ваши процессы и разрабатываем персональных ИИ-агентов. Первая консультация бесплатна.</p><a href="https://wa.me/905321732767?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BE%D0%B1%20%D0%98%D0%98-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D0%B0%D1%85." class="cta-btn" target="_blank" rel="noopener">💬 Бесплатная консультация</a></div>
 </main>
 </div>
 
@@ -414,32 +396,39 @@ a:hover{opacity:0.8;}
   <div class="post-meta"><span>📅 2026년 7월 4일</span><span>⏱️ 8분 읽기</span><span>✍️ Kılman Bilişim</span></div>
 </header>
 <main class="post-content">
-  <p>AI 에이전트는 특정 목표를 달성하기 위해 <strong>스스로 결정을 내리고, 계획을 세우며, 행동할 수 있는</strong> 인공지능 시스템입니다.</p>
-
-  <div class="highlight-box">
-    <p>💡 <strong>간단한 비유:</strong> 챗봇은 전화 접수원과 같습니다. AI 에이전트는 <strong>전권을 가진 비서</strong>와 같습니다 — 이해하고, 계획하고, 실행하고, 보고합니다.</p>
-  </div>
-
-  <h2>실제 활용 사례</h2>
-  <h3>🏠 부동산 — 24시간 고객 관리</h3>
-  <p>AI 에이전트가 요청을 분석하고, 매물을 매칭하고, 방문을 예약하고, 에이전트에게 보고합니다.</p>
-  <h3>🛒 전자상거래 — 주문 후 자동화</h3>
-  <p>재고 확인, 배송, 추적 번호 발송, 반품 관리를 처리합니다.</p>
-  <h3>📊 금융 — 보고 및 분석</h3>
-  <p>매일 판매 데이터를 수집하고, 주간 보고서를 작성하며, 이상 징후를 감지합니다.</p>
-
+  <p>부동산 에이전트를 상상해보세요: 새벽 3시에 고객이 WhatsApp으로 임대 가능한 아파트를 묻습니다. 아침에 에이전트가 메시지를 보지만, 고객은 이미 경쟁사에서 방문 예약을 했습니다. <strong>바로 이 문제를 AI 에이전트가 해결합니다.</strong></p>
+  <h2>AI 에이전트란?</h2>
+  <p>AI 에이전트는 특정 목표를 달성하기 위해 <strong>스스로 결정을 내리고, 계획을 세우며, 행동할 수 있는</strong> 인공지능 시스템입니다. 챗봇과 달리 작업을 <strong>처음부터 끝까지 자율적으로</strong> 완료할 수 있습니다.</p>
+  <div class="highlight-box"><p>💡 <strong>간단한 비유:</strong> 챗봇은 전화 접수원 — 메시지를 받습니다. AI 에이전트는 <strong>전권을 가진 비서</strong> — 이해하고, 일정을 확인하고, 예약을 만들고, 확인을 보내고, 보고합니다.</p></div>
+  <h2>AI 에이전트 vs 챗봇 vs AI 어시스턴트</h2>
+  <div class="step-card"><h3>🤖 챗봇 (규칙 기반)</h3><p>미리 정의된 시나리오로 작동합니다. 표준 질문에 답합니다. 예상치 못한 질문에는 막힙니다.</p></div>
+  <div class="step-card"><h3>🧠 AI 어시스턴트 (LLM 기반)</h3><p>자연어를 이해하고 맥락을 추적하며 창의적인 답변을 생성합니다. 하지만 보통 <strong>반응적</strong>입니다.</p></div>
+  <div class="step-card"><h3>⚡ AI 에이전트 (자율형)</h3><p>스스로 목표를 설정하고, 하위 작업으로 나누고, 도구를 사용하고, 결과를 평가하며, 필요시 계획을 수정합니다. <strong>능동적</strong>입니다 — 잠자는 동안에도 작동합니다.</p></div>
+  <h2>실제 AI 에이전트: 5가지 활용 사례</h2>
+  <h3>1. 🏠 부동산 — 24시간 고객 관리</h3>
+  <p>AI 에이전트가 요청을 분석하고, 포트폴리오에서 매물을 매칭하고, 세부 정보를 보내고, 방문을 예약하고, 에이전트에게 요약을 제출합니다.</p>
+  <h3>2. 🛒 전자상거래 — 주문 후 자동화</h3>
+  <p>재고 확인, 배송 처리, 추적 번호 발송, 반품 관리를 종합적으로 처리합니다.</p>
+  <h3>3. 📊 금융 — 보고 및 분석</h3>
+  <p>매일 판매 데이터를 수집하고, 주간 비교 보고서를 작성하고, 이상 징후를 감지하여 경영진에 알립니다.</p>
+  <h3>4. 📱 소셜 미디어 — 콘텐츠 기획</h3>
+  <p>업계 트렌드를 모니터링하고, 콘텐츠 캘린더를 만들고, 초안을 준비하고, 예약 게시하며, 성과 보고서를 제공합니다.</p>
+  <h3>5. 🏥 의료 — 예약 자동화</h3>
+  <p>환자 예약 요청을 평가하고, 의사와 시간을 매칭하고, 알림을 보내며, 후속 진료를 자동 예약합니다.</p>
+  <h2>AI 에이전트는 어떻게 작동하나요?</h2>
+  <ol>
+    <li><strong>인식:</strong> 수신 데이터 이해 — 고객 메시지, 이메일, 양식, API 신호.</li>
+    <li><strong>계획:</strong> 목표 달성을 위한 단계 결정.</li>
+    <li><strong>실행:</strong> 도구 사용 — 데이터베이스 조회, 메시지 전송, 파일 생성.</li>
+    <li><strong>학습:</strong> 결과 평가, 피드백에서 학습, 지속적 개선.</li>
+  </ol>
   <h2>시작하는 방법</h2>
   <ol>
     <li><strong>반복 작업 식별</strong></li>
     <li><strong>작게 시작:</strong> 하나의 프로세스 자동화</li>
     <li><strong>측정하고 확장</strong></li>
   </ol>
-
-  <div class="cta-box">
-    <h3>맞춤형 AI 에이전트가 필요하신가요?</h3>
-    <p>프로세스를 분석하고 맞춤형 AI 에이전트를 개발합니다.</p>
-    <a href="https://wa.me/905321732767?text=Hello%2C%20I%20want%20to%20learn%20about%20AI%20agent%20solutions." class="cta-btn" target="_blank" rel="noopener">💬 무료 상담</a>
-  </div>
+  <div class="cta-box"><h3>맞춤형 AI 에이전트가 필요하신가요?</h3><p>프로세스를 분석하고 맞춤형 AI 에이전트를 개발합니다. 첫 상담 무료.</p><a href="https://wa.me/905321732767?text=Hello%2C%20I%20want%20to%20learn%20about%20AI%20agent%20solutions." class="cta-btn" target="_blank" rel="noopener">💬 무료 상담</a></div>
 </main>
 </div>
 
@@ -451,32 +440,39 @@ a:hover{opacity:0.8;}
   <div class="post-meta"><span>📅 2026年7月4日</span><span>⏱️ 8分钟阅读</span><span>✍️ Kılman Bilişim</span></div>
 </header>
 <main class="post-content">
-  <p>AI代理是一种能够<strong>自主决策、制定计划并采取行动</strong>以实现特定目标的人工智能系统。</p>
-
-  <div class="highlight-box">
-    <p>💡 <strong>简单比喻：</strong>聊天机器人就像电话接待员——接收消息。AI代理就像一个<strong>全权助理</strong>——理解、计划、执行并汇报。</p>
-  </div>
-
-  <h2>实际应用场景</h2>
-  <h3>🏠 房地产——全天候客户管理</h3>
-  <p>AI代理分析请求、匹配房源、安排看房并向经纪人汇报。</p>
-  <h3>🛒 电子商务——订单后自动化</h3>
-  <p>库存检查、发货、追踪号发送和退货管理。</p>
-  <h3>📊 金融——报告与分析</h3>
-  <p>每日收集销售数据，创建周报，检测异常情况。</p>
-
+  <p>想象一位房产经纪人：凌晨3点，客户在WhatsApp上询问可租赁的公寓。到早上，经纪人看到消息时，客户已经在竞争对手那里预约了看房。<strong>这正是AI代理要解决的问题。</strong></p>
+  <h2>什么是AI代理？</h2>
+  <p>AI代理是一种能够<strong>自主决策、制定计划并采取行动</strong>以实现特定目标的人工智能系统。与聊天机器人不同，AI代理可以<strong>从头到尾自主完成</strong>一项任务。</p>
+  <div class="highlight-box"><p>💡 <strong>简单比喻：</strong>聊天机器人就像电话接待员——接收消息。AI代理就像一个<strong>全权助理</strong>——理解消息、查看日历、创建预约、发送确认并向您汇报。</p></div>
+  <h2>AI代理 vs 聊天机器人 vs AI助手</h2>
+  <div class="step-card"><h3>🤖 聊天机器人（基于规则）</h3><p>使用预定义场景工作。回答标准问题。遇到意外问题会卡住。</p></div>
+  <div class="step-card"><h3>🧠 AI助手（基于LLM）</h3><p>理解自然语言、跟踪上下文、生成创意回答。但通常是<strong>被动的</strong>。</p></div>
+  <div class="step-card"><h3>⚡ AI代理（自主型）</h3><p>自主设定目标、分解为子任务、使用工具、评估结果，必要时修正计划。是<strong>主动的</strong>——即使您在睡觉也在工作。</p></div>
+  <h2>现实中的AI代理：5个应用场景</h2>
+  <h3>1. 🏠 房地产——全天候客户管理</h3>
+  <p>AI代理分析请求、从投资组合中匹配房源、发送详情、安排看房，并向经纪人提交摘要。不分昼夜。</p>
+  <h3>2. 🛒 电子商务——订单后自动化</h3>
+  <p>库存检查、发货安排、追踪号发送和完整的退货管理。</p>
+  <h3>3. 📊 金融——报告与分析</h3>
+  <p>每日收集销售数据，创建周度对比报告，检测异常并通知管理层。</p>
+  <h3>4. 📱 社交媒体——内容规划</h3>
+  <p>监控行业趋势、创建内容日历、准备草稿、按计划发布并提供绩效报告。</p>
+  <h3>5. 🏥 医疗——预约自动化</h3>
+  <p>评估患者预约请求、匹配医生和时间、发送提醒并自动安排复诊。</p>
+  <h2>AI代理如何工作？</h2>
+  <ol>
+    <li><strong>感知：</strong>理解传入数据——客户消息、邮件、表单、API信号。</li>
+    <li><strong>规划：</strong>确定步骤——"先搜索投资组合，再比较价格，然后推荐。"</li>
+    <li><strong>行动：</strong>使用工具——查询数据库、发送消息、创建文件。</li>
+    <li><strong>学习：</strong>评估结果，从反馈中学习，持续改进。</li>
+  </ol>
   <h2>如何开始</h2>
   <ol>
     <li><strong>识别重复性任务</strong></li>
-    <li><strong>从小处着手：</strong>自动化一个流程</li>
+    <li><strong>从小处着手：</strong>用一个AI代理自动化一个流程</li>
     <li><strong>衡量并扩展</strong></li>
   </ol>
-
-  <div class="cta-box">
-    <h3>需要定制AI代理吗？</h3>
-    <p>我们分析您的流程并开发定制AI代理。</p>
-    <a href="https://wa.me/905321732767?text=Hello%2C%20I%20want%20to%20learn%20about%20AI%20agent%20solutions." class="cta-btn" target="_blank" rel="noopener">💬 免费咨询</a>
-  </div>
+  <div class="cta-box"><h3>需要定制AI代理吗？</h3><p>我们分析您的流程并开发定制AI代理。首次咨询免费。</p><a href="https://wa.me/905321732767?text=Hello%2C%20I%20want%20to%20learn%20about%20AI%20agent%20solutions." class="cta-btn" target="_blank" rel="noopener">💬 免费咨询</a></div>
 </main>
 </div>
 
@@ -488,32 +484,39 @@ a:hover{opacity:0.8;}
   <div class="post-meta"><span>📅 2026年7月4日</span><span>⏱️ 8分で読める</span><span>✍️ Kılman Bilişim</span></div>
 </header>
 <main class="post-content">
-  <p>AIエージェントとは、特定の目標を達成するために<strong>自律的に判断し、計画を立て、行動できる</strong>人工知能システムです。</p>
-
-  <div class="highlight-box">
-    <p>💡 <strong>簡単な例え：</strong>チャットボットは電話受付のようなもの — メッセージを受け取ります。AIエージェントは<strong>全権を持つアシスタント</strong>のようなもの — 理解し、計画し、実行し、報告します。</p>
-  </div>
-
-  <h2>実践的な活用例</h2>
-  <h3>🏠 不動産 — 24時間顧客管理</h3>
-  <p>AIエージェントがリクエストを分析し、物件をマッチングし、内見を予約し、エージェントに報告します。</p>
-  <h3>🛒 Eコマース — 注文後の自動化</h3>
-  <p>在庫確認、発送、追跡番号の送信、返品管理を処理します。</p>
-  <h3>📊 金融 — レポートと分析</h3>
-  <p>毎日の売上データ収集、週次レポート作成、異常検知を行います。</p>
-
+  <p>不動産エージェントを想像してください：午前3時にクライアントがWhatsAppで賃貸物件について問い合わせます。朝、エージェントがメッセージを見たときには、クライアントはすでに競合他社で内見を予約済みです。<strong>まさにこの問題をAIエージェントが解決します。</strong></p>
+  <h2>AIエージェントとは？</h2>
+  <p>AIエージェントとは、特定の目標を達成するために<strong>自律的に判断し、計画を立て、行動できる</strong>人工知能システムです。チャットボットとは異なり、タスクを<strong>最初から最後まで自律的に</strong>完了できます。</p>
+  <div class="highlight-box"><p>💡 <strong>簡単な例え：</strong>チャットボットは電話受付のようなもの——メッセージを受け取ります。AIエージェントは<strong>全権を持つアシスタント</strong>——メッセージを理解し、カレンダーを確認し、予約を作成し、確認を送信し、報告します。</p></div>
+  <h2>AIエージェント vs チャットボット vs AIアシスタント</h2>
+  <div class="step-card"><h3>🤖 チャットボット（ルールベース）</h3><p>事前定義されたシナリオで動作。標準的な質問に回答。予想外の質問には対応できません。</p></div>
+  <div class="step-card"><h3>🧠 AIアシスタント（LLMベース）</h3><p>自然言語を理解し、文脈を追跡し、創造的な回答を生成。ただし通常は<strong>受動的</strong>です。</p></div>
+  <div class="step-card"><h3>⚡ AIエージェント（自律型）</h3><p>独自に目標を設定し、サブタスクに分解し、ツールを使用し、結果を評価し、必要に応じて計画を修正します。<strong>能動的</strong>——あなたが寝ている間も働きます。</p></div>
+  <h2>実際のAIエージェント：5つの活用例</h2>
+  <h3>1. 🏠 不動産——24時間顧客管理</h3>
+  <p>AIエージェントがリクエストを分析し、ポートフォリオから物件をマッチングし、詳細を送信し、内見を予約し、エージェントにサマリーを提出します。昼夜問わず。</p>
+  <h3>2. 🛒 Eコマース——注文後の自動化</h3>
+  <p>在庫確認、発送手配、追跡番号の送信、返品管理を包括的に処理します。</p>
+  <h3>3. 📊 金融——レポートと分析</h3>
+  <p>毎日売上データを収集し、週次比較レポートを作成し、異常を検知して経営陣に通知します。</p>
+  <h3>4. 📱 ソーシャルメディア——コンテンツ企画</h3>
+  <p>業界トレンドを監視し、コンテンツカレンダーを作成し、下書きを準備し、スケジュール投稿を行い、パフォーマンスレポートを提供します。</p>
+  <h3>5. 🏥 医療——予約自動化</h3>
+  <p>患者の予約リクエストを評価し、医師と時間をマッチングし、リマインダーを送信し、フォローアップを自動予約します。</p>
+  <h2>AIエージェントの仕組み</h2>
+  <ol>
+    <li><strong>認識：</strong>入力データを理解——顧客メッセージ、メール、フォーム、APIシグナル。</li>
+    <li><strong>計画：</strong>目標達成のステップを決定。</li>
+    <li><strong>実行：</strong>ツールを使用——データベース照会、メッセージ送信、ファイル作成。</li>
+    <li><strong>学習：</strong>結果を評価し、フィードバックから学び、継続的に改善。</li>
+  </ol>
   <h2>始め方</h2>
   <ol>
     <li><strong>繰り返しタスクの特定</strong></li>
     <li><strong>小さく始める：</strong>1つのプロセスを自動化</li>
     <li><strong>測定して拡大</strong></li>
   </ol>
-
-  <div class="cta-box">
-    <h3>カスタムAIエージェントが必要ですか？</h3>
-    <p>お客様のプロセスを分析し、カスタムAIエージェントを開発します。</p>
-    <a href="https://wa.me/905321732767?text=Hello%2C%20I%20want%20to%20learn%20about%20AI%20agent%20solutions." class="cta-btn" target="_blank" rel="noopener">💬 無料相談</a>
-  </div>
+  <div class="cta-box"><h3>カスタムAIエージェントが必要ですか？</h3><p>お客様のプロセスを分析し、カスタムAIエージェントを開発します。初回相談無料。</p><a href="https://wa.me/905321732767?text=Hello%2C%20I%20want%20to%20learn%20about%20AI%20agent%20solutions." class="cta-btn" target="_blank" rel="noopener">💬 無料相談</a></div>
 </main>
 </div>
 
@@ -537,9 +540,7 @@ const uiTexts = {
   zh: { back_blog: '← 返回博客', footer_rights: '版权所有。', privacy_link: '隐私政策' },
   ja: { back_blog: '← ブログに戻る', footer_rights: '全著作権所有。', privacy_link: 'プライバシーポリシー' }
 };
-
 let currentLang = sessionStorage.getItem('kilman_lang') || 'tr';
-
 function applyLang() {
   const t = uiTexts[currentLang] || uiTexts.tr;
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -553,7 +554,6 @@ function applyLang() {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
   });
 }
-
 document.querySelectorAll('.blog-lang button').forEach(btn => {
   btn.addEventListener('click', () => {
     currentLang = btn.getAttribute('data-lang');
@@ -561,10 +561,7 @@ document.querySelectorAll('.blog-lang button').forEach(btn => {
     applyLang();
   });
 });
-
 applyLang();
-
-// Hamburger toggle
 const blogHamburger = document.querySelector('.blog-hamburger');
 const blogNavLinks = document.querySelector('.blog-nav-links');
 const blogLang = document.querySelector('.blog-lang');
@@ -580,11 +577,7 @@ if (blogHamburger) {
       spans[1].style.opacity = '0';
       spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
       requestAnimationFrame(() => {
-        if (blogLang) {
-          blogNavLinks.style.top = (70 + blogLang.offsetHeight) + 'px';
-        } else {
-          blogNavLinks.style.top = '70px';
-        }
+        blogNavLinks.style.top = blogLang ? (70 + blogLang.offsetHeight) + 'px' : '70px';
       });
     } else {
       spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
@@ -602,64 +595,38 @@ if (blogHamburger) {
 }
 </script>
 
-
 <!-- CANLI ZIYARETCI SAYACI (Supabase) -->
 <script>
 (function(){
   const SUPABASE_URL = 'https://glpwxyaqcaqyiupesyay.supabase.co';
   const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdscHd4eWFxY2FxeWl1cGVzeWF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3NDU1NDIsImV4cCI6MjA5NzMyMTU0Mn0.iuK71d5caVQzpRWAA0rfMy24Ne5KGsie9T7F6Ku5M5g';
-
   function rpc(fn, body){
     return fetch(SUPABASE_URL + '/rest/v1/rpc/' + fn, {
       method: 'POST',
-      headers: {
-        'apikey': SUPABASE_KEY,
-        'Authorization': 'Bearer ' + SUPABASE_KEY,
-        'Content-Type': 'application/json'
-      },
+      headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json' },
       body: JSON.stringify(body || {})
     }).then(r => r.ok ? r.json() : null);
   }
-
   function fmt(n){ return (typeof n === 'number') ? n.toLocaleString('tr-TR') : n; }
-
   let vid = sessionStorage.getItem('kb_vid');
   if(!vid){ vid = 'v_' + Date.now() + '_' + Math.random().toString(36).slice(2,9); sessionStorage.setItem('kb_vid', vid); }
-
   const _p = new URLSearchParams(location.search);
   if (_p.get('dev') === '1') localStorage.setItem('kb_ignore', '1');
   const isInternal = navigator.webdriver || localStorage.getItem('kb_ignore') === '1';
-
   const elTotalF = document.getElementById('lcTotalFooter');
   const elOnlineF = document.getElementById('lcOnlineFooter');
-
   function setTotal(v){ const t = fmt(v); if(elTotalF) elTotalF.textContent = t; }
   function setOnline(v){ const t = fmt(v); if(elOnlineF) elOnlineF.textContent = t; }
-
   if (isInternal) {
     rpc('get_total').then(total => { if (total != null) setTotal(total); }).catch(()=>{});
   } else if (!sessionStorage.getItem('kb_counted')) {
-    rpc('increment_visit').then(total => {
-      sessionStorage.setItem('kb_counted', '1');
-      if (total != null) setTotal(total);
-    }).catch(()=>{});
+    rpc('increment_visit').then(total => { sessionStorage.setItem('kb_counted', '1'); if (total != null) setTotal(total); }).catch(()=>{});
   } else {
     rpc('get_total').then(total => { if (total != null) setTotal(total); }).catch(()=>{});
   }
-
-  function beat(){
-    rpc('heartbeat', { p_vid: vid }).then(online => {
-      if(online != null) setOnline(online);
-    }).catch(()=>{});
-  }
-  if (!isInternal) {
-    beat();
-    setInterval(beat, 20000);
-  } else {
-    const readOnline = () => rpc('get_online').then(online => { if (online != null) setOnline(online); }).catch(()=>{});
-    readOnline();
-    setInterval(readOnline, 20000);
-  }
+  function beat(){ rpc('heartbeat', { p_vid: vid }).then(online => { if(online != null) setOnline(online); }).catch(()=>{}); }
+  if (!isInternal) { beat(); setInterval(beat, 20000); }
+  else { const readOnline = () => rpc('get_online').then(online => { if (online != null) setOnline(online); }).catch(()=>{}); readOnline(); setInterval(readOnline, 20000); }
 })();
 </script>
 </body>

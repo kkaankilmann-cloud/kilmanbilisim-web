@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://kilmanbilisim.com/blog/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -69,6 +69,18 @@
   <url>
     <loc>https://kilmanbilisim.com/blog/sosyal-medya-otomasyonu-ai-ile-marka-yonetimi.html</loc>
     <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kilmanbilisim.com/blog/no-code-otomasyon-kod-yazmadan-is-sureclerinizi-otomatiklestirme.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kilmanbilisim.com/blog/yapay-zeka-ile-insan-kaynaklari-otomasyonu-kobi-ik-rehberi.html</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

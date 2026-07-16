@@ -196,14 +196,25 @@ function setLang(l){
   sessionStorage.setItem('kv_lang',l);
   document.querySelectorAll('.kv-lang button').forEach(function(b){b.classList.toggle('active',b.dataset.l===l);});
   document.querySelectorAll('[data-kvi]').forEach(function(el){el.textContent=txt(el.dataset.kvi);});
-  // Re-render actions in view mode
   if(card&&!isEdit)renderView();
+  // Edit mode: update labels, placeholders, button
+  if(card&&isEdit){
+    // Preserve current input values
+    var vals={};
+    FIELDS.forEach(function(f){var inp=document.getElementById('inp_'+f.key);if(inp)vals[f.key]=inp.value;});
+    var checks={};
+    FIELDS.forEach(function(f){var cb=document.querySelector('input[data-field="'+f.key+'"]');if(cb)checks[f.key]=cb.checked;});
+    renderEdit();
+    // Restore input values
+    FIELDS.forEach(function(f){var inp=document.getElementById('inp_'+f.key);if(inp&&vals[f.key]!==undefined)inp.value=vals[f.key];});
+    FIELDS.forEach(function(f){var cb=document.querySelector('input[data-field="'+f.key+'"]');if(cb&&checks[f.key]!==undefined){cb.checked=checks[f.key];var inp=document.getElementById('inp_'+f.key);if(inp)inp.disabled=!cb.checked;}});
+  }
 }
 
 function initLang(){
   var bar=document.getElementById('langBar');
   var langs=['tr','en','de','es','fr','ru','ko','zh','ja'];
-  var labels={tr:'TR',en:'EN',de:'DE',es:'ES',fr:'FR',ru:'RU',ko:'\uD55C',zh:'\u4E2D',ja:'\u65E5'};
+  var labels={tr:'TR',en:'EN',de:'DE',es:'ES',fr:'FR',ru:'RU',ko:'KO',zh:'ZH',ja:'JA'};
   langs.forEach(function(l){
     var b=document.createElement('button');
     b.textContent=labels[l];b.dataset.l=l;

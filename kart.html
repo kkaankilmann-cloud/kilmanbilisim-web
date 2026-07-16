@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Dijital Kartvizit | K\u0131lman Bili\u015fim</title>
+<title>Dijital Kartvizit | Kılman Bilişim</title>
 <link rel="icon" href="/favicon.ico">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,20 +103,20 @@ a{color:inherit;text-decoration:none;}
 <body>
 <div class="kv-wrap">
 <div class="kv-lang" id="langBar"></div>
-<div id="kvLoading" class="kv-loading"><div class="kv-spinner"></div><p data-kvi="loading">Y\u00fckleniyor...</p></div>
-<div id="kvNotFound" class="kv-msg" style="display:none"><div class="kv-msg-icon">\uD83D\uDD0D</div><h2 data-kvi="not_found">Kart bulunamad\u0131</h2><p data-kvi="not_found_desc">Bu adreste bir dijital kartvizit bulunmuyor.</p><a href="https://kilmanbilisim.com" data-kvi="back_home">\u2190 Ana sayfaya d\u00f6n</a></div>
-<div id="kvNoPerm" class="kv-msg" style="display:none"><div class="kv-msg-icon">\uD83D\uDD12</div><h2 data-kvi="no_perm">D\u00fczenleme yetkiniz yok</h2><p data-kvi="no_perm_desc">Bu kart\u0131 d\u00fczenlemek i\u00e7in ge\u00e7erli bir anahtar gereklidir.</p><a href="https://kilmanbilisim.com" data-kvi="back_home">\u2190 Ana sayfaya d\u00f6n</a></div>
+<div id="kvLoading" class="kv-loading"><div class="kv-spinner"></div><p data-kvi="loading">Yükleniyor...</p></div>
+<div id="kvNotFound" class="kv-msg" style="display:none"><div class="kv-msg-icon">🔍</div><h2 data-kvi="not_found">Kart bulunamadı</h2><p data-kvi="not_found_desc">Bu adreste bir dijital kartvizit bulunmuyor.</p><a href="https://kilmanbilisim.com" data-kvi="back_home">← Ana sayfaya dön</a></div>
+<div id="kvNoPerm" class="kv-msg" style="display:none"><div class="kv-msg-icon">🔒</div><h2 data-kvi="no_perm">Düzenleme yetkiniz yok</h2><p data-kvi="no_perm_desc">Bu kartı düzenlemek için geçerli bir anahtar gereklidir.</p><a href="https://kilmanbilisim.com" data-kvi="back_home">← Ana sayfaya dön</a></div>
 <div id="kvView" style="display:none">
   <div class="kv-profile"><div id="kvAvatar"></div><div class="kv-name" id="kvName"></div><div class="kv-unvan" id="kvUnvan"></div><div class="kv-sirket" id="kvSirket"></div></div>
   <div class="kv-actions" id="kvActions"></div>
 </div>
 <div id="kvEdit" style="display:none">
-  <div class="kv-profile"><div class="kv-name" data-kvi="edit_title">Kartvizit D\u00fczenle</div><p style="color:var(--text-muted);font-size:0.85rem;margin-top:4px" data-kvi="edit_desc">Bilgilerinizi girin ve hangi alanlar\u0131 g\u00f6stermek istedi\u011finizi se\u00e7in.</p></div>
+  <div class="kv-profile"><div class="kv-name" data-kvi="edit_title">Kartvizit Düzenle</div><p style="color:var(--text-muted);font-size:0.85rem;margin-top:4px" data-kvi="edit_desc">Bilgilerinizi girin ve hangi alanları göstermek istediğinizi seçin.</p></div>
   <div id="kvAlert" class="kv-alert ok"></div>
-  <a id="kvVLink" href="#" class="kv-vlink" style="display:none" data-kvi="view_card">\u2192 Kartvizitinizi g\u00f6r\u00fcnt\u00fcleyin</a>
+  <a id="kvVLink" href="#" class="kv-vlink" style="display:none" data-kvi="view_card">→ Kartvizitinizi görüntüleyin</a>
   <form id="kvForm" class="kv-edit-form" onsubmit="return saveCard(event)"></form>
 </div>
-<div class="kv-footer"><a href="https://kilmanbilisim.com" target="_blank" data-kvi="powered_by">K\u0131lman Bili\u015fim taraf\u0131ndan haz\u0131rlanm\u0131\u015ft\u0131r</a></div>
+<div class="kv-footer"><a href="https://kilmanbilisim.com" target="_blank" data-kvi="powered_by">Kılman Bilişim tarafından hazırlanmıştır</a></div>
 </div>
 
 <script>

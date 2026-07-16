@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Dijital Kartvizit | K\u0131lman Bili\u015fim</title>
+<link rel="icon" href="/favicon.ico">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0e1a;--bg-card:#111827;--border:rgba(255,255,255,0.06);--text:#e2e8f0;--text-muted:#94a3b8;--neon:#00D4FF;--neon-dim:rgba(0,212,255,0.08);--purple:#8B5CF6;--font-ui:'Inter',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-ui);background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+
+.kv-wrap{max-width:440px;margin:0 auto;padding:20px 16px 40px;min-height:100vh;position:relative;}
+
+/* Lang */
+.kv-lang{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;margin-bottom:20px;}
+.kv-lang button{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 8px;border-radius:6px;font-size:0.7rem;cursor:pointer;font-family:var(--font-ui);transition:border-color 0.3s ease,color 0.3s ease;}
+.kv-lang button.active{border-color:var(--neon);color:var(--neon);}
+.kv-lang button:hover{border-color:rgba(0,212,255,0.3);}
+
+/* Loading */
+.kv-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;}
+.kv-spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--neon);border-radius:50%;animation:kvspin 0.8s linear infinite;}
+@keyframes kvspin{to{transform:rotate(360deg);}}
+
+/* Error / No Permission */
+.kv-msg{text-align:center;padding:60px 20px;}
+.kv-msg-icon{font-size:3rem;margin-bottom:16px;}
+.kv-msg h2{font-size:1.2rem;margin-bottom:8px;}
+.kv-msg p{color:var(--text-muted);font-size:0.9rem;line-height:1.5;}
+.kv-msg a{color:var(--neon);display:inline-block;margin-top:16px;font-size:0.85rem;}
+
+/* Profile */
+.kv-profile{text-align:center;padding:30px 0 20px;}
+.kv-avatar{width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid var(--neon);display:block;margin:0 auto 16px;}
+.kv-avatar-ph{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--neon),var(--purple));display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;color:#fff;margin:0 auto 16px;}
+.kv-name{font-size:1.5rem;font-weight:700;margin-bottom:4px;}
+.kv-unvan{color:var(--text-muted);font-size:0.9rem;margin-bottom:2px;}
+.kv-sirket{color:var(--neon);font-size:0.85rem;font-weight:600;}
+
+/* Buttons */
+.kv-actions{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+.kv-btn{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:0.9rem;font-weight:500;transition:border-color 0.3s ease,transform 0.2s ease;cursor:pointer;}
+.kv-btn:hover{border-color:rgba(0,212,255,0.3);transform:translateY(-1px);}
+.kv-ic{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.kv-ic.phone{background:rgba(34,197,94,0.15);color:#22c55e;}
+.kv-ic.wa{background:rgba(37,211,102,0.15);color:#25d366;}
+.kv-ic.mail{background:rgba(59,130,246,0.15);color:#3b82f6;}
+.kv-ic.web{background:rgba(139,92,246,0.15);color:#8b5cf6;}
+.kv-ic.addr{background:rgba(239,68,68,0.15);color:#ef4444;}
+.kv-ic.ig{background:rgba(225,48,108,0.15);color:#e1306c;}
+.kv-ic.li{background:rgba(0,119,181,0.15);color:#0077b5;}
+.kv-ic.tg{background:rgba(0,136,204,0.15);color:#0088cc;}
+.kv-ic.tw{background:rgba(29,161,242,0.15);color:#1da1f2;}
+.kv-ic.fb{background:rgba(24,119,242,0.15);color:#1877f2;}
+.kv-ic.vc{background:linear-gradient(135deg,rgba(0,212,255,0.15),rgba(139,92,246,0.15));color:var(--neon);}
+.kv-btn-sub{color:var(--text-muted);font-size:0.78rem;font-weight:400;display:block;margin-top:2px;}
+.kv-save-btn{background:linear-gradient(135deg,var(--neon),var(--purple));border:none;color:#fff;font-weight:600;justify-content:center;font-size:0.95rem;margin-top:10px;}
+.kv-save-btn:hover{filter:brightness(1.15);transform:translateY(-1px);}
+
+/* Footer */
+.kv-footer{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid var(--border);}
+.kv-footer a{color:var(--text-muted);font-size:0.75rem;transition:color 0.3s ease;}
+.kv-footer a:hover{color:var(--neon);}
+
+/* ── EDIT MODE ── */
+.kv-edit-form{display:flex;flex-direction:column;gap:14px;margin-top:20px;}
+.kv-field{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+.kv-fh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.kv-fl{font-size:0.78rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;}
+.kv-tgl{position:relative;width:40px;height:22px;flex-shrink:0;}
+.kv-tgl input{opacity:0;width:0;height:0;}
+.kv-tgl .sl{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#374151;border-radius:22px;transition:background 0.3s ease;}
+.kv-tgl .sl::before{content:'';position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:white;border-radius:50%;transition:transform 0.3s ease;}
+.kv-tgl input:checked+.sl{background:var(--neon);}
+.kv-tgl input:checked+.sl::before{transform:translateX(18px);}
+.kv-inp{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--text);font-size:0.88rem;font-family:var(--font-ui);outline:none;transition:border-color 0.3s ease;}
+.kv-inp:focus{border-color:var(--neon);}
+.kv-inp::placeholder{color:#4b5563;}
+.kv-inp:disabled{opacity:0.4;cursor:not-allowed;}
+.kv-photo-row{display:flex;align-items:center;gap:16px;}
+.kv-photo-prev{width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid var(--border);}
+.kv-photo-ph{width:70px;height:70px;border-radius:50%;background:var(--bg);border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--text-muted);}
+.kv-up-btn{background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);color:var(--neon);padding:8px 16px;border-radius:8px;font-size:0.8rem;cursor:pointer;font-family:var(--font-ui);transition:filter 0.3s ease;}
+.kv-up-btn:hover{filter:brightness(1.2);}
+.kv-submit{background:linear-gradient(135deg,var(--neon),var(--purple));border:none;color:#fff;padding:14px;border-radius:12px;font-size:0.95rem;font-weight:600;cursor:pointer;font-family:var(--font-ui);transition:filter 0.3s ease,transform 0.2s ease;margin-top:8px;width:100%;}
+.kv-submit:hover{filter:brightness(1.15);transform:translateY(-1px);}
+.kv-submit:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+.kv-alert{border-radius:12px;padding:14px 16px;font-size:0.88rem;text-align:center;display:none;}
+.kv-alert.ok{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);color:#22c55e;}
+.kv-alert.err{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);color:#ef4444;}
+.kv-alert.show{display:block;}
+.kv-vlink{display:block;text-align:center;margin-top:12px;color:var(--neon);font-size:0.85rem;}
+.kv-vlink:hover{text-decoration:underline;}
+
+@media(max-width:480px){.kv-wrap{padding:16px 12px 30px;} .kv-name{font-size:1.3rem;}}
+</style>
+</head>
+<body>
+<div class="kv-wrap">
+<div class="kv-lang" id="langBar"></div>
+<div id="kvLoading" class="kv-loading"><div class="kv-spinner"></div><p data-kvi="loading">Y\u00fckleniyor...</p></div>
+<div id="kvNotFound" class="kv-msg" style="display:none"><div class="kv-msg-icon">\uD83D\uDD0D</div><h2 data-kvi="not_found">Kart bulunamad\u0131</h2><p data-kvi="not_found_desc">Bu adreste bir dijital kartvizit bulunmuyor.</p><a href="https://kilmanbilisim.com" data-kvi="back_home">\u2190 Ana sayfaya d\u00f6n</a></div>
+<div id="kvNoPerm" class="kv-msg" style="display:none"><div class="kv-msg-icon">\uD83D\uDD12</div><h2 data-kvi="no_perm">D\u00fczenleme yetkiniz yok</h2><p data-kvi="no_perm_desc">Bu kart\u0131 d\u00fczenlemek i\u00e7in ge\u00e7erli bir anahtar gereklidir.</p><a href="https://kilmanbilisim.com" data-kvi="back_home">\u2190 Ana sayfaya d\u00f6n</a></div>
+<div id="kvView" style="display:none">
+  <div class="kv-profile"><div id="kvAvatar"></div><div class="kv-name" id="kvName"></div><div class="kv-unvan" id="kvUnvan"></div><div class="kv-sirket" id="kvSirket"></div></div>
+  <div class="kv-actions" id="kvActions"></div>
+</div>
+<div id="kvEdit" style="display:none">
+  <div class="kv-profile"><div class="kv-name" data-kvi="edit_title">Kartvizit D\u00fczenle</div><p style="color:var(--text-muted);font-size:0.85rem;margin-top:4px" data-kvi="edit_desc">Bilgilerinizi girin ve hangi alanlar\u0131 g\u00f6stermek istedi\u011finizi se\u00e7in.</p></div>
+  <div id="kvAlert" class="kv-alert ok"></div>
+  <a id="kvVLink" href="#" class="kv-vlink" style="display:none" data-kvi="view_card">\u2192 Kartvizitinizi g\u00f6r\u00fcnt\u00fcleyin</a>
+  <form id="kvForm" class="kv-edit-form" onsubmit="return saveCard(event)"></form>
+</div>
+<div class="kv-footer"><a href="https://kilmanbilisim.com" target="_blank" data-kvi="powered_by">K\u0131lman Bili\u015fim taraf\u0131ndan haz\u0131rlanm\u0131\u015ft\u0131r</a></div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+var SB_URL='https://glpwxyaqcaqyiupesyay.supabase.co';
+var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdscHd4eWFxY2FxeWl1cGVzeWF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3NDU1NDIsImV4cCI6MjA5NzMyMTU0Mn0.iuK71d5caVQzpRWAA0rfMy24Ne5KGsie9T7F6Ku5M5g';
+
+// ─── i18n (9 dil, simetrik) ───
+var T = {
+tr:{loading:'Y\u00fckleniyor...',not_found:'Kart bulunamad\u0131',not_found_desc:'Bu adreste bir dijital kartvizit bulunmuyor.',no_perm:'D\u00fczenleme yetkiniz yok',no_perm_desc:'Bu kart\u0131 d\u00fczenlemek i\u00e7in ge\u00e7erli bir anahtar gereklidir.',back_home:'\u2190 Ana sayfaya d\u00f6n',call:'Ara',wa_msg:'WhatsApp\'tan yaz',send_email:'E-posta g\u00f6nder',visit_web:'Web sitesini ziyaret et',go_addr:'Adrese git',save_contact:'\uD83D\uDCBE Rehbere Ekle',ig_label:'Instagram',li_label:'LinkedIn',tg_label:'Telegram',tw_label:'X (Twitter)',fb_label:'Facebook',edit_title:'Kartvizit D\u00fczenle',edit_desc:'Bilgilerinizi girin ve hangi alanlar\u0131 g\u00f6stermek istedi\u011finizi se\u00e7in.',save_btn:'Kaydet',saving:'Kaydediliyor...',save_ok:'Kartvizitiniz ba\u015far\u0131yla g\u00fcncellendi!',save_err:'Bir hata olu\u015ftu. L\u00fctfen tekrar deneyin.',view_card:'\u2192 Kartvizitinizi g\u00f6r\u00fcnt\u00fcleyin',powered_by:'K\u0131lman Bili\u015fim taraf\u0131ndan haz\u0131rlanm\u0131\u015ft\u0131r',f_ad_soyad:'Ad Soyad',f_unvan:'\u00dcnvan',f_sirket:'\u015eirket',f_telefon:'Telefon',f_whatsapp:'WhatsApp',f_eposta:'E-posta',f_web:'Web Sitesi',f_adres:'Adres',f_instagram:'Instagram',f_linkedin:'LinkedIn',f_telegram:'Telegram',f_x_twitter:'X (Twitter)',f_facebook:'Facebook',f_foto:'Profil Foto\u011fraf\u0131',upload:'Foto\u011fraf Y\u00fckle'},
+en:{loading:'Loading...',not_found:'Card not found',not_found_desc:'No digital business card found at this address.',no_perm:'No edit permission',no_perm_desc:'A valid key is required to edit this card.',back_home:'\u2190 Back to homepage',call:'Call',wa_msg:'Message on WhatsApp',send_email:'Send email',visit_web:'Visit website',go_addr:'Get directions',save_contact:'\uD83D\uDCBE Save to Contacts',ig_label:'Instagram',li_label:'LinkedIn',tg_label:'Telegram',tw_label:'X (Twitter)',fb_label:'Facebook',edit_title:'Edit Business Card',edit_desc:'Enter your information and choose which fields to display.',save_btn:'Save',saving:'Saving...',save_ok:'Your business card has been updated!',save_err:'An error occurred. Please try again.',view_card:'\u2192 View your business card',powered_by:'Powered by K\u0131lman Bili\u015fim',f_ad_soyad:'Full Name',f_unvan:'Job Title',f_sirket:'Company',f_telefon:'Phone',f_whatsapp:'WhatsApp',f_eposta:'Email',f_web:'Website',f_adres:'Address',f_instagram:'Instagram',f_linkedin:'LinkedIn',f_telegram:'Telegram',f_x_twitter:'X (Twitter)',f_facebook:'Facebook',f_foto:'Profile Photo',upload:'Upload Photo'},
+de:{loading:'Laden...',not_found:'Karte nicht gefunden',not_found_desc:'Unter dieser Adresse wurde keine digitale Visitenkarte gefunden.',no_perm:'Keine Berechtigung',no_perm_desc:'Zum Bearbeiten dieser Karte ist ein g\u00fcltiger Schl\u00fcssel erforderlich.',back_home:'\u2190 Zur Startseite',call:'Anrufen',wa_msg:'WhatsApp Nachricht',send_email:'E-Mail senden',visit_web:'Website besuchen',go_addr:'Route planen',save_contact:'\uD83D\uDCBE Kontakt speichern',ig_label:'Instagram',li_label:'LinkedIn',tg_label:'Telegram',tw_label:'X (Twitter)',fb_label:'Facebook',edit_title:'Visitenkarte bearbeiten',edit_desc:'Geben Sie Ihre Daten ein und w\u00e4hlen Sie die anzuzeigenden Felder.',save_btn:'Speichern',saving:'Speichern...',save_ok:'Ihre Visitenkarte wurde aktualisiert!',save_err:'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.',view_card:'\u2192 Ihre Visitenkarte anzeigen',powered_by:'Erstellt von K\u0131lman Bili\u015fim',f_ad_soyad:'Vollst\u00e4ndiger Name',f_unvan:'Berufsbezeichnung',f_sirket:'Unternehmen',f_telefon:'Telefon',f_whatsapp:'WhatsApp',f_eposta:'E-Mail',f_web:'Website',f_adres:'Adresse',f_instagram:'Instagram',f_linkedin:'LinkedIn',f_telegram:'Telegram',f_x_twitter:'X (Twitter)',f_facebook:'Facebook',f_foto:'Profilfoto',upload:'Foto hochladen'},
+es:{loading:'Cargando...',not_found:'Tarjeta no encontrada',not_found_desc:'No se encontr\u00f3 tarjeta digital en esta direcci\u00f3n.',no_perm:'Sin permiso',no_perm_desc:'Se necesita una clave v\u00e1lida para editar esta tarjeta.',back_home:'\u2190 Volver al inicio',call:'Llamar',wa_msg:'Mensaje por WhatsApp',send_email:'Enviar email',visit_web:'Visitar sitio web',go_addr:'C\u00f3mo llegar',save_contact:'\uD83D\uDCBE Guardar contacto',ig_label:'Instagram',li_label:'LinkedIn',tg_label:'Telegram',tw_label:'X (Twitter)',fb_label:'Facebook',edit_title:'Editar tarjeta',edit_desc:'Ingrese su informaci\u00f3n y elija los campos a mostrar.',save_btn:'Guardar',saving:'Guardando...',save_ok:'\u00a1Tarjeta actualizada correctamente!',save_err:'Error. Int\u00e9ntelo de nuevo.',view_card:'\u2192 Ver su tarjeta',powered_by:'Creado por K\u0131lman Bili\u015fim',f_ad_soyad:'Nombre completo',f_unvan:'Cargo',f_sirket:'Empresa',f_telefon:'Tel\u00e9fono',f_whatsapp:'WhatsApp',f_eposta:'Email',f_web:'Sitio web',f_adres:'Direcci\u00f3n',f_instagram:'Instagram',f_linkedin:'LinkedIn',f_telegram:'Telegram',f_x_twitter:'X (Twitter)',f_facebook:'Facebook',f_foto:'Foto de perfil',upload:'Subir foto'},
+fr:{loading:'Chargement...',not_found:'Carte introuvable',not_found_desc:'Aucune carte de visite num\u00e9rique trouv\u00e9e.',no_perm:'Acc\u00e8s refus\u00e9',no_perm_desc:'Une cl\u00e9 valide est requise pour modifier cette carte.',back_home:'\u2190 Retour \u00e0 l\'accueil',call:'Appeler',wa_msg:'Message WhatsApp',send_email:'Envoyer un email',visit_web:'Visiter le site',go_addr:'Itin\u00e9raire',save_contact:'\uD83D\uDCBE Ajouter aux contacts',ig_label:'Instagram',li_label:'LinkedIn',tg_label:'Telegram',tw_label:'X (Twitter)',fb_label:'Facebook',edit_title:'Modifier la carte',edit_desc:'Entrez vos informations et choisissez les champs \u00e0 afficher.',save_btn:'Enregistrer',saving:'Enregistrement...',save_ok:'Votre carte a \u00e9t\u00e9 mise \u00e0 jour !',save_err:'Erreur. Veuillez r\u00e9essayer.',view_card:'\u2192 Voir votre carte',powered_by:'Cr\u00e9\u00e9 par K\u0131lman Bili\u015fim',f_ad_soyad:'Nom complet',f_unvan:'Titre',f_sirket:'Entreprise',f_telefon:'T\u00e9l\u00e9phone',f_whatsapp:'WhatsApp',f_eposta:'Email',f_web:'Site web',f_adres:'Adresse',f_instagram:'Instagram',f_linkedin:'LinkedIn',f_telegram:'Telegram',f_x_twitter:'X (Twitter)',f_facebook:'Facebook',f_foto:'Photo de profil',upload:'T\u00e9l\u00e9charger'},
+ru:{loading:'\u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430...',not_found:'\u041a\u0430\u0440\u0442\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430',not_found_desc:'\u041f\u043e \u044d\u0442\u043e\u043c\u0443 \u0430\u0434\u0440\u0435\u0441\u0443 \u043d\u0435\u0442 \u0446\u0438\u0444\u0440\u043e\u0432\u043e\u0439 \u0432\u0438\u0437\u0438\u0442\u043a\u0438.',no_perm:'\u041d\u0435\u0442 \u0434\u043e\u0441\u0442\u0443\u043f\u0430',no_perm_desc:'\u0414\u043b\u044f \u0440\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u043d\u0443\u0436\u0435\u043d \u043a\u043b\u044e\u0447.',back_home:'\u2190 \u041d\u0430 \u0433\u043b\u0430\u0432\u043d\u0443\u044e',call:'\u041f\u043e\u0437\u0432\u043e\u043d\u0438\u0442\u044c',wa_msg:'\u041d\u0430\u043f\u0438\u0441\u0430\u0442\u044c \u0432 WhatsApp',send_email:'\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c email',visit_web:'\u041e\u0442\u043a\u0440\u044b\u0442\u044c \u0441\u0430\u0439\u0442',go_addr:'\u041c\u0430\u0440\u0448\u0440\u0443\u0442',save_contact:'\uD83D\uDCBE \u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c \u043a\u043e\u043d\u0442\u0430\u043a\u0442',ig_label:'Instagram',li_label:'LinkedIn',tg_label:'Telegram',tw_label:'X (Twitter)',fb_label:'Facebook',edit_title:'\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432\u0438\u0437\u0438\u0442\u043a\u0443',edit_desc:'\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0430\u043d\u043d\u044b\u0435 \u0438 \u0432\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043e\u0442\u043e\u0431\u0440\u0430\u0436\u0430\u0435\u043c\u044b\u0435 \u043f\u043e\u043b\u044f.',save_btn:'\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c',saving:'\u0421\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0438\u0435...',save_ok:'\u0412\u0438\u0437\u0438\u0442\u043a\u0430 \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0430!',save_err:'\u041e\u0448\u0438\u0431\u043a\u0430. \u041f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u0441\u043d\u043e\u0432\u0430.',view_card:'\u2192 \u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0432\u0438\u0437\u0438\u0442\u043a\u0443',powered_by:'\u0421\u043e\u0437\u0434\u0430\u043d\u043e K\u0131lman Bili\u015fim',f_ad_soyad:'\u0418\u043c\u044f',f_unvan:'\u0414\u043e\u043b\u0436\u043d\u043e\u0441\u0442\u044c',f_sirket:'\u041a\u043e\u043c\u043f\u0430\u043d\u0438\u044f',f_telefon:'\u0422\u0435\u043b\u0435\u0444\u043e\u043d',f_whatsapp:'WhatsApp',f_eposta:'Email',f_web:'\u0421\u0430\u0439\u0442',f_adres:'\u0410\u0434\u0440\u0435\u0441',f_instagram:'Instagram',f_linkedin:'LinkedIn',f_telegram:'Telegram',f_x_twitter:'X (Twitter)',f_facebook:'Facebook',f_foto:'\u0424\u043e\u0442\u043e',upload:'\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c'},
+ko:{loading:'\uB85C\uB529 \uC911...',not_found:'\uCE74\uB4DC\uB97C \uCC3E\uC744 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4',not_found_desc:'\uC774 \uC8FC\uC18C\uC5D0 \uB514\uC9C0\uD138 \uBA85\uD568\uC774 \uC5C6\uC2B5\uB2C8\uB2E4.',no_perm:'\uAD8C\uD55C \uC5C6\uC74C',no_perm_desc:'\uC774 \uCE74\uB4DC\uB97C \uD3B8\uC9D1\uD558\uB824\uBA74 \uC720\uD6A8\uD55C \uD0A4\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4.',back_home:'\u2190 \uD648\uC73C\uB85C',call:'\uC804\uD654',wa_msg:'WhatsApp \uBA54\uC2DC\uC9C0',send_email:'\uC774\uBA54\uC77C \uBCF4\uB0B4\uAE30',visit_web:'\uC6F9\uC0AC\uC774\uD2B8 \uBC29\uBB38',go_addr:'\uAE38\uCC3E\uAE30',save_contact:'\uD83D\uDCBE \uC5F0\uB77D\uCC98 \uC800\uC7A5',ig_label:'Instagram',li_label:'LinkedIn',tg_label:'Telegram',tw_label:'X (Twitter)',fb_label:'Facebook',edit_title:'\uBA85\uD568 \uD3B8\uC9D1',edit_desc:'\uC815\uBCF4\uB97C \uC785\uB825\uD558\uACE0 \uD45C\uC2DC\uD560 \uD544\uB4DC\uB97C \uC120\uD0DD\uD558\uC138\uC694.',save_btn:'\uC800\uC7A5',saving:'\uC800\uC7A5 \uC911...',save_ok:'\uBA85\uD568\uC774 \uC5C5\uB370\uC774\uD2B8\uB418\uC5C8\uC2B5\uB2C8\uB2E4!',save_err:'\uC624\uB958 \uBC1C\uC0DD. \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uC138\uC694.',view_card:'\u2192 \uBA85\uD568 \uBCF4\uAE30',powered_by:'K\u0131lman Bili\u015fim \uC81C\uACF5',f_ad_soyad:'\uC774\uB984',f_unvan:'\uC9C1\uD568',f_sirket:'\uD68C\uC0AC',f_telefon:'\uC804\uD654',f_whatsapp:'WhatsApp',f_eposta:'\uC774\uBA54\uC77C',f_web:'\uC6F9\uC0AC\uC774\uD2B8',f_adres:'\uC8FC\uC18C',f_instagram:'Instagram',f_linkedin:'LinkedIn',f_telegram:'Telegram',f_x_twitter:'X (Twitter)',f_facebook:'Facebook',f_foto:'\uD504\uB85C\uD544 \uC0AC\uC9C4',upload:'\uC5C5\uB85C\uB4DC'},
+zh:{loading:'\u52A0\u8F7D\u4E2D...',not_found:'\u672A\u627E\u5230\u540D\u7247',not_found_desc:'\u8BE5\u5730\u5740\u6CA1\u6709\u6570\u5B57\u540D\u7247\u3002',no_perm:'\u65E0\u6743\u9650',no_perm_desc:'\u7F16\u8F91\u6B64\u540D\u7247\u9700\u8981\u6709\u6548\u5BC6\u94A5\u3002',back_home:'\u2190 \u8FD4\u56DE\u9996\u9875',call:'\u62E8\u6253\u7535\u8BDD',wa_msg:'WhatsApp\u6D88\u606F',send_email:'\u53D1\u9001\u90AE\u4EF6',visit_web:'\u8BBF\u95EE\u7F51\u7AD9',go_addr:'\u5BFC\u822A',save_contact:'\uD83D\uDCBE \u4FDD\u5B58\u8054\u7CFB\u4EBA',ig_label:'Instagram',li_label:'LinkedIn',tg_label:'Telegram',tw_label:'X (Twitter)',fb_label:'Facebook',edit_title:'\u7F16\u8F91\u540D\u7247',edit_desc:'\u8F93\u5165\u60A8\u7684\u4FE1\u606F\u5E76\u9009\u62E9\u8981\u663E\u793A\u7684\u5B57\u6BB5\u3002',save_btn:'\u4FDD\u5B58',saving:'\u4FDD\u5B58\u4E2D...',save_ok:'\u540D\u7247\u5DF2\u66F4\u65B0\uFF01',save_err:'\u9519\u8BEF\u3002\u8BF7\u91CD\u8BD5\u3002',view_card:'\u2192 \u67E5\u770B\u540D\u7247',powered_by:'K\u0131lman Bili\u015fim \u5236\u4F5C',f_ad_soyad:'\u59D3\u540D',f_unvan:'\u804C\u52A1',f_sirket:'\u516C\u53F8',f_telefon:'\u7535\u8BDD',f_whatsapp:'WhatsApp',f_eposta:'\u90AE\u7BB1',f_web:'\u7F51\u7AD9',f_adres:'\u5730\u5740',f_instagram:'Instagram',f_linkedin:'LinkedIn',f_telegram:'Telegram',f_x_twitter:'X (Twitter)',f_facebook:'Facebook',f_foto:'\u5934\u50CF',upload:'\u4E0A\u4F20\u7167\u7247'},
+ja:{loading:'\u8AAD\u307F\u8FBC\u307F\u4E2D...',not_found:'\u30AB\u30FC\u30C9\u304C\u898B\u3064\u304B\u308A\u307E\u305B\u3093',not_found_desc:'\u3053\u306E\u30A2\u30C9\u30EC\u30B9\u306B\u30C7\u30B8\u30BF\u30EB\u540D\u523A\u306F\u3042\u308A\u307E\u305B\u3093\u3002',no_perm:'\u6A29\u9650\u306A\u3057',no_perm_desc:'\u3053\u306E\u30AB\u30FC\u30C9\u306E\u7DE8\u96C6\u306B\u306F\u6709\u52B9\u306A\u30AD\u30FC\u304C\u5FC5\u8981\u3067\u3059\u3002',back_home:'\u2190 \u30DB\u30FC\u30E0\u3078',call:'\u96FB\u8A71',wa_msg:'WhatsApp\u30E1\u30C3\u30BB\u30FC\u30B8',send_email:'\u30E1\u30FC\u30EB\u9001\u4FE1',visit_web:'\u30B5\u30A4\u30C8\u8A2A\u554F',go_addr:'\u30EB\u30FC\u30C8\u691C\u7D22',save_contact:'\uD83D\uDCBE \u9023\u7D61\u5148\u3092\u4FDD\u5B58',ig_label:'Instagram',li_label:'LinkedIn',tg_label:'Telegram',tw_label:'X (Twitter)',fb_label:'Facebook',edit_title:'\u540D\u523A\u3092\u7DE8\u96C6',edit_desc:'\u60C5\u5831\u3092\u5165\u529B\u3057\u3001\u8868\u793A\u3059\u308B\u9805\u76EE\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044\u3002',save_btn:'\u4FDD\u5B58',saving:'\u4FDD\u5B58\u4E2D...',save_ok:'\u540D\u523A\u304C\u66F4\u65B0\u3055\u308C\u307E\u3057\u305F\uFF01',save_err:'\u30A8\u30E9\u30FC\u3002\u3082\u3046\u4E00\u5EA6\u304A\u8A66\u3057\u304F\u3060\u3055\u3044\u3002',view_card:'\u2192 \u540D\u523A\u3092\u898B\u308B',powered_by:'K\u0131lman Bili\u015fim \u63D0\u4F9B',f_ad_soyad:'\u6C0F\u540D',f_unvan:'\u5F79\u8077',f_sirket:'\u4F1A\u793E',f_telefon:'\u96FB\u8BDD',f_whatsapp:'WhatsApp',f_eposta:'\u30E1\u30FC\u30EB',f_web:'\u30B5\u30A4\u30C8',f_adres:'\u4F4F\u6240',f_instagram:'Instagram',f_linkedin:'LinkedIn',f_telegram:'Telegram',f_x_twitter:'X (Twitter)',f_facebook:'Facebook',f_foto:'\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u5199\u771F',upload:'\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9'}
+};
+
+// ─── Editable fields config ───
+var FIELDS=[
+  {key:'ad_soyad',icon:'',required:true,noToggle:true},
+  {key:'unvan',icon:''},
+  {key:'sirket',icon:''},
+  {key:'telefon',icon:'\uD83D\uDCDE',cls:'phone',type:'tel'},
+  {key:'whatsapp',icon:'\uD83D\uDCAC',cls:'wa',type:'tel'},
+  {key:'eposta',icon:'\u2709\uFE0F',cls:'mail',type:'email'},
+  {key:'web',icon:'\uD83C\uDF10',cls:'web',type:'url'},
+  {key:'adres',icon:'\uD83D\uDCCD',cls:'addr'},
+  {key:'instagram',icon:'\uD83D\uDCF7',cls:'ig'},
+  {key:'linkedin',icon:'\uD83D\uDCBC',cls:'li'},
+  {key:'telegram',icon:'\u2708\uFE0F',cls:'tg'},
+  {key:'x_twitter',icon:'\uD835\uDD4F',cls:'tw'},
+  {key:'facebook',icon:'\uD83D\uDC64',cls:'fb'}
+];
+
+// ─── State ───
+var lang='tr';
+var slug='';
+var isEdit=false;
+var editKey='';
+var card=null;
+var photoFile=null;
+
+// ─── URL Parse ───
+var pp=window.location.pathname.split('/').filter(Boolean);
+slug=pp[1]||'';
+isEdit=(pp[2]==='duzenle');
+editKey=new URLSearchParams(window.location.search).get('key')||'';
+
+// ─── Supabase RPC ───
+function rpc(fn,params){
+  return fetch(SB_URL+'/rest/v1/rpc/'+fn,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},
+    body:JSON.stringify(params)
+  }).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();});
+}
+
+function uploadPhoto(file){
+  var ext=file.name.split('.').pop().toLowerCase();
+  var path=slug+'_'+Date.now()+'.'+ext;
+  return fetch(SB_URL+'/storage/v1/object/kartvizit-fotolar/'+path,{
+    method:'POST',
+    headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':file.type,'x-upsert':'true'},
+    body:file
+  }).then(function(r){if(!r.ok)throw new Error('Upload:'+r.status);return SB_URL+'/storage/v1/object/public/kartvizit-fotolar/'+path;});
+}
+
+// ─── Lang ───
+function txt(k){return (T[lang]&&T[lang][k])||k;}
+function setLang(l){
+  lang=l;
+  sessionStorage.setItem('kv_lang',l);
+  document.querySelectorAll('.kv-lang button').forEach(function(b){b.classList.toggle('active',b.dataset.l===l);});
+  document.querySelectorAll('[data-kvi]').forEach(function(el){el.textContent=txt(el.dataset.kvi);});
+  // Re-render actions in view mode
+  if(card&&!isEdit)renderView();
+}
+
+function initLang(){
+  var bar=document.getElementById('langBar');
+  var langs=['tr','en','de','es','fr','ru','ko','zh','ja'];
+  var labels={tr:'TR',en:'EN',de:'DE',es:'ES',fr:'FR',ru:'RU',ko:'\uD55C',zh:'\u4E2D',ja:'\u65E5'};
+  langs.forEach(function(l){
+    var b=document.createElement('button');
+    b.textContent=labels[l];b.dataset.l=l;
+    b.onclick=function(){setLang(l);};
+    bar.appendChild(b);
+  });
+  // Detect lang
+  var saved=sessionStorage.getItem('kv_lang');
+  if(saved&&T[saved]){lang=saved;}
+  else{
+    var bl=(navigator.language||'tr').substring(0,2).toLowerCase();
+    if(T[bl])lang=bl;
+  }
+  setLang(lang);
+}
+
+// ─── Show/Hide sections ───
+function show(id){document.getElementById(id).style.display='';}
+function hide(id){document.getElementById(id).style.display='none';}
+
+// ─── VIEW MODE ───
+function renderView(){
+  var vis=card.gorunur_alanlar||[];
+  var av=document.getElementById('kvAvatar');
+  var isVis=function(k){return vis.indexOf(k)!==-1;};
+  // Avatar
+  if(card.profil_foto_url){
+    av.innerHTML='<img class="kv-avatar" src="'+card.profil_foto_url+'" alt="">';
+  }else{
+    var initials=(card.ad_soyad||'?').split(' ').map(function(w){return w[0];}).join('').substring(0,2).toUpperCase();
+    av.innerHTML='<div class="kv-avatar-ph">'+initials+'</div>';
+  }
+  document.getElementById('kvName').textContent=card.ad_soyad||'';
+  document.getElementById('kvName').style.display=(isVis('ad_soyad')&&card.ad_soyad)?'':'none';
+  document.getElementById('kvUnvan').textContent=card.unvan||'';
+  document.getElementById('kvUnvan').style.display=(isVis('unvan')&&card.unvan)?'':'none';
+  document.getElementById('kvSirket').textContent=card.sirket||'';
+  document.getElementById('kvSirket').style.display=(isVis('sirket')&&card.sirket)?'':'none';
+
+  var acts=document.getElementById('kvActions');
+  acts.innerHTML='';
+
+  var buttons=[];
+  if(isVis('telefon')&&card.telefon) buttons.push({href:'tel:'+card.telefon,icon:'\uD83D\uDCDE',cls:'phone',label:txt('call'),sub:card.telefon});
+  if(isVis('whatsapp')&&card.whatsapp){var wn=card.whatsapp.replace(/[^0-9]/g,'');buttons.push({href:'https://wa.me/'+wn,icon:'\uD83D\uDCAC',cls:'wa',label:txt('wa_msg'),sub:card.whatsapp});}
+  if(isVis('eposta')&&card.eposta) buttons.push({href:'mailto:'+card.eposta,icon:'\u2709\uFE0F',cls:'mail',label:txt('send_email'),sub:card.eposta});
+  if(isVis('web')&&card.web) buttons.push({href:card.web.indexOf('http')===0?card.web:'https://'+card.web,icon:'\uD83C\uDF10',cls:'web',label:txt('visit_web'),sub:card.web,target:'_blank'});
+  if(isVis('adres')&&card.adres) buttons.push({href:'https://maps.google.com/?q='+encodeURIComponent(card.adres),icon:'\uD83D\uDCCD',cls:'addr',label:txt('go_addr'),sub:card.adres,target:'_blank'});
+  if(isVis('instagram')&&card.instagram){var ig=card.instagram.replace('@','');buttons.push({href:'https://instagram.com/'+ig,icon:'\uD83D\uDCF7',cls:'ig',label:txt('ig_label'),sub:'@'+ig,target:'_blank'});}
+  if(isVis('linkedin')&&card.linkedin) buttons.push({href:card.linkedin.indexOf('http')===0?card.linkedin:'https://linkedin.com/in/'+card.linkedin,icon:'\uD83D\uDCBC',cls:'li',label:txt('li_label'),sub:card.linkedin,target:'_blank'});
+  if(isVis('telegram')&&card.telegram){var tgu=card.telegram.replace('@','');buttons.push({href:'https://t.me/'+tgu,icon:'\u2708\uFE0F',cls:'tg',label:txt('tg_label'),sub:'@'+tgu,target:'_blank'});}
+  if(isVis('x_twitter')&&card.x_twitter){var xu=card.x_twitter.replace('@','');buttons.push({href:'https://x.com/'+xu,icon:'\uD835\uDD4F',cls:'tw',label:txt('tw_label'),sub:'@'+xu,target:'_blank'});}
+  if(isVis('facebook')&&card.facebook) buttons.push({href:card.facebook.indexOf('http')===0?card.facebook:'https://facebook.com/'+card.facebook,icon:'\uD83D\uDC64',cls:'fb',label:txt('fb_label'),sub:card.facebook,target:'_blank'});
+
+  buttons.forEach(function(b){
+    var a=document.createElement('a');
+    a.className='kv-btn';a.href=b.href;if(b.target)a.target=b.target;
+    a.innerHTML='<div class="kv-ic '+b.cls+'">'+b.icon+'</div><div class="kv-btn-label">'+b.label+(b.sub?'<span class="kv-btn-sub">'+b.sub+'</span>':'')+'</div>';
+    acts.appendChild(a);
+  });
+
+  // vCard button
+  var vcBtn=document.createElement('button');
+  vcBtn.className='kv-btn kv-save-btn';
+  vcBtn.innerHTML=txt('save_contact');
+  vcBtn.onclick=downloadVCard;
+  acts.appendChild(vcBtn);
+}
+
+// ─── vCard ───
+function downloadVCard(){
+  var lines=['BEGIN:VCARD','VERSION:3.0'];
+  if(card.ad_soyad){
+    var parts=card.ad_soyad.split(' ');
+    var last=parts.length>1?parts[parts.length-1]:'';
+    var first=parts.slice(0,parts.length>1?parts.length-1:1).join(' ');
+    lines.push('N:'+last+';'+first+';;;');
+    lines.push('FN:'+card.ad_soyad);
+  }
+  if(card.unvan) lines.push('TITLE:'+card.unvan);
+  if(card.sirket) lines.push('ORG:'+card.sirket);
+  if(card.telefon) lines.push('TEL;TYPE=CELL:'+card.telefon);
+  if(card.eposta) lines.push('EMAIL:'+card.eposta);
+  if(card.web) lines.push('URL:'+card.web);
+  if(card.adres) lines.push('ADR;TYPE=WORK:;;'+card.adres+';;;;');
+  lines.push('END:VCARD');
+  var blob=new Blob([lines.join('\r\n')],{type:'text/vcard;charset=utf-8'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');
+  a.href=url;a.download=(card.ad_soyad||'kartvizit').replace(/\s+/g,'_')+'.vcf';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+// ─── EDIT MODE ───
+function renderEdit(){
+  var form=document.getElementById('kvForm');
+  form.innerHTML='';
+  var vis=card.gorunur_alanlar||[];
+
+  // Photo field
+  var photoHtml='<div class="kv-field"><div class="kv-fh"><span class="kv-fl">'+txt('f_foto')+'</span></div>';
+  photoHtml+='<div class="kv-photo-row">';
+  if(card.profil_foto_url){
+    photoHtml+='<img class="kv-photo-prev" id="photoPreview" src="'+card.profil_foto_url+'" alt="">';
+  }else{
+    photoHtml+='<div class="kv-photo-ph" id="photoPreview">\uD83D\uDCF7</div>';
+  }
+  photoHtml+='<label class="kv-up-btn">'+txt('upload')+'<input type="file" accept="image/*" id="photoInput" style="display:none" onchange="handlePhoto(this)"></label>';
+  photoHtml+='</div></div>';
+  form.insertAdjacentHTML('beforeend',photoHtml);
+
+  // Other fields
+  FIELDS.forEach(function(f){
+    var isOn=vis.indexOf(f.key)!==-1;
+    var val=card[f.key]||'';
+    var html='<div class="kv-field"><div class="kv-fh"><span class="kv-fl">'+txt('f_'+f.key)+'</span>';
+    if(!f.noToggle){
+      html+='<label class="kv-tgl"><input type="checkbox" data-field="'+f.key+'" '+(isOn?'checked':'')+' onchange="toggleField(this)"><span class="sl"></span></label>';
+    }
+    html+='</div>';
+    html+='<input class="kv-inp" id="inp_'+f.key+'" type="'+(f.type||'text')+'" placeholder="'+txt('f_'+f.key)+'" value="'+escHtml(val)+'"'+(f.noToggle?'':(!isOn?' disabled':''))+'>';
+    html+='</div>';
+    form.insertAdjacentHTML('beforeend',html);
+  });
+
+  // Submit button
+  form.insertAdjacentHTML('beforeend','<button type="submit" class="kv-submit" id="submitBtn">'+txt('save_btn')+'</button>');
+
+  // View link
+  var vl=document.getElementById('kvVLink');
+  vl.href='/kart/'+slug;
+}
+
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+// ─── Toggle field visibility ───
+window.toggleField=function(cb){
+  var key=cb.dataset.field;
+  var inp=document.getElementById('inp_'+key);
+  if(inp)inp.disabled=!cb.checked;
+};
+
+// ─── Photo upload handler ───
+window.handlePhoto=function(inp){
+  if(inp.files&&inp.files[0]){
+    photoFile=inp.files[0];
+    var reader=new FileReader();
+    reader.onload=function(e){
+      var prev=document.getElementById('photoPreview');
+      if(prev.tagName==='IMG'){prev.src=e.target.result;}
+      else{prev.outerHTML='<img class="kv-photo-prev" id="photoPreview" src="'+e.target.result+'" alt="">';}
+    };
+    reader.readAsDataURL(photoFile);
+  }
+};
+
+// ─── Save ───
+window.saveCard=function(e){
+  e.preventDefault();
+  var btn=document.getElementById('submitBtn');
+  var alert=document.getElementById('kvAlert');
+  btn.disabled=true;btn.textContent=txt('saving');
+  alert.classList.remove('show');
+
+  var veri={};
+  var gorunur=[];
+
+  // Collect fields
+  FIELDS.forEach(function(f){
+    var inp=document.getElementById('inp_'+f.key);
+    veri[f.key]=inp?inp.value:'';
+    if(f.noToggle){gorunur.push(f.key);return;}
+    var cb=document.querySelector('input[data-field="'+f.key+'"]');
+    if(cb&&cb.checked)gorunur.push(f.key);
+  });
+  veri.gorunur_alanlar=gorunur;
+  veri.profil_foto_url=card.profil_foto_url||'';
+
+  var doSave=function(){
+    rpc('update_kartvizit',{p_slug:slug,p_edit_key:editKey,p_veri:veri}).then(function(ok){
+      if(ok){
+        alert.className='kv-alert ok show';
+        alert.textContent=txt('save_ok');
+        document.getElementById('kvVLink').style.display='';
+        card=Object.assign(card,veri);
+        card.gorunur_alanlar=gorunur;
+      }else{
+        alert.className='kv-alert err show';
+        alert.textContent=txt('save_err');
+      }
+      btn.disabled=false;btn.textContent=txt('save_btn');
+    }).catch(function(){
+      alert.className='kv-alert err show';
+      alert.textContent=txt('save_err');
+      btn.disabled=false;btn.textContent=txt('save_btn');
+    });
+  };
+
+  if(photoFile){
+    uploadPhoto(photoFile).then(function(url){
+      veri.profil_foto_url=url;
+      card.profil_foto_url=url;
+      photoFile=null;
+      doSave();
+    }).catch(function(){
+      alert.className='kv-alert err show';
+      alert.textContent=txt('save_err');
+      btn.disabled=false;btn.textContent=txt('save_btn');
+    });
+  }else{
+    doSave();
+  }
+  return false;
+};
+
+// ─── INIT ───
+function init(){
+  initLang();
+  if(!slug){hide('kvLoading');show('kvNotFound');return;}
+
+  rpc('get_kartvizit',{p_slug:slug}).then(function(data){
+    hide('kvLoading');
+    if(!data||!data.length||(Array.isArray(data)&&data.length===0)){show('kvNotFound');return;}
+    card=Array.isArray(data)?data[0]:data;
+    if(!card||!card.slug){show('kvNotFound');return;}
+
+    if(isEdit){
+      if(!editKey){show('kvNoPerm');return;}
+      rpc('verify_edit_key',{p_slug:slug,p_edit_key:editKey}).then(function(ok){
+        if(ok){show('kvEdit');renderEdit();}
+        else{show('kvNoPerm');}
+      }).catch(function(){show('kvNoPerm');});
+    }else{
+      show('kvView');renderView();
+    }
+  }).catch(function(err){
+    console.error('Init error:',err);
+    hide('kvLoading');show('kvNotFound');
+  });
+}
+
+init();
+})();
+</script>
+</body>
+</html>

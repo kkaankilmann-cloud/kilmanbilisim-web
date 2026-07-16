@@ -1,3 +1,5 @@
-/kartvizit    /index.html   200
-/kartvizit/   /index.html   200
-/kart/*       /kart.html    200
+/kartvizit              /index.html              200
+/kartvizit/             /index.html              200
+/kartvizit-siparis      /kartvizit-siparis.html   200
+/kartvizit-siparis/     /kartvizit-siparis.html   200
+/kart/*                 /kart.html                200

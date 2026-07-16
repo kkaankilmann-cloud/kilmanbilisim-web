@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Dijital Kartvizit Siparişi | Kılman Bilişim</title>
+<link rel="icon" href="/favicon.ico">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0e1a;--bg-card:#111827;--border:rgba(255,255,255,0.06);--text:#e2e8f0;--text-muted:#94a3b8;--neon:#00D4FF;--neon-dim:rgba(0,212,255,0.08);--purple:#8B5CF6;--font-ui:'Inter',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-ui);background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+
+.sp-wrap{max-width:560px;margin:0 auto;padding:24px 16px 60px;min-height:100vh;}
+
+/* Lang */
+.sp-lang{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;margin-bottom:24px;}
+.sp-lang button{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 8px;border-radius:6px;font-size:0.7rem;cursor:pointer;font-family:var(--font-ui);transition:border-color 0.3s ease,color 0.3s ease;}
+.sp-lang button.active{border-color:var(--neon);color:var(--neon);}
+.sp-lang button:hover{border-color:rgba(0,212,255,0.3);}
+
+/* Header */
+.sp-header{text-align:center;margin-bottom:32px;}
+.sp-header h1{font-size:1.6rem;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,var(--neon),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sp-header p{color:var(--text-muted);font-size:0.9rem;line-height:1.5;}
+
+/* Section labels */
+.sp-section{margin-bottom:8px;margin-top:28px;}
+.sp-section-label{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--neon);display:flex;align-items:center;gap:8px;}
+.sp-section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(0,212,255,0.3),transparent);}
+
+/* Fields */
+.sp-field{margin-bottom:14px;}
+.sp-label{display:block;font-size:0.8rem;font-weight:600;color:var(--text-muted);margin-bottom:6px;}
+.sp-label .req{color:#ef4444;margin-left:2px;}
+.sp-input{width:100%;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;color:var(--text);font-size:0.9rem;font-family:var(--font-ui);outline:none;transition:border-color 0.3s ease;}
+.sp-input:focus{border-color:var(--neon);}
+.sp-input::placeholder{color:#4b5563;}
+textarea.sp-input{min-height:80px;resize:vertical;}
+
+/* Color picker */
+.sp-colors{display:flex;gap:12px;flex-wrap:wrap;}
+.sp-color{flex:1;min-width:100px;}
+.sp-color input{display:none;}
+.sp-color label{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 12px;background:var(--bg-card);border:2px solid var(--border);border-radius:12px;cursor:pointer;transition:border-color 0.3s ease,transform 0.2s ease;}
+.sp-color label:hover{border-color:rgba(0,212,255,0.3);transform:translateY(-1px);}
+.sp-color input:checked+label{border-color:var(--neon);}
+.sp-swatch{width:40px;height:40px;border-radius:50%;border:2px solid rgba(255,255,255,0.1);}
+.sp-swatch.gold{background:linear-gradient(135deg,#D4A853,#F5D78E,#C4943A);}
+.sp-swatch.bronze{background:linear-gradient(135deg,#CD7F32,#E8A862,#A0612B);}
+.sp-swatch.white{background:linear-gradient(135deg,#F0F0F0,#FFFFFF,#D9D9D9);}
+.sp-cname{font-size:0.78rem;font-weight:600;color:var(--text);}
+
+/* File */
+.sp-file-wrap{position:relative;}
+.sp-file-btn{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;cursor:pointer;transition:border-color 0.3s ease;}
+.sp-file-btn:hover{border-color:rgba(0,212,255,0.3);}
+.sp-file-icon{color:var(--neon);font-size:1.1rem;}
+.sp-file-text{font-size:0.85rem;color:var(--text-muted);}
+.sp-file-name{font-size:0.85rem;color:var(--neon);}
+.sp-file-wrap input[type=file]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer;}
+
+/* Submit */
+.sp-submit{display:block;width:100%;padding:16px;background:linear-gradient(135deg,var(--neon),var(--purple));border:none;border-radius:12px;color:#fff;font-size:1rem;font-weight:700;font-family:var(--font-ui);cursor:pointer;margin-top:28px;transition:filter 0.3s ease,transform 0.2s ease;}
+.sp-submit:hover{filter:brightness(1.15);transform:translateY(-1px);}
+
+/* Thank you */
+.sp-thanks{display:none;text-align:center;padding:80px 20px;}
+.sp-thanks-icon{font-size:3.5rem;margin-bottom:20px;}
+.sp-thanks h2{font-size:1.4rem;font-weight:700;margin-bottom:12px;background:linear-gradient(135deg,var(--neon),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sp-thanks p{color:var(--text-muted);font-size:0.9rem;line-height:1.6;max-width:400px;margin:0 auto;}
+.sp-thanks a{display:inline-block;margin-top:24px;color:var(--neon);font-size:0.85rem;transition:filter 0.3s ease;}
+.sp-thanks a:hover{filter:brightness(1.3);}
+
+/* Footer */
+.sp-footer{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid var(--border);}
+.sp-footer a{color:var(--text-muted);font-size:0.75rem;transition:color 0.3s ease;}
+.sp-footer a:hover{color:var(--neon);}
+
+/* Preview card */
+.sp-preview{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:28px;position:relative;overflow:hidden;}
+.sp-preview::before{content:'';position:absolute;top:-40%;right:-40%;width:80%;height:80%;background:radial-gradient(circle,rgba(0,212,255,0.04),transparent 70%);pointer-events:none;}
+.sp-preview-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:12px;}
+.sp-preview-card{background:#111;border-radius:12px;padding:24px 20px;aspect-ratio:1.6/1;display:flex;flex-direction:column;justify-content:flex-end;position:relative;border:1px solid rgba(255,255,255,0.05);}
+.sp-preview-name{font-size:1.1rem;font-weight:700;margin-bottom:2px;}
+.sp-preview-title{font-size:0.75rem;opacity:0.7;}
+.sp-preview-name.gold,.sp-preview-title.gold{color:#D4A853;}
+.sp-preview-name.bronze,.sp-preview-title.bronze{color:#CD7F32;}
+.sp-preview-name.white,.sp-preview-title.white{color:#F0F0F0;}
+
+@media(max-width:480px){
+  .sp-wrap{padding:16px 12px 40px;}
+  .sp-header h1{font-size:1.3rem;}
+  .sp-colors{flex-direction:column;}
+  .sp-color{min-width:unset;}
+}
+</style>
+</head>
+<body>
+<div class="sp-wrap">
+<div class="sp-lang" id="langBar"></div>
+
+<div class="sp-header">
+  <h1 id="spTitle">Dijital Kartvizit Siparişi</h1>
+  <p id="spDesc">Siyah mat NFC kartvizitiniz için bilgilerinizi girin. Sipariş sonrası sizinle iletişime geçeceğiz.</p>
+</div>
+
+<!-- FORM -->
+<div id="spFormWrap">
+  <!-- Preview card -->
+  <div class="sp-preview">
+    <div class="sp-preview-label" id="spPrevLabel">Kart Önizleme</div>
+    <div class="sp-preview-card">
+      <div class="sp-preview-name gold" id="prevName">Ad Soyad</div>
+      <div class="sp-preview-title gold" id="prevTitle">Unvan</div>
+    </div>
+  </div>
+
+  <form name="kartvizit-siparis" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" id="spForm">
+    <input type="hidden" name="form-name" value="kartvizit-siparis">
+    <p style="display:none"><label>Bot alanı: <input name="bot-field"></label></p>
+
+    <!-- BASKI BİLGİLERİ -->
+    <div class="sp-section"><div class="sp-section-label" id="secPrint">Kart Baskı Bilgileri</div></div>
+
+    <div class="sp-field">
+      <label class="sp-label" id="lblName">Karta basılacak isim <span class="req">*</span></label>
+      <input type="text" name="baski_isim" class="sp-input" required id="inpName" oninput="updatePreview()">
+    </div>
+
+    <div class="sp-field">
+      <label class="sp-label" id="lblTitle">Karta basılacak unvan <span class="req">*</span></label>
+      <input type="text" name="baski_unvan" class="sp-input" required id="inpTitle" oninput="updatePreview()">
+    </div>
+
+    <div class="sp-field">
+      <label class="sp-label" id="lblColor">Baskı rengi <span class="req">*</span></label>
+      <div class="sp-colors">
+        <div class="sp-color">
+          <input type="radio" name="baski_renk" value="Gold" id="cGold" required checked onchange="updatePreview()">
+          <label for="cGold"><div class="sp-swatch gold"></div><span class="sp-cname">Gold</span></label>
+        </div>
+        <div class="sp-color">
+          <input type="radio" name="baski_renk" value="Bronze" id="cBronze" onchange="updatePreview()">
+          <label for="cBronze"><div class="sp-swatch bronze"></div><span class="sp-cname">Bronze</span></label>
+        </div>
+        <div class="sp-color">
+          <input type="radio" name="baski_renk" value="White" id="cWhite" onchange="updatePreview()">
+          <label for="cWhite"><div class="sp-swatch white"></div><span class="sp-cname">White</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="sp-field">
+      <label class="sp-label" id="lblLogo">Logo yükleme (isteğe bağlı)</label>
+      <div class="sp-file-wrap">
+        <div class="sp-file-btn">
+          <span class="sp-file-icon">📎</span>
+          <span class="sp-file-text" id="fileText">Dosya seçin (PNG, JPG, SVG)</span>
+        </div>
+        <input type="file" name="logo" accept="image/png,image/jpeg,image/svg+xml" onchange="showFileName(this)">
+      </div>
+    </div>
+
+    <!-- TESLİMAT BİLGİLERİ -->
+    <div class="sp-section"><div class="sp-section-label" id="secShip">Teslimat Bilgileri</div></div>
+
+    <div class="sp-field">
+      <label class="sp-label" id="lblFullName">Ad Soyad (alıcı) <span class="req">*</span></label>
+      <input type="text" name="alici_ad_soyad" class="sp-input" required id="inpFullName">
+    </div>
+
+    <div class="sp-field">
+      <label class="sp-label" id="lblPhone">Telefon <span class="req">*</span></label>
+      <input type="tel" name="telefon" class="sp-input" required id="inpPhone">
+    </div>
+
+    <div class="sp-field">
+      <label class="sp-label" id="lblEmail">E-posta <span class="req">*</span></label>
+      <input type="email" name="eposta" class="sp-input" required id="inpEmail">
+    </div>
+
+    <div class="sp-field">
+      <label class="sp-label" id="lblAddr">Teslimat adresi <span class="req">*</span></label>
+      <textarea name="adres" class="sp-input" required id="inpAddr"></textarea>
+    </div>
+
+    <div style="display:flex;gap:12px;">
+      <div class="sp-field" style="flex:1;">
+        <label class="sp-label" id="lblCity">İl <span class="req">*</span></label>
+        <input type="text" name="il" class="sp-input" required id="inpCity">
+      </div>
+      <div class="sp-field" style="flex:1;">
+        <label class="sp-label" id="lblDist">İlçe <span class="req">*</span></label>
+        <input type="text" name="ilce" class="sp-input" required id="inpDist">
+      </div>
+    </div>
+
+    <!-- EK NOTLAR -->
+    <div class="sp-section"><div class="sp-section-label" id="secNote">Ek Bilgiler</div></div>
+
+    <div class="sp-field">
+      <label class="sp-label" id="lblNote">Sipariş notu / özel istek</label>
+      <textarea name="siparis_notu" class="sp-input" id="inpNote"></textarea>
+    </div>
+
+    <button type="submit" class="sp-submit" id="btnSubmit">Siparişi Gönder</button>
+  </form>
+</div>
+
+<!-- THANK YOU -->
+<div class="sp-thanks" id="spThanks">
+  <div class="sp-thanks-icon">✅</div>
+  <h2 id="thTitle">Siparişiniz Alındı!</h2>
+  <p id="thDesc">En kısa sürede sizinle iletişime geçip ödeme ve üretim detaylarını paylaşacağız. Kartvizitiniz antetli zarf ve kağıt ile adresinize kargo edilecektir.</p>
+  <a href="https://kilmanbilisim.com" id="thBack">← Ana sayfaya dön</a>
+</div>
+
+<div class="sp-footer"><a href="https://kilmanbilisim.com" target="_blank" id="spFooter">Kılman Bilişim tarafından hazırlanmıştır</a></div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+// ─── i18n (9 dil, simetrik) ───
+var T={
+tr:{title:'Dijital Kartvizit Siparişi',desc:'Siyah mat NFC kartvizitiniz için bilgilerinizi girin. Sipariş sonrası sizinle iletişime geçeceğiz.',prev_label:'Kart Önizleme',sec_print:'Kart Baskı Bilgileri',sec_ship:'Teslimat Bilgileri',sec_note:'Ek Bilgiler',lbl_name:'Karta basılacak isim',lbl_title:'Karta basılacak unvan',lbl_color:'Baskı rengi',lbl_logo:'Logo yükleme (isteğe bağlı)',lbl_file:'Dosya seçin (PNG, JPG, SVG)',lbl_fullname:'Ad Soyad (alıcı)',lbl_phone:'Telefon',lbl_email:'E-posta',lbl_addr:'Teslimat adresi',lbl_city:'İl',lbl_dist:'İlçe',lbl_note:'Sipariş notu / özel istek',btn_submit:'Siparişi Gönder',th_title:'Siparişiniz Alındı!',th_desc:'En kısa sürede sizinle iletişime geçip ödeme ve üretim detaylarını paylaşacağız. Kartvizitiniz antetli zarf ve kağıt ile adresinize kargo edilecektir.',th_back:'\u2190 Ana sayfaya dön',footer:'Kılman Bilişim tarafından hazırlanmıştır',ph_name:'Örn: Kaan Kılman',ph_title:'Örn: Yapay Zeka Uzmanı',ph_fullname:'Alıcı adı soyadı',ph_phone:'+90 5XX XXX XX XX',ph_email:'ornek@email.com',ph_addr:'Mahalle, sokak, bina no, daire',ph_city:'İstanbul',ph_dist:'Kadıköy',ph_note:'Varsa özel istekleriniz...'},
+en:{title:'Digital Business Card Order',desc:'Enter your details for your matte black NFC business card. We\'ll contact you after your order.',prev_label:'Card Preview',sec_print:'Card Print Details',sec_ship:'Delivery Information',sec_note:'Additional Info',lbl_name:'Name to print on card',lbl_title:'Title to print on card',lbl_color:'Print color',lbl_logo:'Logo upload (optional)',lbl_file:'Choose file (PNG, JPG, SVG)',lbl_fullname:'Full Name (recipient)',lbl_phone:'Phone',lbl_email:'Email',lbl_addr:'Delivery address',lbl_city:'Province',lbl_dist:'District',lbl_note:'Order note / special request',btn_submit:'Submit Order',th_title:'Order Received!',th_desc:'We\'ll contact you shortly to share payment and production details. Your card will be shipped with letterhead envelope and paper to your address.',th_back:'\u2190 Back to homepage',footer:'Powered by Kılman Bilişim',ph_name:'e.g. John Smith',ph_title:'e.g. AI Specialist',ph_fullname:'Recipient full name',ph_phone:'+90 5XX XXX XX XX',ph_email:'example@email.com',ph_addr:'Street, building, apt',ph_city:'Istanbul',ph_dist:'Kadikoy',ph_note:'Any special requests...'},
+de:{title:'Digitale Visitenkarte bestellen',desc:'Geben Sie Ihre Daten für Ihre schwarze matte NFC-Visitenkarte ein. Wir kontaktieren Sie nach der Bestellung.',prev_label:'Kartenvorschau',sec_print:'Kartendruckdetails',sec_ship:'Lieferinformationen',sec_note:'Zusätzliche Infos',lbl_name:'Name auf der Karte',lbl_title:'Titel auf der Karte',lbl_color:'Druckfarbe',lbl_logo:'Logo hochladen (optional)',lbl_file:'Datei wählen (PNG, JPG, SVG)',lbl_fullname:'Vollständiger Name (Empfänger)',lbl_phone:'Telefon',lbl_email:'E-Mail',lbl_addr:'Lieferadresse',lbl_city:'Bundesland',lbl_dist:'Stadt/Bezirk',lbl_note:'Bestellnotiz / Sonderwunsch',btn_submit:'Bestellung absenden',th_title:'Bestellung eingegangen!',th_desc:'Wir werden Sie in Kürze kontaktieren, um Zahlungs- und Produktionsdetails mitzuteilen. Ihre Karte wird mit Briefkopfumschlag an Ihre Adresse versandt.',th_back:'\u2190 Zur Startseite',footer:'Erstellt von Kılman Bilişim',ph_name:'z.B. Max Mustermann',ph_title:'z.B. KI-Spezialist',ph_fullname:'Empfängername',ph_phone:'+90 5XX XXX XX XX',ph_email:'beispiel@email.com',ph_addr:'Straße, Gebäude, Wohnung',ph_city:'Istanbul',ph_dist:'Kadıköy',ph_note:'Besondere Wünsche...'},
+es:{title:'Pedido de Tarjeta Digital',desc:'Ingrese sus datos para su tarjeta NFC negra mate. Le contactaremos después del pedido.',prev_label:'Vista previa',sec_print:'Datos de impresión',sec_ship:'Información de envío',sec_note:'Info adicional',lbl_name:'Nombre en la tarjeta',lbl_title:'Título en la tarjeta',lbl_color:'Color de impresión',lbl_logo:'Subir logo (opcional)',lbl_file:'Elegir archivo (PNG, JPG, SVG)',lbl_fullname:'Nombre completo (destinatario)',lbl_phone:'Teléfono',lbl_email:'Email',lbl_addr:'Dirección de envío',lbl_city:'Provincia',lbl_dist:'Distrito',lbl_note:'Nota de pedido / solicitud especial',btn_submit:'Enviar pedido',th_title:'\u00a1Pedido recibido!',th_desc:'Le contactaremos pronto para compartir detalles de pago y producción. Su tarjeta será enviada con sobre membretado a su dirección.',th_back:'\u2190 Volver al inicio',footer:'Creado por Kılman Bilişim',ph_name:'Ej: Juan Pérez',ph_title:'Ej: Especialista en IA',ph_fullname:'Nombre del destinatario',ph_phone:'+90 5XX XXX XX XX',ph_email:'ejemplo@email.com',ph_addr:'Calle, edificio, dpto',ph_city:'Estambul',ph_dist:'Kadıköy',ph_note:'Solicitudes especiales...'},
+fr:{title:'Commande de Carte Digitale',desc:'Entrez vos informations pour votre carte NFC noire mate. Nous vous contacterons après la commande.',prev_label:'Aperçu de la carte',sec_print:'Détails d\'impression',sec_ship:'Informations de livraison',sec_note:'Infos supplémentaires',lbl_name:'Nom sur la carte',lbl_title:'Titre sur la carte',lbl_color:'Couleur d\'impression',lbl_logo:'Télécharger le logo (optionnel)',lbl_file:'Choisir un fichier (PNG, JPG, SVG)',lbl_fullname:'Nom complet (destinataire)',lbl_phone:'Téléphone',lbl_email:'Email',lbl_addr:'Adresse de livraison',lbl_city:'Province',lbl_dist:'Arrondissement',lbl_note:'Note de commande / demande spéciale',btn_submit:'Envoyer la commande',th_title:'Commande reçue !',th_desc:'Nous vous contacterons sous peu pour partager les détails de paiement et de production. Votre carte sera expédiée avec une enveloppe à en-tête à votre adresse.',th_back:'\u2190 Retour à l\'accueil',footer:'Créé par Kılman Bilişim',ph_name:'Ex: Jean Dupont',ph_title:'Ex: Spécialiste IA',ph_fullname:'Nom du destinataire',ph_phone:'+90 5XX XXX XX XX',ph_email:'exemple@email.com',ph_addr:'Rue, bâtiment, appt',ph_city:'Istanbul',ph_dist:'Kadıköy',ph_note:'Demandes spéciales...'},
+ru:{title:'\u0417\u0430\u043a\u0430\u0437 \u0446\u0438\u0444\u0440\u043e\u0432\u043e\u0439 \u0432\u0438\u0437\u0438\u0442\u043a\u0438',desc:'\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0430\u043d\u043d\u044b\u0435 \u0434\u043b\u044f \u0447\u0451\u0440\u043d\u043e\u0439 \u043c\u0430\u0442\u043e\u0432\u043e\u0439 NFC-\u0432\u0438\u0437\u0438\u0442\u043a\u0438. \u041c\u044b \u0441\u0432\u044f\u0436\u0435\u043c\u0441\u044f \u0441 \u0432\u0430\u043c\u0438 \u043f\u043e\u0441\u043b\u0435 \u0437\u0430\u043a\u0430\u0437\u0430.',prev_label:'\u041f\u0440\u0435\u0434\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440',sec_print:'\u0414\u0430\u043d\u043d\u044b\u0435 \u043f\u0435\u0447\u0430\u0442\u0438',sec_ship:'\u0414\u0430\u043d\u043d\u044b\u0435 \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0438',sec_note:'\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u043e',lbl_name:'\u0418\u043c\u044f \u043d\u0430 \u043a\u0430\u0440\u0442\u0435',lbl_title:'\u0414\u043e\u043b\u0436\u043d\u043e\u0441\u0442\u044c \u043d\u0430 \u043a\u0430\u0440\u0442\u0435',lbl_color:'\u0426\u0432\u0435\u0442 \u043f\u0435\u0447\u0430\u0442\u0438',lbl_logo:'\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u043b\u043e\u0433\u043e (\u043d\u0435\u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e)',lbl_file:'\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u0444\u0430\u0439\u043b (PNG, JPG, SVG)',lbl_fullname:'\u0424\u0418\u041e (\u043f\u043e\u043b\u0443\u0447\u0430\u0442\u0435\u043b\u044c)',lbl_phone:'\u0422\u0435\u043b\u0435\u0444\u043e\u043d',lbl_email:'Email',lbl_addr:'\u0410\u0434\u0440\u0435\u0441 \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0438',lbl_city:'\u041e\u0431\u043b\u0430\u0441\u0442\u044c',lbl_dist:'\u0420\u0430\u0439\u043e\u043d',lbl_note:'\u041f\u0440\u0438\u043c\u0435\u0447\u0430\u043d\u0438\u0435 / \u043e\u0441\u043e\u0431\u044b\u0439 \u0437\u0430\u043f\u0440\u043e\u0441',btn_submit:'\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0437\u0430\u043a\u0430\u0437',th_title:'\u0417\u0430\u043a\u0430\u0437 \u043f\u0440\u0438\u043d\u044f\u0442!',th_desc:'\u041c\u044b \u0441\u0432\u044f\u0436\u0435\u043c\u0441\u044f \u0441 \u0432\u0430\u043c\u0438 \u0432 \u0431\u043b\u0438\u0436\u0430\u0439\u0448\u0435\u0435 \u0432\u0440\u0435\u043c\u044f \u0434\u043b\u044f \u043e\u0431\u0441\u0443\u0436\u0434\u0435\u043d\u0438\u044f \u043e\u043f\u043b\u0430\u0442\u044b \u0438 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u0430. \u0412\u0430\u0448\u0430 \u043a\u0430\u0440\u0442\u0430 \u0431\u0443\u0434\u0435\u0442 \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0430 \u0441 \u0444\u0438\u0440\u043c\u0435\u043d\u043d\u044b\u043c \u043a\u043e\u043d\u0432\u0435\u0440\u0442\u043e\u043c.',th_back:'\u2190 \u041d\u0430 \u0433\u043b\u0430\u0432\u043d\u0443\u044e',footer:'\u0421\u043e\u0437\u0434\u0430\u043d\u043e K\u0131lman Bili\u015fim',ph_name:'\u041d\u0430\u043f\u0440. \u0418\u0432\u0430\u043d \u041f\u0435\u0442\u0440\u043e\u0432',ph_title:'\u041d\u0430\u043f\u0440. \u0421\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442 \u043f\u043e \u0418\u0418',ph_fullname:'\u0424\u0418\u041e \u043f\u043e\u043b\u0443\u0447\u0430\u0442\u0435\u043b\u044f',ph_phone:'+90 5XX XXX XX XX',ph_email:'primer@email.com',ph_addr:'\u0423\u043b\u0438\u0446\u0430, \u0434\u043e\u043c, \u043a\u0432.',ph_city:'\u0421\u0442\u0430\u043c\u0431\u0443\u043b',ph_dist:'\u041a\u0430\u0434\u044b\u043a\u0451\u0439',ph_note:'\u041e\u0441\u043e\u0431\u044b\u0435 \u043f\u043e\u0436\u0435\u043b\u0430\u043d\u0438\u044f...'},
+ko:{title:'\ub514\uc9c0\ud138 \uba85\ud568 \uc8fc\ubb38',desc:'\ub9e4\ud2b8 \ube14\ub799 NFC \uba85\ud568\uc744 \uc704\ud55c \uc815\ubcf4\ub97c \uc785\ub825\ud558\uc138\uc694. \uc8fc\ubb38 \ud6c4 \uc5f0\ub77d\ub4dc\ub9ac\uaca0\uc2b5\ub2c8\ub2e4.',prev_label:'\uce74\ub4dc \ubbf8\ub9ac\ubcf4\uae30',sec_print:'\uce74\ub4dc \uc778\uc1c4 \uc815\ubcf4',sec_ship:'\ubc30\uc1a1 \uc815\ubcf4',sec_note:'\ucd94\uac00 \uc815\ubcf4',lbl_name:'\uce74\ub4dc\uc5d0 \uc778\uc1c4\ud560 \uc774\ub984',lbl_title:'\uce74\ub4dc\uc5d0 \uc778\uc1c4\ud560 \uc9c1\ud568',lbl_color:'\uc778\uc1c4 \uc0c9\uc0c1',lbl_logo:'\ub85c\uace0 \uc5c5\ub85c\ub4dc (\uc120\ud0dd)',lbl_file:'\ud30c\uc77c \uc120\ud0dd (PNG, JPG, SVG)',lbl_fullname:'\uc131\uba85 (\uc218\ub839\uc778)',lbl_phone:'\uc804\ud654',lbl_email:'\uc774\uba54\uc77c',lbl_addr:'\ubc30\uc1a1 \uc8fc\uc18c',lbl_city:'\uc2dc/\ub3c4',lbl_dist:'\uad6c/\uad70',lbl_note:'\uc8fc\ubb38 \uba54\ubaa8 / \ud2b9\ubcc4 \uc694\uccad',btn_submit:'\uc8fc\ubb38 \uc81c\ucd9c',th_title:'\uc8fc\ubb38\uc774 \uc811\uc218\ub418\uc5c8\uc2b5\ub2c8\ub2e4!',th_desc:'\uacb0\uc81c \ubc0f \uc81c\uc791 \uc138\ubd80 \uc0ac\ud56d\uc744 \uacf5\uc720\ud558\uae30 \uc704\ud574 \uacf7 \uc5f0\ub77d\ub4dc\ub9ac\uaca0\uc2b5\ub2c8\ub2e4. \uba85\ud568\uc740 \ub85c\uace0 \ubd09\ud22c\uc640 \ud568\uaed8 \ubc30\uc1a1\ub429\ub2c8\ub2e4.',th_back:'\u2190 \ud648\uc73c\ub85c',footer:'K\u0131lman Bili\u015fim \uc81c\uacf5',ph_name:'\uc608: \ud64d\uae38\ub3d9',ph_title:'\uc608: AI \uc804\ubb38\uac00',ph_fullname:'\uc218\ub839\uc778 \uc131\uba85',ph_phone:'+90 5XX XXX XX XX',ph_email:'example@email.com',ph_addr:'\ub3c4\ub85c, \uac74\ubb3c, \ud638\uc218',ph_city:'\uc774\uc2a4\ud0c4\ubd88',ph_dist:'\uce74\ub514\ucfdc\uc774',ph_note:'\ud2b9\ubcc4 \uc694\uccad \uc0ac\ud56d...'},
+zh:{title:'\u6570\u5b57\u540d\u7247\u8ba2\u5355',desc:'\u8bf7\u8f93\u5165\u60a8\u7684\u54d1\u5149\u9ed1\u8272NFC\u540d\u7247\u4fe1\u606f\u3002\u8ba2\u5355\u63d0\u4ea4\u540e\u6211\u4eec\u5c06\u4e0e\u60a8\u8054\u7cfb\u3002',prev_label:'\u540d\u7247\u9884\u89c8',sec_print:'\u5370\u5237\u4fe1\u606f',sec_ship:'\u914d\u9001\u4fe1\u606f',sec_note:'\u9644\u52a0\u4fe1\u606f',lbl_name:'\u5370\u5728\u540d\u7247\u4e0a\u7684\u59d3\u540d',lbl_title:'\u5370\u5728\u540d\u7247\u4e0a\u7684\u804c\u52a1',lbl_color:'\u5370\u5237\u989c\u8272',lbl_logo:'\u4e0a\u4f20\u6807\u5fd7\uff08\u53ef\u9009\uff09',lbl_file:'\u9009\u62e9\u6587\u4ef6 (PNG, JPG, SVG)',lbl_fullname:'\u59d3\u540d\uff08\u6536\u4ef6\u4eba\uff09',lbl_phone:'\u7535\u8bdd',lbl_email:'\u90ae\u7bb1',lbl_addr:'\u914d\u9001\u5730\u5740',lbl_city:'\u7701/\u5e02',lbl_dist:'\u533a/\u53bf',lbl_note:'\u8ba2\u5355\u5907\u6ce8 / \u7279\u6b8a\u8981\u6c42',btn_submit:'\u63d0\u4ea4\u8ba2\u5355',th_title:'\u8ba2\u5355\u5df2\u63a5\u6536\uff01',th_desc:'\u6211\u4eec\u5c06\u5c3d\u5feb\u4e0e\u60a8\u8054\u7cfb\uff0c\u5206\u4eab\u4ed8\u6b3e\u548c\u751f\u4ea7\u8be6\u60c5\u3002\u60a8\u7684\u540d\u7247\u5c06\u4ee5\u4fe1\u5c01\u5305\u88c5\u5bc4\u5230\u60a8\u7684\u5730\u5740\u3002',th_back:'\u2190 \u8fd4\u56de\u9996\u9875',footer:'K\u0131lman Bili\u015fim \u5236\u4f5c',ph_name:'\u4f8b: \u5f20\u4e09',ph_title:'\u4f8b: AI\u4e13\u5bb6',ph_fullname:'\u6536\u4ef6\u4eba\u59d3\u540d',ph_phone:'+90 5XX XXX XX XX',ph_email:'example@email.com',ph_addr:'\u8857\u9053\u3001\u697c\u53f7\u3001\u95e8\u724c',ph_city:'\u4f0a\u65af\u5766\u5e03\u5c14',ph_dist:'\u5361\u8fea\u79d1\u4f0a',ph_note:'\u7279\u6b8a\u8981\u6c42...'},
+ja:{title:'\u30c7\u30b8\u30bf\u30eb\u540d\u523a\u6ce8\u6587',desc:'\u30de\u30c3\u30c8\u30d6\u30e9\u30c3\u30afNFC\u540d\u523a\u306e\u60c5\u5831\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u6ce8\u6587\u5f8c\u3054\u9023\u7d61\u3044\u305f\u3057\u307e\u3059\u3002',prev_label:'\u30ab\u30fc\u30c9\u30d7\u30ec\u30d3\u30e5\u30fc',sec_print:'\u5370\u5237\u60c5\u5831',sec_ship:'\u914d\u9001\u60c5\u5831',sec_note:'\u8ffd\u52a0\u60c5\u5831',lbl_name:'\u540d\u523a\u306b\u5370\u5237\u3059\u308b\u540d\u524d',lbl_title:'\u540d\u523a\u306b\u5370\u5237\u3059\u308b\u5f79\u8077',lbl_color:'\u5370\u5237\u8272',lbl_logo:'\u30ed\u30b4\u30a2\u30c3\u30d7\u30ed\u30fc\u30c9\uff08\u4efb\u610f\uff09',lbl_file:'\u30d5\u30a1\u30a4\u30eb\u3092\u9078\u629e (PNG, JPG, SVG)',lbl_fullname:'\u6c0f\u540d\uff08\u53d7\u53d6\u4eba\uff09',lbl_phone:'\u96fb\u8bdd',lbl_email:'\u30e1\u30fc\u30eb',lbl_addr:'\u914d\u9001\u5148\u4f4f\u6240',lbl_city:'\u90fd\u9053\u5e9c\u770c',lbl_dist:'\u5e02\u533a\u753a\u6751',lbl_note:'\u6ce8\u6587\u30e1\u30e2 / \u7279\u5225\u306a\u3054\u8981\u671b',btn_submit:'\u6ce8\u6587\u3092\u9001\u4fe1',th_title:'\u6ce8\u6587\u3092\u53d7\u3051\u4ed8\u3051\u307e\u3057\u305f\uff01',th_desc:'\u304a\u652f\u6255\u3044\u3068\u88fd\u4f5c\u306e\u8a73\u7d30\u3092\u304a\u4f1d\u3048\u3059\u308b\u305f\u3081\u3001\u307e\u3082\u306a\u304f\u3054\u9023\u7d61\u3044\u305f\u3057\u307e\u3059\u3002\u540d\u523a\u306f\u30ec\u30bf\u30fc\u30d8\u30c3\u30c9\u5c01\u7b52\u3067\u304a\u5c4a\u3051\u3057\u307e\u3059\u3002',th_back:'\u2190 \u30db\u30fc\u30e0\u3078',footer:'K\u0131lman Bili\u015fim \u63d0\u4f9b',ph_name:'\u4f8b: \u7530\u4e2d\u592a\u90ce',ph_title:'\u4f8b: AI\u30b9\u30da\u30b7\u30e3\u30ea\u30b9\u30c8',ph_fullname:'\u53d7\u53d6\u4eba\u6c0f\u540d',ph_phone:'+90 5XX XXX XX XX',ph_email:'example@email.com',ph_addr:'\u756a\u5730\u3001\u30d3\u30eb\u540d\u3001\u90e8\u5c4b\u756a\u53f7',ph_city:'\u30a4\u30b9\u30bf\u30f3\u30d6\u30fc\u30eb',ph_dist:'\u30ab\u30c9\u30a5\u30ad\u30e7\u30a4',ph_note:'\u7279\u5225\u306a\u3054\u8981\u671b...'}
+};
+
+var lang='tr';
+
+function txt(k){return (T[lang]&&T[lang][k])||k;}
+
+function setLang(l){
+  lang=l;
+  sessionStorage.setItem('sp_lang',l);
+  document.querySelectorAll('.sp-lang button').forEach(function(b){b.classList.toggle('active',b.dataset.l===l);});
+
+  // Static text
+  document.getElementById('spTitle').textContent=txt('title');
+  document.getElementById('spDesc').textContent=txt('desc');
+  document.getElementById('spPrevLabel').textContent=txt('prev_label');
+  document.getElementById('secPrint').textContent=txt('sec_print');
+  document.getElementById('secShip').textContent=txt('sec_ship');
+  document.getElementById('secNote').textContent=txt('sec_note');
+
+  // Labels (preserve * spans)
+  var reqStar=' <span class="req">*</span>';
+  document.getElementById('lblName').innerHTML=txt('lbl_name')+reqStar;
+  document.getElementById('lblTitle').innerHTML=txt('lbl_title')+reqStar;
+  document.getElementById('lblColor').innerHTML=txt('lbl_color')+reqStar;
+  document.getElementById('lblLogo').textContent=txt('lbl_logo');
+  document.getElementById('lblFullName').innerHTML=txt('lbl_fullname')+reqStar;
+  document.getElementById('lblPhone').innerHTML=txt('lbl_phone')+reqStar;
+  document.getElementById('lblEmail').innerHTML=txt('lbl_email')+reqStar;
+  document.getElementById('lblAddr').innerHTML=txt('lbl_addr')+reqStar;
+  document.getElementById('lblCity').innerHTML=txt('lbl_city')+reqStar;
+  document.getElementById('lblDist').innerHTML=txt('lbl_dist')+reqStar;
+  document.getElementById('lblNote').textContent=txt('lbl_note');
+
+  // File text
+  if(!document.getElementById('fileText').dataset.hasFile){
+    document.getElementById('fileText').textContent=txt('lbl_file');
+  }
+
+  // Placeholders
+  document.getElementById('inpName').placeholder=txt('ph_name');
+  document.getElementById('inpTitle').placeholder=txt('ph_title');
+  document.getElementById('inpFullName').placeholder=txt('ph_fullname');
+  document.getElementById('inpPhone').placeholder=txt('ph_phone');
+  document.getElementById('inpEmail').placeholder=txt('ph_email');
+  document.getElementById('inpAddr').placeholder=txt('ph_addr');
+  document.getElementById('inpCity').placeholder=txt('ph_city');
+  document.getElementById('inpDist').placeholder=txt('ph_dist');
+  document.getElementById('inpNote').placeholder=txt('ph_note');
+
+  // Button
+  document.getElementById('btnSubmit').textContent=txt('btn_submit');
+
+  // Thank you
+  document.getElementById('thTitle').textContent=txt('th_title');
+  document.getElementById('thDesc').textContent=txt('th_desc');
+  document.getElementById('thBack').textContent=txt('th_back');
+
+  // Footer
+  document.getElementById('spFooter').textContent=txt('footer');
+}
+
+function initLang(){
+  var bar=document.getElementById('langBar');
+  var langs=['tr','en','de','es','fr','ru','ko','zh','ja'];
+  var labels={tr:'TR',en:'EN',de:'DE',es:'ES',fr:'FR',ru:'RU',ko:'KO',zh:'ZH',ja:'JA'};
+  langs.forEach(function(l){
+    var b=document.createElement('button');
+    b.textContent=labels[l];b.dataset.l=l;
+    b.onclick=function(){setLang(l);};
+    bar.appendChild(b);
+  });
+  var saved=sessionStorage.getItem('sp_lang');
+  if(saved&&T[saved]) lang=saved;
+  setLang(lang);
+}
+
+// ─── Preview ───
+window.updatePreview=function(){
+  var name=document.getElementById('inpName').value||txt('ph_name').replace(/^(Örn|e\.g\.|z\.B\.|Ej|Ex|Напр|예|例|例)[:.]?\s*/,'');
+  var title=document.getElementById('inpTitle').value||txt('ph_title').replace(/^(Örn|e\.g\.|z\.B\.|Ej|Ex|Напр|예|例|例)[:.]?\s*/,'');
+  var color='gold';
+  if(document.getElementById('cBronze').checked) color='bronze';
+  if(document.getElementById('cWhite').checked) color='white';
+  var pn=document.getElementById('prevName');
+  var pt=document.getElementById('prevTitle');
+  pn.textContent=name;pt.textContent=title;
+  pn.className='sp-preview-name '+color;
+  pt.className='sp-preview-title '+color;
+};
+
+// ─── File name ───
+window.showFileName=function(inp){
+  var ft=document.getElementById('fileText');
+  if(inp.files&&inp.files[0]){
+    ft.textContent=inp.files[0].name;
+    ft.className='sp-file-name';
+    ft.dataset.hasFile='1';
+  }else{
+    ft.textContent=txt('lbl_file');
+    ft.className='sp-file-text';
+    ft.dataset.hasFile='';
+  }
+};
+
+// ─── Form submit ───
+document.getElementById('spForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var form=e.target;
+  var fd=new FormData(form);
+
+  fetch('/',{
+    method:'POST',
+    headers:{'Accept':'application/json'},
+    body:fd
+  }).then(function(r){
+    if(r.ok){
+      document.getElementById('spFormWrap').style.display='none';
+      document.getElementById('spThanks').style.display='block';
+    }else{
+      alert(txt('th_desc'));
+    }
+  }).catch(function(){
+    alert('Network error');
+  });
+});
+
+initLang();
+updatePreview();
+})();
+</script>
+</body>
+</html>

@@ -538,7 +538,7 @@ ul { list-style: none; }
     <li><a href="#" onclick="showPage('references')" data-i18n="nav_references">Referanslar</a></li>
     <li><a href="#" onclick="showPage('faq')" data-i18n="nav_faq">SSS</a></li>
     <li><a href="#" onclick="showPage('contact')" data-i18n="nav_contact">İletişim</a></li>
-    <li><a href="#" onclick="showPage('card')" data-i18n="nav_card">Kartvizit</a></li>
+    <li><a href="#" onclick="showPage('card')" data-i18n="nav_card">Kurumsal Kartvizitimiz</a></li>
     <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:8px;">
@@ -629,7 +629,7 @@ ul { list-style: none; }
     <div class="card reveal reveal-delay-1"><div class="card-icon">🌐</div><div class="card-title" data-i18n="sol2_title">Web Uygulamaları</div><div class="card-desc" data-i18n="sol2_desc">Markanıza özel, modern ve hızlı web uygulamaları geliştiriyoruz.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
     <div class="card reveal reveal-delay-2"><div class="card-icon">📱</div><div class="card-title" data-i18n="sol3_title">Mobil Çözümler</div><div class="card-desc" data-i18n="sol3_desc">PWA ve mobil uyumlu web uygulamalarıyla her cihazda kusursuz deneyim.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
     <div class="card reveal"><div class="card-icon">🧠</div><div class="card-title" data-i18n="sol6_title">AI Destekli Web Geliştirme</div><div class="card-desc" data-i18n="sol6_desc">SEO optimizasyonlu, yapay zeka entegreli modern web siteleri.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
-    <div class="card reveal reveal-delay-1"><div class="card-icon">💳</div><div class="card-title" data-i18n="sol7_title">Dijital Kartvizit & NFC</div><div class="card-desc" data-i18n="sol7_desc">NFC destekli akıllı dijital kartvizit çözümleri. Tek dokunuşla iletişim bilgilerinizi paylaşın.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
+    <div class="card reveal reveal-delay-1" style="cursor:pointer;" onclick="showPage('kartvizit-urun')"><div class="card-icon">💳</div><div class="card-title" data-i18n="sol7_title">Dijital Kartvizit & NFC</div><div class="card-desc" data-i18n="sol7_desc">NFC destekli akıllı dijital kartvizit çözümleri. Tek dokunuşla iletişim bilgilerinizi paylaşın.</div><a href="#" class="card-cta" onclick="event.stopPropagation();showPage('kartvizit-urun')"><span data-i18n="sol7_cta">Ürünü İncele</span> →</a></div>
     <div class="card reveal reveal-delay-2"><div class="card-icon">💡</div><div class="card-title" data-i18n="sol4_title">Danışmanlık</div><div class="card-desc" data-i18n="sol4_desc">Dijital dönüşüm yolculuğunuzda stratejik iş ortağınız.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
     <div class="card coming-soon reveal"><div class="card-icon">🎓</div><div class="card-badge" data-i18n="sol5_badge">Yakında</div><div class="card-title" data-i18n="sol5_title">Eğitimler</div><div class="card-desc" data-i18n="sol5_desc">Kurumsal AI eğitimleri yakında.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol5_cta">Bilgi Al</span> →</a></div>
   </div>
@@ -762,6 +762,7 @@ ul { list-style: none; }
     <div class="card reveal reveal-delay-2"><div class="card-icon">📱</div><div class="card-title" data-i18n="sol3_title">Mobil Çözümler</div><div class="card-desc" data-i18n="sol3_desc">PWA (Progressive Web App) ve mobil uyumlu web uygulamalarıyla her cihazda kusursuz deneyim. Hızlı, güvenilir ve kurulum gerektirmeyen mobil çözümler.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
     <div class="card reveal"><div class="card-icon">💡</div><div class="card-title" data-i18n="sol4_title">Danışmanlık</div><div class="card-desc" data-i18n="sol4_desc">Mevcut süreçlerinizi analiz eder, otomasyon fırsatlarını belirler ve size özel yol haritası hazırlarız.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
     <div class="card coming-soon reveal reveal-delay-1"><div class="card-icon">🎓</div><div class="card-badge" data-i18n="sol5_badge">Yakında</div><div class="card-title" data-i18n="sol5_title">Eğitimler</div><div class="card-desc" data-i18n="sol5_desc">Yapay zeka araçlarını ve otomasyon platformlarını ekibinize öğretecek kurumsal eğitimler yakında.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol5_cta">Bilgi Al</span> →</a></div>
+    <div class="card reveal reveal-delay-2" style="border:1px solid rgba(0,212,255,0.2);position:relative;"><div class="card-badge" style="background:linear-gradient(135deg,var(--neon),var(--purple));color:#fff;">750 ₺</div><div class="card-icon">💳</div><div class="card-title" data-i18n="sol7_title">Dijital Kartvizit & NFC</div><div class="card-desc" data-i18n="sol7_product_desc">Siyah mat NFC kart + logo/isim baskısı. Telefonunuzu dokundurun, dijital kartvizitiniz açılsın. Kargo ücretsiz.</div><a href="#" class="card-cta" onclick="showPage('kartvizit-urun')"><span data-i18n="sol7_order_btn">Sipariş Ver</span> →</a></div>
   </div>
 </section>
 </div>
@@ -905,6 +906,83 @@ ul { list-style: none; }
 </div>
 
 <!-- FOOTER (shown on all pages except card) -->
+<div id="page-kartvizit-urun" class="page">
+<div class="page-hero">
+  <div class="section-label" data-i18n="kv_label">💳 Ürün</div>
+  <h1 data-i18n="kv_h1">Dijital Kartvizit & NFC</h1>
+  <p style="color:var(--text-muted);margin-top:8px;" data-i18n="kv_sub">Akıllı NFC kartvizit ile tanışın. Tek dokunuşla dijital dünyanızı paylaşın.</p>
+</div>
+
+<section class="section">
+  <!-- Ürün Açıklaması -->
+  <div style="max-width:800px;margin:0 auto 40px;">
+    <h2 class="reveal" style="font-size:1.5rem;margin-bottom:16px;" data-i18n="kv_what_title">NFC Dijital Kartvizit Nedir?</h2>
+    <p class="reveal" style="color:var(--text-muted);line-height:1.8;font-size:0.95rem;" data-i18n="kv_what_desc">NFC destekli akıllı dijital kartvizit, telefonunuzu karta dokundurduğunuzda kişinin dijital kartvizitini açar. Ad, unvan, telefon, WhatsApp, sosyal medya linkleri ve &ldquo;Rehbere Ekle&rdquo; butonu tek ekranda. QR kod desteği de mevcuttur. Bilgilerinizi istediğiniz zaman güncelleyebilirsiniz.</p>
+  </div>
+
+  <!-- Nasıl Çalışır -->
+  <div style="max-width:800px;margin:0 auto 40px;">
+    <h2 class="reveal" style="font-size:1.5rem;margin-bottom:24px;" data-i18n="kv_how_title">Nasıl Çalışır?</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+      <div class="reveal" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.1);text-align:center;">
+        <div style="font-size:2rem;margin-bottom:8px;">1️⃣</div>
+        <div style="font-weight:600;margin-bottom:4px;" data-i18n="kv_step1">Sipariş Verin</div>
+      </div>
+      <div class="reveal reveal-delay-1" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.1);text-align:center;">
+        <div style="font-size:2rem;margin-bottom:8px;">2️⃣</div>
+        <div style="font-weight:600;margin-bottom:4px;" data-i18n="kv_step2">Kartınız Üretilir</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="kv_step2_desc">Siyah mat NFC kart + logo/isim baskısı</div>
+      </div>
+      <div class="reveal reveal-delay-2" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.1);text-align:center;">
+        <div style="font-size:2rem;margin-bottom:8px;">3️⃣</div>
+        <div style="font-weight:600;margin-bottom:4px;" data-i18n="kv_step3">Adresinize Kargolanır</div>
+      </div>
+      <div class="reveal" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.1);text-align:center;">
+        <div style="font-size:2rem;margin-bottom:8px;">4️⃣</div>
+        <div style="font-weight:600;margin-bottom:4px;" data-i18n="kv_step4">Dokundurun & Paylaşın</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="kv_step4_desc">Bilgilerinizi istediğiniz zaman güncelleyebilirsiniz</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Baskı Renkleri -->
+  <div style="max-width:800px;margin:0 auto 40px;">
+    <h2 class="reveal" style="font-size:1.5rem;margin-bottom:24px;" data-i18n="kv_color_title">Baskı Renk Seçenekleri</h2>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <div class="reveal" style="padding:20px 32px;border-radius:12px;background:rgba(0,0,0,0.3);border:1px solid rgba(212,168,83,0.3);text-align:center;">
+        <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#D4A853,#F5D78E,#C4943A);margin:0 auto 10px;border:2px solid rgba(255,255,255,0.1);"></div>
+        <div style="font-weight:600;color:#D4A853;" data-i18n="kv_color_gold">Gold</div>
+      </div>
+      <div class="reveal reveal-delay-1" style="padding:20px 32px;border-radius:12px;background:rgba(0,0,0,0.3);border:1px solid rgba(205,127,50,0.3);text-align:center;">
+        <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#CD7F32,#E8A862,#A0612B);margin:0 auto 10px;border:2px solid rgba(255,255,255,0.1);"></div>
+        <div style="font-weight:600;color:#CD7F32;" data-i18n="kv_color_bronze">Bronze</div>
+      </div>
+      <div class="reveal reveal-delay-2" style="padding:20px 32px;border-radius:12px;background:rgba(0,0,0,0.3);border:1px solid rgba(240,240,240,0.2);text-align:center;">
+        <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#F0F0F0,#FFFFFF,#D9D9D9);margin:0 auto 10px;border:2px solid rgba(255,255,255,0.1);"></div>
+        <div style="font-weight:600;color:#F0F0F0;" data-i18n="kv_color_white">White</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fiyat Bloğu -->
+  <div class="reveal" style="max-width:500px;margin:0 auto 40px;padding:32px;border-radius:16px;background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(139,92,246,0.08));border:1px solid rgba(0,212,255,0.2);text-align:center;">
+    <div style="font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--neon);margin-bottom:12px;" data-i18n="kv_price_label">Fiyat</div>
+    <div style="font-size:3rem;font-weight:800;background:linear-gradient(135deg,var(--neon),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;">750 ₺</div>
+    <div style="color:var(--text-muted);font-size:0.9rem;margin-bottom:4px;">✅ <span data-i18n="kv_shipping">Kargo Ücretsiz</span></div>
+    <div style="color:var(--text-muted);font-size:0.9rem;margin-bottom:24px;">📦 <span data-i18n="kv_delivery">Teslimat: 5 gün - 1 hafta</span></div>
+    <a href="/kartvizit-siparis" style="display:inline-block;padding:14px 40px;background:linear-gradient(135deg,var(--neon),var(--purple));color:#fff;font-weight:700;font-size:1rem;border-radius:12px;text-decoration:none;transition:filter 0.3s ease,transform 0.2s ease;" onmouseover="this.style.filter='brightness(1.15)';this.style.transform='translateY(-2px)';" onmouseout="this.style.filter='brightness(1)';this.style.transform='translateY(0)';">
+      <span data-i18n="kv_order_btn">Sipariş Ver</span> →
+    </a>
+  </div>
+
+  <!-- Not -->
+  <div style="max-width:600px;margin:0 auto;text-align:center;">
+    <p class="reveal" style="color:var(--text-muted);font-size:0.85rem;line-height:1.7;" data-i18n="kv_note">Ödeme havale/EFT ile yapılır. Sipariş sonrası IBAN bilgileri paylaşılır. Ödemeniz kontrol edildikten sonra kartınız üretilir ve adresinize kargolanır.</p>
+  </div>
+</section>
+</div>
+
+
 <footer class="footer" id="main-footer">
   <div class="footer-grid">
     <div class="footer-brand">
@@ -923,7 +1001,7 @@ ul { list-style: none; }
         <li><a href="#" onclick="showPage('references')" data-i18n="nav_references">Referanslar</a></li>
         <li><a href="#" onclick="showPage('faq')" data-i18n="nav_faq">SSS</a></li>
     <li><a href="#" onclick="showPage('contact')" data-i18n="nav_contact">İletişim</a></li>
-        <li><a href="#" onclick="showPage('card')" data-i18n="footer_card">Dijital Kartvizit</a></li>
+        <li><a href="#" onclick="showPage('card')" data-i18n="footer_card">Kurumsal Kartvizitimiz</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -977,7 +1055,7 @@ const translations = {
   tr: {
     // NAVBAR
     nav_home: 'Ana Sayfa', nav_about: 'Hakkımızda', nav_solutions: 'Hizmetler',
-    nav_references: 'Referanslar', nav_contact: 'İletişim', nav_card: 'Kartvizit',
+    nav_references: 'Referanslar', nav_contact: 'İletişim', nav_card: 'Kurumsal Kartvizitimiz',
     nav_wa: 'WhatsApp\'tan Teklif Al',
     // HERO
     hero_eyebrow: 'Yapay Zeka & Otomasyon',
@@ -1054,7 +1132,7 @@ const translations = {
     footer_desc: 'Yapay zeka destekli otomasyon sistemleri ile iş süreçlerinizi geleceğe taşıyoruz.',
     footer_nav: 'Navigasyon', footer_contact: 'İletişim', footer_copy: '© ' + new Date().getFullYear() + ' Kılman Bilişim Sistemleri Ltd. Şti. Tüm hakları saklıdır.',
     privacy_policy: 'Gizlilik Politikası',
-    footer_card: 'Dijital Kartvizit',
+    footer_card: 'Kurumsal Kartvizitimiz',
     nav_blog: 'Blog',
     // EMLAK OTOMASYON
     emlak_label: '🏠 Öne Çıkan Ürün', emlak_title: 'Emlak Otomasyon Sistemi', emlak_sub: 'Gayrimenkul sektörüne özel, yapay zeka destekli uçtan uca otomasyon çözümü.',
@@ -1074,10 +1152,17 @@ const translations = {
     faq_q4: 'Fiyatlandırma nasıl çalışıyor?', faq_a4: 'Her proje işletmenizin ihtiyaçlarına göre özel fiyatlandırılır. Sabit paket fiyatları yerine, ihtiyacınıza tam oturan çözümler sunuyoruz. Ücretsiz ön görüşme için bizimle iletişime geçin.',
     faq_q5: 'Teknik bilgim yok, sistemi kullanabilir miyim?', faq_a5: 'Evet, tüm sistemlerimiz teknik bilgi gerektirmeyecek şekilde kullanıcı dostu tasarlanır. Kurulum sonrası eğitim veriyor ve sürekli teknik destek sağlıyoruz.',
     faq_q6: 'Hangi bölgelere hizmet veriyorsunuz?', faq_a6: 'İstanbul merkezli olarak Türkiye genelinde uzaktan hizmet veriyoruz. Tüm otomasyon çözümlerimiz bulut tabanlı olduğu için lokasyon fark etmeksizin her yerden erişilebilir.',
+    kv_label: '💳 Ürün', kv_h1: 'Dijital Kartvizit & NFC', kv_sub: 'Akıllı NFC kartvizit ile tanışın. Tek dokunuşla dijital dünyanızı paylaşın.',
+    kv_what_title: 'NFC Dijital Kartvizit Nedir?', kv_what_desc: 'NFC destekli akıllı dijital kartvizit, telefonunuzu karta dokundurduğunuzda kişinin dijital kartvizitini açar. Ad, unvan, telefon, WhatsApp, sosyal medya linkleri ve “Rehbere Ekle” butonu tek ekranda. QR kod desteği de mevcuttur. Bilgilerinizi istediğiniz zaman güncelleyebilirsiniz.',
+    kv_how_title: 'Nasıl Çalışır?', kv_step1: 'Sipariş Verin', kv_step2: 'Kartınız Üretilir', kv_step2_desc: 'Siyah mat NFC kart + logo/isim baskısı', kv_step3: 'Adresinize Kargolanır', kv_step4: 'Dokundurun & Paylaşın', kv_step4_desc: 'Bilgilerinizi istediğiniz zaman güncelleyebilirsiniz',
+    kv_color_title: 'Baskı Renk Seçenekleri', kv_color_gold: 'Gold', kv_color_bronze: 'Bronze', kv_color_white: 'White',
+    kv_price_label: 'Fiyat', kv_shipping: 'Kargo Ücretsiz', kv_delivery: 'Teslimat: 5 gün - 1 hafta', kv_order_btn: 'Sipariş Ver',
+    kv_note: 'Ödeme havale/EFT ile yapılır. Sipariş sonrası IBAN bilgileri paylaşılır. Ödemeniz kontrol edildikten sonra kartınız üretilir ve adresinize kargolanır.',
+    sol7_cta: 'Ürünü İncele', sol7_product_desc: 'Siyah mat NFC kart + logo/isim baskısı. Telefonunuzu dokundurun, dijital kartvizitiniz açılsın. Kargo ücretsiz.', sol7_order_btn: 'Sipariş Ver',
   },
   en: {
     nav_home: 'Home', nav_about: 'About', nav_solutions: 'Solutions',
-    nav_references: 'References', nav_contact: 'Contact', nav_card: 'Business Card',
+    nav_references: 'References', nav_contact: 'Contact', nav_card: 'Our Corporate Card',
     nav_wa: 'Get a Quote on WhatsApp',
     hero_eyebrow: 'Artificial Intelligence & Automation',
     hero_h1_1: 'Next-Generation', hero_h1_accent: 'AI-Powered',
@@ -1145,7 +1230,7 @@ const translations = {
     footer_desc: 'We bring your business processes into the future with AI-powered automation systems.',
     footer_nav: 'Navigation', footer_contact: 'Contact', footer_copy: '© ' + new Date().getFullYear() + ' Kılman Bilişim Sistemleri Ltd. Şti. All rights reserved.',
     privacy_policy: 'Privacy Policy',
-    footer_card: 'Digital Business Card',
+    footer_card: 'Our Corporate Card',
     nav_blog: 'Blog',
     // EMLAK OTOMASYON
     emlak_label: '🏠 Featured Product', emlak_title: 'Real Estate Automation', emlak_sub: 'End-to-end AI-powered automation solution for the real estate industry.',
@@ -1165,10 +1250,17 @@ const translations = {
     faq_q4: 'How does pricing work?', faq_a4: 'Each project is custom-priced based on your business needs. Instead of fixed package prices, we offer solutions that perfectly fit your requirements. Contact us for a free initial consultation.',
     faq_q5: 'I have no technical knowledge, can I use the system?', faq_a5: 'Yes, all our systems are designed to be user-friendly with no technical knowledge required. We provide post-setup training and ongoing technical support.',
     faq_q6: 'What regions do you serve?', faq_a6: 'Based in Istanbul, we provide remote services throughout Turkey. Since all our automation solutions are cloud-based, they are accessible from anywhere regardless of location.',
+    kv_label: '💳 Product', kv_h1: 'Digital Business Card & NFC', kv_sub: 'Meet the smart NFC business card. Share your digital world with a single tap.',
+    kv_what_title: 'What Is an NFC Digital Business Card?', kv_what_desc: 'An NFC-enabled smart digital business card opens your digital profile when a phone is tapped on the card. Name, title, phone, WhatsApp, social media links and an “Add to Contacts” button — all on one screen. QR code support is also available. You can update your information anytime.',
+    kv_how_title: 'How Does It Work?', kv_step1: 'Place Your Order', kv_step2: 'Your Card Is Produced', kv_step2_desc: 'Matte black NFC card + logo/name printing', kv_step3: 'Shipped to Your Address', kv_step4: 'Tap & Share', kv_step4_desc: 'Update your info anytime you want',
+    kv_color_title: 'Print Color Options', kv_color_gold: 'Gold', kv_color_bronze: 'Bronze', kv_color_white: 'White',
+    kv_price_label: 'Price', kv_shipping: 'Free Shipping', kv_delivery: 'Delivery: 5 days - 1 week', kv_order_btn: 'Order Now',
+    kv_note: 'Payment is made via bank transfer. IBAN details will be shared after your order. Once your payment is verified, your card will be produced and shipped to your address.',
+    sol7_cta: 'View Product', sol7_product_desc: 'Matte black NFC card + logo/name printing. Tap your phone, open your digital business card. Free shipping.', sol7_order_btn: 'Order Now',
   },
   de: {
     nav_home: 'Startseite', nav_about: 'Über uns', nav_solutions: 'Lösungen',
-    nav_references: 'Referenzen', nav_contact: 'Kontakt', nav_card: 'Visitenkarte',
+    nav_references: 'Referenzen', nav_contact: 'Kontakt', nav_card: 'Unsere Firmenkarte',
     nav_wa: 'Angebot über WhatsApp',
     hero_eyebrow: 'Künstliche Intelligenz & Automatisierung',
     hero_h1_1: 'Nächste Generation', hero_h1_accent: 'KI-gestützte',
@@ -1229,7 +1321,7 @@ const translations = {
     footer_desc: 'Wir bringen Ihre Geschäftsprozesse mit KI-gestützten Automatisierungssystemen in die Zukunft.',
     footer_nav: 'Navigation', footer_contact: 'Kontakt', footer_copy: '© ' + new Date().getFullYear() + ' Kılman Bilişim Sistemleri Ltd. Şti. Alle Rechte vorbehalten.',
     privacy_policy: 'Datenschutz',
-    footer_card: 'Digitale Visitenkarte',
+    footer_card: 'Unsere Firmenkarte',
     nav_blog: 'Blog',
     emlak_label: '🏠 Hervorgehobenes Produkt', emlak_title: 'Immobilien-Automatisierung', emlak_sub: 'End-to-End-KI-Automatisierungslösung für die Immobilienbranche.',
     emlak_b1: 'KI-gestützte Kundenverwaltung', emlak_b2: 'Automatische Terminplanung', emlak_b3: 'Lead-Analyse',
@@ -1248,10 +1340,17 @@ const translations = {
     faq_q4: 'Wie funktioniert die Preisgestaltung?', faq_a4: 'Jedes Projekt wird individuell nach Ihren Bedürfnissen bepreist. Kontaktieren Sie uns für eine kostenlose Erstberatung.',
     faq_q5: 'Ich habe keine technischen Kenntnisse, kann ich das System nutzen?', faq_a5: 'Ja, alle unsere Systeme sind benutzerfreundlich gestaltet. Wir bieten Schulungen und laufenden technischen Support.',
     faq_q6: 'Welche Regionen bedienen Sie?', faq_a6: 'Mit Sitz in Istanbul bieten wir Remote-Services in der gesamten Türkei an. Unsere cloudbasierten Lösungen sind standortunabhängig.',
+    kv_label: '💳 Produkt', kv_h1: 'Digitale Visitenkarte & NFC', kv_sub: 'Lernen Sie die smarte NFC-Visitenkarte kennen. Teilen Sie Ihre digitale Welt mit einer Berührung.',
+    kv_what_title: 'Was ist eine NFC-Visitenkarte?', kv_what_desc: 'Eine NFC-fähige digitale Visitenkarte öffnet Ihr digitales Profil, wenn ein Telefon an die Karte gehalten wird. Name, Titel, Telefon, WhatsApp, Social-Media-Links und eine Schaltfläche „Zu Kontakten hinzufügen" — alles auf einem Bildschirm. QR-Code-Unterstützung ist ebenfalls verfügbar.',
+    kv_how_title: 'Wie funktioniert es?', kv_step1: 'Bestellen', kv_step2: 'Karte wird produziert', kv_step2_desc: 'Matte schwarze NFC-Karte + Logo/Name', kv_step3: 'Versand an Ihre Adresse', kv_step4: 'Berühren & Teilen', kv_step4_desc: 'Aktualisieren Sie Ihre Daten jederzeit',
+    kv_color_title: 'Druckfarboptionen', kv_color_gold: 'Gold', kv_color_bronze: 'Bronze', kv_color_white: 'Weiß',
+    kv_price_label: 'Preis', kv_shipping: 'Kostenloser Versand', kv_delivery: 'Lieferung: 5 Tage - 1 Woche', kv_order_btn: 'Jetzt bestellen',
+    kv_note: 'Zahlung per Überweisung. IBAN-Daten werden nach Ihrer Bestellung mitgeteilt. Nach Bestätigung Ihrer Zahlung wird Ihre Karte produziert und an Ihre Adresse versandt.',
+    sol7_cta: 'Produkt ansehen', sol7_product_desc: 'Matte schwarze NFC-Karte + Logo/Name-Druck. Berühren Sie Ihr Telefon, öffnen Sie Ihre digitale Visitenkarte. Kostenloser Versand.', sol7_order_btn: 'Jetzt bestellen',
   },
   es: {
     nav_home: 'Inicio', nav_about: 'Nosotros', nav_solutions: 'Soluciones',
-    nav_references: 'Referencias', nav_contact: 'Contacto', nav_card: 'Tarjeta Digital',
+    nav_references: 'Referencias', nav_contact: 'Contacto', nav_card: 'Nuestra Tarjeta Corporativa',
     nav_wa: 'Presupuesto por WhatsApp',
     hero_eyebrow: 'Inteligencia Artificial y Automatización',
     hero_h1_1: 'Próxima Generación', hero_h1_accent: 'Impulsados por IA',
@@ -1312,7 +1411,7 @@ const translations = {
     footer_desc: 'Llevamos sus procesos empresariales al futuro con sistemas de automatización impulsados por IA.',
     footer_nav: 'Navegación', footer_contact: 'Contacto', footer_copy: '© ' + new Date().getFullYear() + ' Kılman Bilişim Sistemleri Ltd. Şti. Todos los derechos reservados.',
     privacy_policy: 'Política de Privacidad',
-    footer_card: 'Tarjeta digital',
+    footer_card: 'Nuestra Tarjeta Corporativa',
     nav_blog: 'Blog',
     emlak_label: '🏠 Producto destacado', emlak_title: 'Automatización inmobiliaria', emlak_sub: 'Solución de automatización IA integral para el sector inmobiliario.',
     emlak_b1: 'Gestión de clientes con IA', emlak_b2: 'Programación automática de citas', emlak_b3: 'Análisis de leads',
@@ -1331,10 +1430,17 @@ const translations = {
     faq_q4: '¿Cómo funcionan los precios?', faq_a4: 'Cada proyecto se presupuesta según sus necesidades. Contáctenos para una consulta gratuita.',
     faq_q5: 'No tengo conocimientos técnicos, ¿puedo usar el sistema?', faq_a5: 'Sí, todos nuestros sistemas son intuitivos. Ofrecemos capacitación y soporte técnico continuo.',
     faq_q6: '¿En qué regiones operan?', faq_a6: 'Con sede en Estambul, ofrecemos servicios remotos en toda Turquía. Nuestras soluciones en la nube son accesibles desde cualquier lugar.',
+    kv_label: '💳 Producto', kv_h1: 'Tarjeta Digital & NFC', kv_sub: 'Conozca la tarjeta NFC inteligente. Comparta su mundo digital con un toque.',
+    kv_what_title: '¿Qué es una tarjeta digital NFC?', kv_what_desc: 'Una tarjeta digital con NFC abre su perfil digital al acercar un teléfono. Nombre, título, teléfono, WhatsApp, redes sociales y botón «Añadir a contactos» en una pantalla. También compatible con código QR. Actualice su información en cualquier momento.',
+    kv_how_title: '¿Cómo funciona?', kv_step1: 'Haga su pedido', kv_step2: 'Su tarjeta se produce', kv_step2_desc: 'Tarjeta NFC negra mate + logo/nombre', kv_step3: 'Envío a su dirección', kv_step4: 'Toque y comparta', kv_step4_desc: 'Actualice su información cuando quiera',
+    kv_color_title: 'Opciones de color de impresión', kv_color_gold: 'Gold', kv_color_bronze: 'Bronze', kv_color_white: 'White',
+    kv_price_label: 'Precio', kv_shipping: 'Envío gratuito', kv_delivery: 'Entrega: 5 días - 1 semana', kv_order_btn: 'Pedir ahora',
+    kv_note: 'El pago se realiza por transferencia bancaria. Los datos IBAN se compartirán después del pedido. Una vez verificado su pago, su tarjeta será producida y enviada a su dirección.',
+    sol7_cta: 'Ver producto', sol7_product_desc: 'Tarjeta NFC negra mate + impresión de logo/nombre. Toque su teléfono, abra su tarjeta digital. Envío gratuito.', sol7_order_btn: 'Pedir ahora',
   },
   fr: {
     nav_home: 'Accueil', nav_about: 'À propos', nav_solutions: 'Solutions',
-    nav_references: 'Références', nav_contact: 'Contact', nav_card: 'Carte de visite',
+    nav_references: 'Références', nav_contact: 'Contact', nav_card: 'Notre Carte Professionnelle',
     nav_wa: 'Devis via WhatsApp',
     hero_eyebrow: 'Intelligence artificielle & Automatisation',
     hero_h1_1: 'Nouvelle génération', hero_h1_accent: 'Alimentés par l\'IA',
@@ -1395,7 +1501,7 @@ const translations = {
     footer_desc: 'Nous propulsons vos processus métier vers le futur avec des systèmes d\'automatisation IA.',
     footer_nav: 'Navigation', footer_contact: 'Contact', footer_copy: '© ' + new Date().getFullYear() + ' Kılman Bilişim Sistemleri Ltd. Şti. Tous droits réservés.',
     privacy_policy: 'Politique de Confidentialité',
-    footer_card: 'Carte de visite numérique',
+    footer_card: 'Notre Carte Professionnelle',
     nav_blog: 'Blog',
     emlak_label: '🏠 Produit phare', emlak_title: 'Automatisation immobilière', emlak_sub: 'Solution d\'automatisation IA complète pour l\'immobilier.',
     emlak_b1: 'Gestion client IA', emlak_b2: 'Planification automatique', emlak_b3: 'Analyse de leads',
@@ -1414,10 +1520,17 @@ const translations = {
     faq_q4: 'Comment fonctionne la tarification ?', faq_a4: 'Chaque projet est tarifé sur mesure. Contactez-nous pour une consultation gratuite.',
     faq_q5: 'Je n\'ai pas de connaissances techniques, puis-je utiliser le système ?', faq_a5: 'Oui, tous nos systèmes sont conçus pour être intuitifs. Nous assurons formation et support technique continu.',
     faq_q6: 'Quelles régions desservez-vous ?', faq_a6: 'Basés à Istanbul, nous offrons des services à distance dans toute la Turquie. Nos solutions cloud sont accessibles partout.',
+    kv_label: '💳 Produit', kv_h1: 'Carte Digitale & NFC', kv_sub: 'Découvrez la carte NFC intelligente. Partagez votre monde numérique d\'un simple geste.',
+    kv_what_title: 'Qu\'est-ce qu\'une carte digitale NFC ?', kv_what_desc: 'Une carte digitale NFC ouvre votre profil numérique lorsqu\'un téléphone est posé sur la carte. Nom, titre, téléphone, WhatsApp, réseaux sociaux et bouton « Ajouter aux contacts » sur un seul écran. Compatible QR code. Mettez à jour vos informations à tout moment.',
+    kv_how_title: 'Comment ça marche ?', kv_step1: 'Passez commande', kv_step2: 'Votre carte est produite', kv_step2_desc: 'Carte NFC noire mate + logo/nom', kv_step3: 'Expédition à votre adresse', kv_step4: 'Touchez et partagez', kv_step4_desc: 'Mettez à jour vos infos quand vous voulez',
+    kv_color_title: 'Options de couleur d\'impression', kv_color_gold: 'Gold', kv_color_bronze: 'Bronze', kv_color_white: 'White',
+    kv_price_label: 'Prix', kv_shipping: 'Livraison gratuite', kv_delivery: 'Livraison : 5 jours - 1 semaine', kv_order_btn: 'Commander',
+    kv_note: 'Le paiement se fait par virement bancaire. Les coordonnées IBAN seront partagées après votre commande. Une fois votre paiement vérifié, votre carte sera produite et expédiée à votre adresse.',
+    sol7_cta: 'Voir le produit', sol7_product_desc: 'Carte NFC noire mate + impression logo/nom. Touchez votre téléphone, ouvrez votre carte digitale. Livraison gratuite.', sol7_order_btn: 'Commander',
   },
   ru: {
     nav_home: 'Главная', nav_about: 'О нас', nav_solutions: 'Решения',
-    nav_references: 'Референсы', nav_contact: 'Контакты', nav_card: 'Визитка',
+    nav_references: 'Референсы', nav_contact: 'Контакты', nav_card: 'Наша корпоративная визитка',
     nav_wa: 'Запрос через WhatsApp',
     hero_eyebrow: 'Искусственный интеллект и автоматизация',
     hero_h1_1: 'Новое поколение', hero_h1_accent: 'На базе ИИ',
@@ -1478,7 +1591,7 @@ const translations = {
     footer_desc: 'Мы приводим ваши бизнес-процессы в будущее с помощью ИИ-автоматизации.',
     footer_nav: 'Навигация', footer_contact: 'Контакты', footer_copy: '© ' + new Date().getFullYear() + ' Kılman Bilişim Sistemleri Ltd. Şti. Все права защищены.',
     privacy_policy: 'Политика конфиденциальности',
-    footer_card: 'Цифровая визитка',
+    footer_card: 'Наша корпоративная визитка',
     nav_blog: 'Блог',
     emlak_label: '🏠 Выделенный продукт', emlak_title: 'Автоматизация недвижимости', emlak_sub: 'Комплексное ИИ-решение для сферы недвижимости.',
     emlak_b1: 'ИИ-управление клиентами', emlak_b2: 'Автопланирование встреч', emlak_b3: 'Анализ лидов',
@@ -1497,10 +1610,17 @@ const translations = {
     faq_q4: 'Как формируется цена?', faq_a4: 'Каждый проект оценивается индивидуально. Свяжитесь для бесплатной консультации.',
     faq_q5: 'У меня нет технических знаний, смогу ли я пользоваться?', faq_a5: 'Да, все системы интуитивно понятны. Мы обеспечиваем обучение и техническую поддержку.',
     faq_q6: 'В каких регионах вы работаете?', faq_a6: 'Базируемся в Стамбуле, обслуживаем всю Турцию удалённо. Облачные решения доступны отовсюду.',
+    kv_label: '💳 Продукт', kv_h1: 'Цифровая визитка & NFC', kv_sub: 'Познакомьтесь с умной NFC-визиткой. Поделитесь своим цифровым миром одним касанием.',
+    kv_what_title: 'Что такое NFC-визитка?', kv_what_desc: 'NFC-визитка открывает ваш цифровой профиль при поднесении телефона к карте. Имя, должность, телефон, WhatsApp, соцсети и кнопка «Добавить в контакты» — всё на одном экране. Поддержка QR-кода. Обновляйте информацию в любое время.',
+    kv_how_title: 'Как это работает?', kv_step1: 'Оформите заказ', kv_step2: 'Карта производится', kv_step2_desc: 'Матовая чёрная NFC-карта + логотип/имя', kv_step3: 'Доставка по адресу', kv_step4: 'Прикоснитесь и поделитесь', kv_step4_desc: 'Обновляйте данные в любое время',
+    kv_color_title: 'Варианты цвета печати', kv_color_gold: 'Gold', kv_color_bronze: 'Bronze', kv_color_white: 'White',
+    kv_price_label: 'Цена', kv_shipping: 'Бесплатная доставка', kv_delivery: 'Доставка: 5 дней - 1 неделя', kv_order_btn: 'Заказать',
+    kv_note: 'Оплата банковским переводом. Реквизиты IBAN будут предоставлены после заказа. После подтверждения оплаты ваша карта будет изготовлена и отправлена по вашему адресу.',
+    sol7_cta: 'Посмотреть', sol7_product_desc: 'Матовая чёрная NFC-карта + печать логотипа/имени. Прикоснитесь телефоном — откройте цифровую визитку. Бесплатная доставка.', sol7_order_btn: 'Заказать',
   },
   ko: {
     nav_home: '홈', nav_about: '회사소개', nav_solutions: '서비스',
-    nav_references: '레퍼런스', nav_contact: '문의', nav_card: '명함',
+    nav_references: '레퍼런스', nav_contact: '문의', nav_card: '회사 명함',
     nav_wa: 'WhatsApp 견적 받기',
     person_title_tr: 'AI 전문가 & 기업가',
     hero_eyebrow: '인공지능 & 자동화',
@@ -1554,7 +1674,7 @@ const translations = {
     footer_desc: 'AI 자동화로 비즈니스 프로세스를 미래로 이끕니다.',
     footer_nav: '탐색', footer_contact: '연락처', footer_copy: '© ' + new Date().getFullYear() + ' Kılman Bilişim Sistemleri Ltd. Şti. 모든 권리 보유.',
     privacy_policy: '개인정보 처리방침',
-    footer_card: '디지털 명함',
+    footer_card: '회사 명함',
     nav_blog: '블로그',
     emlak_label: '🏠 주요 제품', emlak_title: '부동산 자동화', emlak_sub: '부동산 부문을 위한 종합 AI 솔루션.',
     emlak_b1: 'AI 고객 관리', emlak_b2: '자동 예약', emlak_b3: '리드 분석',
@@ -1587,10 +1707,17 @@ const translations = {
     faq_q4: '가격은 어떻게 책정되나요?', faq_a4: '프로젝트별 맞춤 견적을 제공합니다. 무료 상담을 위해 연락주세요.',
     faq_q5: '기술 지식이 없어도 사용할 수 있나요?', faq_a5: '네, 모든 시스템은 사용자 친화적으로 설계됩니다. 교육과 지속적인 기술 지원을 제공합니다.',
     faq_q6: '어느 지역에서 서비스하나요?', faq_a6: '이스탄불을 기반으로 터키 전역에 원격 서비스를 제공합니다. 클라우드 기반이라 어디서든 접근 가능합니다.',
+    kv_label: '💳 제품', kv_h1: '디지털 명함 & NFC', kv_sub: '스마트 NFC 명함을 만나보세요. 한 번의 터치로 디지털 세계를 공유하세요.',
+    kv_what_title: 'NFC 디지털 명함이란?', kv_what_desc: 'NFC 지원 스마트 디지털 명함은 휴대폰을 카드에 대면 디지털 프로필이 열립니다. 이름, 직함, 전화, WhatsApp, SNS 링크와 «연락처 추가» 버튼이 한 화면에. QR 코드도 지원됩니다. 언제든지 정보를 업데이트할 수 있습니다.',
+    kv_how_title: '어떻게 작동하나요?', kv_step1: '주문하기', kv_step2: '카드 제작', kv_step2_desc: '매트 블랙 NFC 카드 + 로고/이름 인쇄', kv_step3: '주소로 배송', kv_step4: '터치 & 공유', kv_step4_desc: '언제든지 정보를 업데이트 가능',
+    kv_color_title: '인쇄 색상 옵션', kv_color_gold: 'Gold', kv_color_bronze: 'Bronze', kv_color_white: 'White',
+    kv_price_label: '가격', kv_shipping: '무료 배송', kv_delivery: '배송: 5일 - 1주', kv_order_btn: '주문하기',
+    kv_note: '결제는 계좌이체로 진행됩니다. 주문 후 IBAN 정보가 제공됩니다. 결제 확인 후 카드가 제작되어 주소로 배송됩니다.',
+    sol7_cta: '제품 보기', sol7_product_desc: '매트 블랙 NFC 카드 + 로고/이름 인쇄. 휴대폰을 터치하면 디지털 명함이 열립니다. 무료 배송.', sol7_order_btn: '주문하기',
   },
   zh: {
     nav_home: '首页', nav_about: '关于我们', nav_solutions: '服务',
-    nav_references: '案例', nav_contact: '联系', nav_card: '名片',
+    nav_references: '案例', nav_contact: '联系', nav_card: '公司名片',
     nav_wa: 'WhatsApp获取报价',
     person_title_tr: 'AI专家&企业家',
     hero_eyebrow: '人工智能 & 自动化',
@@ -1644,7 +1771,7 @@ const translations = {
     footer_desc: '以AI自动化引领您的业务走向未来。',
     footer_nav: '导航', footer_contact: '联系方式', footer_copy: '© ' + new Date().getFullYear() + ' Kılman Bilişim Sistemleri Ltd. Şti. 版权所有。',
     privacy_policy: '隐私政策',
-    footer_card: '数字名片',
+    footer_card: '公司名片',
     nav_blog: '博客',
     emlak_label: '🏠 主打产品', emlak_title: '房地产自动化', emlak_sub: '房地产行业综合AI解决方案。',
     emlak_b1: 'AI客户管理', emlak_b2: '自动预约', emlak_b3: '线索分析',
@@ -1677,10 +1804,17 @@ const translations = {
     faq_q4: '如何定价？', faq_a4: '根据项目需求定制报价。联系我们获取免费咨询。',
     faq_q5: '没有技术知识也能使用吗？', faq_a5: '可以，所有系统都设计为用户友好型。我们提供培训和持续技术支持。',
     faq_q6: '服务哪些地区？', faq_a6: '总部位于伊斯坦布尔，为土耳其全境提供远程服务。云端解决方案随处可用。',
+    kv_label: '💳 产品', kv_h1: '数字名片 & NFC', kv_sub: '认识智能NFC名片。一触即可分享您的数字世界。',
+    kv_what_title: '什么是NFC数字名片？', kv_what_desc: 'NFC智能数字名片在手机触碰卡片时打开您的数字档案。姓名、职位、电话、WhatsApp、社交媒体链接和「添加到通讯录」按钮——全在一个屏幕上。支持QR码。随时更新您的信息。',
+    kv_how_title: '如何运作？', kv_step1: '下单', kv_step2: '制作名片', kv_step2_desc: '哑光黑色NFC卡 + 标志/姓名印刷', kv_step3: '快递到您的地址', kv_step4: '触碰即分享', kv_step4_desc: '随时更新您的信息',
+    kv_color_title: '印刷颜色选项', kv_color_gold: 'Gold', kv_color_bronze: 'Bronze', kv_color_white: 'White',
+    kv_price_label: '价格', kv_shipping: '免费配送', kv_delivery: '配送：5天 - 1周', kv_order_btn: '立即订购',
+    kv_note: '付款通过银行转账。订单提交后将提供IBAN信息。付款确认后，您的名片将被制作并寄送到您的地址。',
+    sol7_cta: '查看产品', sol7_product_desc: '哑光黑色NFC卡 + 标志/姓名印刷。触碰手机即可打开数字名片。免费配送。', sol7_order_btn: '立即订购',
   },
   ja: {
     nav_home: 'ホーム', nav_about: '会社概要', nav_solutions: 'サービス',
-    nav_references: '実績', nav_contact: 'お問合せ', nav_card: '名刺',
+    nav_references: '実績', nav_contact: 'お問合せ', nav_card: '当社の名刺',
     nav_wa: 'WhatsAppで見積り',
     person_title_tr: 'AIスペシャリスト＆起業家',
     hero_eyebrow: 'AI & オートメーション',
@@ -1734,7 +1868,7 @@ const translations = {
     footer_desc: 'AI自動化でビジネスプロセスを未来へ導きます。',
     footer_nav: 'ナビゲーション', footer_contact: '連絡先', footer_copy: '© ' + new Date().getFullYear() + ' Kılman Bilişim Sistemleri Ltd. Şti. All rights reserved.',
     privacy_policy: 'プライバシーポリシー',
-    footer_card: 'デジタル名刺',
+    footer_card: '当社の名刺',
     nav_blog: 'ブログ',
     emlak_label: '🏠 注目製品', emlak_title: '不動産自動化', emlak_sub: '不動産業界向け総合AIソリューション。',
     emlak_b1: 'AI顧客管理', emlak_b2: '自動予約', emlak_b3: 'リード分析',
@@ -1767,6 +1901,13 @@ const translations = {
     faq_q4: '料金はどのように決まりますか？', faq_a4: 'プロジェクトごとにカスタム見積もりを提供します。無料相談はお問い合わせください。',
     faq_q5: '技術的な知識がなくても使えますか？', faq_a5: 'はい、すべてのシステムはユーザーフレンドリーに設計されています。トレーニングと継続的なサポートを提供します。',
     faq_q6: 'どの地域にサービスを提供していますか？', faq_a6: 'イスタンブルを拠点に、トルコ全土にリモートサービスを提供しています。クラウドベースなのでどこからでもアクセス可能です。',
+    kv_label: '💳 製品', kv_h1: 'デジタル名刺 & NFC', kv_sub: 'スマートNFC名刺をご紹介。ワンタッチでデジタルの世界を共有。',
+    kv_what_title: 'NFCデジタル名刺とは？', kv_what_desc: 'NFC対応スマート名刺は、スマートフォンをカードにかざすとデジタルプロフィールが開きます。氏名、肩書き、電話番号、WhatsApp、SNSリンク、「連絡先に追加」ボタンが1画面に。QRコードにも対応。情報はいつでも更新可能です。',
+    kv_how_title: 'どのように機能しますか？', kv_step1: '注文する', kv_step2: 'カードを製作', kv_step2_desc: 'マットブラックNFCカード + ロゴ/名前印刷', kv_step3: 'ご住所に配送', kv_step4: 'タッチ＆シェア', kv_step4_desc: 'いつでも情報を更新可能',
+    kv_color_title: '印刷カラーオプション', kv_color_gold: 'Gold', kv_color_bronze: 'Bronze', kv_color_white: 'White',
+    kv_price_label: '価格', kv_shipping: '送料無料', kv_delivery: '配送：5日〜1週間', kv_order_btn: '注文する',
+    kv_note: 'お支払いは銀行振込です。ご注文後にIBAN情報が共有されます。お支払い確認後、カードが製作され、ご住所に配送されます。',
+    sol7_cta: '製品を見る', sol7_product_desc: 'マットブラックNFCカード + ロゴ/名前印刷。スマートフォンをタッチするだけでデジタル名刺が開きます。送料無料。', sol7_order_btn: '注文する',
   }
 };
 

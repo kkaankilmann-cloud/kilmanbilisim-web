@@ -3,3 +3,6 @@
 /kartvizit-siparis      /kartvizit-siparis.html   200
 /kartvizit-siparis/     /kartvizit-siparis.html   200
 /kart/*                 /kart.html                200
+/kartvizit-urun         /index.html              200
+/kartvizit-urun/        /index.html              200
+/*                      /index.html              200

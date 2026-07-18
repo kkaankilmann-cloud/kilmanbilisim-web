@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
@@ -136,9 +136,7 @@ textarea.sp-input{min-height:80px;resize:vertical;}
     </div>
   </div>
 
-  <form name="kartvizit-siparis" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" id="spForm">
-    <input type="hidden" name="form-name" value="kartvizit-siparis">
-    <p style="display:none"><label>Bot alanı: <input name="bot-field"></label></p>
+  <form name="kartvizit-siparis" action="https://formspree.io/f/xvzeaayy" method="POST" enctype="multipart/form-data" id="spForm">
 
     <!-- BASKI BİLGİLERİ -->
     <div class="sp-section"><div class="sp-section-label" id="secPrint">Kart Baskı Bilgileri</div></div>
@@ -413,7 +411,7 @@ document.getElementById('spForm').addEventListener('submit',function(e){
   var form=e.target;
   var fd=new FormData(form);
 
-  fetch('/',{
+  fetch('https://formspree.io/f/xvzeaayy',{
     method:'POST',
     headers:{'Accept':'application/json'},
     body:fd

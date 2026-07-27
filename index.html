@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8"/>
@@ -306,9 +306,11 @@ ul { list-style: none; }
 /* ── Alt ürün şeridi ── */
 .nav-top { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 70px; }
 .nav-products { display: flex; align-items: center; gap: 10px; padding: 9px 0 11px; border-top: 1px solid rgba(0,212,255,0.08); }
-.product-btn { display: inline-flex; align-items: center; gap: 7px; background: var(--neon); color: #041018; font-family: var(--font-ui); font-weight: 700; font-size: 0.82rem; padding: 7px 16px; border-radius: 8px; text-decoration: none; box-shadow: var(--neon-glow-sm); transition: all .25s; }
-.product-btn:hover { box-shadow: var(--neon-glow); transform: translateY(-1px); }
-.product-hex { font-size: 0.95rem; line-height: 1; }
+.product-btn { display:inline-flex; align-items:center; gap:9px; background:rgba(15,52,96,0.35); color:var(--neon); border:1.5px solid var(--neon); font-family:var(--font-ui); font-weight:700; font-size:0.82rem; padding:7px 16px; border-radius:8px; text-decoration:none; box-shadow:var(--neon-glow-sm); transition:all .3s; }
+.product-btn:hover { box-shadow:var(--neon-glow); transform:translateY(-1px); background:rgba(0,212,255,0.08); }
+.hex-svg { width:18px; height:18px; flex-shrink:0; }
+.hex-shape { stroke-width:6; stroke:var(--neon); fill:rgba(0,212,255,0); transition:fill .45s cubic-bezier(0.4,0,0.2,1), filter .45s cubic-bezier(0.4,0,0.2,1); }
+.product-btn:hover .hex-shape { fill:rgba(0,212,255,0.95); filter:drop-shadow(0 0 5px rgba(0,212,255,0.9)); }
 @media (max-width: 900px) {
   .nav-products { padding: 6px 0 8px; }
 }
@@ -693,7 +695,7 @@ ul { list-style: none; }
   </div>
   <div class="nav-products">
     <a href="https://panel.kilmanbilisim.com" target="_blank" rel="noopener" class="product-btn">
-      <span class="product-hex">⬡</span>
+      <svg class="hex-svg" viewBox="0 0 100 100"><polygon class="hex-shape" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5"/></svg>
       <span data-i18n="prod_isletme">İşletme Yönetim Sistemi</span>
     </a>
   </div>

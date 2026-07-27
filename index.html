@@ -1,4 +1,4 @@
-﻿﻿﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8"/>
@@ -304,6 +304,20 @@ ul { list-style: none; }
   transition: var(--transition); letter-spacing: 0.03em;
 }
 .nav-links a:hover, .nav-links a.active { color: var(--neon); background: var(--neon-dim); }
+.nav-links a.nav-panel-btn {
+  background: var(--neon);
+  color: #041018 !important;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  box-shadow: var(--neon-glow-sm);
+  transition: all .25s;
+}
+.nav-links a.nav-panel-btn:hover {
+  box-shadow: var(--neon-glow);
+  transform: translateY(-1px);
+  background: var(--neon) !important;
+}
 
 .nav-lang {
   display: flex; align-items: center; gap: 4px;
@@ -662,6 +676,7 @@ ul { list-style: none; }
     <li><a href="#" onclick="showPage('contact')" data-i18n="nav_contact">İletişim</a></li>
     <li><a href="#" onclick="showPage('card')" data-i18n="nav_card">Kurumsal Kartvizitimiz</a></li>
     <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+    <li><a href="https://panel.kilmanbilisim.com" target="_blank" rel="noopener" class="nav-panel-btn" data-i18n="footer_panel">Panele Giriş</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:8px;">
     <div class="nav-lang">
@@ -1266,7 +1281,6 @@ ul { list-style: none; }
   </div>
   <div class="footer-bottom">
     <p data-i18n="footer_copy">© 2026 Kılman Bilişim Sistemleri Ltd. Şti. Tüm hakları saklıdır.</p>
-    <p style="margin-top:6px;"><a href="https://panel.kilmanbilisim.com" target="_blank" rel="noopener" style="color:var(--text-muted);font-size:0.82rem;" data-i18n="footer_panel">Panele Giriş</a></p>
     <p style="margin-top:8px;"><a href="/gizlilik.html" style="color:var(--text-muted);font-size:0.82rem;" data-i18n="privacy_policy">Gizlilik Politikası</a></p>
   </div>
 </footer>

@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8"/>
@@ -284,9 +284,8 @@ ul { list-style: none; }
 /* ─── NAVBAR ─────────────────────────────── */
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; flex-direction: column; align-items: stretch;
   padding: 0 5%;
-  height: 70px;
   background: rgba(8,11,18,0.88);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
@@ -304,19 +303,14 @@ ul { list-style: none; }
   transition: var(--transition); letter-spacing: 0.03em;
 }
 .nav-links a:hover, .nav-links a.active { color: var(--neon); background: var(--neon-dim); }
-.nav-links a.nav-panel-btn {
-  background: var(--neon);
-  color: #041018 !important;
-  padding: 7px 16px;
-  border-radius: 8px;
-  font-weight: 700;
-  box-shadow: var(--neon-glow-sm);
-  transition: all .25s;
-}
-.nav-links a.nav-panel-btn:hover {
-  box-shadow: var(--neon-glow);
-  transform: translateY(-1px);
-  background: var(--neon) !important;
+/* ── Alt ürün şeridi ── */
+.nav-top { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 70px; }
+.nav-products { display: flex; align-items: center; gap: 10px; padding: 9px 0 11px; border-top: 1px solid rgba(0,212,255,0.08); }
+.product-btn { display: inline-flex; align-items: center; gap: 7px; background: var(--neon); color: #041018; font-family: var(--font-ui); font-weight: 700; font-size: 0.82rem; padding: 7px 16px; border-radius: 8px; text-decoration: none; box-shadow: var(--neon-glow-sm); transition: all .25s; }
+.product-btn:hover { box-shadow: var(--neon-glow); transform: translateY(-1px); }
+.product-hex { font-size: 0.95rem; line-height: 1; }
+@media (max-width: 900px) {
+  .nav-products { padding: 6px 0 8px; }
 }
 
 .nav-lang {
@@ -664,6 +658,7 @@ ul { list-style: none; }
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
+  <div class="nav-top">
   <a class="nav-logo" href="#" onclick="showPage('home')">
     <div class="nav-logo-text">KILMAN<span>BİLİŞİM</span></div>
   </a>
@@ -676,7 +671,6 @@ ul { list-style: none; }
     <li><a href="#" onclick="showPage('contact')" data-i18n="nav_contact">İletişim</a></li>
     <li><a href="#" onclick="showPage('card')" data-i18n="nav_card">Kurumsal Kartvizitimiz</a></li>
     <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
-    <li><a href="https://panel.kilmanbilisim.com" target="_blank" rel="noopener" class="nav-panel-btn" data-i18n="footer_panel">Panele Giriş</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:8px;">
     <div class="nav-lang">
@@ -695,6 +689,13 @@ ul { list-style: none; }
       <span data-i18n="nav_wa">WhatsApp'tan Teklif Al</span>
     </a>
     <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+  </div>
+  <div class="nav-products">
+    <a href="https://panel.kilmanbilisim.com" target="_blank" rel="noopener" class="product-btn">
+      <span class="product-hex">⬡</span>
+      <span data-i18n="prod_isletme">İşletme Yönetim Sistemi</span>
+    </a>
   </div>
   <div class="menu-overlay" id="menuOverlay"></div>
 </nav>
@@ -1362,7 +1363,7 @@ const translations = {
     pnl_what_title: 'İşletme Yönetim Paneli Nedir?', pnl_what_desc: 'İşletmenizin gelir, gider, müşteri ve ürün verilerini tek panelden yönetmenizi sağlayan bulut tabanlı yönetim sistemi. Her cihazdan erişilebilir, verileriniz size özel ve güvende.',
     pnl_feat_title: 'Neler Sunar?', pnl_ft1: 'Gerçek Zamanlı Finans Takibi', pnl_ft1_desc: 'Net kâr otomatik hesaplanır', pnl_ft2: 'Müşteri & Ürün Yönetimi', pnl_ft2_desc: 'Ekleme, düzenleme, silme', pnl_ft3: 'Gelir Ayrımı', pnl_ft3_desc: 'Tek seferlik ve düzenli gelirler', pnl_ft4: 'Güvenli Çok Kiracılı Yapı', pnl_ft4_desc: 'Her işletme yalnızca kendi verisini görür', pnl_ft5: 'Her Cihazdan Erişim', pnl_ft5_desc: 'Masaüstü, tablet, telefon',
     pnl_access_title: 'Nasıl Erişilir?', pnl_access_desc: 'Erişim, hizmet anlaşmanız kapsamında size özel açılır. Kurulum ve aylık destek dahildir. Hesabınız açıldıktan sonra e-posta adresiniz ve şifrenizle giriş yaparsınız. Kendi kendine üyelik yoktur — her hesap işletmenize özel olarak oluşturulur.',
-    pnl_wa_cta: 'WhatsApp\'tan Teklif Al', footer_panel: 'Panele Giriş',
+    pnl_wa_cta: 'WhatsApp\'tan Teklif Al', footer_panel: 'Panele Giriş', prod_isletme: 'İşletme Yönetim Sistemi',
       pnl_who_title: 'Kimler İçin Uygun?',
       pnl_who1: 'Küçük İşletmeler & Esnaflar',
       pnl_who2: 'Emlak Ofisleri & Danışmanlar',
@@ -1486,7 +1487,7 @@ const translations = {
     pnl_what_title: 'What is the Business Management Panel?', pnl_what_desc: 'A cloud-based management system that lets you manage your business revenue, expenses, customers and products from a single dashboard. Accessible from any device, your data is private and secure.',
     pnl_feat_title: 'What Does It Offer?', pnl_ft1: 'Real-Time Financial Tracking', pnl_ft1_desc: 'Net profit calculated automatically', pnl_ft2: 'Customer & Product Management', pnl_ft2_desc: 'Add, edit, delete', pnl_ft3: 'Revenue Breakdown', pnl_ft3_desc: 'One-time and recurring revenues', pnl_ft4: 'Secure Multi-Tenant Architecture', pnl_ft4_desc: 'Each business sees only its own data', pnl_ft5: 'Access From Any Device', pnl_ft5_desc: 'Desktop, tablet, phone',
     pnl_access_title: 'How to Access?', pnl_access_desc: 'Access is opened exclusively for you as part of your service agreement. Setup and monthly support are included. After your account is created, you log in with your email and password. There is no self-registration — each account is created specifically for your business.',
-    pnl_wa_cta: 'Get a Quote on WhatsApp', footer_panel: 'Panel Login',
+    pnl_wa_cta: 'Get a Quote on WhatsApp', footer_panel: 'Panel Login', prod_isletme: 'Business Management System',
       pnl_who_title: 'Who Is It For?',
       pnl_who1: 'Small Businesses & Tradespeople',
       pnl_who2: 'Real Estate Offices & Consultants',
@@ -1600,7 +1601,7 @@ const translations = {
     pnl_what_title: 'Was ist das Business Management Panel?', pnl_what_desc: 'Ein cloudbasiertes Verwaltungssystem, mit dem Sie Einnahmen, Ausgaben, Kunden und Produkte von einem Dashboard aus verwalten.',
     pnl_feat_title: 'Was bietet es?', pnl_ft1: 'Echtzeit-Finanzverfolgung', pnl_ft1_desc: 'Nettogewinn wird automatisch berechnet', pnl_ft2: 'Kunden- & Produktverwaltung', pnl_ft2_desc: 'Hinzufugen, Bearbeiten, Loschen', pnl_ft3: 'Einnahmenaufschlusselung', pnl_ft3_desc: 'Einmalige und wiederkehrende Einnahmen', pnl_ft4: 'Sichere Multi-Tenant-Architektur', pnl_ft4_desc: 'Jedes Unternehmen sieht nur seine eigenen Daten', pnl_ft5: 'Zugriff von jedem Gerat', pnl_ft5_desc: 'Desktop, Tablet, Telefon',
     pnl_access_title: 'Wie erhalt man Zugang?', pnl_access_desc: 'Der Zugang wird im Rahmen Ihres Servicevertrags exklusiv fur Sie eroffnet. Einrichtung und monatlicher Support sind inklusive. Es gibt keine Selbstregistrierung.',
-    pnl_wa_cta: 'Angebot per WhatsApp', footer_panel: 'Zum Panel', sol8_cta: 'Produkt ansehen',
+    pnl_wa_cta: 'Angebot per WhatsApp', footer_panel: 'Zum Panel', prod_isletme: 'Unternehmensverwaltungssystem', sol8_cta: 'Produkt ansehen',
       pnl_who_title: 'Für wen ist es geeignet?',
       pnl_who1: 'Kleine Unternehmen & Gewerbetreibende',
       pnl_who2: 'Immobilienbüros & Berater',
@@ -1712,7 +1713,7 @@ const translations = {
     pnl_what_title: 'Que es el Panel de Gestion?', pnl_what_desc: 'Un sistema de gestion basado en la nube que le permite gestionar ingresos, gastos, clientes y productos desde un solo panel.',
     pnl_feat_title: 'Que ofrece?', pnl_ft1: 'Seguimiento Financiero en Tiempo Real', pnl_ft1_desc: 'Beneficio neto calculado automaticamente', pnl_ft2: 'Gestion de Clientes y Productos', pnl_ft2_desc: 'Agregar, editar, eliminar', pnl_ft3: 'Desglose de Ingresos', pnl_ft3_desc: 'Ingresos unicos y recurrentes', pnl_ft4: 'Arquitectura Multi-Inquilino Segura', pnl_ft4_desc: 'Cada empresa ve solo sus propios datos', pnl_ft5: 'Acceso desde Cualquier Dispositivo', pnl_ft5_desc: 'Escritorio, tablet, telefono',
     pnl_access_title: 'Como se accede?', pnl_access_desc: 'El acceso se abre exclusivamente como parte de su acuerdo de servicio. No hay autoregistro.',
-    pnl_wa_cta: 'Solicitar Presupuesto por WhatsApp', footer_panel: 'Ir al Panel', sol8_cta: 'Ver Producto',
+    pnl_wa_cta: 'Solicitar Presupuesto por WhatsApp', footer_panel: 'Ir al Panel', prod_isletme: 'Sistema de Gestión Empresarial', sol8_cta: 'Ver Producto',
       pnl_who_title: '¿Para quién es adecuado?',
       pnl_who1: 'Pequeñas empresas y comerciantes',
       pnl_who2: 'Oficinas inmobiliarias y consultores',
@@ -1824,7 +1825,7 @@ const translations = {
     pnl_what_title: 'Qu\'est-ce que le Panneau de Gestion?', pnl_what_desc: 'Un systeme de gestion cloud qui vous permet de gerer revenus, depenses, clients et produits depuis un seul tableau de bord.',
     pnl_feat_title: 'Que propose-t-il?', pnl_ft1: 'Suivi Financier en Temps Reel', pnl_ft1_desc: 'Benefice net calcule automatiquement', pnl_ft2: 'Gestion Clients & Produits', pnl_ft2_desc: 'Ajouter, modifier, supprimer', pnl_ft3: 'Repartition des Revenus', pnl_ft3_desc: 'Revenus ponctuels et recurrents', pnl_ft4: 'Architecture Multi-Locataire Securisee', pnl_ft4_desc: 'Chaque entreprise ne voit que ses propres donnees', pnl_ft5: 'Acces depuis Tout Appareil', pnl_ft5_desc: 'Bureau, tablette, telephone',
     pnl_access_title: 'Comment y acceder?', pnl_access_desc: 'L\'acces est ouvert exclusivement dans le cadre de votre contrat de service. Il n\'y a pas d\'auto-inscription.',
-    pnl_wa_cta: 'Demander un Devis par WhatsApp', footer_panel: 'Connexion au Panneau', sol8_cta: 'Voir le Produit',
+    pnl_wa_cta: 'Demander un Devis par WhatsApp', footer_panel: 'Connexion au Panneau', prod_isletme: 'Système de Gestion d\'Entreprise', sol8_cta: 'Voir le Produit',
       pnl_who_title: 'Pour qui est-ce adapté ?',
       pnl_who1: 'Petites entreprises et commerçants',
       pnl_who2: 'Agences immobilières et consultants',
@@ -1936,7 +1937,7 @@ const translations = {
     pnl_what_title: 'Что такое панель управления?', pnl_what_desc: 'Облачная система управления для контроля доходов, расходов, клиентов и продуктов с одной панели.',
     pnl_feat_title: 'Что она предлагает?', pnl_ft1: 'Финансовый мониторинг в реальном времени', pnl_ft1_desc: 'Чистая прибыль рассчитывается автоматически', pnl_ft2: 'Управление клиентами и продуктами', pnl_ft2_desc: 'Добавление, редактирование, удаление', pnl_ft3: 'Разбивка доходов', pnl_ft3_desc: 'Разовые и регулярные доходы', pnl_ft4: 'Безопасная мультитенантная архитектура', pnl_ft4_desc: 'Каждый бизнес видит только свои данные', pnl_ft5: 'Доступ с любого устройства', pnl_ft5_desc: 'Компьютер, планшет, телефон',
     pnl_access_title: 'Как получить доступ?', pnl_access_desc: 'Доступ открывается эксклюзивно в рамках вашего сервисного соглашения. Самостоятельная регистрация невозможна.',
-    pnl_wa_cta: 'Запросить цену в WhatsApp', footer_panel: 'Войти в панель', sol8_cta: 'Посмотреть продукт',
+    pnl_wa_cta: 'Запросить цену в WhatsApp', footer_panel: 'Войти в панель', prod_isletme: 'Система управления бизнесом', sol8_cta: 'Посмотреть продукт',
       pnl_who_title: 'Для кого это подходит?',
       pnl_who1: 'Малый бизнес и торговцы',
       pnl_who2: 'Агентства недвижимости и консультанты',
@@ -2085,7 +2086,7 @@ const translations = {
     pnl_what_title: '비즈니스 관리 패널이란?', pnl_what_desc: '하나의 대시보드에서 수익, 비용, 고객 및 제품을 관리할 수 있는 클라우드 기반 관리 시스템입니다.',
     pnl_feat_title: '무엇을 제공하나요?', pnl_ft1: '실시간 재무 추적', pnl_ft1_desc: '순이익 자동 계산', pnl_ft2: '고객 및 제품 관리', pnl_ft2_desc: '추가, 편집, 삭제', pnl_ft3: '수익 구분', pnl_ft3_desc: '일회성 및 정기 수익', pnl_ft4: '안전한 멀티테넌트 아키텍처', pnl_ft4_desc: '각 기업은 자체 데이터만 볼 수 있습니다', pnl_ft5: '모든 기기에서 접근', pnl_ft5_desc: '데스크톱, 태블릿, 폰',
     pnl_access_title: '어떻게 접근하나요?', pnl_access_desc: '서비스 계약의 일부로 독점적으로 접근이 열립니다. 자가 등록은 없습니다.',
-    pnl_wa_cta: 'WhatsApp으로 견적 요청', footer_panel: '패널 로그인', sol8_cta: '제품 보기',
+    pnl_wa_cta: 'WhatsApp으로 견적 요청', footer_panel: '패널 로그인', prod_isletme: '비즈니스 관리 시스템', sol8_cta: '제품 보기',
       pnl_who_title: '누구에게 적합한가요?',
       pnl_who1: '소규모 비즈니스 및 상인',
       pnl_who2: '부동산 사무실 및 컨설턴트',
@@ -2204,7 +2205,7 @@ const translations = {
     pnl_what_title: '什么是企业管理面板？', pnl_what_desc: '基于云的管理系统，让您从单一仪表板管理收入、支出、客户和产品。',
     pnl_feat_title: '提供什么功能？', pnl_ft1: '实时财务跟踪', pnl_ft1_desc: '自动计算净利润', pnl_ft2: '客户和产品管理', pnl_ft2_desc: '添加、编辑、删除', pnl_ft3: '收入分类', pnl_ft3_desc: '一次性和经常性收入', pnl_ft4: '安全的多租户架构', pnl_ft4_desc: '每个企业只能看到自己的数据', pnl_ft5: '任何设备访问', pnl_ft5_desc: '台式机、平板、手机',
     pnl_access_title: '如何访问？', pnl_access_desc: '访问权限作为服务协议的一部分专门为您开放。没有自助注册。',
-    pnl_wa_cta: '通过WhatsApp获取报价', footer_panel: '进入面板', sol8_cta: '查看产品',
+    pnl_wa_cta: '通过WhatsApp获取报价', footer_panel: '进入面板', prod_isletme: '企业管理系统', sol8_cta: '查看产品',
       pnl_who_title: '适合谁使用？',
       pnl_who1: '小型企业和商户',
       pnl_who2: '房地产办公室和顾问',
@@ -2323,7 +2324,7 @@ const translations = {
     pnl_what_title: 'ビジネス管理パネルとは？', pnl_what_desc: '1つのダッシュボードから収益、費用、顧客、製品を管理できるクラウドベースの管理システムです。',
     pnl_feat_title: '何を提供しますか？', pnl_ft1: 'リアルタイム財務追跡', pnl_ft1_desc: '純利益を自動計算', pnl_ft2: '顧客・製品管理', pnl_ft2_desc: '追加、編集、削除', pnl_ft3: '収益内訳', pnl_ft3_desc: '一回限りと定期的な収益', pnl_ft4: '安全なマルチテナントアーキテクチャ', pnl_ft4_desc: '各企業は自分のデータのみ閲覧可能', pnl_ft5: 'あらゆるデバイスからアクセス', pnl_ft5_desc: 'デスクトップ、タブレット、スマホ',
     pnl_access_title: 'アクセス方法は？', pnl_access_desc: 'サービス契約の一環として専用にアクセスが開かれます。自己登録はありません。',
-    pnl_wa_cta: 'WhatsAppで見積もり依頼', footer_panel: 'パネルログイン', sol8_cta: '製品を見る',
+    pnl_wa_cta: 'WhatsAppで見積もり依頼', footer_panel: 'パネルログイン', prod_isletme: 'ビジネス管理システム', sol8_cta: '製品を見る',
       pnl_who_title: 'どなたに最適ですか？',
       pnl_who1: '中小企業・個人商店',
       pnl_who2: '不動産事務所・コンサルタント',

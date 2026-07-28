@@ -179,5 +179,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-</urlset>
 
+  <url>
+    <loc>https://kilmanbilisim.com/blog/yapay-zeka-ile-saglik-sektoru-otomasyonu.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

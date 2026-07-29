@@ -1,4 +1,4 @@
-#!/usr/bin/env pwsh
+﻿#!/usr/bin/env pwsh
 # gen_blog_list.ps1 — Blog liste sayfasi ureteci
 # Kullanim: powershell -ExecutionPolicy Bypass -File gen_blog_list.ps1
 # TR index.html'den okur, 8 dil sayfasi uretir, TR'yi gunceller
@@ -211,21 +211,21 @@ function Build-ListPage($lang) {
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>$blogTitle — Kilman Bilisim</title>
+<title>$blogTitle &#8212; K&#305;lman Bili&#351;im</title>
 <meta name="description" content="$blogSub"/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="$canonical"/>
 $hreflang
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="$canonical"/>
-<meta property="og:title" content="$blogTitle — Kilman Bilisim"/>
+<meta property="og:title" content="$blogTitle &#8212; K&#305;lman Bili&#351;im"/>
 <meta property="og:description" content="$blogSub"/>
 <meta property="og:locale" content="$ogLocale"/>
 <meta property="og:image" content="$baseUrl/og-image.jpg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="$blogTitle — Kilman Bilisim"/>
+<meta name="twitter:title" content="$blogTitle &#8212; K&#305;lman Bili&#351;im"/>
 <meta name="twitter:description" content="$blogSub"/>
 <meta name="twitter:image" content="$baseUrl/og-image.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -241,7 +241,7 @@ $langBtnCss
 <nav class="blog-nav">
   <div class="blog-nav-inner">
     <div class="blog-nav-left">
-      <a href="/" class="blog-nav-logo">KILMAN<span style="display:block;font-size:0.75rem;color:var(--text-muted);letter-spacing:0.08em;">BILISIM</span></a>
+      <a href="/" class="blog-nav-logo">KILMAN<span style="display:block;font-size:0.75rem;color:var(--text-muted);letter-spacing:0.08em;">B&#304;L&#304;&#350;&#304;M</span></a>
     </div>
     <ul class="blog-nav-links">
       <li style="list-style:none;"><a href="/">$navHome</a></li>
@@ -265,9 +265,9 @@ $allCards
 
 <footer class="blog-footer">
 <div style="text-align:center; margin-bottom:12px; font-size:0.9rem; color:#00D4FF;">
-  <span id="lcTotalFooter">—</span> &nbsp;·&nbsp; <span style="color:#22c55e;">●</span> <span id="lcOnlineFooter">—</span>
+  <span id="lcTotalFooter">&#8212;</span> &nbsp;&#183;&nbsp; <span style="color:#22c55e;">&#9679;</span> <span id="lcOnlineFooter">&#8212;</span>
 </div>
-  <p>&copy; <script>document.write(new Date().getFullYear())</script> Kilman Bilisim Sistemleri Ltd. Sti. $footerRights</p>
+  <p>&copy; <script>document.write(new Date().getFullYear())</script> K&#305;lman Bili&#351;im Sistemleri Ltd. &#350;ti. $footerRights</p>
   <p style="margin-top:8px;"><a href="/gizlilik.html" style="color:#8B949E;font-size:0.82rem;">$privacyLink</a></p>
 </footer>
 

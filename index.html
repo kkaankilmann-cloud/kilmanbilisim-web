@@ -2616,6 +2616,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // /kartvizit yolu ile gelindiyse dijital kartvizit sayfasini ac
   if (window.location.pathname.replace(/\/$/, '') === '/kartvizit') {
     showPage('card');
+  } else {
+    showPage('home');
   }
 
   document.querySelectorAll('.lang-btn').forEach(btn => {

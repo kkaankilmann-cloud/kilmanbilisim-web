@@ -55,6 +55,13 @@ foreach ($lang in $langs) {
         foreach ($e in $entries) {
             $key = $e.Groups[1].Value
             $val = $e.Groups[2].Value -replace "\\'", "'"
+            # JS \uXXXX kacis dizilerini decode et (surrogate pair dahil)
+            $val = [regex]::Replace($val, '\\u([0-9a-fA-F]{4})', {
+                param($m)
+                $hex = $m.Groups[1].Value
+                $code = [Convert]::ToInt32($hex, 16)
+                [string][char]$code
+            })
             $dict[$key] = $val
         }
         $i18n[$lang] = $dict
@@ -183,6 +190,42 @@ function Get-LangNav($activeLang) {
     return $btns -join ''
 }
 
+# ─── YERELLESTIRILMIS TARIH CEK ───
+# Her dilin yazi sayfasindan tarih alir, bulamazsa TR tarihini dondurur
+$dateCache = @{}
+function Get-LocalizedDate($lang, $card) {
+    $cacheKey = "$lang|$($card.Slug)"
+    if ($dateCache.ContainsKey($cacheKey)) { return $dateCache[$cacheKey] }
+
+    # TR icin direkt kart tarihini dondur
+    if ($lang -eq 'tr') {
+        $dateCache[$cacheKey] = To-Entity $card.Date
+        return $dateCache[$cacheKey]
+    }
+
+    # Dil sayfasindan tarihi oku
+    $postFile = Join-Path $blogDir "$lang\$($card.Slug).html"
+    if (Test-Path $postFile) {
+        $postContent = [System.IO.File]::ReadAllText($postFile, [System.Text.Encoding]::UTF8)
+        # Emoji (gercek) + tarih
+        $calEmoji = [string][char]0xD83D + [string][char]0xDCC5
+        $dm = [regex]::Match($postContent, [regex]::Escape($calEmoji) + '\s*([^<]+)</span>')
+        if (-not $dm.Success) {
+            # Entity formunda
+            $dm = [regex]::Match($postContent, [regex]::Escape('&#128197;') + '\s*([^<]+)</span>')
+        }
+        if ($dm.Success) {
+            $localDate = $dm.Groups[1].Value.Trim()
+            $dateCache[$cacheKey] = To-Entity $localDate
+            return $dateCache[$cacheKey]
+        }
+    }
+
+    # Bulunamazsa TR tarihi
+    $dateCache[$cacheKey] = To-Entity $card.Date
+    return $dateCache[$cacheKey]
+}
+
 # ─── KART HTML URET ───
 function Get-CardHtml($lang, $card) {
     $dict = $i18n[$lang]
@@ -206,7 +249,7 @@ function Get-CardHtml($lang, $card) {
   <article class="blog-card">
     <div class="blog-card-meta">
       <span class="blog-card-tag">$tag</span>
-      <span>&#128197; $($card.Date)</span>
+      <span>&#128197; $(Get-LocalizedDate $lang $card)</span>
       <span>$readTime</span>
     </div>
     <h2><a href="$href">$title</a></h2>

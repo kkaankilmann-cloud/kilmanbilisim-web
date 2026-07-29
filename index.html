@@ -302,7 +302,8 @@ ul { list-style: none; }
   color: var(--text-muted); padding: 6px 14px; border-radius: 6px;
   transition: var(--transition); letter-spacing: 0.03em;
 }
-.nav-links a:hover, .nav-links a.active { color: var(--neon); background: var(--neon-dim); }
+.nav-links a:hover { color: var(--neon); background: var(--neon-dim); }
+.nav-links a.active { background: var(--neon); color: var(--bg-main); }
 /* ── Alt ürün şeridi ── */
 .nav-top { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 70px; }
 .nav-products { display: flex; align-items: center; gap: 10px; padding: 9px 0 11px; border-top: 1px solid rgba(0,212,255,0.08); }
@@ -665,7 +666,7 @@ ul { list-style: none; }
     <div class="nav-logo-text">KILMAN<span>BİLİŞİM</span></div>
   </a>
   <ul class="nav-links">
-    <li><a href="#" onclick="showPage('home')" data-i18n="nav_home">Ana Sayfa</a></li>
+    <li><a href="#" onclick="showPage('home')" data-i18n="nav_home" class="active">Ana Sayfa</a></li>
     <li><a href="#" onclick="showPage('about')" data-i18n="nav_about">Hakkımızda</a></li>
     <li><a href="#" onclick="showPage('solutions')" data-i18n="nav_solutions">Hizmetler</a></li>
     <li><a href="#" onclick="showPage('references')" data-i18n="nav_references">Referanslar</a></li>

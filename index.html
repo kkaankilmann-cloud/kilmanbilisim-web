@@ -2641,11 +2641,8 @@ function showPage(name) {
   }
   // Update active nav link
   document.querySelectorAll('.nav-links a').forEach(a => {
-    a.classList.remove('active');
     const onc = a.getAttribute('onclick') || '';
-    if (onc.includes("showPage('" + name + "')")) {
-      a.classList.add('active');
-    }
+    a.classList.toggle('active', onc.includes("'" + name + "'") || onc.includes('"' + name + '"'));
   });
   // Footer visibility
   const footer = document.getElementById('main-footer');

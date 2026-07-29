@@ -333,7 +333,7 @@ $langBtnCss
   "inLanguage": "$(if($lang -eq 'zh'){'zh-Hans'}else{$lang})",
   "publisher": {
     "@type": "Organization",
-    "name": "K\u0131lman Bili\u015fim Sistemleri",
+    "name": "K&#305;lman Bili&#351;im Sistemleri",
     "url": "https://kilmanbilisim.com/",
     "logo": {
       "@type": "ImageObject",

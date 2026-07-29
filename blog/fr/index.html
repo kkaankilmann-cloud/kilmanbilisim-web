@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog â€” Kilman Bilisim</title>
+<meta name="description" content="Articles, guides et analyses sectorielles sur l'IA, l'automatisation et la transformation numérique."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://kilmanbilisim.com/blog/fr/"/>
+<link rel="alternate" hreflang="tr" href="https://kilmanbilisim.com/blog/"/>
+<link rel="alternate" hreflang="en" href="https://kilmanbilisim.com/blog/en/"/>
+<link rel="alternate" hreflang="de" href="https://kilmanbilisim.com/blog/de/"/>
+<link rel="alternate" hreflang="es" href="https://kilmanbilisim.com/blog/es/"/>
+<link rel="alternate" hreflang="fr" href="https://kilmanbilisim.com/blog/fr/"/>
+<link rel="alternate" hreflang="ru" href="https://kilmanbilisim.com/blog/ru/"/>
+<link rel="alternate" hreflang="ko" href="https://kilmanbilisim.com/blog/ko/"/>
+<link rel="alternate" hreflang="zh" href="https://kilmanbilisim.com/blog/zh/"/>
+<link rel="alternate" hreflang="ja" href="https://kilmanbilisim.com/blog/ja/"/>
+<link rel="alternate" hreflang="x-default" href="https://kilmanbilisim.com/blog/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://kilmanbilisim.com/blog/fr/"/>
+<meta property="og:title" content="Blog â€” Kilman Bilisim"/>
+<meta property="og:description" content="Articles, guides et analyses sectorielles sur l'IA, l'automatisation et la transformation numérique."/>
+<meta property="og:locale" content="fr_FR"/>
+<meta property="og:image" content="https://kilmanbilisim.com/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Blog â€” Kilman Bilisim"/>
+<meta name="twitter:description" content="Articles, guides et analyses sectorielles sur l'IA, l'automatisation et la transformation numérique."/>
+<meta name="twitter:image" content="https://kilmanbilisim.com/og-image.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+
+:root{--bg-main:#0D1117;--bg-card:#161B22;--neon:#00D4FF;--text-main:#E6EDF3;--text-muted:#8B949E;--accent-purple:#8B5CF6;--border:rgba(255,255,255,0.06);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Cg stroke='%2300D4FF' fill='none' stroke-width='1' opacity='0.22' stroke-linecap='round'%3E%3Cpath d='M0 30 H35 L50 45 V80 M50 45 H85'/%3E%3Cpath d='M130 30 H100 L85 45'/%3E%3Cpath d='M65 0 V25 L80 40'/%3E%3Cpath d='M0 100 H25 L40 115 H70 M40 115 V130'/%3E%3Cpath d='M130 105 H105 L92 92 V65'/%3E%3Cpath d='M110 130 V110 H90'/%3E%3C/g%3E%3Cg fill='%2300D4FF' opacity='0.5'%3E%3Ccircle cx='35' cy='30' r='2'/%3E%3Ccircle cx='85' cy='45' r='2'/%3E%3Ccircle cx='40' cy='115' r='2'/%3E%3Ccircle cx='92' cy='65' r='2'/%3E%3C/g%3E%3Cg stroke='%2300D4FF' fill='none' stroke-width='0.9' opacity='0.18'%3E%3Crect x='46' y='41' width='14' height='9' rx='1'/%3E%3Cpath d='M49 41 V37 M53 41 V37 M57 41 V37'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 130px 130px repeat,var(--bg-main);color:var(--text-main);line-height:1.7;}
+a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}
+a:hover{opacity:0.8;}
+
+.blog-nav{background:rgba(13,17,23,0.95);border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px);}
+.blog-nav-inner{max-width:1200px;margin:0 auto;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;}
+.blog-nav-left{display:flex;align-items:center;gap:16px;}
+.blog-nav-logo{font-weight:700;font-size:1.1rem;color:var(--neon);}
+.blog-nav-links{display:flex;align-items:center;gap:8px;}
+.blog-nav-links a{font-size:0.88rem;font-weight:500;color:var(--text-muted);padding:6px 14px;border-radius:6px;transition:all 0.2s;}
+.blog-nav-links a:hover,.blog-nav-links a.active{color:var(--neon);background:rgba(0,212,255,0.08);opacity:1;}
+.blog-nav-right{display:flex;align-items:center;gap:8px;}
+.blog-lang{display:flex;gap:4px;}
+.blog-lang button{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;cursor:pointer;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;transition:all 0.2s;}
+.blog-lang button:hover{border-color:var(--neon);color:var(--neon);}
+.blog-lang button.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
+.blog-hamburger{display:none;width:36px;height:36px;cursor:pointer;padding:6px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.15);border-radius:8px;align-items:center;justify-content:center;flex-direction:column;gap:4px;transition:all 0.3s;}
+.blog-hamburger:hover{background:rgba(0,212,255,0.12);border-color:rgba(0,212,255,0.3);box-shadow:0 0 12px rgba(0,212,255,0.15);}
+.blog-hamburger span{display:block;width:18px;height:2px;background:var(--neon);border-radius:2px;transition:all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55);}
+.blog-hamburger.active{background:rgba(0,212,255,0.12);border-color:var(--neon);box-shadow:0 0 16px rgba(0,212,255,0.2);}
+
+.blog-hero{text-align:center;padding:110px 24px 40px;max-width:900px;margin:0 auto;}
+.blog-hero h1{font-size:2.5rem;font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,var(--neon),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.blog-hero p{color:var(--text-muted);font-size:1.05rem;max-width:600px;margin:0 auto;}
+
+.blog-grid{max-width:900px;margin:0 auto;padding:0 24px 80px;display:grid;gap:32px;}
+
+.blog-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:transform 0.3s,border-color 0.3s;}
+.blog-card:hover{transform:translateY(-4px);border-color:rgba(0,212,255,0.3);}
+.blog-card-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:0.82rem;color:var(--text-muted);}
+.blog-card-tag{background:rgba(0,212,255,0.1);color:var(--neon);padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;}
+.blog-card h2{font-size:1.4rem;font-weight:700;margin-bottom:12px;}
+.blog-card h2 a{background:linear-gradient(135deg,var(--neon),#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;transition:filter 0.3s ease;}
+.blog-card h2 a:hover{filter:brightness(1.3);}
+.blog-card p{color:var(--text-muted);font-size:0.95rem;margin-bottom:20px;}
+.blog-card .read-more{font-weight:600;font-size:0.9rem;color:var(--neon);display:inline-flex;align-items:center;gap:6px;}
+
+.blog-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.85rem;}
+
+@media(max-width:700px){
+  .blog-nav-links,.blog-lang{display:none;}
+  .blog-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center;}
+  .blog-nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px;}
+  .blog-hamburger{display:flex;z-index:1001;position:relative;}
+  .blog-hero h1{font-size:1.8rem;}
+  .blog-card{padding:24px;}
+}
+
+.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
+.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
+.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
+</style>
+</head>
+<body>
+
+<nav class="blog-nav">
+  <div class="blog-nav-inner">
+    <div class="blog-nav-left">
+      <a href="/" class="blog-nav-logo">KILMAN<span style="display:block;font-size:0.75rem;color:var(--text-muted);letter-spacing:0.08em;">BILISIM</span></a>
+    </div>
+    <ul class="blog-nav-links">
+      <li style="list-style:none;"><a href="/">l'accueil</a></li>
+      <li style="list-style:none;"><a href="/blog/fr/" class="active">Blog</a></li>
+    </ul>
+    <div class="blog-nav-right">
+      <div class="blog-lang"><a href="/blog/" class="lang-btn">TR</a><a href="/blog/en/" class="lang-btn">EN</a><a href="/blog/de/" class="lang-btn">DE</a><a href="/blog/es/" class="lang-btn">ES</a><a href="/blog/fr/" class="lang-btn active">FR</a><a href="/blog/ru/" class="lang-btn">RU</a><a href="/blog/ko/" class="lang-btn">KO</a><a href="/blog/zh/" class="lang-btn">ZH</a><a href="/blog/ja/" class="lang-btn">JA</a></div>
+      <button class="blog-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="blog-hero">
+  <h1>Blog</h1>
+  <p>Articles, guides et analyses sectorielles sur l'IA, l'automatisation et la transformation numérique.</p>
+</div>
+
+<div class="blog-grid">
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🚚 Automatisation Logistique</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 12 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-lojistik-kargo-otomasyonu.html">Automatisation Logistique et Transport par l'IA : Guide 2026 pour PME</a></h2>
+    <p>Automatisation logistique par IA : Optimisation d'itinéraires, gestion d'entrepôt, suivi d'expédition et gestion de flotte.</p>
+    <a href="/blog/fr/yapay-zeka-ile-lojistik-kargo-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🏥 Automatisation Santé</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 12 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-saglik-sektoru-otomasyonu.html">Automatisation du Secteur de la Santé par l'IA : Guide 2026 pour PME</a></h2>
+    <p>Automatisation santé par IA : Suivi des patients, gestion des RDV, ordonnances automatisées et gestion clinique.</p>
+    <a href="/blog/fr/yapay-zeka-ile-saglik-sektoru-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🏨 Automatisation Hôtelière</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 10 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-otel-konaklama-otomasyonu.html">Automatisation Hôtelière par l'IA : Guide 2026 pour PME</a></h2>
+    <p>Automatisation hôtelière par IA : Tarification, réservations, expérience client et planification du personnel.</p>
+    <a href="/blog/fr/yapay-zeka-ile-otel-konaklama-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🍽️ Automatisation Restauration</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 10 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-restoran-otomasyonu.html">Automatisation de la Restauration par l'IA : Guide 2026 pour PME</a></h2>
+    <p>Automatisation restaurant IA : gestion des commandes, prévision des stocks, optimisation du menu et expérience client.</p>
+    <a href="/blog/fr/yapay-zeka-ile-restoran-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📧 Email Marketing</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 10 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-e-posta-pazarlama-otomasyonu.html">Automatisation de l'Email Marketing par l'IA : Guide 2026 pour PME</a></h2>
+    <p>Automatisation email IA : campagnes personnalisées, segmentation automatique, A/B testing et emails comportementaux.</p>
+    <a href="/blog/fr/yapay-zeka-ile-e-posta-pazarlama-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🏠 Automatisation Immobilière</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 10 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-emlak-sektoru-otomasyonu.html">Automatisation du Secteur Immobilier par l'IA : Guide 2026 pour PME</a></h2>
+    <p>Automatisation immobilière IA : gestion des annonces, correspondance client, analyse de prix et suivi des leads.</p>
+    <a href="/blog/fr/yapay-zeka-ile-emlak-sektoru-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🎓 Formation & Développement</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-egitim-calisan-gelisimi-otomasyonu.html">Automatisation de la Formation par l'IA : Guide 2026 pour PME</a></h2>
+    <p>IA formation : Apprentissage personnalisé, évaluation des compétences, suivi de performance.</p>
+    <a href="/blog/fr/yapay-zeka-ile-egitim-calisan-gelisimi-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🔍 Contrôle Qualité</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-kalite-kontrol-otomasyonu.html">Automatisation du Contrôle Qualité par l'IA : Guide 2026 pour PME</a></h2>
+    <p>IA qualité : Inspection visuelle, détection d'anomalies, surveillance de ligne et scoring qualité.</p>
+    <a href="/blog/fr/yapay-zeka-ile-kalite-kontrol-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🚚 Chaîne d'Approvisionnement</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-tedarik-zinciri-otomasyonu.html">Automatisation de la Chaîne d'Approvisionnement par l'IA : Guide 2026 pour PME</a></h2>
+    <p>IA chaîne d'approvisionnement : Prévision de la demande, évaluation des fournisseurs, optimisation logistique et commandes automatiques.</p>
+    <a href="/blog/fr/yapay-zeka-ile-tedarik-zinciri-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">💰 Automatisation des Ventes</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-satis-surecleri-otomasyonu.html">Automatisation des Processus de Vente avec l'IA : Guide 2026 pour PME</a></h2>
+    <p>IA ventes : Scoring de leads, suivi automatisé, propositions intelligentes et prévision des ventes.</p>
+    <a href="/blog/fr/yapay-zeka-ile-satis-surecleri-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📅 Gestion de Rendez-vous</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-randevu-rezervasyon-otomasyonu.html">Automatisation des Rendez-vous avec l'IA : Guide 2026 pour PME</a></h2>
+    <p>IA rendez-vous : Planification intelligente, rappels automatiques, réduction des no-shows et réservation self-service.</p>
+    <a href="/blog/fr/yapay-zeka-ile-randevu-rezervasyon-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🎧 Service Client</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-musteri-hizmetleri-otomasyonu.html">Automatisation du Service Client par l'IA : Guide 2026 pour les PME</a></h2>
+    <p>IA service client : Chatbot 24/7, routage intelligent, analyse de sentiment et portail self-service.</p>
+    <a href="/blog/fr/yapay-zeka-ile-musteri-hizmetleri-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📋 Gestion de Projets</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-proje-yonetimi-otomasyonu.html">Automatisation de la Gestion de Projets par l'IA : Guide 2026 pour les PME</a></h2>
+    <p>IA gestion de projets : Attribution intelligente, optimisation des ressources, prédiction des risques et planification.</p>
+    <a href="/blog/fr/yapay-zeka-ile-proje-yonetimi-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📄 Gestion Documentaire</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-belge-dokuman-yonetimi-otomasyonu.html">Automatisation de la Gestion Documentaire par IA : Guide 2026 pour PME</a></h2>
+    <p>IA gestion documentaire : OCR, classification automatique, recherche intelligente et workflows numériques.</p>
+    <a href="/blog/fr/yapay-zeka-ile-belge-dokuman-yonetimi-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🛡️ Cybersécurité</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-siber-guvenlik-kobi-tehdit-tespiti.html">Cybersécurité par IA : Guide de Détection des Menaces pour PME 2026</a></h2>
+    <p>IA cybersécurité : Détection des menaces, protection anti-phishing, détection d'anomalies et réponse automatique.</p>
+    <a href="/blog/fr/yapay-zeka-ile-siber-guvenlik-kobi-tehdit-tespiti.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📦 Stock & Inventaire</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-stok-envanter-yonetimi-otomasyonu.html">Automatisation de la Gestion des Stocks par IA : Guide 2026 pour PME</a></h2>
+    <p>IA stocks : Prévision de demande, commandes automatiques, réduction des pertes et optimisation d'entrepôt.</p>
+    <a href="/blog/fr/yapay-zeka-ile-stok-envanter-yonetimi-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">💰 Comptabilité & Finance</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-muhasebe-finans-otomasyonu-kobi-rehberi.html">Automatisation Comptable et Financière par IA : Guide 2026 pour PME</a></h2>
+    <p>IA comptable : Facture électronique, prévision de trésorerie, suivi des dépenses et préparation fiscale.</p>
+    <a href="/blog/fr/yapay-zeka-ile-muhasebe-finans-otomasyonu-kobi-rehberi.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">👥 RH & IA</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-insan-kaynaklari-otomasyonu-kobi-ik-rehberi.html">Automatisation RH par IA : Guide 2026 pour PME</a></h2>
+    <p>IA RH : Tri de CV, scoring candidat, engagement employé, gestion de performance.</p>
+    <a href="/blog/fr/yapay-zeka-ile-insan-kaynaklari-otomasyonu-kobi-ik-rehberi.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">⚡ No-Code & Automatisation</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/no-code-otomasyon-kod-yazmadan-is-sureclerinizi-otomatiklestirme.html">Automatisation No-Code : Guide 2026 pour Automatiser sans Programmer</a></h2>
+    <p>No-code : n8n, Make, Zapier comparatif, scénarios pratiques et analyse des coûts.</p>
+    <a href="/blog/fr/no-code-otomasyon-kod-yazmadan-is-sureclerinizi-otomatiklestirme.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📱 Réseaux Sociaux & IA</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/sosyal-medya-otomasyonu-ai-ile-marka-yonetimi.html">Automatisation des Réseaux Sociaux : Guide 2026 de la Gestion de Marque par IA</a></h2>
+    <p>IA sociale : Création de contenu, planification intelligente, analyse d'engagement et gestion de communauté.</p>
+    <a href="/blog/fr/sosyal-medya-otomasyonu-ai-ile-marka-yonetimi.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📊 Analyse de Données & BI</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-veri-analizi-kobi-is-zekasi-rehberi.html">Analyse de Données par IA : Guide BI 2026 pour PME</a></h2>
+    <p>BI IA : Dashboards, prévisions, détection d'anomalies et décisions data-driven.</p>
+    <a href="/blog/fr/yapay-zeka-ile-veri-analizi-kobi-is-zekasi-rehberi.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🤝 CRM & IA</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/crm-otomasyonu-yapay-zeka-ile-musteri-iliskilerinizi-donusturme.html">Automatisation CRM : Guide 2026 pour Transformer vos Relations Clients avec l'IA</a></h2>
+    <p>CRM IA : Lead scoring, suivi automatisé, segmentation et prévision des ventes. Guide pratique pour PME.</p>
+    <a href="/blog/fr/crm-otomasyonu-yapay-zeka-ile-musteri-iliskilerinizi-donusturme.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🛒 E-Commerce & IA</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/e-ticaret-otomasyonu-yapay-zeka-ile-online-satislarinizi-artirma.html">Automatisation E-Commerce : Guide 2026 pour Booster vos Ventes en Ligne avec l'IA</a></h2>
+    <p>Gestion de stock IA, tarification dynamique, recommandations personnalisées et automatisation après-vente. Guide pratique pour PME.</p>
+    <a href="/blog/fr/e-ticaret-otomasyonu-yapay-zeka-ile-online-satislarinizi-artirma.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📈 Marketing Digital & IA</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 8 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-dijital-pazarlama.html">Marketing Digital avec l'IA : Guide 2026 pour les Petites Entreprises</a></h2>
+    <p>SEO assisté par IA, automatisation des réseaux sociaux, création de contenu et email marketing.</p>
+    <a href="/blog/fr/yapay-zeka-ile-dijital-pazarlama.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">💬 WhatsApp & Automatisation</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 7 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/isletmeniz-icin-whatsapp-otomasyonu.html">Automatisation WhatsApp pour votre entreprise : Transformez la communication client avec l'IA</a></h2>
+    <p>Maintenez votre communication client active 24h/24 avec l'automatisation WhatsApp Business.</p>
+    <a href="/blog/fr/isletmeniz-icin-whatsapp-otomasyonu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🤖 IA & Automatisation</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 8 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/ai-ajanlari-nedir-isletmenizi-7-24-calistirmanin-yeni-yolu.html">Que sont les Agents IA ? Faites tourner votre entreprise 24h/24</a></h2>
+    <p>Que sont les agents IA et comment fonctionnent-ils ? Découvrez les systèmes d'IA autonomes pour votre entreprise.</p>
+    <a href="/blog/fr/ai-ajanlari-nedir-isletmenizi-7-24-calistirmanin-yeni-yolu.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🚀 Transformation Numérique</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 7 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/kobiler-icin-yapay-zeka-5-adimda-dijital-donusum.html">L'IA pour les PME : Transformation Numérique en 5 Étapes</a></h2>
+    <p>Comment les PME peuvent-elles utiliser l'IA ? Guide de transformation numérique en 5 étapes.</p>
+    <a href="/blog/fr/kobiler-icin-yapay-zeka-5-adimda-dijital-donusum.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🤖 Intelligence Artificielle</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 6 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/chatbot-vs-ai-asistan-isletmeniz-icin-dogru-secim.html">Chatbot vs Assistant IA : Lequel convient à votre entreprise ?</a></h2>
+    <p>Découvrez les différences entre chatbots traditionnels et assistants IA. Comparaison sectorielle et analyse des coûts.</p>
+    <a href="/blog/fr/chatbot-vs-ai-asistan-isletmeniz-icin-dogru-secim.html" class="read-more">Lire la suite →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🤖 Intelligence Artificielle</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 5 min de lecture</span>
+    </div>
+    <h2><a href="/blog/fr/yapay-zeka-ile-is-otomasyonu-rehberi.html">Automatisation d'entreprise par l'IA : Guide 2026</a></h2>
+    <p>Pourquoi l'automatisation de vos processus par l'IA n'est plus un luxe mais une nécessité. Découvrez les avantages concrets.</p>
+    <a href="/blog/fr/yapay-zeka-ile-is-otomasyonu-rehberi.html" class="read-more">Lire la suite →</a>
+  </article>
+</div>
+
+<footer class="blog-footer">
+<div style="text-align:center; margin-bottom:12px; font-size:0.9rem; color:#00D4FF;">
+  <span id="lcTotalFooter">â€”</span> &nbsp;Â·&nbsp; <span style="color:#22c55e;">â—</span> <span id="lcOnlineFooter">â€”</span>
+</div>
+  <p>&copy; <script>document.write(new Date().getFullYear())</script> Kilman Bilisim Sistemleri Ltd. Sti. Tous droits réservés.</p>
+  <p style="margin-top:8px;"><a href="/gizlilik.html" style="color:#8B949E;font-size:0.82rem;">Politique de Confidentialité</a></p>
+</footer>
+
+<script>
+// Hamburger toggle
+const blogHamburger = document.querySelector('.blog-hamburger');
+const blogNavLinks = document.querySelector('.blog-nav-links');
+const blogLang = document.querySelector('.blog-lang');
+if (blogHamburger) {
+  blogHamburger.addEventListener('click', () => {
+    const isOpen = !blogNavLinks.classList.contains('open');
+    blogNavLinks.classList.toggle('open', isOpen);
+    blogLang && blogLang.classList.toggle('open', isOpen);
+    const spans = blogHamburger.querySelectorAll('span');
+    blogHamburger.classList.toggle('active', isOpen);
+    if (isOpen) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+    } else {
+      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+  window.addEventListener('scroll', () => {
+    if (blogNavLinks.classList.contains('open')) {
+      blogNavLinks.classList.remove('open');
+      blogLang && blogLang.classList.remove('open');
+      blogHamburger.classList.remove('active');
+      blogHamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+}
+</script>
+
+<script>
+(function(){
+  const SUPABASE_URL = 'https://glpwxyaqcaqyiupesyay.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdscHd4eWFxY2FxeWl1cGVzeWF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3NDU1NDIsImV4cCI6MjA5NzMyMTU0Mn0.iuK71d5caVQzpRWAA0rfMy24Ne5KGsie9T7F6Ku5M5g';
+  function rpc(fn, body){
+    return fetch(SUPABASE_URL + '/rest/v1/rpc/' + fn, {
+      method: 'POST', headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body || {})
+    }).then(r => r.ok ? r.json() : null);
+  }
+  function fmt(n){ return (typeof n === 'number') ? n.toLocaleString('tr-TR') : n; }
+  let vid = sessionStorage.getItem('kb_vid');
+  if(!vid){ vid = 'v_' + Date.now() + '_' + Math.random().toString(36).slice(2,9); sessionStorage.setItem('kb_vid', vid); }
+  const _p = new URLSearchParams(location.search);
+  if (_p.get('dev') === '1') localStorage.setItem('kb_ignore', '1');
+  const isInternal = navigator.webdriver || localStorage.getItem('kb_ignore') === '1';
+  const elTotalF = document.getElementById('lcTotalFooter');
+  const elOnlineF = document.getElementById('lcOnlineFooter');
+  function setTotal(v){ const t = fmt(v); if(elTotalF) elTotalF.textContent = t; }
+  function setOnline(v){ const t = fmt(v); if(elOnlineF) elOnlineF.textContent = t; }
+  if (isInternal) {
+    rpc('get_total').then(total => { if (total != null) setTotal(total); }).catch(()=>{});
+  } else if (!sessionStorage.getItem('kb_counted')) {
+    rpc('increment_visit').then(total => { sessionStorage.setItem('kb_counted', '1'); if (total != null) setTotal(total); }).catch(()=>{});
+  } else {
+    rpc('get_total').then(total => { if (total != null) setTotal(total); }).catch(()=>{});
+  }
+  function beat(){ rpc('heartbeat', { p_vid: vid }).then(online => { if(online != null) setOnline(online); }).catch(()=>{}); }
+  if (!isInternal) { beat(); setInterval(beat, 20000); }
+  else { const readOnline = () => rpc('get_online').then(online => { if (online != null) setOnline(online); }).catch(()=>{}); readOnline(); setInterval(readOnline, 20000); }
+})();
+</script>
+</body>
+</html>

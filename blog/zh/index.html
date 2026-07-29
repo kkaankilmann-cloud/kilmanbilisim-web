@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>博客 â€” Kilman Bilisim</title>
+<meta name="description" content="关于人工智能、自动化和数字化转型的最新文章、指南和行业分析。"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://kilmanbilisim.com/blog/zh/"/>
+<link rel="alternate" hreflang="tr" href="https://kilmanbilisim.com/blog/"/>
+<link rel="alternate" hreflang="en" href="https://kilmanbilisim.com/blog/en/"/>
+<link rel="alternate" hreflang="de" href="https://kilmanbilisim.com/blog/de/"/>
+<link rel="alternate" hreflang="es" href="https://kilmanbilisim.com/blog/es/"/>
+<link rel="alternate" hreflang="fr" href="https://kilmanbilisim.com/blog/fr/"/>
+<link rel="alternate" hreflang="ru" href="https://kilmanbilisim.com/blog/ru/"/>
+<link rel="alternate" hreflang="ko" href="https://kilmanbilisim.com/blog/ko/"/>
+<link rel="alternate" hreflang="zh" href="https://kilmanbilisim.com/blog/zh/"/>
+<link rel="alternate" hreflang="ja" href="https://kilmanbilisim.com/blog/ja/"/>
+<link rel="alternate" hreflang="x-default" href="https://kilmanbilisim.com/blog/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://kilmanbilisim.com/blog/zh/"/>
+<meta property="og:title" content="博客 â€” Kilman Bilisim"/>
+<meta property="og:description" content="关于人工智能、自动化和数字化转型的最新文章、指南和行业分析。"/>
+<meta property="og:locale" content="zh_CN"/>
+<meta property="og:image" content="https://kilmanbilisim.com/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="博客 â€” Kilman Bilisim"/>
+<meta name="twitter:description" content="关于人工智能、自动化和数字化转型的最新文章、指南和行业分析。"/>
+<meta name="twitter:image" content="https://kilmanbilisim.com/og-image.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+
+:root{--bg-main:#0D1117;--bg-card:#161B22;--neon:#00D4FF;--text-main:#E6EDF3;--text-muted:#8B949E;--accent-purple:#8B5CF6;--border:rgba(255,255,255,0.06);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Cg stroke='%2300D4FF' fill='none' stroke-width='1' opacity='0.22' stroke-linecap='round'%3E%3Cpath d='M0 30 H35 L50 45 V80 M50 45 H85'/%3E%3Cpath d='M130 30 H100 L85 45'/%3E%3Cpath d='M65 0 V25 L80 40'/%3E%3Cpath d='M0 100 H25 L40 115 H70 M40 115 V130'/%3E%3Cpath d='M130 105 H105 L92 92 V65'/%3E%3Cpath d='M110 130 V110 H90'/%3E%3C/g%3E%3Cg fill='%2300D4FF' opacity='0.5'%3E%3Ccircle cx='35' cy='30' r='2'/%3E%3Ccircle cx='85' cy='45' r='2'/%3E%3Ccircle cx='40' cy='115' r='2'/%3E%3Ccircle cx='92' cy='65' r='2'/%3E%3C/g%3E%3Cg stroke='%2300D4FF' fill='none' stroke-width='0.9' opacity='0.18'%3E%3Crect x='46' y='41' width='14' height='9' rx='1'/%3E%3Cpath d='M49 41 V37 M53 41 V37 M57 41 V37'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 130px 130px repeat,var(--bg-main);color:var(--text-main);line-height:1.7;}
+a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}
+a:hover{opacity:0.8;}
+
+.blog-nav{background:rgba(13,17,23,0.95);border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px);}
+.blog-nav-inner{max-width:1200px;margin:0 auto;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;}
+.blog-nav-left{display:flex;align-items:center;gap:16px;}
+.blog-nav-logo{font-weight:700;font-size:1.1rem;color:var(--neon);}
+.blog-nav-links{display:flex;align-items:center;gap:8px;}
+.blog-nav-links a{font-size:0.88rem;font-weight:500;color:var(--text-muted);padding:6px 14px;border-radius:6px;transition:all 0.2s;}
+.blog-nav-links a:hover,.blog-nav-links a.active{color:var(--neon);background:rgba(0,212,255,0.08);opacity:1;}
+.blog-nav-right{display:flex;align-items:center;gap:8px;}
+.blog-lang{display:flex;gap:4px;}
+.blog-lang button{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;cursor:pointer;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;transition:all 0.2s;}
+.blog-lang button:hover{border-color:var(--neon);color:var(--neon);}
+.blog-lang button.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
+.blog-hamburger{display:none;width:36px;height:36px;cursor:pointer;padding:6px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.15);border-radius:8px;align-items:center;justify-content:center;flex-direction:column;gap:4px;transition:all 0.3s;}
+.blog-hamburger:hover{background:rgba(0,212,255,0.12);border-color:rgba(0,212,255,0.3);box-shadow:0 0 12px rgba(0,212,255,0.15);}
+.blog-hamburger span{display:block;width:18px;height:2px;background:var(--neon);border-radius:2px;transition:all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55);}
+.blog-hamburger.active{background:rgba(0,212,255,0.12);border-color:var(--neon);box-shadow:0 0 16px rgba(0,212,255,0.2);}
+
+.blog-hero{text-align:center;padding:110px 24px 40px;max-width:900px;margin:0 auto;}
+.blog-hero h1{font-size:2.5rem;font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,var(--neon),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.blog-hero p{color:var(--text-muted);font-size:1.05rem;max-width:600px;margin:0 auto;}
+
+.blog-grid{max-width:900px;margin:0 auto;padding:0 24px 80px;display:grid;gap:32px;}
+
+.blog-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:transform 0.3s,border-color 0.3s;}
+.blog-card:hover{transform:translateY(-4px);border-color:rgba(0,212,255,0.3);}
+.blog-card-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:0.82rem;color:var(--text-muted);}
+.blog-card-tag{background:rgba(0,212,255,0.1);color:var(--neon);padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;}
+.blog-card h2{font-size:1.4rem;font-weight:700;margin-bottom:12px;}
+.blog-card h2 a{background:linear-gradient(135deg,var(--neon),#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;transition:filter 0.3s ease;}
+.blog-card h2 a:hover{filter:brightness(1.3);}
+.blog-card p{color:var(--text-muted);font-size:0.95rem;margin-bottom:20px;}
+.blog-card .read-more{font-weight:600;font-size:0.9rem;color:var(--neon);display:inline-flex;align-items:center;gap:6px;}
+
+.blog-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.85rem;}
+
+@media(max-width:700px){
+  .blog-nav-links,.blog-lang{display:none;}
+  .blog-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center;}
+  .blog-nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px;}
+  .blog-hamburger{display:flex;z-index:1001;position:relative;}
+  .blog-hero h1{font-size:1.8rem;}
+  .blog-card{padding:24px;}
+}
+
+.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
+.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
+.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
+</style>
+</head>
+<body>
+
+<nav class="blog-nav">
+  <div class="blog-nav-inner">
+    <div class="blog-nav-left">
+      <a href="/" class="blog-nav-logo">KILMAN<span style="display:block;font-size:0.75rem;color:var(--text-muted);letter-spacing:0.08em;">BILISIM</span></a>
+    </div>
+    <ul class="blog-nav-links">
+      <li style="list-style:none;"><a href="/">Home</a></li>
+      <li style="list-style:none;"><a href="/blog/zh/" class="active">Blog</a></li>
+    </ul>
+    <div class="blog-nav-right">
+      <div class="blog-lang"><a href="/blog/" class="lang-btn">TR</a><a href="/blog/en/" class="lang-btn">EN</a><a href="/blog/de/" class="lang-btn">DE</a><a href="/blog/es/" class="lang-btn">ES</a><a href="/blog/fr/" class="lang-btn">FR</a><a href="/blog/ru/" class="lang-btn">RU</a><a href="/blog/ko/" class="lang-btn">KO</a><a href="/blog/zh/" class="lang-btn active">ZH</a><a href="/blog/ja/" class="lang-btn">JA</a></div>
+      <button class="blog-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="blog-hero">
+  <h1>博客</h1>
+  <p>关于人工智能、自动化和数字化转型的最新文章、指南和行业分析。</p>
+</div>
+
+<div class="blog-grid">
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🚚 物流自动化</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 12分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-lojistik-kargo-otomasyonu.html">AI赋能物流与快递自动化：中小企业2026指南</a></h2>
+    <p>AI物流自动化：路线优化、仓库管理、快递追踪、车队管理和最后一公里配送。</p>
+    <a href="/blog/zh/yapay-zeka-ile-lojistik-kargo-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🏥 医疗自动化</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 12分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-saglik-sektoru-otomasyonu.html">AI赋能医疗健康自动化：中小企业2026指南</a></h2>
+    <p>AI医疗自动化：患者追踪、预约管理、处方自动化和诊所管理。</p>
+    <a href="/blog/zh/yapay-zeka-ile-saglik-sektoru-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🏨 酒店自动化</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 10分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-otel-konaklama-otomasyonu.html">AI赋能酒店及住宿业自动化：2026指南</a></h2>
+    <p>AI酒店自动化：智能定价、预订管理、客户体验和人员规划。</p>
+    <a href="/blog/zh/yapay-zeka-ile-otel-konaklama-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🍽️ 餐饮自动化</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 10分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-restoran-otomasyonu.html">AI赋能餐饮业自动化：中小企业2026指南</a></h2>
+    <p>AI餐饮自动化：智能订单管理、库存预测、菜单优化和客户体验.</p>
+    <a href="/blog/zh/yapay-zeka-ile-restoran-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📧 邮件营销</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 10分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-e-posta-pazarlama-otomasyonu.html">AI赋能邮件营销自动化：中小企业2026指南</a></h2>
+    <p>AI邮件自动化：个性化活动、自动细分、A/B测试和行为触发邮件。</p>
+    <a href="/blog/zh/yapay-zeka-ile-e-posta-pazarlama-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🏠 房地产自动化</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 10分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-emlak-sektoru-otomasyonu.html">AI赋能房地产自动化：中小企业2026指南</a></h2>
+    <p>AI房地产自动化：自动房源管理、客户匹配、价格分析和线索追踪。</p>
+    <a href="/blog/zh/yapay-zeka-ile-emlak-sektoru-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🎓 培训与发展</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-egitim-calisan-gelisimi-otomasyonu.html">AI培训与员工发展自动化：中小企业2026指南</a></h2>
+    <p>AI培训：个性化学习、能力评估、绩效跟踪和自动培训计划。</p>
+    <a href="/blog/zh/yapay-zeka-ile-egitim-calisan-gelisimi-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🔍 质量控制</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-kalite-kontrol-otomasyonu.html">AI质量控制自动化：中小企业2026指南</a></h2>
+    <p>AI质量：视觉检测、异常检测、生产线监控和质量评分。</p>
+    <a href="/blog/zh/yapay-zeka-ile-kalite-kontrol-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🚚 供应链</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-tedarik-zinciri-otomasyonu.html">AI供应链自动化：中小企业2026指南</a></h2>
+    <p>AI供应链：需求预测、供应商评估、物流优化和自动下单。</p>
+    <a href="/blog/zh/yapay-zeka-ile-tedarik-zinciri-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">💰 销售自动化</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-satis-surecleri-otomasyonu.html">AI销售流程自动化：中小企业2026指南</a></h2>
+    <p>AI销售：线索评分、自动跟进、智能报价和销售预测。</p>
+    <a href="/blog/zh/yapay-zeka-ile-satis-surecleri-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📅 预约管理</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-randevu-rezervasyon-otomasyonu.html">AI预约与预订自动化：中小企业2026指南</a></h2>
+    <p>AI预约：智能排程、自动提醒、减少爽约和自助预约。</p>
+    <a href="/blog/zh/yapay-zeka-ile-randevu-rezervasyon-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🎧 客户服务</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-musteri-hizmetleri-otomasyonu.html">AI客户服务自动化：中小企业2026年指南</a></h2>
+    <p>AI客户服务：24/7聊天机器人、智能路由、情绪分析和自助服务门户。</p>
+    <a href="/blog/zh/yapay-zeka-ile-musteri-hizmetleri-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📋 项目管理</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-proje-yonetimi-otomasyonu.html">AI项目管理自动化：中小企业2026年指南</a></h2>
+    <p>AI项目管理：智能任务分配、资源优化、风险预测和冲刺规划。</p>
+    <a href="/blog/zh/yapay-zeka-ile-proje-yonetimi-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📄 文档管理</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-belge-dokuman-yonetimi-otomasyonu.html">AI文档管理自动化：2026年中小企业指南</a></h2>
+    <p>AI文档管理：OCR、自动分类、智能搜索和数字审批流程。</p>
+    <a href="/blog/zh/yapay-zeka-ile-belge-dokuman-yonetimi-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🛡️ 网络安全</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-siber-guvenlik-kobi-tehdit-tespiti.html">AI网络安全：2026年中小企业威胁检测与防护指南</a></h2>
+    <p>AI网络安全：威胁检测、钓鱼防护、异常检测和自动响应。</p>
+    <a href="/blog/zh/yapay-zeka-ile-siber-guvenlik-kobi-tehdit-tespiti.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📦 库存管理</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-stok-envanter-yonetimi-otomasyonu.html">AI库存与仓储管理自动化：2026年中小企业指南</a></h2>
+    <p>AI库存：需求预测、自动下单、损耗减少与仓库优化。</p>
+    <a href="/blog/zh/yapay-zeka-ile-stok-envanter-yonetimi-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">💰 会计与财务</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-muhasebe-finans-otomasyonu-kobi-rehberi.html">AI会计与财务自动化：2026年中小企业指南</a></h2>
+    <p>AI会计：电子发票、现金流预测、费用追踪、税务准备与财务报告。</p>
+    <a href="/blog/zh/yapay-zeka-ile-muhasebe-finans-otomasyonu-kobi-rehberi.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">👥 HR与AI</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-insan-kaynaklari-otomasyonu-kobi-ik-rehberi.html">AI人力资源自动化：2026年中小企业HR指南</a></h2>
+    <p>AI HR：简历筛选、候选人评分、员工参与度、绩效管理。</p>
+    <a href="/blog/zh/yapay-zeka-ile-insan-kaynaklari-otomasyonu-kobi-ik-rehberi.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">⚡ 无代码与自动化</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/no-code-otomasyon-kod-yazmadan-is-sureclerinizi-otomatiklestirme.html">无代码自动化：2026年无需编程即可实现业务流程自动化指南</a></h2>
+    <p>无代码：n8n、Make、Zapier对比，实用场景和成本分析。</p>
+    <a href="/blog/zh/no-code-otomasyon-kod-yazmadan-is-sureclerinizi-otomatiklestirme.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📱 社交媒体与AI</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/sosyal-medya-otomasyonu-ai-ile-marka-yonetimi.html">社交媒体自动化：2026年AI品牌管理指南</a></h2>
+    <p>AI社交媒体：内容生成、智能排期、互动分析和社群管理。</p>
+    <a href="/blog/zh/sosyal-medya-otomasyonu-ai-ile-marka-yonetimi.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📊 数据分析与BI</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-veri-analizi-kobi-is-zekasi-rehberi.html">AI数据分析：2026年中小企业商业智能指南</a></h2>
+    <p>AI BI：仪表板、预测、异常检测和数据驱动决策。中小企业实用指南。</p>
+    <a href="/blog/zh/yapay-zeka-ile-veri-analizi-kobi-is-zekasi-rehberi.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🤝 CRM与AI</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/crm-otomasyonu-yapay-zeka-ile-musteri-iliskilerinizi-donusturme.html">CRM自动化：2026年AI变革客户关系指南</a></h2>
+    <p>AI CRM：线索评分、自动跟进、客户细分和销售预测。中小企业实用指南。</p>
+    <a href="/blog/zh/crm-otomasyonu-yapay-zeka-ile-musteri-iliskilerinizi-donusturme.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🛒 电商与AI</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 9分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/e-ticaret-otomasyonu-yapay-zeka-ile-online-satislarinizi-artirma.html">电商自动化：2026年AI提升在线销售指南</a></h2>
+    <p>AI库存管理、动态定价、个性化商品推荐和售后自动化。中小企业实用指南。</p>
+    <a href="/blog/zh/e-ticaret-otomasyonu-yapay-zeka-ile-online-satislarinizi-artirma.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">📈 数字营销与AI</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 8分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-dijital-pazarlama.html">AI数字营销：中小企业2026年指南</a></h2>
+    <p>AI驱动的SEO、社交媒体自动化、内容创建和邮件营销。</p>
+    <a href="/blog/zh/yapay-zeka-ile-dijital-pazarlama.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">💬 WhatsApp与自动化</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 7分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/isletmeniz-icin-whatsapp-otomasyonu.html">企业WhatsApp自动化：用AI改变客户沟通</a></h2>
+    <p>通过WhatsApp Business自动化保持客户沟通全天候活跃。</p>
+    <a href="/blog/zh/isletmeniz-icin-whatsapp-otomasyonu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🤖 AI与自动化</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 8分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/ai-ajanlari-nedir-isletmenizi-7-24-calistirmanin-yeni-yolu.html">什么是AI代理？全天候运营企业的新方式</a></h2>
+    <p>AI代理是什么，如何运作？发现为您企业服务的自主AI系统。</p>
+    <a href="/blog/zh/ai-ajanlari-nedir-isletmenizi-7-24-calistirmanin-yeni-yolu.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🚀 数字化转型</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 7分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/kobiler-icin-yapay-zeka-5-adimda-dijital-donusum.html">中小企业AI指南：5步实现数字化转型</a></h2>
+    <p>中小企业如何利用AI？5步数字化转型指南。</p>
+    <a href="/blog/zh/kobiler-icin-yapay-zeka-5-adimda-dijital-donusum.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🤖 人工智能</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 6分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/chatbot-vs-ai-asistan-isletmeniz-icin-dogru-secim.html">聊天机器人 vs AI助手：哪个适合您的企业？</a></h2>
+    <p>了解传统聊天机器人和AI助手之间的区别。行业比较和成本分析。</p>
+    <a href="/blog/zh/chatbot-vs-ai-asistan-isletmeniz-icin-dogru-secim.html" class="read-more">阅读更多 →</a>
+  </article>
+  <article class="blog-card">
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">🤖 人工智能</span>
+      <span>ğŸ“… </span>
+      <span>⏱️ 5分钟阅读</span>
+    </div>
+    <h2><a href="/blog/zh/yapay-zeka-ile-is-otomasyonu-rehberi.html">AI业务自动化：2026指南</a></h2>
+    <p>了解为什么用AI自动化业务流程不再是奢侈品，而是必需品。</p>
+    <a href="/blog/zh/yapay-zeka-ile-is-otomasyonu-rehberi.html" class="read-more">阅读更多 →</a>
+  </article>
+</div>
+
+<footer class="blog-footer">
+<div style="text-align:center; margin-bottom:12px; font-size:0.9rem; color:#00D4FF;">
+  <span id="lcTotalFooter">â€”</span> &nbsp;Â·&nbsp; <span style="color:#22c55e;">â—</span> <span id="lcOnlineFooter">â€”</span>
+</div>
+  <p>&copy; <script>document.write(new Date().getFullYear())</script> Kilman Bilisim Sistemleri Ltd. Sti. 版权所有。</p>
+  <p style="margin-top:8px;"><a href="/gizlilik.html" style="color:#8B949E;font-size:0.82rem;">隐私政策</a></p>
+</footer>
+
+<script>
+// Hamburger toggle
+const blogHamburger = document.querySelector('.blog-hamburger');
+const blogNavLinks = document.querySelector('.blog-nav-links');
+const blogLang = document.querySelector('.blog-lang');
+if (blogHamburger) {
+  blogHamburger.addEventListener('click', () => {
+    const isOpen = !blogNavLinks.classList.contains('open');
+    blogNavLinks.classList.toggle('open', isOpen);
+    blogLang && blogLang.classList.toggle('open', isOpen);
+    const spans = blogHamburger.querySelectorAll('span');
+    blogHamburger.classList.toggle('active', isOpen);
+    if (isOpen) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+    } else {
+      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+  window.addEventListener('scroll', () => {
+    if (blogNavLinks.classList.contains('open')) {
+      blogNavLinks.classList.remove('open');
+      blogLang && blogLang.classList.remove('open');
+      blogHamburger.classList.remove('active');
+      blogHamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+}
+</script>
+
+<script>
+(function(){
+  const SUPABASE_URL = 'https://glpwxyaqcaqyiupesyay.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdscHd4eWFxY2FxeWl1cGVzeWF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3NDU1NDIsImV4cCI6MjA5NzMyMTU0Mn0.iuK71d5caVQzpRWAA0rfMy24Ne5KGsie9T7F6Ku5M5g';
+  function rpc(fn, body){
+    return fetch(SUPABASE_URL + '/rest/v1/rpc/' + fn, {
+      method: 'POST', headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body || {})
+    }).then(r => r.ok ? r.json() : null);
+  }
+  function fmt(n){ return (typeof n === 'number') ? n.toLocaleString('tr-TR') : n; }
+  let vid = sessionStorage.getItem('kb_vid');
+  if(!vid){ vid = 'v_' + Date.now() + '_' + Math.random().toString(36).slice(2,9); sessionStorage.setItem('kb_vid', vid); }
+  const _p = new URLSearchParams(location.search);
+  if (_p.get('dev') === '1') localStorage.setItem('kb_ignore', '1');
+  const isInternal = navigator.webdriver || localStorage.getItem('kb_ignore') === '1';
+  const elTotalF = document.getElementById('lcTotalFooter');
+  const elOnlineF = document.getElementById('lcOnlineFooter');
+  function setTotal(v){ const t = fmt(v); if(elTotalF) elTotalF.textContent = t; }
+  function setOnline(v){ const t = fmt(v); if(elOnlineF) elOnlineF.textContent = t; }
+  if (isInternal) {
+    rpc('get_total').then(total => { if (total != null) setTotal(total); }).catch(()=>{});
+  } else if (!sessionStorage.getItem('kb_counted')) {
+    rpc('increment_visit').then(total => { sessionStorage.setItem('kb_counted', '1'); if (total != null) setTotal(total); }).catch(()=>{});
+  } else {
+    rpc('get_total').then(total => { if (total != null) setTotal(total); }).catch(()=>{});
+  }
+  function beat(){ rpc('heartbeat', { p_vid: vid }).then(online => { if(online != null) setOnline(online); }).catch(()=>{}); }
+  if (!isInternal) { beat(); setInterval(beat, 20000); }
+  else { const readOnline = () => rpc('get_online').then(online => { if (online != null) setOnline(online); }).catch(()=>{}); readOnline(); setInterval(readOnline, 20000); }
+})();
+</script>
+</body>
+</html>

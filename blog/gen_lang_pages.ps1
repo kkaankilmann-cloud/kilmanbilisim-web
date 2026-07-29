@@ -1,4 +1,4 @@
-# gen_lang_pages.ps1 — Faz 2 Dil Sayfası Üreteci
+﻿# gen_lang_pages.ps1 — Faz 2 Dil Sayfası Üreteci
 # Kullanım: .\gen_lang_pages.ps1 -Slug "yapay-zeka-ile-restoran-otomasyonu"
 # Her çağrıda 1 yazı için 8 dil sayfası üretir + TR dosyasını temizler
 
@@ -69,16 +69,16 @@ if($blocks.Count -ne 9) { Write-Error "9 blok beklendi, $($blocks.Count) bulundu
 function Get-BlockMeta($blockHtml, $lang) {
     $meta = @{}
     # Title from h1
-    if($blockHtml -match '<h1>(.*?)</h1>') { $meta['title'] = $Matches[1] -replace '<[^>]+>','' -replace '&amp;','&' }
+    if($blockHtml -match [regex]'<h1>(.*?)</h1>') { $meta['title'] = $Matches[1] -replace '<[^>]+>','' -replace ([regex]::Escape('&amp;')),'&' }
     # Tag from post-tag or .tag span
-    if($blockHtml -match 'class="post-tag">(.*?)</span>') { $meta['tag'] = $Matches[1] }
-    elseif($blockHtml -match 'class="tag">(.*?)</span>') { $meta['tag'] = $Matches[1] }
+    if($blockHtml -match [regex]'class="post-tag">(.*?)</span>') { $meta['tag'] = $Matches[1] }
+    elseif($blockHtml -match [regex]'class="tag">(.*?)</span>') { $meta['tag'] = $Matches[1] }
     # Date from post-meta or .meta
-    if($blockHtml -match 'class="post-meta"[^>]*>(.*?)</div>') { $meta['metaLine'] = $Matches[1] }
-    elseif($blockHtml -match 'class="meta"[^>]*>(.*?)</div>') { $meta['metaLine'] = $Matches[1] }
+    if($blockHtml -match [regex]'class="post-meta"[^>]*>(.*?)</div>') { $meta['metaLine'] = $Matches[1] }
+    elseif($blockHtml -match [regex]'class="meta"[^>]*>(.*?)</div>') { $meta['metaLine'] = $Matches[1] }
     # Description = first <p> text (trimmed)
-    if($blockHtml -match '<p[^>]*>(.*?)</p>') {
-        $desc = $Matches[1] -replace '<[^>]+>','' -replace '&amp;','&'
+    if($blockHtml -match [regex]'<p[^>]*>(.*?)</p>') {
+        $desc = $Matches[1] -replace '<[^>]+>','' -replace ([regex]::Escape('&amp;')),'&'
         if($desc.Length -gt 160) { $desc = $desc.Substring(0, 157) + '...' }
         $meta['description'] = $desc
     }

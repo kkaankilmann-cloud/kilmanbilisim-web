@@ -1,10 +1,32 @@
-﻿#!/usr/bin/env pwsh
+#!/usr/bin/env pwsh
 # gen_blog_list.ps1 — Blog liste sayfasi ureteci
 # Kullanim: powershell -ExecutionPolicy Bypass -File gen_blog_list.ps1
 # TR index.html'den okur, 8 dil sayfasi uretir, TR'yi gunceller
 
 $ErrorActionPreference = 'Stop'
 $blogDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$utf8NoBom = [System.Text.UTF8Encoding]::new($false)
+
+# ASCII olmayan karakterleri HTML entity'ye cevir
+function To-Entity([string]$s) {
+    if (-not $s) { return $s }
+    $sb = [System.Text.StringBuilder]::new($s.Length * 2)
+    foreach ($ch in $s.ToCharArray()) {
+        $code = [int]$ch
+        if ($code -gt 127) {
+            [void]$sb.Append("&#$code;")
+        } else {
+            [void]$sb.Append($ch)
+        }
+    }
+    return $sb.ToString()
+}
+
+# Meta attribute icindeki duz cift tirnaklari &quot; yap
+function Escape-MetaQuotes([string]$s) {
+    if (-not $s) { return $s }
+    return $s.Replace('"', '&quot;')
+}
 
 # ─── TR INDEX.HTML OKU ───
 $trFile = Join-Path $blogDir 'index.html'
@@ -156,11 +178,16 @@ function Get-CardHtml($lang, $card) {
     $dict = $i18n[$lang]
     if (-not $dict) { return '' }
 
-    $tag = if ($dict[$card.TagKey]) { $dict[$card.TagKey] } else { $card.TagKey }
-    $title = if ($dict[$card.TitleKey]) { $dict[$card.TitleKey] } else { $card.TitleKey }
-    $desc = if ($dict[$card.DescKey]) { $dict[$card.DescKey] } else { $card.DescKey }
-    $readTime = if ($dict[$card.ReadKey]) { $dict[$card.ReadKey] } else { $card.ReadKey }
-    $readMore = if ($dict[$card.RmKey]) { $dict[$card.RmKey] } else { 'Read More' }
+    $rawTag = if ($dict[$card.TagKey]) { $dict[$card.TagKey] } else { $card.TagKey }
+    $rawTitle = if ($dict[$card.TitleKey]) { $dict[$card.TitleKey] } else { $card.TitleKey }
+    $rawDesc = if ($dict[$card.DescKey]) { $dict[$card.DescKey] } else { $card.DescKey }
+    $rawRead = if ($dict[$card.ReadKey]) { $dict[$card.ReadKey] } else { $card.ReadKey }
+    $rawRm = if ($dict[$card.RmKey]) { $dict[$card.RmKey] } else { 'Read More' }
+    $tag = To-Entity $rawTag
+    $title = To-Entity $rawTitle
+    $desc = To-Entity $rawDesc
+    $readTime = To-Entity $rawRead
+    $readMore = To-Entity $rawRm
 
     # Kart linki: kendi diline
     $href = if ($lang -eq 'tr') { "/blog/$($card.Slug).html" } else { "/blog/$lang/$($card.Slug).html" }
@@ -184,12 +211,17 @@ function Build-ListPage($lang) {
     $dict = $i18n[$lang]
     $isAlt = $lang -ne 'tr'
     $canonical = if ($isAlt) { "$baseUrl/blog/$lang/" } else { "$baseUrl/blog/" }
-    $blogTitle = if ($dict['blog_title']) { $dict['blog_title'] } else { 'Blog' }
-    $blogSub = if ($dict['blog_sub']) { $dict['blog_sub'] } else { '' }
-    $footerRights = if ($dict['footer_rights']) { $dict['footer_rights'] } else { 'All rights reserved.' }
-    $privacyLink = if ($dict['privacy_link']) { $dict['privacy_link'] } else { 'Privacy Policy' }
+    $rawBlogTitle = if ($dict['blog_title']) { $dict['blog_title'] } else { 'Blog' }
+    $rawBlogSub = if ($dict['blog_sub']) { $dict['blog_sub'] } else { '' }
+    $rawFooterRights = if ($dict['footer_rights']) { $dict['footer_rights'] } else { 'All rights reserved.' }
+    $rawPrivacyLink = if ($dict['privacy_link']) { $dict['privacy_link'] } else { 'Privacy Policy' }
+    $rawNavHome = if ($dict['back_home']) { ($dict['back_home'] -replace '.*\s', '') } else { 'Home' }
+    $blogTitle = To-Entity $rawBlogTitle
+    $blogSub = Escape-MetaQuotes (To-Entity $rawBlogSub)
+    $footerRights = To-Entity $rawFooterRights
+    $privacyLink = To-Entity $rawPrivacyLink
     $ogLocale = $localeMap[$lang]
-    $navHome = if ($dict['back_home']) { ($dict['back_home'] -replace '.*\s', '') } else { 'Home' }
+    $navHome = To-Entity $rawNavHome
     $blogLinkText = 'Blog'
 
     # Kartlar
@@ -319,7 +351,7 @@ foreach ($lang in $altLangs) {
     if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir -Force | Out-Null }
     $outFile = Join-Path $dir 'index.html'
     $html = Build-ListPage $lang
-    [System.IO.File]::WriteAllText($outFile, $html, [System.Text.Encoding]::UTF8)
+    [System.IO.File]::WriteAllText($outFile, $html, $utf8NoBom)
     Write-Host "  [OK] /blog/$lang/index.html ($($html.Length) char)" -ForegroundColor Green
 }
 
@@ -330,7 +362,7 @@ Write-Host "`n=== ADIM 2: TR liste sayfasi guncelle ===" -ForegroundColor Cyan
 
 # TR'yi yeniden uret (tum JS temizlenip basit haliyle)
 $trHtml = Build-ListPage 'tr'
-[System.IO.File]::WriteAllText($trFile, $trHtml, [System.Text.Encoding]::UTF8)
+[System.IO.File]::WriteAllText($trFile, $trHtml, $utf8NoBom)
 Write-Host "  [OK] /blog/index.html ($($trHtml.Length) char)" -ForegroundColor Green
 
 # ═══════════════════════════════════════════════
@@ -347,7 +379,7 @@ foreach ($lang in $altLangs) {
         # Pattern: <a href="/blog/" ... >Blog</a> veya <a href="/blog/xx/" ...>Blog</a>
         $updated = $c -replace '(<a\s+href=")(/blog/(?:[a-z]{2}/)?)("\s*(?:class="[^"]*")?\s*>Blog</a>)', "`${1}$newBlogHref`${3}"
         if ($updated -ne $c) {
-            [System.IO.File]::WriteAllText($f.FullName, $updated, [System.Text.Encoding]::UTF8)
+            [System.IO.File]::WriteAllText($f.FullName, $updated, $utf8NoBom)
             $fixedMenuLinks++
         }
     }
@@ -378,7 +410,7 @@ foreach ($lang in $altLangs) {
 
 if ($newEntries) {
     $sitemapContent = $sitemapContent -replace '</urlset>', "$newEntries`n</urlset>"
-    [System.IO.File]::WriteAllText($sitemapFile, $sitemapContent, [System.Text.Encoding]::UTF8)
+    [System.IO.File]::WriteAllText($sitemapFile, $sitemapContent, $utf8NoBom)
     Write-Host "  [OK] Sitemap guncellendi" -ForegroundColor Green
 } else {
     Write-Host "  [SKIP] Sitemap zaten guncel" -ForegroundColor Yellow

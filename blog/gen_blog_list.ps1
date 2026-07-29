@@ -7,16 +7,22 @@ $ErrorActionPreference = 'Stop'
 $blogDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 
-# ASCII olmayan karakterleri HTML entity'ye cevir
+# ASCII olmayan karakterleri HTML entity'ye cevir (surrogate-aware)
 function To-Entity([string]$s) {
     if (-not $s) { return $s }
     $sb = [System.Text.StringBuilder]::new($s.Length * 2)
-    foreach ($ch in $s.ToCharArray()) {
-        $code = [int]$ch
-        if ($code -gt 127) {
-            [void]$sb.Append("&#$code;")
-        } else {
-            [void]$sb.Append($ch)
+    for ($i = 0; $i -lt $s.Length; $i++) {
+        $c = $s[$i]
+        if ([char]::IsHighSurrogate($c) -and ($i + 1) -lt $s.Length -and [char]::IsLowSurrogate($s[$i + 1])) {
+            $cp = [char]::ConvertToUtf32($c, $s[$i + 1])
+            [void]$sb.Append("&#$cp;")
+            $i++
+        }
+        elseif ([int]$c -gt 127) {
+            [void]$sb.Append("&#$([int]$c);")
+        }
+        else {
+            [void]$sb.Append($c)
         }
     }
     return $sb.ToString()
@@ -78,7 +84,11 @@ foreach ($cm in $cardMatches) {
     $descMatch = [regex]::Match($cardHtml, 'data-i18n="(post\d+_desc)"')
     $descKey = if ($descMatch.Success) { $descMatch.Groups[1].Value } else { '' }
     # Date
-    $dateMatch = [regex]::Match($cardHtml, [regex]::Escape('📅') + '\s*(.+?)</span>')
+    $calEmoji = [string][char]0xD83D + [string][char]0xDCC5
+    $dateMatch = [regex]::Match($cardHtml, [regex]::Escape($calEmoji) + '\s*(.+?)</span>')
+    if (-not $dateMatch.Success) {
+        $dateMatch = [regex]::Match($cardHtml, [regex]::Escape('&#128197;') + '\s*(.+?)</span>')
+    }
     $dateStr = if ($dateMatch.Success) { $dateMatch.Groups[1].Value.Trim() } else { '' }
     # Read time key
     $readMatch = [regex]::Match($cardHtml, 'data-i18n="(read_\d+)"')
@@ -196,7 +206,7 @@ function Get-CardHtml($lang, $card) {
   <article class="blog-card">
     <div class="blog-card-meta">
       <span class="blog-card-tag">$tag</span>
-      <span>📅 $($card.Date)</span>
+      <span>&#128197; $($card.Date)</span>
       <span>$readTime</span>
     </div>
     <h2><a href="$href">$title</a></h2>

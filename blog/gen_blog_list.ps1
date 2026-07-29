@@ -166,8 +166,10 @@ $baseUrl = 'https://kilmanbilisim.com'
 function Get-HreflangBlock {
     $lines = @()
     $lines += "<link rel=`"alternate`" hreflang=`"tr`" href=`"$baseUrl/blog/`"/>"
-    foreach ($l in @('en','de','es','fr','ru','ko','zh','ja')) {
-        $lines += "<link rel=`"alternate`" hreflang=`"$l`" href=`"$baseUrl/blog/$l/`"/>"
+    foreach ($l in @('en','de','es','fr','ru','ko','zh-Hans','ja')) {
+        $hrefLang = $l
+        $urlLang = $l -replace '-Hans',''
+        $lines += "<link rel=`"alternate`" hreflang=`"$hrefLang`" href=`"$baseUrl/blog/$urlLang/`"/>"
     }
     $lines += "<link rel=`"alternate`" hreflang=`"x-default`" href=`"$baseUrl/blog/`"/>"
     return $lines -join "`n"
@@ -292,7 +294,7 @@ function Build-ListPage($lang) {
 
     $html = @"
 <!DOCTYPE html>
-<html lang="$lang">
+<html lang="$(if($lang -eq 'zh'){'zh-Hans'}else{$lang})">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -320,6 +322,26 @@ $hreflang
 $cssBlock
 $langBtnCss
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "$canonical",
+  "url": "$canonical",
+  "name": "$blogTitle &#8212; K&#305;lman Bili&#351;im",
+  "description": "$blogSub",
+  "inLanguage": "$(if($lang -eq 'zh'){'zh-Hans'}else{$lang})",
+  "publisher": {
+    "@type": "Organization",
+    "name": "K\u0131lman Bili\u015fim Sistemleri",
+    "url": "https://kilmanbilisim.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kilmanbilisim.com/og-image.jpg"
+    }
+  }
+}
+</script>
 </head>
 <body>
 

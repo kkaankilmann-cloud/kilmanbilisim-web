@@ -2411,6 +2411,10 @@ function applyLang() {
     btn.classList.toggle('active', btn.dataset.lang === currentLang);
   });
   document.documentElement.lang = currentLang;
+  // Blog linkini dile duyarli yap
+  document.querySelectorAll('a[data-i18n="nav_blog"]').forEach(function(a){
+    a.href = (currentLang === 'tr') ? '/blog/' : '/blog/' + (currentLang === 'zh' ? 'zh' : currentLang) + '/';
+  });
 }
 
 function switchLang(lang) {

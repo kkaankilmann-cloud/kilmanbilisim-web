@@ -1,7 +1,8 @@
-#!/usr/bin/env pwsh
-# gen_blog_list.ps1 — Blog liste sayfasi ureteci
+﻿#!/usr/bin/env pwsh
+# gen_blog_list.ps1 — Blog liste sayfasi ureteci v2
 # Kullanim: powershell -ExecutionPolicy Bypass -File gen_blog_list.ps1
-# TR index.html'den okur, 8 dil sayfasi uretir, TR'yi gunceller
+# TR index.html'den kartlari okur, her dilin yazi sayfasindan ceviri ceker
+# Artik blogTranslations sozlugune BAGIMLI DEGIL
 
 $ErrorActionPreference = 'Stop'
 $blogDir = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -34,42 +35,25 @@ function Escape-MetaQuotes([string]$s) {
     return $s.Replace('"', '&quot;')
 }
 
+# ─── STATIK METINLER (gomulu — bozulma riski sifir) ───
+$statics = @{
+    'tr' = @{ back_home='Ana Sayfaya D'+[char]246+'n'; blog_title='Blog'; blog_sub='Yapay zeka, otomasyon ve dijital d'+[char]246+'n'+[char]252+[char]351+[char]252+'m hakk'+[char]305+'nda g'+[char]252+'ncel yaz'+[char]305+'lar, rehberler ve sekt'+[char]246+'r analizleri.'; read_more='Devam'+[char]305+'n'+[char]305+' Oku '+[char]8594; footer_rights='T'+[char]252+'m haklar'+[char]305+' sakl'+[char]305+'d'+[char]305+'r.'; privacy_link='Gizlilik Politikas'+[char]305 }
+    'en' = @{ back_home='Home'; blog_title='Blog'; blog_sub='Latest articles, guides and industry analysis on AI, automation and digital transformation.'; read_more='Read More '+[char]8594; footer_rights='All rights reserved.'; privacy_link='Privacy Policy' }
+    'de' = @{ back_home='Startseite'; blog_title='Blog'; blog_sub='Aktuelle Artikel, Leitf'+[char]228+'den und Branchenanalysen zu KI, Automatisierung und digitaler Transformation.'; read_more='Weiterlesen '+[char]8594; footer_rights='Alle Rechte vorbehalten.'; privacy_link='Datenschutzrichtlinie' }
+    'es' = @{ back_home='Inicio'; blog_title='Blog'; blog_sub='Art'+[char]237+'culos, gu'+[char]237+'as y an'+[char]225+'lisis del sector sobre inteligencia artificial, automatizaci'+[char]243+'n y transformaci'+[char]243+'n digital.'; read_more='Leer M'+[char]225+'s '+[char]8594; footer_rights='Todos los derechos reservados.'; privacy_link='Pol'+[char]237+'tica de Privacidad' }
+    'fr' = @{ back_home='Accueil'; blog_title='Blog'; blog_sub="Articles, guides et analyses sectorielles sur l'IA, l'automatisation et la transformation num"+[char]233+"rique."; read_more='Lire la suite '+[char]8594; footer_rights='Tous droits r'+[char]233+'serv'+[char]233+'s.'; privacy_link='Politique de Confidentialit'+[char]233 }
+    'ru' = @{ back_home=[char]1075+[char]1083+[char]1072+[char]1074+[char]1085+[char]1091+[char]1102; blog_title=[char]1041+[char]1083+[char]1086+[char]1075; blog_sub=[char]1057+[char]1090+[char]1072+[char]1090+[char]1100+[char]1080+', '+[char]1088+[char]1091+[char]1082+[char]1086+[char]1074+[char]1086+[char]1076+[char]1089+[char]1090+[char]1074+[char]1072+' '+[char]1080+' '+[char]1086+[char]1090+[char]1088+[char]1072+[char]1089+[char]1083+[char]1077+[char]1074+[char]1099+[char]1077+' '+[char]1086+[char]1073+[char]1079+[char]1086+[char]1088+[char]1099+' '+[char]1087+[char]1086+' '+[char]1048+[char]1048+', '+[char]1072+[char]1074+[char]1090+[char]1086+[char]1084+[char]1072+[char]1090+[char]1080+[char]1079+[char]1072+[char]1094+[char]1080+[char]1080+' '+[char]1080+' '+[char]1094+[char]1080+[char]1092+[char]1088+[char]1086+[char]1074+[char]1086+[char]1081+' '+[char]1090+[char]1088+[char]1072+[char]1085+[char]1089+[char]1092+[char]1086+[char]1088+[char]1084+[char]1072+[char]1094+[char]1080+[char]1080+'.'; read_more=[char]1063+[char]1080+[char]1090+[char]1072+[char]1090+[char]1100+' '+[char]1076+[char]1072+[char]1083+[char]1077+[char]1077+' '+[char]8594; footer_rights=[char]1042+[char]1089+[char]1077+' '+[char]1087+[char]1088+[char]1072+[char]1074+[char]1072+' '+[char]1079+[char]1072+[char]1097+[char]1080+[char]1097+[char]1077+[char]1085+[char]1099+'.'; privacy_link=[char]1055+[char]1086+[char]1083+[char]1080+[char]1090+[char]1080+[char]1082+[char]1072+' '+[char]1082+[char]1086+[char]1085+[char]1092+[char]1080+[char]1076+[char]1077+[char]1085+[char]1094+[char]1080+[char]1072+[char]1083+[char]1100+[char]1085+[char]1086+[char]1089+[char]1090+[char]1080 }
+    'ko' = @{ back_home=[char]54856; blog_title=[char]48660+[char]47196+[char]44536; blog_sub='AI, '+[char]51088+[char]46041+[char]54868+' '+[char]48143+' '+[char]46356+[char]51648+[char]53560+' '+[char]51204+[char]54872+[char]50640+' '+[char]45824+[char]54620+' '+[char]52572+[char]49888+' '+[char]44592+[char]49324+', '+[char]44032+[char]51060+[char]46300+' '+[char]48143+' '+[char]50629+[char]44228+' '+[char]48516+[char]49437+'.'; read_more=[char]45908+' '+[char]51069+[char]44592+' '+[char]8594; footer_rights=[char]47784+[char]46304+' '+[char]44428+[char]47532+' '+[char]48372+[char]50976+'.'; privacy_link=[char]44060+[char]51064+[char]51221+[char]48372+' '+[char]52376+[char]47532+[char]48169+[char]52840 }
+    'zh' = @{ back_home=[char]39318+[char]39029; blog_title=[char]21338+[char]23458; blog_sub=[char]20851+[char]20110+[char]20154+[char]24037+[char]26234+[char]33021+[char]12289+[char]33258+[char]21160+[char]21270+[char]21644+[char]25968+[char]23383+[char]21270+[char]36716+[char]22411+[char]30340+[char]26368+[char]26032+[char]25991+[char]31456+[char]12289+[char]25351+[char]21335+[char]21644+[char]34892+[char]19994+[char]20998+[char]26512+[char]12290; read_more=[char]38405+[char]35835+[char]26356+[char]22810+' '+[char]8594; footer_rights=[char]29256+[char]26435+[char]25152+[char]26377+[char]12290; privacy_link=[char]38544+[char]31169+[char]25919+[char]31574 }
+    'ja' = @{ back_home=[char]12507+[char]12540+[char]12512; blog_title=[char]12502+[char]12525+[char]12464; blog_sub='AI'+[char]12289+[char]12458+[char]12540+[char]12488+[char]12513+[char]12540+[char]12471+[char]12519+[char]12531+[char]12289+[char]12487+[char]12472+[char]12479+[char]12523+[char]12488+[char]12521+[char]12531+[char]12473+[char]12501+[char]12457+[char]12540+[char]12513+[char]12540+[char]12471+[char]12519+[char]12531+[char]12395+[char]38306+[char]12377+[char]12427+[char]26368+[char]26032+[char]35352+[char]20107+[char]12289+[char]12460+[char]12452+[char]12489+[char]12289+[char]26989+[char]30028+[char]20998+[char]26512+[char]12290; read_more=[char]32154+[char]12365+[char]12434+[char]35501+[char]12416+' '+[char]8594; footer_rights=[char]20840+[char]33879+[char]20316+[char]27177+[char]25152+[char]26377+[char]12290; privacy_link=[char]12503+[char]12521+[char]12452+[char]12496+[char]12471+[char]12540+[char]12509+[char]12522+[char]12471+[char]12540 }
+}
+
+$langs = @('tr','en','de','es','fr','ru','ko','zh','ja')
+Write-Host "Statik metinler hazir: $($statics.Count) dil"
+
 # ─── TR INDEX.HTML OKU ───
 $trFile = Join-Path $blogDir 'index.html'
 $trContent = [System.IO.File]::ReadAllText($trFile, [System.Text.Encoding]::UTF8)
-
-# ─── i18n SOZLUGUNU CIKAR ───
-# blogTranslations objesini regex ile parse et
-$langs = @('tr','en','de','es','fr','ru','ko','zh','ja')
-$i18n = @{}
-
-foreach ($lang in $langs) {
-    $pattern = "(?s)$lang\s*:\s*\{(.*?)\n\s*\},"
-    if ($lang -eq 'ja') { $pattern = "(?s)$lang\s*:\s*\{(.*?)\n\s*\}" }
-    $m = [regex]::Match($trContent, $pattern)
-    if ($m.Success) {
-        $block = $m.Groups[1].Value
-        $dict = @{}
-        # Her satirdaki key: 'value' cifti
-        $entries = [regex]::Matches($block, "(\w+)\s*:\s*'((?:[^'\\]|\\.)*)'")
-        foreach ($e in $entries) {
-            $key = $e.Groups[1].Value
-            $val = $e.Groups[2].Value -replace "\\'", "'"
-            # JS \uXXXX kacis dizilerini decode et (surrogate pair dahil)
-            $val = [regex]::Replace($val, '\\u([0-9a-fA-F]{4})', {
-                param($m)
-                $hex = $m.Groups[1].Value
-                $code = [Convert]::ToInt32($hex, 16)
-                [string][char]$code
-            })
-            $dict[$key] = $val
-        }
-        $i18n[$lang] = $dict
-        Write-Host "  $lang : $($dict.Count) anahtar"
-    } else {
-        Write-Host "  UYARI: $lang sozlugu bulunamadi!" -ForegroundColor Red
-    }
-}
 
 # ─── KART BILGILERI — TR KARTLARINDAN CIKAR ───
 $cardPattern = '(?s)<article class="blog-card">(.*?)</article>'
@@ -82,35 +66,33 @@ foreach ($cm in $cardMatches) {
     # Slug
     $slugMatch = [regex]::Match($cardHtml, 'href="/blog/([^"]+)\.html"')
     $slug = if ($slugMatch.Success) { $slugMatch.Groups[1].Value } else { '' }
-    # Tag i18n key
-    $tagMatch = [regex]::Match($cardHtml, 'data-i18n="(tag_\w+)"')
-    $tagKey = if ($tagMatch.Success) { $tagMatch.Groups[1].Value } else { '' }
-    # Post number from title key
-    $titleMatch = [regex]::Match($cardHtml, 'data-i18n="(post\d+_title)"')
-    $titleKey = if ($titleMatch.Success) { $titleMatch.Groups[1].Value } else { '' }
-    $descMatch = [regex]::Match($cardHtml, 'data-i18n="(post\d+_desc)"')
-    $descKey = if ($descMatch.Success) { $descMatch.Groups[1].Value } else { '' }
-    # Date
+    # Tag (TR metin — entity olabilir)
+    $tagMatch = [regex]::Match($cardHtml, 'blog-card-tag[^>]*>([^<]+)')
+    $trTag = if ($tagMatch.Success) { $tagMatch.Groups[1].Value.Trim() } else { '' }
+    # Title (TR)
+    $titleMatch = [regex]::Match($cardHtml, '<h2><a[^>]+>([^<]+)</a></h2>')
+    $trTitle = if ($titleMatch.Success) { $titleMatch.Groups[1].Value.Trim() } else { '' }
+    # Desc (TR)
+    $descMatch = [regex]::Match($cardHtml, '<p>([^<]+)</p>')
+    $trDesc = if ($descMatch.Success) { $descMatch.Groups[1].Value.Trim() } else { '' }
+    # Date (TR)
     $calEmoji = [string][char]0xD83D + [string][char]0xDCC5
     $dateMatch = [regex]::Match($cardHtml, [regex]::Escape($calEmoji) + '\s*(.+?)</span>')
     if (-not $dateMatch.Success) {
         $dateMatch = [regex]::Match($cardHtml, [regex]::Escape('&#128197;') + '\s*(.+?)</span>')
     }
     $dateStr = if ($dateMatch.Success) { $dateMatch.Groups[1].Value.Trim() } else { '' }
-    # Read time key
-    $readMatch = [regex]::Match($cardHtml, 'data-i18n="(read_\d+)"')
-    $readKey = if ($readMatch.Success) { $readMatch.Groups[1].Value } else { '' }
-    # Read more key
-    $rmKey = 'read_more'
+    # Read time (TR metin)
+    $readMatch = [regex]::Match($cardHtml, '&#9201;&#65039;\s*([^<]+)')
+    $trReadTime = if ($readMatch.Success) { '&#9201;&#65039; ' + $readMatch.Groups[1].Value.Trim() } else { '' }
 
     $cards += [PSCustomObject]@{
-        Slug     = $slug
-        TagKey   = $tagKey
-        TitleKey = $titleKey
-        DescKey  = $descKey
-        Date     = $dateStr
-        ReadKey  = $readKey
-        RmKey    = $rmKey
+        Slug      = $slug
+        TrTag     = $trTag
+        TrTitle   = $trTitle
+        TrDesc    = $trDesc
+        Date      = $dateStr
+        TrRead    = $trReadTime
     }
 }
 
@@ -118,7 +100,7 @@ foreach ($cm in $cardMatches) {
 $cssMatch = [regex]::Match($trContent, '(?s)<style>(.*?)</style>')
 $cssBlock = if ($cssMatch.Success) { $cssMatch.Groups[1].Value } else { '' }
 
-# lang-btn CSS'i ekle (button yerine a icin)
+# lang-btn CSS'i ekle
 $langBtnCss = @"
 .blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
 .blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
@@ -193,58 +175,96 @@ function Get-LangNav($activeLang) {
 }
 
 # ─── YERELLESTIRILMIS TARIH CEK ───
-# Her dilin yazi sayfasindan tarih alir, bulamazsa TR tarihini dondurur
 $dateCache = @{}
 function Get-LocalizedDate($lang, $card) {
     $cacheKey = "$lang|$($card.Slug)"
     if ($dateCache.ContainsKey($cacheKey)) { return $dateCache[$cacheKey] }
 
-    # TR icin direkt kart tarihini dondur
     if ($lang -eq 'tr') {
-        $dateCache[$cacheKey] = To-Entity $card.Date
-        return $dateCache[$cacheKey]
+        $dateCache[$cacheKey] = $card.Date
+        return $card.Date
     }
 
-    # Dil sayfasindan tarihi oku
     $postFile = Join-Path $blogDir "$lang\$($card.Slug).html"
     if (Test-Path $postFile) {
         $postContent = [System.IO.File]::ReadAllText($postFile, [System.Text.Encoding]::UTF8)
-        # Emoji (gercek) + tarih
         $calEmoji = [string][char]0xD83D + [string][char]0xDCC5
         $dm = [regex]::Match($postContent, [regex]::Escape($calEmoji) + '\s*([^<]+)</span>')
         if (-not $dm.Success) {
-            # Entity formunda
             $dm = [regex]::Match($postContent, [regex]::Escape('&#128197;') + '\s*([^<]+)</span>')
         }
         if ($dm.Success) {
-            $localDate = $dm.Groups[1].Value.Trim()
-            $dateCache[$cacheKey] = To-Entity $localDate
-            return $dateCache[$cacheKey]
+            $localDate = To-Entity $dm.Groups[1].Value.Trim()
+            $dateCache[$cacheKey] = $localDate
+            return $localDate
         }
     }
 
-    # Bulunamazsa TR tarihi
-    $dateCache[$cacheKey] = To-Entity $card.Date
-    return $dateCache[$cacheKey]
+    $dateCache[$cacheKey] = $card.Date
+    return $card.Date
 }
+
+# ─── YAZI SAYFASINDAN CEVIRILERI CEK ───
+$postCache = @{}
+function Get-PostTranslation($lang, $slug) {
+    $cacheKey = "$lang|$slug"
+    if ($postCache.ContainsKey($cacheKey)) { return $postCache[$cacheKey] }
+
+    $postFile = if ($lang -eq 'tr') { Join-Path $blogDir "$slug.html" } else { Join-Path $blogDir "$lang\$slug.html" }
+    $result = @{ Title = ''; Desc = ''; ReadTime = '' }
+
+    if (Test-Path $postFile) {
+        $pc = [System.IO.File]::ReadAllText($postFile, [System.Text.Encoding]::UTF8)
+        # og:title
+        $tm = [regex]::Match($pc, 'og:title"\s*content="([^"]+)"')
+        if ($tm.Success) { $result.Title = $tm.Groups[1].Value }
+        # og:description
+        $dm = [regex]::Match($pc, 'og:description"\s*content="([^"]+)"')
+        if ($dm.Success) { $result.Desc = $dm.Groups[1].Value }
+        # Read time
+        $timeEmoji = [string][char]0x23F1 + [string][char]0xFE0F
+        $rtm = [regex]::Match($pc, [regex]::Escape($timeEmoji) + '\s*([^<]+)')
+        if (-not $rtm.Success) {
+            $rtm = [regex]::Match($pc, '&#9201;&#65039;\s*([^<]+)')
+        }
+        if ($rtm.Success) { $result.ReadTime = $rtm.Groups[1].Value.Trim() }
+    }
+
+    $postCache[$cacheKey] = $result
+    return $result
+}
+
+# ─── TAG CEVIRILERI (gomulu tablo — yazı sayfalarında tag yok) ───
+# TR'deki tag'i anahtar olarak kullan, ceviriyi buradan al
+$tagTranslations = @{
+    'en' = @{}; 'de' = @{}; 'es' = @{}; 'fr' = @{}; 'ru' = @{}; 'ko' = @{}; 'zh' = @{}; 'ja' = @{}
+}
+# Tag cevirilerini her dilin yazi sayfasindaki blog-card-tag'dan cek
+# Ama yazi sayfalarinda blog-card-tag yok — tag sadece liste kartlarinda.
+# Cozum: TR tag'ini tum dillerde kullan (emoji + kisa kategori adi evrensel)
+# veya tag cevirilerini gomulu tut
 
 # ─── KART HTML URET ───
 function Get-CardHtml($lang, $card) {
-    $dict = $i18n[$lang]
-    if (-not $dict) { return '' }
+    $st = $statics[$lang]
+    if (-not $st) { return '' }
 
-    $rawTag = if ($dict[$card.TagKey]) { $dict[$card.TagKey] } else { $card.TagKey }
-    $rawTitle = if ($dict[$card.TitleKey]) { $dict[$card.TitleKey] } else { $card.TitleKey }
-    $rawDesc = if ($dict[$card.DescKey]) { $dict[$card.DescKey] } else { $card.DescKey }
-    $rawRead = if ($dict[$card.ReadKey]) { $dict[$card.ReadKey] } else { $card.ReadKey }
-    $rawRm = if ($dict[$card.RmKey]) { $dict[$card.RmKey] } else { 'Read More' }
-    $tag = To-Entity $rawTag
-    $title = To-Entity $rawTitle
-    $desc = To-Entity $rawDesc
-    $readTime = To-Entity $rawRead
-    $readMore = To-Entity $rawRm
+    # TR icin karttan gelen bilgileri kullan
+    if ($lang -eq 'tr') {
+        $tag = $card.TrTag
+        $title = $card.TrTitle
+        $desc = $card.TrDesc
+        $readTime = $card.TrRead
+    } else {
+        # Yazi sayfasindan ceviri cek
+        $trans = Get-PostTranslation $lang $card.Slug
+        $tag = $card.TrTag  # Tag TR'den (emoji + kategori evrensel)
+        $title = if ($trans.Title) { To-Entity $trans.Title } else { $card.TrTitle }
+        $desc = if ($trans.Desc) { To-Entity $trans.Desc } else { $card.TrDesc }
+        $readTime = if ($trans.ReadTime) { To-Entity ('⏱️ ' + $trans.ReadTime) } else { $card.TrRead }
+    }
 
-    # Kart linki: kendi diline
+    $readMore = To-Entity $st.read_more
     $href = if ($lang -eq 'tr') { "/blog/$($card.Slug).html" } else { "/blog/$lang/$($card.Slug).html" }
 
     return @"
@@ -263,20 +283,15 @@ function Get-CardHtml($lang, $card) {
 
 # ─── SAYFA SABLONU ───
 function Build-ListPage($lang) {
-    $dict = $i18n[$lang]
+    $st = $statics[$lang]
     $isAlt = $lang -ne 'tr'
     $canonical = if ($isAlt) { "$baseUrl/blog/$lang/" } else { "$baseUrl/blog/" }
-    $rawBlogTitle = if ($dict['blog_title']) { $dict['blog_title'] } else { 'Blog' }
-    $rawBlogSub = if ($dict['blog_sub']) { $dict['blog_sub'] } else { '' }
-    $rawFooterRights = if ($dict['footer_rights']) { $dict['footer_rights'] } else { 'All rights reserved.' }
-    $rawPrivacyLink = if ($dict['privacy_link']) { $dict['privacy_link'] } else { 'Privacy Policy' }
-    $rawNavHome = if ($dict['back_home']) { ($dict['back_home'] -replace '.*\s', '') } else { 'Home' }
-    $blogTitle = To-Entity $rawBlogTitle
-    $blogSub = Escape-MetaQuotes (To-Entity $rawBlogSub)
-    $footerRights = To-Entity $rawFooterRights
-    $privacyLink = To-Entity $rawPrivacyLink
+    $blogTitle = To-Entity $st.blog_title
+    $blogSub = Escape-MetaQuotes (To-Entity $st.blog_sub)
+    $footerRights = To-Entity $st.footer_rights
+    $privacyLink = To-Entity $st.privacy_link
     $ogLocale = $localeMap[$lang]
-    $navHome = To-Entity $rawNavHome
+    $navHome = To-Entity $st.back_home
     $blogLinkText = 'Blog'
 
     # Kartlar
@@ -288,8 +303,6 @@ function Build-ListPage($lang) {
 
     $hreflang = Get-HreflangBlock
     $langNav = Get-LangNav $lang
-
-    # Blog menü linki
     $blogMenuHref = if ($isAlt) { "/blog/$lang/" } else { '/blog/' }
 
     $html = @"
@@ -434,16 +447,14 @@ foreach ($lang in $altLangs) {
 # ADIM 2 — TR liste sayfasini guncelle
 # ═══════════════════════════════════════════════
 Write-Host "`n=== ADIM 2: TR liste sayfasi guncelle ===" -ForegroundColor Cyan
-
-# TR'yi yeniden uret (tum JS temizlenip basit haliyle)
 $trHtml = Build-ListPage 'tr'
 [System.IO.File]::WriteAllText($trFile, $trHtml, $utf8NoBom)
 Write-Host "  [OK] /blog/index.html ($($trHtml.Length) char)" -ForegroundColor Green
 
 # ═══════════════════════════════════════════════
-# ADIM 3 — 232 yazi sayfasinda Blog menu linki
+# ADIM 3 — Yazi sayfalarinda Blog menu linki
 # ═══════════════════════════════════════════════
-Write-Host "`n=== ADIM 3: 232 yazi sayfasinda Blog menu linki ===" -ForegroundColor Cyan
+Write-Host "`n=== ADIM 3: Yazi sayfalarinda Blog menu linki ===" -ForegroundColor Cyan
 $fixedMenuLinks = 0
 foreach ($lang in $altLangs) {
     $dir = Join-Path $blogDir $lang
@@ -451,7 +462,6 @@ foreach ($lang in $altLangs) {
     foreach ($f in $files) {
         $c = [System.IO.File]::ReadAllText($f.FullName, [System.Text.Encoding]::UTF8)
         $newBlogHref = "/blog/$lang/"
-        # Pattern: <a href="/blog/" ... >Blog</a> veya <a href="/blog/xx/" ...>Blog</a>
         $updated = $c -replace '(<a\s+href=")(/blog/(?:[a-z]{2}/)?)("\s*(?:class="[^"]*")?\s*>Blog</a>)', "`${1}$newBlogHref`${3}"
         if ($updated -ne $c) {
             [System.IO.File]::WriteAllText($f.FullName, $updated, $utf8NoBom)
@@ -491,9 +501,34 @@ if ($newEntries) {
     Write-Host "  [SKIP] Sitemap zaten guncel" -ForegroundColor Yellow
 }
 
-# URL sayisi
 $urlCount = ([regex]::Matches($sitemapContent, '<loc>')).Count
 Write-Host "  Sitemap URL sayisi: $urlCount"
 
-Write-Host "`n=== TAMAMLANDI ===" -ForegroundColor Green
+# ═══════════════════════════════════════════════
+# ADIM 5 — Yazma sonrasi dogrulama
+# ═══════════════════════════════════════════════
+Write-Host "`n=== ADIM 5: Kodlama dogrulamasi ===" -ForegroundColor Cyan
+$badChars = @([char]0x251C, [char]0x2500, [char]0x255D, [char]0x253C, [char]0x00BA, [char]0x00AA, [char]0x00D2, [char]0x00D5, [char]0x00D9, [char]0x00DB, [char]0x00D4, [char]0x00E5, [char]0x00C6)
+$allClean = $true
+$checkFiles = @("$blogDir\index.html")
+foreach ($l in $altLangs) { $checkFiles += "$blogDir\$l\index.html" }
+
+foreach ($cf in $checkFiles) {
+    $content = [System.IO.File]::ReadAllText($cf, [System.Text.Encoding]::UTF8)
+    $bad = 0
+    foreach ($bc in $badChars) { $bad += ([regex]::Matches($content, [regex]::Escape([string]$bc))).Count }
+    $rel = $cf.Replace($blogDir, '').TrimStart('\')
+    if ($bad -gt 0) {
+        Write-Host "  [FAIL] $rel — $bad bozuk karakter!" -ForegroundColor Red
+        $allClean = $false
+    } else {
+        Write-Host "  [OK] $rel" -ForegroundColor Green
+    }
+}
+
+if ($allClean) {
+    Write-Host "`n=== TAMAMLANDI ===" -ForegroundColor Green
+} else {
+    Write-Host "`n=== UYARI: Bozuk karakter tespit edildi! ===" -ForegroundColor Red
+}
 Write-Host "  8 dil sayfasi + TR guncelleme + $fixedMenuLinks menu linki + sitemap"

@@ -211,7 +211,7 @@ function Get-PostTranslation($lang, $slug) {
     if ($postCache.ContainsKey($cacheKey)) { return $postCache[$cacheKey] }
 
     $postFile = if ($lang -eq 'tr') { Join-Path $blogDir "$slug.html" } else { Join-Path $blogDir "$lang\$slug.html" }
-    $result = @{ Title = ''; Desc = ''; ReadTime = '' }
+    $result = @{ Title = ''; Desc = ''; ReadTime = ''; Tag = '' }
 
     if (Test-Path $postFile) {
         $pc = [System.IO.File]::ReadAllText($postFile, [System.Text.Encoding]::UTF8)
@@ -221,6 +221,11 @@ function Get-PostTranslation($lang, $slug) {
         # og:description
         $dm = [regex]::Match($pc, 'og:description"\s*content="([^"]+)"')
         if ($dm.Success) { $result.Desc = $dm.Groups[1].Value }
+        # Tag (post-tag, blog-card-tag veya blog-tag sinifinden)
+        $tagM = [regex]::Match($pc, '(?s)class="post-tag"[^>]*>(.+?)</span>')
+        if (-not $tagM.Success) { $tagM = [regex]::Match($pc, '(?s)blog-card-tag[^>]*>(.+?)</span>') }
+        if (-not $tagM.Success) { $tagM = [regex]::Match($pc, '(?s)blog-tag[^>]*>(.+?)</span>') }
+        if ($tagM.Success) { $result.Tag = $tagM.Groups[1].Value.Trim() }
         # Read time
         $timeEmoji = [string][char]0x23F1 + [string][char]0xFE0F
         $rtm = [regex]::Match($pc, [regex]::Escape($timeEmoji) + '\s*([^<]+)')
@@ -249,19 +254,23 @@ function Get-CardHtml($lang, $card) {
     $st = $statics[$lang]
     if (-not $st) { return '' }
 
-    # TR icin karttan gelen bilgileri kullan
+    # Yazı sayfasından çeviriyi çek (tüm diller için)
+    $trans = Get-PostTranslation $lang $card.Slug
+
+    # Tag: karttan gelen varsa kullan, yoksa yazı sayfasından çek
+    $tag = $card.TrTag
+    if (-not $tag -and $trans.Tag) { $tag = To-Entity $trans.Tag }
+    if (-not $tag) { $tag = '' }
+
+    # Title: karttan gelen varsa kullan, yoksa yazı sayfasından çek
     if ($lang -eq 'tr') {
-        $tag = $card.TrTag
-        $title = $card.TrTitle
-        $desc = $card.TrDesc
-        $readTime = $card.TrRead
+        $title = if ($card.TrTitle) { $card.TrTitle } elseif ($trans.Title) { To-Entity $trans.Title } else { '' }
+        $desc = if ($card.TrDesc) { $card.TrDesc } elseif ($trans.Desc) { To-Entity $trans.Desc } else { '' }
+        $readTime = if ($card.TrRead) { $card.TrRead } elseif ($trans.ReadTime) { To-Entity ([char]0x23F1 + [char]0xFE0F + ' ' + $trans.ReadTime) } else { '' }
     } else {
-        # Yazi sayfasindan ceviri cek
-        $trans = Get-PostTranslation $lang $card.Slug
-        $tag = $card.TrTag  # Tag TR'den (emoji + kategori evrensel)
-        $title = if ($trans.Title) { To-Entity $trans.Title } else { $card.TrTitle }
-        $desc = if ($trans.Desc) { To-Entity $trans.Desc } else { $card.TrDesc }
-        $readTime = if ($trans.ReadTime) { To-Entity ('⏱️ ' + $trans.ReadTime) } else { $card.TrRead }
+        $title = if ($trans.Title) { To-Entity $trans.Title } elseif ($card.TrTitle) { $card.TrTitle } else { '' }
+        $desc = if ($trans.Desc) { To-Entity $trans.Desc } elseif ($card.TrDesc) { $card.TrDesc } else { '' }
+        $readTime = if ($trans.ReadTime) { To-Entity ([char]0x23F1 + [char]0xFE0F + ' ' + $trans.ReadTime) } elseif ($card.TrRead) { $card.TrRead } else { '' }
     }
 
     $readMore = To-Entity $st.read_more

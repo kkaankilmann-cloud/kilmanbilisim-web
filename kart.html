@@ -98,6 +98,12 @@ a{color:inherit;text-decoration:none;}
 .kv-vlink:hover{text-decoration:underline;}
 
 @media(max-width:480px){.kv-wrap{padding:16px 12px 30px;} .kv-name{font-size:1.3rem;}}
+/* == VIEWPORT DIS KENAR GLOW == */
+body::after {
+  content: ""; position: fixed; inset: 0;
+  pointer-events: none; z-index: 9999;
+  box-shadow: inset 0 0 100px rgba(0,212,255,0.30), inset 0 0 30px rgba(0,212,255,0.15);
+}
 </style>
 </head>
 <body>

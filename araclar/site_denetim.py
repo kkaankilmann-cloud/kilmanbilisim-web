@@ -102,6 +102,51 @@ def durak_skor(metin, dil):
     if not kelimeler: return None
     return sum(m.count(k) for k in kelimeler)
 
+# ----------------------------------------------------------------------
+# 2b) TURKCE KALINTI TESPITI  (paragraf bazli)
+# 01.08.2026'da eklendi. Sebep: govde_dili_uyumlu() sayfanin TAMAMINA bakip
+# "hangi dil kazaniyor" diye olcuyordu ve %80 tolerans birakiyordu. Yari
+# cevrilmis sayfada (giris Ingilizce, govde Turkce) tr=29 en=17 cikti,
+# tolerans icinde kaldigi icin TEMIZ dedi. 32 sayfa bu yuzden kacti.
+# Cozum: her paragrafi/basligi AYRI degerlendir, Turkce'ye OZGU harfleri kullan.
+# ----------------------------------------------------------------------
+TR_OZGU = set("ğşıİĞŞ")          # de/fr/es/en'de bulunmaz
+TR_KELIME = [" ve ", " ile ", " için ", " bir ", " olarak ", " gibi ", " bu ", " daha ",
+             " her ", " olan ", " göre ", " kadar ", " ancak ", " veya ",
+             " akıllı", " yönetim", " otomasyon", " tahmin", " analiz", " takip",
+             " sistem", " planlama", " kontrol", " süreç", " işletme", " müşteri",
+             " maliyet", " rapor", " yapay", " zeka", " üretim", " tüketim"]
+MARKA = ["Kılman Bilişim", "Kılman", "KOBİ", "İstanbul", "Türkiye", "Türk"]
+
+def _marka_at(s):
+    for m in MARKA: s = s.replace(m, " ")
+    return s
+
+def turkce_kalinti_mi(s, kisa=False):
+    """Bu metin parcasi Turkce mi? Marka adlari sayilmaz."""
+    s = _marka_at(s)
+    m = " " + s.lower() + " "
+    ozgu = sum(1 for c in s if c in TR_OZGU)
+    kel  = sum(m.count(k) for k in TR_KELIME)
+    if kisa:                       # basliklar kisa olur, esik dusuk
+        return ozgu >= 1 and kel >= 1
+    return (ozgu >= 3 and kel >= 2) or kel >= 5
+
+def turkce_kalinti_say(dcoz, dil):
+    """Yabanci dil sayfasinda Turkce kalmis baslik/paragraf sayisi."""
+    if dil == "tr": return 0, 0, []
+    m = re.search(r"<article[^>]*>(.*?)</article>", dcoz, re.S)
+    ic = m.group(1) if m else dcoz
+    ic = re.sub(r"<script.*?</script>|<style.*?</style>|<nav.*?</nav>|<footer.*?</footer>", "", ic, flags=re.S)
+    basliklar = [re.sub(r"<[^>]+>", "", x).strip()
+                 for x in re.findall(r"<h[23][^>]*>(.*?)</h[23]>", ic, re.S)]
+    paragraflar = [re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", x)).strip()
+                   for x in re.findall(r"<(?:p|li)[^>]*>(.*?)</(?:p|li)>", ic, re.S)]
+    paragraflar = [p for p in paragraflar if len(p) >= 40]
+    kb = [x for x in basliklar if turkce_kalinti_mi(x, kisa=True)]
+    kp = [x for x in paragraflar if turkce_kalinti_mi(x)]
+    return len(kb), len(kp), (kb + kp)[:2]
+
 def govde_dili_uyumlu(govde, dil):
     """(uyumlu_mu, aciklama)"""
     if len(govde.strip()) < 200:
@@ -198,6 +243,12 @@ def denetle(url, ana_sayfa_mi=False):
     notlar["dil"] = acik
     if uyum is False:
         bayrak.append("GOVDE-YANLIS-DIL")
+
+
+    kb, kp, ornekler = turkce_kalinti_say(dcoz, dil)
+    if kb or kp:
+        bayrak.append(f"TURKCE-KALINTI(baslik:{kb},paragraf:{kp})")
+        if ornekler: notlar["kalinti"] = ornekler[0][:110]
 
     return dict(url=url, dil=dil, kod=r.status_code, kb=len(ham.encode()) // 1024,
                 bayrak=bayrak, notlar=notlar)

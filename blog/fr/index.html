@@ -39,6 +39,8 @@
 
 
 
+
+
 :root{--bg-main:#0D1117;--bg-card:#161B22;--neon:#00D4FF;--text-main:#E6EDF3;--text-muted:#8B949E;--accent-purple:#8B5CF6;--border:rgba(255,255,255,0.06);}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Cg stroke='%2300D4FF' fill='none' stroke-width='1' opacity='0.22' stroke-linecap='round'%3E%3Cpath d='M0 30 H35 L50 45 V80 M50 45 H85'/%3E%3Cpath d='M130 30 H100 L85 45'/%3E%3Cpath d='M65 0 V25 L80 40'/%3E%3Cpath d='M0 100 H25 L40 115 H70 M40 115 V130'/%3E%3Cpath d='M130 105 H105 L92 92 V65'/%3E%3Cpath d='M110 130 V110 H90'/%3E%3C/g%3E%3Cg fill='%2300D4FF' opacity='0.5'%3E%3Ccircle cx='35' cy='30' r='2'/%3E%3Ccircle cx='85' cy='45' r='2'/%3E%3Ccircle cx='40' cy='115' r='2'/%3E%3Ccircle cx='92' cy='65' r='2'/%3E%3C/g%3E%3Cg stroke='%2300D4FF' fill='none' stroke-width='0.9' opacity='0.18'%3E%3Crect x='46' y='41' width='14' height='9' rx='1'/%3E%3Cpath d='M49 41 V37 M53 41 V37 M57 41 V37'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 130px 130px repeat,var(--bg-main);color:var(--text-main);line-height:1.7;}
@@ -124,6 +126,14 @@ body::after {
   0%,100% { opacity: .55 }
   50% { opacity: 1 }
 }
+
+.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
+.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
+.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
+
+.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
+.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
+.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
 </style>
 <script type="application/ld+json">
 {
@@ -182,7 +192,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128666; Automatisation Logistique</span>
+      <span class="blog-card-tag">&#128666; Lojistik Otomasyonu</span>
       <span>&#128197; 29 juillet 2026</span>
       <span>&#9201;&#65039; 12 min de lecture</span>
     </div>
@@ -192,7 +202,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#127973; Automatisation Sant&#233;</span>
+      <span class="blog-card-tag">&#127973; Sa&#287;l&#305;k Otomasyonu</span>
       <span>&#128197; 28 juillet 2026</span>
       <span>&#9201;&#65039; 12 min de lecture</span>
     </div>
@@ -202,7 +212,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#127976; Automatisation H&#244;teli&#232;re</span>
+      <span class="blog-card-tag">&#127976; Otel Otomasyonu</span>
       <span>&#128197; 27 juillet 2026</span>
       <span>&#9201;&#65039; 10 min de lecture</span>
     </div>
@@ -212,7 +222,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#127869;&#65039; Automatisation Restauration</span>
+      <span class="blog-card-tag">&#127869;&#65039; Restoran Otomasyonu</span>
       <span>&#128197; 26 juillet 2026</span>
       <span>&#9201;&#65039; 10 min de lecture</span>
     </div>
@@ -222,7 +232,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128231; Email Marketing</span>
+      <span class="blog-card-tag">&#128231; E-Posta Pazarlama</span>
       <span>&#128197; 25 juillet 2026</span>
       <span>&#9201;&#65039; 10 min de lecture</span>
     </div>
@@ -232,7 +242,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#127968; Automatisation Immobili&#232;re</span>
+      <span class="blog-card-tag">&#127968; Emlak Otomasyonu</span>
       <span>&#128197; 24 juillet 2026</span>
       <span>&#9201;&#65039; 10 min de lecture</span>
     </div>
@@ -242,7 +252,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#127891; Formation & D&#233;veloppement</span>
+      <span class="blog-card-tag">&#127891; E&#287;itim & Geli&#351;im</span>
       <span>&#128197; 23 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -252,7 +262,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128269; Contr&#244;le Qualit&#233;</span>
+      <span class="blog-card-tag">&#128269; Kalite Kontrol</span>
       <span>&#128197; 22 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -262,7 +272,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128666; Cha&#238;ne d'Approvisionnement</span>
+      <span class="blog-card-tag">&#128666; Tedarik Zinciri</span>
       <span>&#128197; 21 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -272,7 +282,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128176; Automatisation des Ventes</span>
+      <span class="blog-card-tag">&#128176; Sat&#305;&#351; Otomasyonu</span>
       <span>&#128197; 20 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -282,7 +292,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128197; Gestion de Rendez-vous</span>
+      <span class="blog-card-tag">&#128197; Randevu Y&#246;netimi</span>
       <span>&#128197; Gestion de Rendez-vous</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -292,7 +302,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#127911; Service Client</span>
+      <span class="blog-card-tag">&#127911; M&#252;&#351;teri Hizmetleri</span>
       <span>&#128197; 18 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -302,7 +312,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128203; Gestion de Projets</span>
+      <span class="blog-card-tag">&#128203; Proje Y&#246;netimi</span>
       <span>&#128197; 17 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -312,7 +322,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128196; Gestion Documentaire</span>
+      <span class="blog-card-tag">&#128196; Belge Y&#246;netimi</span>
       <span>&#128197; 16 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -322,7 +332,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128737;&#65039; Cybers&#233;curit&#233;</span>
+      <span class="blog-card-tag">&#128737;&#65039; Siber G&#252;venlik</span>
       <span>&#128197; 15 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -332,7 +342,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128230; Stock & Inventaire</span>
+      <span class="blog-card-tag">&#128230; Stok & Envanter</span>
       <span>&#128197; 14 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -342,7 +352,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128176; Comptabilit&#233; & Finance</span>
+      <span class="blog-card-tag">&#128176; Muhasebe & Finans</span>
       <span>&#128197; 13 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -352,7 +362,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128101; RH & IA</span>
+      <span class="blog-card-tag">&#128101; &#304;K & Yapay Zeka</span>
       <span>&#128197; 12 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -362,7 +372,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#9889; No-Code & Automatisation</span>
+      <span class="blog-card-tag">&#9889; No-Code & Otomasyon</span>
       <span>&#128197; 11 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -372,7 +382,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128241; R&#233;seaux Sociaux & IA</span>
+      <span class="blog-card-tag">&#128241; Sosyal Medya & AI</span>
       <span>&#128197; 10 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -382,7 +392,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128202; Analyse de Donn&#233;es & BI</span>
+      <span class="blog-card-tag">&#128202; Veri Analizi & &#304;&#351; Zekas&#305;</span>
       <span>&#128197; 9 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -392,7 +402,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#129309; CRM & IA</span>
+      <span class="blog-card-tag">&#129309; CRM & Yapay Zeka</span>
       <span>&#128197; 8 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -402,7 +412,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128722; E-Commerce & IA</span>
+      <span class="blog-card-tag">&#128722; E-Ticaret & Yapay Zeka</span>
       <span>&#128197; 7 juillet 2026</span>
       <span>&#9201;&#65039; 9 min de lecture</span>
     </div>
@@ -412,7 +422,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128200; Marketing Digital & IA</span>
+      <span class="blog-card-tag">&#128200; Dijital Pazarlama & AI</span>
       <span>&#128197; 6 juillet 2026</span>
       <span>&#9201;&#65039; 8 min de lecture</span>
     </div>
@@ -422,7 +432,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128172; WhatsApp & Automatisation</span>
+      <span class="blog-card-tag">&#128172; WhatsApp & Otomasyon</span>
       <span>&#128197; 5 juillet 2026</span>
       <span>&#9201;&#65039; 7 min de lecture</span>
     </div>
@@ -432,7 +442,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#129302; IA & Automatisation</span>
+      <span class="blog-card-tag">&#129302; Yapay Zeka & Otomasyon</span>
       <span>&#128197; 4 juillet 2026</span>
       <span>&#9201;&#65039; 8 min de lecture</span>
     </div>
@@ -442,7 +452,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">Transformation Digitale</span>
+      <span class="blog-card-tag">Dijital D&#246;n&#252;&#351;&#252;m</span>
       <span>&#128197; 3 juillet 2026</span>
       <span>&#9201;&#65039; 7 min de lecture</span>
     </div>
@@ -452,7 +462,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#129302; Intelligence Artificielle</span>
+      <span class="blog-card-tag">&#129302; Yapay Zeka</span>
       <span>&#128197; 2 juillet 2026</span>
       <span>&#9201;&#65039; 6 min de lecture</span>
     </div>
@@ -462,7 +472,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">IA &amp; Automatisation</span>
+      <span class="blog-card-tag">Yapay Zeka &amp; Otomasyon</span>
       <span>&#128197; 2 juillet 2026</span>
       <span>&#9201;&#65039; 5 min de lecture</span>
     </div>

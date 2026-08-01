@@ -39,6 +39,8 @@
 
 
 
+
+
 :root{--bg-main:#0D1117;--bg-card:#161B22;--neon:#00D4FF;--text-main:#E6EDF3;--text-muted:#8B949E;--accent-purple:#8B5CF6;--border:rgba(255,255,255,0.06);}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Cg stroke='%2300D4FF' fill='none' stroke-width='1' opacity='0.22' stroke-linecap='round'%3E%3Cpath d='M0 30 H35 L50 45 V80 M50 45 H85'/%3E%3Cpath d='M130 30 H100 L85 45'/%3E%3Cpath d='M65 0 V25 L80 40'/%3E%3Cpath d='M0 100 H25 L40 115 H70 M40 115 V130'/%3E%3Cpath d='M130 105 H105 L92 92 V65'/%3E%3Cpath d='M110 130 V110 H90'/%3E%3C/g%3E%3Cg fill='%2300D4FF' opacity='0.5'%3E%3Ccircle cx='35' cy='30' r='2'/%3E%3Ccircle cx='85' cy='45' r='2'/%3E%3Ccircle cx='40' cy='115' r='2'/%3E%3Ccircle cx='92' cy='65' r='2'/%3E%3C/g%3E%3Cg stroke='%2300D4FF' fill='none' stroke-width='0.9' opacity='0.18'%3E%3Crect x='46' y='41' width='14' height='9' rx='1'/%3E%3Cpath d='M49 41 V37 M53 41 V37 M57 41 V37'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 130px 130px repeat,var(--bg-main);color:var(--text-main);line-height:1.7;}
@@ -124,6 +126,14 @@ body::after {
   0%,100% { opacity: .55 }
   50% { opacity: 1 }
 }
+
+.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
+.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
+.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
+
+.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
+.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
+.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
 </style>
 <script type="application/ld+json">
 {
@@ -182,7 +192,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128666; &#29289;&#27969;&#33258;&#21205;&#21270;</span>
+      <span class="blog-card-tag">&#128666; Lojistik Otomasyonu</span>
       <span>&#128197; 2026&#24180;7&#26376;29&#26085;</span>
       <span>&#9201;&#65039; 12&#20998;&#12391;&#35501;&#20102;</span>
     </div>
@@ -192,7 +202,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#127973; &#21307;&#30274;&#33258;&#21205;&#21270;</span>
+      <span class="blog-card-tag">&#127973; Sa&#287;l&#305;k Otomasyonu</span>
       <span>&#128197; 2026&#24180;7&#26376;28&#26085;</span>
       <span>&#9201;&#65039; 12&#20998;&#12391;&#35501;&#20102;</span>
     </div>
@@ -202,7 +212,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#127976; &#12507;&#12486;&#12523;&#33258;&#21205;&#21270;</span>
+      <span class="blog-card-tag">&#127976; Otel Otomasyonu</span>
       <span>&#128197; 2026&#24180;7&#26376;27&#26085;</span>
       <span>&#9201;&#65039; 10&#20998;&#12391;&#35501;&#20102;</span>
     </div>
@@ -212,7 +222,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#127869;&#65039; &#12524;&#12473;&#12488;&#12521;&#12531;&#33258;&#21205;&#21270;</span>
+      <span class="blog-card-tag">&#127869;&#65039; Restoran Otomasyonu</span>
       <span>&#128197; 2026&#24180;7&#26376;26&#26085;</span>
       <span>&#9201;&#65039; 10&#20998;&#12391;&#35501;&#20102;</span>
     </div>
@@ -222,7 +232,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128231; &#12513;&#12540;&#12523;&#12510;&#12540;&#12465;&#12486;&#12451;&#12531;&#12464;</span>
+      <span class="blog-card-tag">&#128231; E-Posta Pazarlama</span>
       <span>&#128197; 2026&#24180;7&#26376;25&#26085;</span>
       <span>&#9201;&#65039; 10&#20998;&#12391;&#35501;&#20102;</span>
     </div>
@@ -232,7 +242,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#127968; &#19981;&#21205;&#29987;&#33258;&#21205;&#21270;</span>
+      <span class="blog-card-tag">&#127968; Emlak Otomasyonu</span>
       <span>&#128197; 2026&#24180;7&#26376;24&#26085;</span>
       <span>&#9201;&#65039; 10&#20998;&#12391;&#35501;&#20102;</span>
     </div>
@@ -242,7 +252,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#127891; &#30740;&#20462;&#12539;&#32946;&#25104;</span>
+      <span class="blog-card-tag">&#127891; E&#287;itim & Geli&#351;im</span>
       <span>&#128197; 2026&#24180;7&#26376;23&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -252,7 +262,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128269; &#21697;&#36074;&#31649;&#29702;</span>
+      <span class="blog-card-tag">&#128269; Kalite Kontrol</span>
       <span>&#128197; 2026&#24180;7&#26376;22&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -262,7 +272,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128666; &#12469;&#12503;&#12521;&#12452;&#12481;&#12455;&#12540;&#12531;</span>
+      <span class="blog-card-tag">&#128666; Tedarik Zinciri</span>
       <span>&#128197; 2026&#24180;7&#26376;21&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -272,7 +282,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128176; &#21942;&#26989;&#33258;&#21205;&#21270;</span>
+      <span class="blog-card-tag">&#128176; Sat&#305;&#351; Otomasyonu</span>
       <span>&#128197; 2026&#24180;7&#26376;20&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -282,7 +292,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128197; &#20104;&#32004;&#31649;&#29702;</span>
+      <span class="blog-card-tag">&#128197; Randevu Y&#246;netimi</span>
       <span>&#128197; &#20104;&#32004;&#31649;&#29702;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -292,7 +302,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#127911; &#12459;&#12473;&#12479;&#12510;&#12540;&#12469;&#12540;&#12499;&#12473;</span>
+      <span class="blog-card-tag">&#127911; M&#252;&#351;teri Hizmetleri</span>
       <span>&#128197; 2026&#24180;7&#26376;18&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -302,7 +312,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128203; &#12503;&#12525;&#12472;&#12455;&#12463;&#12488;&#31649;&#29702;</span>
+      <span class="blog-card-tag">&#128203; Proje Y&#246;netimi</span>
       <span>&#128197; 2026&#24180;7&#26376;17&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -312,7 +322,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128196; &#25991;&#26360;&#31649;&#29702;</span>
+      <span class="blog-card-tag">&#128196; Belge Y&#246;netimi</span>
       <span>&#128197; 2026&#24180;7&#26376;16&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -322,7 +332,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128737;&#65039; &#12469;&#12452;&#12496;&#12540;&#12475;&#12461;&#12517;&#12522;&#12486;&#12451;</span>
+      <span class="blog-card-tag">&#128737;&#65039; Siber G&#252;venlik</span>
       <span>&#128197; 2026&#24180;7&#26376;15&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -332,7 +342,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128230; &#22312;&#24235;&#31649;&#29702;</span>
+      <span class="blog-card-tag">&#128230; Stok & Envanter</span>
       <span>&#128197; 2026&#24180;7&#26376;14&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -342,7 +352,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128176; &#20250;&#35336;&#65286;&#36001;&#21209;</span>
+      <span class="blog-card-tag">&#128176; Muhasebe & Finans</span>
       <span>&#128197; 2026&#24180;7&#26376;13&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -352,7 +362,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128101; HR&#65286;AI</span>
+      <span class="blog-card-tag">&#128101; &#304;K & Yapay Zeka</span>
       <span>&#128197; 2026&#24180;7&#26376;12&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -362,7 +372,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#9889; &#12494;&#12540;&#12467;&#12540;&#12489;&#65286;&#33258;&#21205;&#21270;</span>
+      <span class="blog-card-tag">&#9889; No-Code & Otomasyon</span>
       <span>&#128197; 2026&#24180;7&#26376;11&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -372,7 +382,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128241; &#12477;&#12540;&#12471;&#12515;&#12523;&#12513;&#12487;&#12451;&#12450;&#65286;AI</span>
+      <span class="blog-card-tag">&#128241; Sosyal Medya & AI</span>
       <span>&#128197; 2026&#24180;7&#26376;10&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -382,7 +392,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128202; &#12487;&#12540;&#12479;&#20998;&#26512;&#65286;BI</span>
+      <span class="blog-card-tag">&#128202; Veri Analizi & &#304;&#351; Zekas&#305;</span>
       <span>&#128197; 2026&#24180;7&#26376;9&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -392,7 +402,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#129309; CRM&#65286;AI</span>
+      <span class="blog-card-tag">&#129309; CRM & Yapay Zeka</span>
       <span>&#128197; 2026&#24180;7&#26376;8&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -402,7 +412,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128722; E&#12467;&#12510;&#12540;&#12473;&#65286;AI</span>
+      <span class="blog-card-tag">&#128722; E-Ticaret & Yapay Zeka</span>
       <span>&#128197; 2026&#24180;7&#26376;7&#26085;</span>
       <span>&#9201;&#65039; 9&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -412,7 +422,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128200; &#12487;&#12472;&#12479;&#12523;&#12510;&#12540;&#12465;&#12486;&#12451;&#12531;&#12464;&#65286;AI</span>
+      <span class="blog-card-tag">&#128200; Dijital Pazarlama & AI</span>
       <span>&#128197; 2026&#24180;7&#26376;6&#26085;</span>
       <span>&#9201;&#65039; 8&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -422,7 +432,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#128172; WhatsApp&#65286;&#12458;&#12540;&#12488;&#12513;&#12540;&#12471;&#12519;&#12531;</span>
+      <span class="blog-card-tag">&#128172; WhatsApp & Otomasyon</span>
       <span>&#128197; 2026&#24180;7&#26376;5&#26085;</span>
       <span>&#9201;&#65039; 7&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -432,7 +442,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#129302; AI&#65286;&#12458;&#12540;&#12488;&#12513;&#12540;&#12471;&#12519;&#12531;</span>
+      <span class="blog-card-tag">&#129302; Yapay Zeka & Otomasyon</span>
       <span>&#128197; 2026&#24180;7&#26376;4&#26085;</span>
       <span>&#9201;&#65039; 8&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -442,7 +452,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#12487;&#12472;&#12479;&#12523;&#12488;&#12521;&#12531;&#12473;&#12501;&#12457;&#12540;&#12513;&#12540;&#12471;&#12519;&#12531;</span>
+      <span class="blog-card-tag">Dijital D&#246;n&#252;&#351;&#252;m</span>
       <span>&#128197; 2026&#24180;7&#26376;3&#26085;</span>
       <span>&#9201;&#65039; 7&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -452,7 +462,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">&#129302; &#20154;&#24037;&#30693;&#33021;</span>
+      <span class="blog-card-tag">&#129302; Yapay Zeka</span>
       <span>&#128197; 2026&#24180;7&#26376;2&#26085;</span>
       <span>&#9201;&#65039; 6&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>
@@ -462,7 +472,7 @@ body::after {
   </article>
   <article class="blog-card">
     <div class="blog-card-meta">
-      <span class="blog-card-tag">AI&#65286;&#12458;&#12540;&#12488;&#12513;&#12540;&#12471;&#12519;&#12531;</span>
+      <span class="blog-card-tag">Yapay Zeka &amp; Otomasyon</span>
       <span>&#128197; 2026&#24180;7&#26376;2&#26085;</span>
       <span>&#9201;&#65039; 5&#20998;&#12391;&#35501;&#12417;&#12427;</span>
     </div>

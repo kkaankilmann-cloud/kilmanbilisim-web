@@ -87,7 +87,7 @@ a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}a:hover{opacit
 /* --- SECTION --- */
 .section{max-width:1100px;margin:0 auto;padding:80px 5%;}
 /* --- ABOUT --- */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;max-width:1100px;margin:0 auto;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;}
 .about-text p{color:var(--text-muted);margin-bottom:18px;font-size:0.96rem;}
 .about-values{display:grid;gap:16px;margin-top:10px;}
 .value-item{display:flex;gap:14px;align-items:flex-start;}
@@ -144,7 +144,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
 .nav-logo{display:flex;align-items:center}
 .nav-logo-text{font-family:var(--font-head);font-size:1.05rem;color:var(--neon);letter-spacing:.05em;line-height:1.2}
 .nav-logo-text span{display:block;font-size:.75rem;color:var(--text-muted);font-family:var(--font-ui);letter-spacing:.08em}
-.nav-links{display:flex;align-items:center;gap:8px}
+.nav-links{display:flex;align-items:center;gap:8px;list-style:none;margin:0;padding:0}
 .nav-links a{font-family:var(--font-ui);font-size:.88rem;font-weight:500;color:var(--text-muted);padding:6px 14px;border-radius:6px;transition:var(--transition);letter-spacing:.03em}
 .nav-links a:hover{color:var(--neon);background:var(--neon-dim)}
 .nav-links a.active{background:var(--neon);color:var(--surface)}
@@ -172,6 +172,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
 .nav-lang a.lang-btn{background:0 0;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;font-family:var(--font-ui);font-size:.82rem;transition:var(--transition);text-decoration:none;white-space:nowrap}
 .nav-lang a.lang-btn.active,.nav-lang a.lang-btn:hover{color:var(--neon);border-color:var(--neon);background:var(--neon-dim)}
 body{padding-top:130px}
+
+.nav-links li{list-style:none}
+
+/* inline link bosluk (Netlify minify icin) */
+main a, section a, .content a, p a{margin:0 3px}
 </style>
 </head>
 <body>

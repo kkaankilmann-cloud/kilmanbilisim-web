@@ -5,8 +5,15 @@
     contexts = ["production"]
 
     [plugins.inputs.minifierOptions]
-      removeAttributeQuotes = false
-      collapseWhitespace    = true
-      removeComments        = true
-      minifyCSS             = true
-      minifyJS              = true
+      removeAttributeQuotes     = false
+      collapseWhitespace        = true
+      removeComments            = true
+      minifyCSS                 = true
+      minifyJS                  = true
+      sortAttributes            = false
+      sortClassName             = false
+      removeRedundantAttributes = false
+      preventAttributesEscaping = true
+
+[build.processing.html]
+  pretty_urls = false

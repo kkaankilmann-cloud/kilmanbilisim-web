@@ -190,6 +190,68 @@ def govde_dili_uyumlu(govde, dil):
         return False, f"govde {kazanan} gibi ({kazanan}={skorlar[kazanan]}, {dil}={skorlar[dil]})"
     return True, f"{dil}={skorlar[dil]}"
 
+
+# ----------------------------------------------------------------------
+# 5) IC LINK BICIMI  (03.08.2026 eklendi)
+# Sitede standart: sayfa adresleri .html uzantili. Uzantisiz surum de
+# acilir ama Google icin AYRI URL sayilir; canonical ile catisir.
+# ⚠️ Tirnak bicimi karisik olabilir (href="..." ve href='...'), o yuzden
+# ikisini de yakalayan kalip kullanilir. 03.08'de tek tirnakli 10 link
+# tam bu yuzden gozden kacti.
+# ----------------------------------------------------------------------
+LINK_KALIP = re.compile(r"""href\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+))""")
+# uzanti almayacak adresler: kok, klasor adresleri, ozel dosyalar
+LINK_MUAF = ("/", "/blog/")
+
+def ic_link_bicimi(ham):
+    """(uzantisiz_link_listesi) — tirnak bicimi ne olursa olsun."""
+    kotu = []
+    for m in LINK_KALIP.finditer(ham):
+        h = (m.group(1) or m.group(2) or m.group(3) or "").strip()
+        if not h.startswith("/"):            # dis link, mailto, tel, wa.me
+            continue
+        if h in LINK_MUAF or h.endswith("/"):  # klasor adresi
+            continue
+        if re.match(r"^/blog/[a-z]{2}/?$", h):  # /blog/en/ gibi
+            continue
+        if "." in h.rsplit("/", 1)[-1]:      # uzantisi var (.html .png .xml ...)
+            continue
+        if h.startswith("#") or h.startswith("?"):
+            continue
+        kotu.append(h)
+    return sorted(set(kotu))
+
+# ----------------------------------------------------------------------
+# 6) ICERIK DERINLIGI  (03.08.2026 eklendi)
+# 80 kelimelik sayfa Google'da "ince icerik" sayilir, siralanmaz.
+# CJK dillerinde bosluk olmadigi icin kelime degil KARAKTER sayilir.
+# ----------------------------------------------------------------------
+CJK_ARALIK = [(0x4E00, 0x9FFF), (0x3040, 0x30FF), (0xAC00, 0xD7AF)]
+# Esikler 03.08.2026'da mevcut 316 sayfa uzerinde kalibre edildi:
+#   TR yazi   : en dusuk 265 · ortanca 523 · en yuksek 873 kelime
+#   zh        : en dusuk 306 · ortanca 681 · en yuksek 2535 karakter
+#   ja        : en dusuk 465 · ortanca 983
+#   ko        : en dusuk 389 · ortanca 852
+# Amac mevcut icerigi elemek DEGIL, yeni uretilen INCE sayfayi yakalamak.
+# 03.08'de hakkimizda.html 80 kelimeyle uretilmisti — hedef o tur sayfa.
+ASGARI_KELIME    = 200      # latin diller  (en dusuk mevcut yazi 241)
+ASGARI_CJK       = 280      # zh/ja/ko      (en dusuk mevcut yazi 306)
+
+def icerik_derinligi(dcoz, dil):
+    """(kelime, cjk_karakter, h2_sayisi, yetersiz_mi)"""
+    gov = dcoz
+    gov = re.sub(r"<nav.*?</nav>|<footer.*?</footer>|<script.*?</script>|<style.*?</style>",
+                 "", gov, flags=re.S)
+    h2 = len(re.findall(r"<h2[^>]*>", gov))
+    metin = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", gov)).strip()
+    cjk = sum(1 for c in metin if any(a <= ord(c) <= b for a, b in CJK_ARALIK))
+    kelime = len([w for w in metin.split(" ") if w])
+    if dil in ("zh", "ja", "ko"):
+        yetersiz = cjk < ASGARI_CJK
+    else:
+        yetersiz = kelime < ASGARI_KELIME
+    return kelime, cjk, h2, yetersiz
+
 # ----------------------------------------------------------------------
 # 3) SAYFA DENETIMI
 # ----------------------------------------------------------------------
@@ -265,6 +327,18 @@ def denetle(url, ana_sayfa_mi=False):
     notlar["dil"] = acik
     if uyum is False:
         bayrak.append("GOVDE-YANLIS-DIL")
+
+    # --- ic link bicimi (tirnaktan bagimsiz) ---
+    kotu_link = ic_link_bicimi(ham)
+    if kotu_link:
+        bayrak.append(f"UZANTISIZ-LINK({len(kotu_link)})")
+        notlar["link"] = ", ".join(kotu_link[:5])
+
+    # --- icerik derinligi ---
+    kel, cjk, h2, yetersiz = icerik_derinligi(dcoz, dil)
+    notlar["icerik"] = f"{kel} kelime · {cjk} CJK · {h2} h2"
+    if yetersiz:
+        bayrak.append("INCE-ICERIK")
 
 
     kb, kp, ornekler = turkce_kalinti_say(dcoz, dil)
@@ -373,7 +447,7 @@ def main():
     else:
         urller = a.url; baslik = "SERBEST ADRES LISTESI"
 
-    with ThreadPoolExecutor(max_workers=12) as ex:
+    with ThreadPoolExecutor(max_workers=4) as ex:
         sonuclar = list(ex.map(lambda u: denetle(u, ana_sayfa_mi=(u.rstrip("/") == BASE)), urller))
 
     sorunlu = rapor(sonuclar, baslik)

@@ -138,44 +138,50 @@ a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}a:hover{opacit
 /* --- KENAR GLOW --- */
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;box-shadow:inset 0 0 24px rgba(0,212,255,.55),inset 0 0 8px rgba(0,212,255,.35);animation:edgeGlow 3s ease-in-out infinite;will-change:opacity;}
 @keyframes edgeGlow{0%,100%{opacity:0}50%{opacity:1}}
+
+/* ── Site Nav (statik sayfalar) ── */
+.site-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:rgba(10,25,47,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,212,255,0.12);position:sticky;top:0;z-index:100;}
+.site-nav-logo{font-family:var(--font-heading,sans-serif);font-size:1.25rem;font-weight:800;color:#00d4ff;text-decoration:none;letter-spacing:0.04em;white-space:nowrap;}
+.site-nav-logo span{color:#e2e8f0;}
+.site-nav-links{display:flex;align-items:center;gap:6px;flex-wrap:nowrap;}
+.site-nav-links a{font-size:0.85rem;font-weight:500;color:#94a3b8;padding:5px 12px;border-radius:6px;text-decoration:none;transition:all 0.3s;white-space:nowrap;}
+.site-nav-links a:hover{color:#00d4ff;background:rgba(0,212,255,0.08);}
+.site-nav-links a.active{background:#00d4ff;color:#0a192f;}
+.site-nav-soon{font-size:0.85rem;font-weight:500;color:#475569;padding:5px 12px;cursor:default;white-space:nowrap;opacity:0.5;}
+.site-lang{display:flex;flex-wrap:nowrap;gap:3px;align-items:center;}
+.lang-btn{padding:3px 6px;font-size:0.68rem;font-weight:600;color:#94a3b8;background:transparent;border:1px solid rgba(148,163,184,0.2);border-radius:4px;text-decoration:none;transition:all 0.3s;white-space:nowrap;}
+.lang-btn:hover{color:#00d4ff;border-color:rgba(0,212,255,0.4);}
+.lang-btn.active{background:#00d4ff;color:#0a192f;border-color:#00d4ff;}
+@media(max-width:900px){.site-nav{flex-wrap:wrap;gap:8px;padding:10px 16px;}.site-nav-links{order:3;width:100%;justify-content:center;flex-wrap:wrap;gap:4px;}.site-lang{gap:2px;}}
 </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
 <nav class="site-nav">
-<div class="site-nav-inner">
-<div class="site-nav-left">
-<a href="/" class="site-nav-logo">KILMAN<span>B&#304;L&#304;&#350;&#304;M</span></a>
-<div class="site-nav-links">
-<a href="/">Ana Sayfa</a>
-<a href="/hakkimizda.html">Hakk&#305;m&#305;zda</a>
-<a href="/ko/hizmetler.html" class="active">Hizmetler</a>
-<a href="/urunler.html">&#220;r&#252;nler</a>
-<a href="/referanslar.html">Referanslar</a>
-<a href="/sss.html">SSS</a>
-<a href="/iletisim.html">&#304;leti&#351;im</a>
-<a href="/blog/">Blog</a>
-</div>
-</div>
-<div class="site-nav-right">
-<div class="site-lang">
-<a href="/hizmetler.html" class="lang-btn">TR</a>
-<a href="/en/hizmetler.html" class="lang-btn">EN</a>
-<a href="/de/hizmetler.html" class="lang-btn">DE</a>
-<a href="/es/hizmetler.html" class="lang-btn">ES</a>
-<a href="/fr/hizmetler.html" class="lang-btn">FR</a>
-<a href="/ru/hizmetler.html" class="lang-btn">RU</a>
-<a href="/ko/hizmetler.html" class="lang-btn active">KO</a>
-<a href="/zh/hizmetler.html" class="lang-btn">ZH</a>
-<a href="/ja/hizmetler.html" class="lang-btn">JA</a>
-</div>
-<div class="site-hamburger" aria-label="Men&#252;">
-<span></span><span></span><span></span>
-</div>
-</div>
-</div>
-</nav>
+    <a href="/" class="site-nav-logo">KILMAN<span>B&#304;L&#304;&#350;&#304;M</span></a>
+    <div class="site-nav-links">
+      <a href="/">&#54856;</a>
+      <a href="/ko/hakkimizda.html">&#54924;&#49324;&#49548;&#44060;</a>
+      <a href="/ko/hizmetler.html" class="active">&#49436;&#48708;&#49828;</a>
+      <span class="site-nav-soon">&#51228;&#54408;</span>
+      <span class="site-nav-soon">&#47112;&#54140;&#47088;&#49828;</span>
+      <span class="site-nav-soon">FAQ</span>
+      <span class="site-nav-soon">&#47928;&#51032;</span>
+      <a href="/blog/ko/">&#48660;&#47196;&#44536;</a>
+    </div>
+    <div class="site-lang">
+      <a href="/hizmetler.html" class="lang-btn">TR</a>
+        <a href="/en/hizmetler.html" class="lang-btn">EN</a>
+        <a href="/de/hizmetler.html" class="lang-btn">DE</a>
+        <a href="/es/hizmetler.html" class="lang-btn">ES</a>
+        <a href="/fr/hizmetler.html" class="lang-btn">FR</a>
+        <a href="/ru/hizmetler.html" class="lang-btn">RU</a>
+        <a href="/ko/hizmetler.html" class="lang-btn active">KO</a>
+        <a href="/zh/hizmetler.html" class="lang-btn">ZH</a>
+        <a href="/ja/hizmetler.html" class="lang-btn">JA</a>
+    </div>
+  </nav>
 
 <!-- PAGE HEADER -->
 <div class="page-hero">
@@ -243,12 +249,12 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
 
 <div class="service-item">
 <h3><span class="si-icon">&#128161;</span> AI &#52968;&#49444;&#54021;</h3>
-<p>&#50612;&#46500; &#54532;&#47196;&#49464;&#49828;&#44032; &#51088;&#46041;&#54868;&#50640; &#51201;&#54633;&#54620;&#51648; &#54632;&#44760; &#54028;&#50501;&#54633;&#45768;&#45796;. &#54788;&#51116; &#50892;&#53356;&#54540;&#47196;&#47484; &#48516;&#49437;&#54616;&#44256; ROI&#44032; &#44032;&#51109; &#45458;&#51008; &#51648;&#51216;&#48512;&#53552; &#49884;&#51089;&#54616;&#45716; &#47196;&#46300;&#47605;&#51012; &#49688;&#47549;&#54633;&#45768;&#45796;.</p>
+<p>&#48708;&#51592;&#45768;&#49828; &#54532;&#47196;&#49464;&#49828;&#47484; &#48516;&#49437;&#54616;&#44256; &#50612;&#46500; &#45800;&#44228;&#44032; &#51088;&#46041;&#54868;&#50640; &#51201;&#54633;&#54620;&#51648; &#44592;&#49696;&#51201;&#51004;&#47196; &#54217;&#44032;&#54633;&#45768;&#45796;. &#44592;&#51316; &#45936;&#51060;&#53552; &#55120;&#47492;, &#48152;&#48373;&#51201;&#51064; &#50629;&#47924;, &#48337;&#47785; &#54788;&#49345;&#51012; &#54028;&#50501;&#54616;&#44256; ROI&#44032; &#44032;&#51109; &#45458;&#51008; &#51648;&#51216;&#48512;&#53552; &#49884;&#51089;&#54616;&#45716; &#51088;&#46041;&#54868; &#47196;&#46300;&#47605;&#51012; &#49688;&#47549;&#54633;&#45768;&#45796;.</p>
 </div>
 
 <div class="service-item">
 <h3><span class="si-icon">&#128202;</span> &#52968;&#49444;&#54021;</h3>
-<p>&#46356;&#51648;&#53560; &#51204;&#54872; &#51204;&#47029;&#51012; &#49688;&#47549;&#54616;&#44256; &#54788;&#51116; &#51064;&#54532;&#46972;&#47484; &#54217;&#44032;&#54633;&#45768;&#45796;. &#44592;&#49696; &#49440;&#53469;, &#54532;&#47196;&#49464;&#49828; &#44060;&#49440; &#48143; &#53685;&#54633; &#44228;&#54925;&#51012; &#51648;&#50896;&#54633;&#45768;&#45796;.</p>
+<p>&#46356;&#51648;&#53560; &#51204;&#54872; &#51204;&#47029;&#51012; &#49688;&#47549;&#54616;&#44256; &#54788;&#51116; &#44592;&#49696; &#51064;&#54532;&#46972;&#47484; &#54217;&#44032;&#54633;&#45768;&#45796;. &#50612;&#46500; &#49548;&#54532;&#53944;&#50920;&#50612;, &#53364;&#46972;&#50864;&#46300; &#49436;&#48708;&#49828;, &#53685;&#54633; &#48169;&#48277;&#51060; &#48708;&#51592;&#45768;&#49828;&#50640; &#47582;&#45716;&#51648; &#54632;&#44760; &#44208;&#51221;&#54616;&#44256;, 3&#44060;&#50900; &#44396;&#52404;&#51201;&#51064; &#47196;&#46300;&#47605;&#51012; &#51228;&#44277;&#54633;&#45768;&#45796;.</p>
 </div>
 
 <div class="service-item">

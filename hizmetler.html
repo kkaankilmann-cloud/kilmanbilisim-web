@@ -138,44 +138,50 @@ a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}a:hover{opacit
 /* --- KENAR GLOW --- */
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;box-shadow:inset 0 0 24px rgba(0,212,255,.55),inset 0 0 8px rgba(0,212,255,.35);animation:edgeGlow 3s ease-in-out infinite;will-change:opacity;}
 @keyframes edgeGlow{0%,100%{opacity:0}50%{opacity:1}}
+
+/* ── Site Nav (statik sayfalar) ── */
+.site-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:rgba(10,25,47,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,212,255,0.12);position:sticky;top:0;z-index:100;}
+.site-nav-logo{font-family:var(--font-heading,sans-serif);font-size:1.25rem;font-weight:800;color:#00d4ff;text-decoration:none;letter-spacing:0.04em;white-space:nowrap;}
+.site-nav-logo span{color:#e2e8f0;}
+.site-nav-links{display:flex;align-items:center;gap:6px;flex-wrap:nowrap;}
+.site-nav-links a{font-size:0.85rem;font-weight:500;color:#94a3b8;padding:5px 12px;border-radius:6px;text-decoration:none;transition:all 0.3s;white-space:nowrap;}
+.site-nav-links a:hover{color:#00d4ff;background:rgba(0,212,255,0.08);}
+.site-nav-links a.active{background:#00d4ff;color:#0a192f;}
+.site-nav-soon{font-size:0.85rem;font-weight:500;color:#475569;padding:5px 12px;cursor:default;white-space:nowrap;opacity:0.5;}
+.site-lang{display:flex;flex-wrap:nowrap;gap:3px;align-items:center;}
+.lang-btn{padding:3px 6px;font-size:0.68rem;font-weight:600;color:#94a3b8;background:transparent;border:1px solid rgba(148,163,184,0.2);border-radius:4px;text-decoration:none;transition:all 0.3s;white-space:nowrap;}
+.lang-btn:hover{color:#00d4ff;border-color:rgba(0,212,255,0.4);}
+.lang-btn.active{background:#00d4ff;color:#0a192f;border-color:#00d4ff;}
+@media(max-width:900px){.site-nav{flex-wrap:wrap;gap:8px;padding:10px 16px;}.site-nav-links{order:3;width:100%;justify-content:center;flex-wrap:wrap;gap:4px;}.site-lang{gap:2px;}}
 </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
 <nav class="site-nav">
-<div class="site-nav-inner">
-<div class="site-nav-left">
-<a href="/" class="site-nav-logo">KILMAN<span>B&#304;L&#304;&#350;&#304;M</span></a>
-<div class="site-nav-links">
-<a href="/">Ana Sayfa</a>
-<a href="/hakkimizda.html">Hakk&#305;m&#305;zda</a>
-<a href="/hizmetler.html" class="active">Hizmetler</a>
-<a href="/urunler.html">&#220;r&#252;nler</a>
-<a href="/referanslar.html">Referanslar</a>
-<a href="/sss.html">SSS</a>
-<a href="/iletisim.html">&#304;leti&#351;im</a>
-<a href="/blog/">Blog</a>
-</div>
-</div>
-<div class="site-nav-right">
-<div class="site-lang">
-<a href="/hizmetler.html" class="lang-btn active">TR</a>
-<a href="/en/hizmetler.html" class="lang-btn">EN</a>
-<a href="/de/hizmetler.html" class="lang-btn">DE</a>
-<a href="/es/hizmetler.html" class="lang-btn">ES</a>
-<a href="/fr/hizmetler.html" class="lang-btn">FR</a>
-<a href="/ru/hizmetler.html" class="lang-btn">RU</a>
-<a href="/ko/hizmetler.html" class="lang-btn">KO</a>
-<a href="/zh/hizmetler.html" class="lang-btn">ZH</a>
-<a href="/ja/hizmetler.html" class="lang-btn">JA</a>
-</div>
-<div class="site-hamburger" aria-label="Men&#252;">
-<span></span><span></span><span></span>
-</div>
-</div>
-</div>
-</nav>
+    <a href="/" class="site-nav-logo">KILMAN<span>B&#304;L&#304;&#350;&#304;M</span></a>
+    <div class="site-nav-links">
+      <a href="/">Ana Sayfa</a>
+      <a href="/hakkimizda.html">Hakk&#305;m&#305;zda</a>
+      <a href="/hizmetler.html" class="active">Hizmetler</a>
+      <span class="site-nav-soon">&#220;r&#252;nler</span>
+      <span class="site-nav-soon">Referanslar</span>
+      <span class="site-nav-soon">SSS</span>
+      <span class="site-nav-soon">&#304;leti&#351;im</span>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div class="site-lang">
+      <a href="/hizmetler.html" class="lang-btn active">TR</a>
+        <a href="/en/hizmetler.html" class="lang-btn">EN</a>
+        <a href="/de/hizmetler.html" class="lang-btn">DE</a>
+        <a href="/es/hizmetler.html" class="lang-btn">ES</a>
+        <a href="/fr/hizmetler.html" class="lang-btn">FR</a>
+        <a href="/ru/hizmetler.html" class="lang-btn">RU</a>
+        <a href="/ko/hizmetler.html" class="lang-btn">KO</a>
+        <a href="/zh/hizmetler.html" class="lang-btn">ZH</a>
+        <a href="/ja/hizmetler.html" class="lang-btn">JA</a>
+    </div>
+  </nav>
 
 <!-- PAGE HEADER -->
 <div class="page-hero">
@@ -243,12 +249,12 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
 
 <div class="service-item">
 <h3><span class="si-icon">&#128161;</span> Yapay Zeka Dan&#305;&#351;manl&#305;&#287;&#305;</h3>
-<p>Hangi s&#252;recinizin otomasyona uygun oldu&#287;unu birlikte belirliyoruz. Mevcut i&#351; ak&#305;&#351;&#305;n&#305;z&#305; analiz edip, yat&#305;r&#305;m getirisi en y&#252;ksek noktalardan ba&#351;layan bir yol haritas&#305; &#231;&#305;kar&#305;yoruz. Gereksiz teknoloji yat&#305;r&#305;m&#305; yapman&#305;z&#305; &#246;nlemeyi ama&#231;l&#305;yoruz.</p>
+<p>&#304;&#351; s&#252;re&#231;lerinizi analiz ediyor, hangi ad&#305;mlar&#305;n otomasyona uygun oldu&#287;unu teknik olarak de&#287;erlendiriyoruz. Mevcut veri ak&#305;&#351;&#305;n&#305;z&#305;, tekrarlayan g&#246;revlerinizi ve darbo&#287;azlar&#305;n&#305;z&#305; haritalay&#305;p, yat&#305;r&#305;m getirisi en y&#252;ksek noktalardan ba&#351;layan bir otomasyon yol haritas&#305; &#231;&#305;kar&#305;yoruz.</p>
 </div>
 
 <div class="service-item">
 <h3><span class="si-icon">&#128202;</span> Dan&#305;&#351;manl&#305;k</h3>
-<p>Dijital d&#246;n&#252;&#351;&#252;m stratejisi olu&#351;turuyor, mevcut yap&#305;n&#305;z&#305; de&#287;erlendiriyoruz. Teknoloji se&#231;imi, s&#252;re&#231; iyile&#351;tirme ve entegrasyon planlamas&#305;nda yan&#305;n&#305;zday&#305;z.</p>
+<p>Dijital d&#246;n&#252;&#351;&#252;m stratejisi olu&#351;turuyor, mevcut teknoloji altyap&#305;n&#305;z&#305; de&#287;erlendiriyoruz. Hangi yaz&#305;l&#305;m&#305;n, hangi bulut hizmetinin, hangi entegrasyon y&#246;nteminin i&#351;inize uygun oldu&#287;una birlikte karar verip, &#252;&#231; ayl&#305;k somut bir yol haritas&#305; sunuyoruz.</p>
 </div>
 
 <div class="service-item">

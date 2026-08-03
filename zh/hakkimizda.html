@@ -142,44 +142,50 @@ a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}a:hover{opacit
 /* --- KENAR GLOW --- */
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;box-shadow:inset 0 0 24px rgba(0,212,255,.55),inset 0 0 8px rgba(0,212,255,.35);animation:edgeGlow 3s ease-in-out infinite;will-change:opacity;}
 @keyframes edgeGlow{0%,100%{opacity:0}50%{opacity:1}}
+
+/* ── Site Nav (statik sayfalar) ── */
+.site-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:rgba(10,25,47,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,212,255,0.12);position:sticky;top:0;z-index:100;}
+.site-nav-logo{font-family:var(--font-heading,sans-serif);font-size:1.25rem;font-weight:800;color:#00d4ff;text-decoration:none;letter-spacing:0.04em;white-space:nowrap;}
+.site-nav-logo span{color:#e2e8f0;}
+.site-nav-links{display:flex;align-items:center;gap:6px;flex-wrap:nowrap;}
+.site-nav-links a{font-size:0.85rem;font-weight:500;color:#94a3b8;padding:5px 12px;border-radius:6px;text-decoration:none;transition:all 0.3s;white-space:nowrap;}
+.site-nav-links a:hover{color:#00d4ff;background:rgba(0,212,255,0.08);}
+.site-nav-links a.active{background:#00d4ff;color:#0a192f;}
+.site-nav-soon{font-size:0.85rem;font-weight:500;color:#475569;padding:5px 12px;cursor:default;white-space:nowrap;opacity:0.5;}
+.site-lang{display:flex;flex-wrap:nowrap;gap:3px;align-items:center;}
+.lang-btn{padding:3px 6px;font-size:0.68rem;font-weight:600;color:#94a3b8;background:transparent;border:1px solid rgba(148,163,184,0.2);border-radius:4px;text-decoration:none;transition:all 0.3s;white-space:nowrap;}
+.lang-btn:hover{color:#00d4ff;border-color:rgba(0,212,255,0.4);}
+.lang-btn.active{background:#00d4ff;color:#0a192f;border-color:#00d4ff;}
+@media(max-width:900px){.site-nav{flex-wrap:wrap;gap:8px;padding:10px 16px;}.site-nav-links{order:3;width:100%;justify-content:center;flex-wrap:wrap;gap:4px;}.site-lang{gap:2px;}}
 </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
 <nav class="site-nav">
-<div class="site-nav-inner">
-<div class="site-nav-left">
-<a href="/" class="site-nav-logo">KILMAN<span>B&#304;L&#304;&#350;&#304;M</span></a>
-<div class="site-nav-links">
-<a href="/">&#39318;&#39029;</a>
-<a href="/zh/hakkimizda.html" class="active">Hakk&#305;m&#305;zda</a>
-<a href="/hizmetler.html">Hizmetler</a>
-<a href="/urunler.html">&#220;r&#252;nler</a>
-<a href="/referanslar.html">Referanslar</a>
-<a href="/sss.html">SSS</a>
-<a href="/iletisim.html">&#304;leti&#351;im</a>
-<a href="/blog/">Blog</a>
-</div>
-</div>
-<div class="site-nav-right">
-<div class="site-lang">
-<a href="/hakkimizda.html" class="lang-btn">TR</a>
-<a href="/en/hakkimizda.html" class="lang-btn">EN</a>
-<a href="/de/hakkimizda.html" class="lang-btn">DE</a>
-<a href="/es/hakkimizda.html" class="lang-btn">ES</a>
-<a href="/fr/hakkimizda.html" class="lang-btn">FR</a>
-<a href="/ru/hakkimizda.html" class="lang-btn">RU</a>
-<a href="/ko/hakkimizda.html" class="lang-btn">KO</a>
-<a href="/zh/hakkimizda.html" class="lang-btn active">ZH</a>
-<a href="/ja/hakkimizda.html" class="lang-btn">JA</a>
-</div>
-<div class="site-hamburger" aria-label="Men&#252;">
-<span></span><span></span><span></span>
-</div>
-</div>
-</div>
-</nav>
+    <a href="/" class="site-nav-logo">KILMAN<span>B&#304;L&#304;&#350;&#304;M</span></a>
+    <div class="site-nav-links">
+      <a href="/">&#39318;&#39029;</a>
+      <a href="/zh/hakkimizda.html" class="active">&#20851;&#20110;&#25105;&#20204;</a>
+      <a href="/zh/hizmetler.html">&#26381;&#21153;</a>
+      <span class="site-nav-soon">&#20135;&#21697;</span>
+      <span class="site-nav-soon">&#26696;&#20363;</span>
+      <span class="site-nav-soon">FAQ</span>
+      <span class="site-nav-soon">&#32852;&#31995;</span>
+      <a href="/blog/zh/">&#21338;&#23458;</a>
+    </div>
+    <div class="site-lang">
+      <a href="/hakkimizda.html" class="lang-btn">TR</a>
+        <a href="/en/hakkimizda.html" class="lang-btn">EN</a>
+        <a href="/de/hakkimizda.html" class="lang-btn">DE</a>
+        <a href="/es/hakkimizda.html" class="lang-btn">ES</a>
+        <a href="/fr/hakkimizda.html" class="lang-btn">FR</a>
+        <a href="/ru/hakkimizda.html" class="lang-btn">RU</a>
+        <a href="/ko/hakkimizda.html" class="lang-btn">KO</a>
+        <a href="/zh/hakkimizda.html" class="lang-btn active">ZH</a>
+        <a href="/ja/hakkimizda.html" class="lang-btn">JA</a>
+    </div>
+  </nav>
 
 <!-- PAGE HEADER -->
 <div class="page-hero">

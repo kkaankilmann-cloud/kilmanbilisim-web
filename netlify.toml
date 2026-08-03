@@ -13,7 +13,8 @@
       sortAttributes            = false
       sortClassName             = false
       removeRedundantAttributes = false
-      preventAttributesEscaping = true
+      # preventAttributesEscaping KALDIRILDI — onclick icindeki tek tirnaklari
+      # cift tirnaga cevirip menuyu kiriyordu (03.08.2026)
 
 [build.processing.html]
   pretty_urls = false

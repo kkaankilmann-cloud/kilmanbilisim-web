@@ -129,6 +129,17 @@ def turkce_kalinti_mi(s, kisa=False, hedef_dil=None):
     ozgu = sum(1 for c in s if c in TR_OZGU)
     kel  = sum(m.count(k) for k in TR_KELIME)
 
+    # 04.08.2026 EK: KESIN TURKCE IMZASI
+    # Asagidaki ekler yalnizca Turkce'de bulunur (iyelik + cogul + bildirme).
+    # Bunlar varsa hedef-dil korumasi DEVRE DISI kalir — cunku 04.08'de
+    # "Kendi gelistirdigimiz urunler somut referanslarimizdir:" cumlesi
+    # 8 dilde kaldi ve koruma yuzunden GORULMEDI.
+    KESIN_TR = ("ımızdır", "imizdir", "umuzdur", "ümüzdür",
+                "diğimiz", "dığımız", "duğumuz", "düğümüz",
+                "larımız", "lerimiz", "ıyoruz", "iyoruz", "uyoruz", "üyoruz")
+    if any(k in s for k in KESIN_TR):
+        return True
+
     # 03.08.2026 YANLIS ALARM DUZELTMESI:
     # Netlify minify tirnaklari geri getirince metin ayristirmasi degisti;
     # baslik + yazar satiri ("Kaan Kilman", "Kilman Bilisim") tek parca olarak
@@ -447,7 +458,7 @@ def main():
     else:
         urller = a.url; baslik = "SERBEST ADRES LISTESI"
 
-    with ThreadPoolExecutor(max_workers=4) as ex:
+    with ThreadPoolExecutor(max_workers=12) as ex:
         sonuclar = list(ex.map(lambda u: denetle(u, ana_sayfa_mi=(u.rstrip("/") == BASE)), urller))
 
     sorunlu = rapor(sonuclar, baslik)

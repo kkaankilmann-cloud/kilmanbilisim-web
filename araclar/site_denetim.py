@@ -122,12 +122,27 @@ def _marka_at(s):
     for m in MARKA: s = s.replace(m, " ")
     return s
 
-def turkce_kalinti_mi(s, kisa=False):
-    """Bu metin parcasi Turkce mi? Marka adlari sayilmaz."""
+def turkce_kalinti_mi(s, kisa=False, hedef_dil=None):
+    """Bu metin parcasi Turkce mi? Marka adlari ve yazar satirlari sayilmaz."""
     s = _marka_at(s)
     m = " " + s.lower() + " "
     ozgu = sum(1 for c in s if c in TR_OZGU)
     kel  = sum(m.count(k) for k in TR_KELIME)
+
+    # 03.08.2026 YANLIS ALARM DUZELTMESI:
+    # Netlify minify tirnaklari geri getirince metin ayristirmasi degisti;
+    # baslik + yazar satiri ("Kaan Kilman", "Kilman Bilisim") tek parca olarak
+    # yakalaniyordu ve Ispanyolca sayfalar Turkce sanildi.
+    # Koruma: parca hedef dilin durak kelimelerince BASKINSA Turkce sayilmaz.
+    if hedef_dil and hedef_dil in DURAK:
+        hedef_skor = durak_skor(s, hedef_dil) or 0
+        if hedef_skor >= 3 and hedef_skor > kel:
+            return False
+    if hedef_dil in YAZI_ARALIK:
+        oran = yazi_orani(s, hedef_dil)
+        if oran is not None and oran >= 0.30:
+            return False
+
     if kisa:                       # basliklar kisa olur, esik dusuk
         return ozgu >= 1 and kel >= 1
     return (ozgu >= 3 and kel >= 2) or kel >= 5
@@ -143,8 +158,8 @@ def turkce_kalinti_say(dcoz, dil):
     paragraflar = [re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", x)).strip()
                    for x in re.findall(r"<(?:p|li)[^>]*>(.*?)</(?:p|li)>", ic, re.S)]
     paragraflar = [p for p in paragraflar if len(p) >= 40]
-    kb = [x for x in basliklar if turkce_kalinti_mi(x, kisa=True)]
-    kp = [x for x in paragraflar if turkce_kalinti_mi(x)]
+    kb = [x for x in basliklar if turkce_kalinti_mi(x, kisa=True, hedef_dil=dil)]
+    kp = [x for x in paragraflar if turkce_kalinti_mi(x, hedef_dil=dil)]
     return len(kb), len(kp), (kb + kp)[:2]
 
 def govde_dili_uyumlu(govde, dil):
@@ -178,11 +193,18 @@ def govde_dili_uyumlu(govde, dil):
 # ----------------------------------------------------------------------
 # 3) SAYFA DENETIMI
 # ----------------------------------------------------------------------
+# Site bolum klasorleri. Dil segmenti bunlardan SONRA, dosya adindan ONCE gelir.
+# Turkce'de dil segmenti YOKTUR.
+#   /blog/en/x.html · /hizmetler/en/x.html · /urunler/en/x.html · /en/hakkimizda.html
+BOLUMLER = ("blog", "hizmetler", "urunler")
+
 def dil_bul(url):
-    """Adresten dili cikar. /blog/en/... -> en ; /blog/... -> tr"""
+    """Adresten dili cikar (03.08.2026 yeni sayfa mimarisi dahil)."""
     y = url.replace(BASE, "")
-    m = re.match(r"^/blog/([a-z]{2})(?:/|$)", y)
-    if m and m.group(1) in DILLER: return m.group(1)
+    # bolum klasoru + dil:  /blog/en/...  /hizmetler/en/...  /urunler/en/...
+    m = re.match(r"^/(" + "|".join(BOLUMLER) + r")/([a-z]{2})(?:/|$)", y)
+    if m and m.group(2) in DILLER: return m.group(2)
+    # kok seviyesinde dil:  /en/hakkimizda.html
     m = re.match(r"^/([a-z]{2})(?:/|$)", y)
     if m and m.group(1) in DILLER and m.group(1) != "tr": return m.group(1)
     return "tr"
@@ -275,15 +297,35 @@ def dil_tamligi(urller):
     gruplar = {}
     for u in urller:
         y = u.replace(BASE, "")
-        m = re.match(r"^/blog/(?:([a-z]{2})/)?(.*)$", y)
-        if not m: continue
-        d = m.group(1) if (m.group(1) in DILLER) else "tr"
-        kalan = m.group(2) or ""
-        if m.group(1) and m.group(1) not in DILLER:
-            kalan = m.group(1) + "/" + kalan
-        # liste (hub) sayfalari: /blog/ ve /blog/xx/ -> tek grup
-        anahtar = "[blog liste sayfasi]" if kalan in ("", "/") else kalan
-        gruplar.setdefault(anahtar, set()).add(d)
+        if y in ("", "/"):
+            continue                      # ana sayfa tek dilli degil, SPA — haric
+        d, anahtar = None, None
+
+        # 1) bolum klasoru:  /blog/[dil/]dosya  ·  /hizmetler/[dil/]dosya  ·  /urunler/[dil/]dosya
+        m = re.match(r"^/(" + "|".join(BOLUMLER) + r")/(?:([a-z]{2})/)?(.*)$", y)
+        if m:
+            bolum, dil, kalan = m.group(1), m.group(2), m.group(3) or ""
+            if dil in DILLER:
+                d = dil
+            else:                          # /blog/slug.html -> dil yok, TR
+                d = "tr"
+                if dil: kalan = dil + "/" + kalan
+            anahtar = f"[{bolum} liste]" if kalan in ("", "/") else f"{bolum}/{kalan}"
+
+        # 2) kok seviyesi:  /hakkimizda.html  ·  /en/hakkimizda.html
+        if d is None:
+            m = re.match(r"^/(?:([a-z]{2})/)?([^/]+)$", y)
+            if not m: continue
+            dil, dosya = m.group(1), m.group(2)
+            if dil in DILLER and dil != "tr":
+                d, anahtar = dil, dosya
+            elif dil is None:
+                d, anahtar = "tr", dosya
+            else:
+                continue
+
+        if anahtar: gruplar.setdefault(anahtar, set()).add(d)
+
     eksikler = {k: sorted(set(DILLER) - v) for k, v in gruplar.items() if len(v) < 9}
     return gruplar, eksikler
 

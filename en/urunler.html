@@ -195,8 +195,6 @@ body{padding-top:130px}
 
 /* inline link bosluk (Netlify minify icin) */
 main a, section a, .content a, p a{margin:0 3px}
-</style>
-
 /* --- PRODUCT CARDS --- */
 .product-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;transition:var(--transition);}
 .product-card:hover{border-color:var(--neon);box-shadow:var(--neon-glow-sm);}
@@ -206,6 +204,11 @@ main a, section a, .content a, p a{margin:0 3px}
 .product-features{list-style:none;padding:0;margin:0 0 20px;}
 .product-features li{color:var(--text-muted);font-size:0.9rem;padding:6px 0;padding-left:24px;position:relative;}
 .product-features li::before{content:"\2713";color:var(--neon);position:absolute;left:0;font-weight:700;}
+.footer-col ul .ftr-etiket{display:block;font-size:.72rem;letter-spacing:.06em;color:var(--text-muted);opacity:.65;margin-bottom:2px}
+.footer-col ul li a{white-space:nowrap}
+</style>
+
+
 
 </head>
 <body>
@@ -337,8 +340,8 @@ main a, section a, .content a, p a{margin:0 3px}
 <div class="footer-col">
 <h4>Contact</h4>
 <ul>
-<li>Phone: <a href="tel:+905321732767">+90 532 173 27 67</a></li>
-<li>Corporate WhatsApp: <a href="tel:+905421732767">+90 542 173 27 67</a></li>
+<li><span class="ftr-etiket">Phone</span><a href="tel:+905321732767">+90 532 173 27 67</a></li>
+<li><span class="ftr-etiket">Corporate WhatsApp</span><a href="tel:+905421732767">+90 542 173 27 67</a></li>
 <li><a href="https://t.me/kilmanbilisim" target="_blank" rel="noopener">Telegram: @kilmanbilisim</a></li>
 <li><a href="mailto:info@kilmanbilisim.com">info@kilmanbilisim.com</a></li>
 <li><a href="https://kilmanbilisim.com">kilmanbilisim.com</a></li>

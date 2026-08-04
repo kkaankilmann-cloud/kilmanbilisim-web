@@ -83,6 +83,33 @@ DILLER = ["tr", "en", "de", "es", "fr", "ru", "ko", "zh", "ja"]
 BEKLENEN_HTML_LANG = {"zh": "zh-Hans"}
 
 # ----------------------------------------------------------------------
+# 0b) ARSIV SLUG LISTESI  (04.08.2026)
+# Eski blog yazilari — INCE-ICERIK bulgusu sorunlu sayilmaz.
+# Diger bulgular (SAYFA YOK, canonical, Turkce kalinti vb.) sorunlu kalir.
+# ----------------------------------------------------------------------
+import os as _os
+_ARSIV_DOSYA = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "arsiv_slug.txt")
+
+def arsiv_sluglari_yukle():
+    """arsiv_slug.txt'den slug listesini yukler."""
+    try:
+        with open(_ARSIV_DOSYA, encoding="utf-8") as f:
+            return set(line.strip() for line in f if line.strip())
+    except FileNotFoundError:
+        return set()
+
+ARSIV_SLUGLAR = arsiv_sluglari_yukle()
+
+def arsiv_mi(url):
+    """URL arsiv listesindeki bir slug'i tasiyor mu?"""
+    if not ARSIV_SLUGLAR:
+        return False
+    for slug in ARSIV_SLUGLAR:
+        if slug in url:
+            return True
+    return False
+
+# ----------------------------------------------------------------------
 # 1) KODLAMA BOZULMASI TESPITI  (CP857 / CP437 geri-cevrim)
 # ----------------------------------------------------------------------
 def _cevir(run, kod):
@@ -550,24 +577,35 @@ def rapor(sonuclar, baslik):
     print(f"\n{'='*78}\n{baslik}\n{'='*78}")
     print(f"{'dil':4}{'HTTP':>5}{'KB':>5}  {'adres':50} sonuc")
     sorunlu = []
+    arsiv_ince = []       # arsiv + SADECE ince-icerik
     sayfa_yok_sayisi = 0
     canonical_sayisi = 0
     for s in sonuclar:
         ad = s["url"].replace(BASE, "")
         if len(ad) > 48: ad = ad[:22] + "..." + ad[-23:]
         durum = "TEMIZ" if not s["bayrak"] else ",".join(s["bayrak"])
+        # Arsiv siniflandirmasi
+        if s["bayrak"] and arsiv_mi(s["url"]):
+            # Arsiv sayfasinda SADECE INCE-ICERIK varsa -> arsiv affi
+            sadece_ince = (s["bayrak"] == ["INCE-ICERIK"])
+            if sadece_ince:
+                durum = "ARSIV-INCE"
+                arsiv_ince.append(s)
+                print(f"{s['dil']:4}{s.get('kod','-'):>5}{s.get('kb','-'):>5}  {ad:50} {durum}")
+                continue  # sorunlu listesine eklenmez
         print(f"{s['dil']:4}{s.get('kod','-'):>5}{s.get('kb','-'):>5}  {ad:50} {durum}")
         if s["bayrak"]:
             sorunlu.append(s)
             if "SAYFA-YOK" in s["bayrak"]: sayfa_yok_sayisi += 1
             if "CANONICAL-UYUSMAZ" in s["bayrak"]: canonical_sayisi += 1
-    temiz = len(sonuclar) - len(sorunlu)
-    ozet = f"\ntoplam {len(sonuclar)} sayfa | temiz {temiz}"
-    if sayfa_yok_sayisi: ozet += f" | SAYFA YOK {sayfa_yok_sayisi}"
-    if canonical_sayisi: ozet += f" | canonical {canonical_sayisi}"
-    diger = len(sorunlu) - sayfa_yok_sayisi - canonical_sayisi
-    if diger > 0: ozet += f" | sorunlu {diger}"
-    if not sorunlu: ozet += " | SORUNLU 0"
+    temiz = len(sonuclar) - len(sorunlu) - len(arsiv_ince)
+    ozet = f"\ntoplam {len(sonuclar)} | temiz {temiz}"
+    if sorunlu:
+        ozet += f" | sorunlu {len(sorunlu)}"
+    else:
+        ozet += " | SORUNLU 0"
+    if arsiv_ince:
+        ozet += f" | arsiv {len(arsiv_ince)} (uzunluk affi)"
     print(ozet)
     if sorunlu:
         print("\n--- SORUN DETAYI ---")
@@ -627,9 +665,20 @@ def kalkan_testi():
 
     print("=" * 78)
     if hata:
-        print(f"KALKAN BOZUK — {hata} test basarisiz")
+        print(f"KALKAN BOZUK \u2014 {hata} test basarisiz")
         return 1
-    print("KALKAN CALISIYOR — tum testler basarili")
+    print("KALKAN CALISIYOR \u2014 tum testler basarili")
+    return 0
+
+def arsiv_listele():
+    """Arsiv listesindeki slug'lari ve sayisini yazdir."""
+    print("=" * 78)
+    print(f"ARSIV SLUG LISTESI ({len(ARSIV_SLUGLAR)} adet)")
+    print("=" * 78)
+    for s in sorted(ARSIV_SLUGLAR):
+        print(f"  {s}")
+    print(f"\nToplam: {len(ARSIV_SLUGLAR)} slug")
+    print(f"Kaynak: {_ARSIV_DOSYA}")
     return 0
 
 def main():
@@ -640,11 +689,15 @@ def main():
     ap.add_argument("--url", nargs="+")
     ap.add_argument("--yeni", action="store_true")
     ap.add_argument("--kalkan-testi", action="store_true")
+    ap.add_argument("--arsiv", action="store_true")
     ap.add_argument("-h", "--help", action="store_true")
     a = ap.parse_args()
 
     if a.kalkan_testi:
         return kalkan_testi()
+
+    if a.arsiv:
+        return arsiv_listele()
 
     if a.help or not any([a.tum, a.slug, a.sayfa, a.url, a.yeni]):
         print(__doc__); return 2

@@ -319,7 +319,7 @@
   --neon-glow-sm: 0 0 10px rgba(0,212,255,0.4);
   --blue-deep: #0F3460;
   --text:      #E8EDF4;
-  --text-muted:#7B8FA6;
+  --text-muted:#A3B5C9;
   --border:    rgba(0,212,255,0.18);
   --radius:    12px;
   --font-head: 'Orbitron', monospace;
@@ -528,16 +528,16 @@ ul { list-style: none; }
 .card:hover { border-color: rgba(0,212,255,0.45); box-shadow: 0 8px 40px rgba(0,212,255,0.12); transform: translateY(-4px); }
 .card:hover::before { opacity: 1; }
 .card-icon { font-size: 2rem; }
-.card-title { font-family: var(--font-ui); font-size: 1.05rem; font-weight: 600; color: var(--text); }
-.card-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
+.card-title { font-family: var(--font-ui); font-size: 1.35rem; font-weight: 600; color: var(--text); }
+.card-desc { font-size: 1.25rem; color: var(--text-muted); line-height: 1.72; flex: 1; }
 .card-cta {
   display: inline-flex; align-items: center; gap: 7px;
-  color: var(--neon); font-family: var(--font-ui); font-size: 0.85rem; font-weight: 600;
+  color: var(--neon); font-family: var(--font-ui); font-size: 1.05rem; font-weight: 600;
   margin-top: 4px; transition: var(--transition); align-self: flex-start;
 }
 .card-cta:hover { gap: 11px; }
 .card-badge {
-  display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+  display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--neon); background: var(--neon-dim);
   border: 1px solid var(--border); padding: 3px 10px; border-radius: 20px;
   align-self: flex-start;
@@ -584,8 +584,8 @@ ul { list-style: none; }
 
 .ongoing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
 .ongoing-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
-.ongoing-card h4 { font-family: var(--font-ui); font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
-.ongoing-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px; }
+.ongoing-card h4 { font-family: var(--font-ui); font-size: 1.2rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.ongoing-card p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 14px;  line-height: 1.7;}
 .status-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; font-family: var(--font-ui); font-weight: 600; background: rgba(0,180,100,0.12); color: #00C875; border: 1px solid rgba(0,200,117,0.25); padding: 4px 12px; border-radius: 20px; }
 .status-dot { width: 6px; height: 6px; background: #00C875; border-radius: 50%; animation: blink 2s infinite; }
 

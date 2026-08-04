@@ -90,7 +90,7 @@ a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}a:hover{opacit
 .service-group{margin-bottom:48px;}
 .service-group h2{font-family:var(--font-head);font-size:1.3rem;color:var(--text);margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--border);}
 .service-item{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:16px;transition:var(--transition);}
-.service-item:hover{border-color:var(--neon);box-shadow:var(--neon-glow-sm);}
+.service-item:hover{border-color:var(--neon);box-shadow:var(--neon-glow-sm);transform:translateY(-3px)}
 .service-item h3{font-family:var(--font-ui);font-size:1.05rem;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
 .service-item h3 .si-icon{font-size:1.2rem;}
 .service-item p{color:var(--text-muted);font-size:0.92rem;line-height:1.7;}
@@ -176,6 +176,14 @@ body{padding-top:130px}
 main a, section a, .content a, p a{margin:0 3px}
 .footer-col ul .ftr-etiket{display:block;font-size:.72rem;letter-spacing:.06em;color:var(--text-muted);opacity:.65;margin-bottom:2px}
 .footer-col ul li a{white-space:nowrap}
+/* --- HAREKET KATMANI --- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+.reveal.gorunur{opacity:1;transform:none}
+@keyframes heroGir{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.page-hero .section-label{animation:heroGir .7s cubic-bezier(.4,0,.2,1) both}
+.page-hero h1{animation:heroGir .7s cubic-bezier(.4,0,.2,1) .08s both}
+.page-hero p{animation:heroGir .7s cubic-bezier(.4,0,.2,1) .16s both}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal.gorunur{opacity:1;transform:none;transition:none}.page-hero .section-label,.page-hero h1,.page-hero p{animation:none}}
 </style>
 </head>
 <body>
@@ -380,6 +388,8 @@ if(bh){bh.addEventListener('click',()=>{const o=!bnl.classList.contains('open');
 <!-- SUPABASE COUNTER -->
 <script>
 (function(){const SUPABASE_URL='https://glpwxyaqcaqyiupesyay.supabase.co';const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdscHd4eWFxY2FxeWl1cGVzeWF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3NDU1NDIsImV4cCI6MjA5NzMyMTU0Mn0.iuK71d5caVQzpRWAA0rfMy24Ne5KGsie9T7F6Ku5M5g';function rpc(fn,body){return fetch(SUPABASE_URL+'/rest/v1/rpc/'+fn,{method:'POST',headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Content-Type':'application/json'},body:JSON.stringify(body||{})}).then(r=>r.ok?r.json():null);}function fmt(n){return(typeof n==='number')?n.toLocaleString('tr-TR'):n;}let vid=sessionStorage.getItem('kb_vid');if(!vid){vid='v_'+Date.now()+'_'+Math.random().toString(36).slice(2,9);sessionStorage.setItem('kb_vid',vid);}const _p=new URLSearchParams(location.search);if(_p.get('dev')==='1')localStorage.setItem('kb_ignore','1');const isInternal=navigator.webdriver||localStorage.getItem('kb_ignore')==='1';const elTF=document.getElementById('lcTotalFooter');const elOF=document.getElementById('lcOnlineFooter');function setT(v){const t=fmt(v);if(elTF)elTF.textContent=t;}function setO(v){const t=fmt(v);if(elOF)elOF.textContent=t;}if(isInternal){rpc('get_total').then(t=>{if(t!=null)setT(t);}).catch(err => console.warn('sayac alinamadi:', err));}else if(!sessionStorage.getItem('kb_counted')){rpc('increment_visit').then(t=>{sessionStorage.setItem('kb_counted','1');if(t!=null)setT(t);}).catch(err => console.warn('sayac alinamadi:', err));}else{rpc('get_total').then(t=>{if(t!=null)setT(t);}).catch(err => console.warn('sayac alinamadi:', err));}function beat(){rpc('heartbeat',{p_vid:vid}).then(o=>{if(o!=null)setO(o);}).catch(err => console.warn('sayac alinamadi:', err));}if(!isInternal){beat();setInterval(beat,20000);}else{const ro=()=>rpc('get_online').then(o=>{if(o!=null)setO(o);}).catch(err => console.warn('sayac alinamadi:', err));ro();setInterval(ro,20000);}})();
+
+(function(){if(!("IntersectionObserver" in window))return;var secici=".section, .service-group, .product-card, .about-grid, .faq-item, .footer-grid";var ogeler=document.querySelectorAll(secici);if(!ogeler.length)return;ogeler.forEach(function(o){o.classList.add("reveal")});var g=new IntersectionObserver(function(girdiler){girdiler.forEach(function(x){if(x.isIntersecting){x.target.classList.add("gorunur");g.unobserve(x.target)}})},{threshold:.12,rootMargin:"0px 0px -40px 0px"});ogeler.forEach(function(o){g.observe(o)})})();
 </script>
 </body>
 </html>

@@ -46,6 +46,37 @@ body::after {
   0%,100% { opacity: 0 }
   50% { opacity: 1 }
 }
+/* --- FULL FOOTER --- */
+.footer{background:var(--surface,#0D1117);border-top:1px solid var(--border);padding:48px 5% 28px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 40px;}
+.footer-brand{display:flex;flex-direction:column;gap:14px;}
+.footer-logo-text{display:flex;flex-direction:column;line-height:1;}
+.footer-logo-kilman{font-size:2rem;font-weight:900;letter-spacing:4px;color:var(--neon);text-shadow:0 0 20px rgba(0,212,255,0.8),0 0 40px rgba(0,212,255,0.4);}
+.footer-logo-bilisim{font-size:0.75rem;font-weight:600;letter-spacing:6px;color:var(--text-muted);text-transform:uppercase;margin-top:2px;}
+.footer-brand p{font-size:1.02rem;color:var(--text-muted);max-width:280px;line-height:1.72;}
+.footer-col h4{font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;list-style:none;}
+.footer-col ul a{font-size:1.02rem;color:var(--text-muted);transition:all 0.3s;}
+.footer-col ul a:hover{color:var(--neon);}
+.footer-counter{display:flex;justify-content:center;margin:0 auto 28px;max-width:1100px;}
+.live-counter{display:flex;align-items:center;gap:20px;background:var(--bg-card,#161B22);border:1px solid var(--border);border-radius:12px;padding:12px 28px;}
+.lc-item{display:flex;align-items:center;gap:8px;}
+.lc-icon{font-size:1.2rem;}
+.lc-num{font-family:'Inter',sans-serif;font-size:1.08rem;font-weight:700;color:var(--neon);}
+.lc-label{font-size:0.78rem;color:var(--text-muted);}
+.lc-divider{width:1px;height:24px;background:var(--border);}
+.lc-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;}
+.footer-bottom p{font-size:0.95rem;color:var(--text-muted);}
+.footer-bottom a{font-size:0.95rem;color:var(--text-muted);transition:all 0.3s;}
+.footer-bottom a:hover{color:var(--neon);}
+.nav-soon{font-size:0.95rem;font-weight:500;color:var(--text-muted);padding:6px 14px;cursor:default;opacity:0.4;white-space:nowrap}
+.footer-col ul .nav-soon{padding:0}
+.ftr-etiket{display:block;font-size:.72rem;letter-spacing:.06em;color:var(--text-muted);opacity:.65;margin-bottom:2px}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr;}}
+
 </style>
 <script type="application/ld+json">
 {
@@ -87,10 +118,58 @@ body::after {
   <div class="cta-box"><h3>İşletmenize Özel AI Randevu Sistemi Kuralım!</h3><p>7/24 online rezervasyon, otomatik hatırlatma, no-show azaltma ve akıllı takvim yönetimi — müşterileriniz asla beklemez.</p><a href="https://wa.me/905421732767?text=Merhaba%2C%20randevu%20otomasyonu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="cta-btn" target="_blank" rel="noopener">💬 WhatsApp'tan Yazın</a></div>
 </main>
 
-<footer class="blog-footer">
-<div style="text-align:center;margin-bottom:12px;font-size:0.9rem;color:#00D4FF;">👥 <span id="lcTotalFooter">—</span> &nbsp;·&nbsp; <span style="color:#22c55e;">●</span> <span id="lcOnlineFooter">—</span></div>
-  <p>© <script>document.write(new Date().getFullYear())</script> Kılman Bilişim Sistemleri Ltd. Şti. Tüm hakları saklıdır.</p>
-  <p style="margin-top:8px;"><a href="/gizlilik.html" style="color:#8B949E;font-size:0.82rem;">Gizlilik Politikası</a></p>
+<footer class="footer" id="main-footer">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="footer-logo-text">
+<span class="footer-logo-kilman">KILMAN</span>
+<span class="footer-logo-bilisim">B&#304;L&#304;&#350;&#304;M S&#304;STEMLER&#304;</span>
+</div>
+<p>Yapay zeka destekli otomasyon sistemleri ile i&#351; s&#252;re&#231;lerinizi gelece&#287;e ta&#351;&#305;yoruz.</p>
+</div>
+<div class="footer-col">
+<h4>Navigasyon</h4>
+<ul>
+<li><a href="/">Ana Sayfa</a></li>
+<li><a href="/hakkimizda.html">Hakkımızda</a></li>
+<li><a href="/hizmetler.html">Hizmetler</a></li>
+<li><a href="/urunler.html">&#220;r&#252;nler</a></li>
+<li><span class="nav-soon">Referanslar</span></li>
+<li><a href="/sss.html">SSS</a></li>
+<li><span class="nav-soon">&#304;leti&#351;im</span></li>
+<li><a href="/blog/">Blog</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>&#304;leti&#351;im</h4>
+<ul>
+<li><span class="ftr-etiket">Telefon</span><a href="tel:+905321732767">+90 532 173 27 67</a></li>
+<li><span class="ftr-etiket">Kurumsal WhatsApp</span><a href="tel:+905421732767">+90 542 173 27 67</a></li>
+<li><a href="https://t.me/kilmanbilisim" target="_blank" rel="noopener">Telegram: @kilmanbilisim</a></li>
+<li><a href="mailto:info@kilmanbilisim.com">info@kilmanbilisim.com</a></li>
+<li><a href="https://kilmanbilisim.com">kilmanbilisim.com</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-counter">
+<div class="live-counter" id="liveCounterFooter">
+<div class="lc-item">
+<span class="lc-icon">&#128065;</span>
+<span class="lc-num" id="lcTotalFooter">&#8212;</span>
+<span class="lc-label">Toplam Ziyaret&#231;i</span>
+</div>
+<div class="lc-divider"></div>
+<div class="lc-item">
+<span class="lc-dot"></span>
+<span class="lc-num" id="lcOnlineFooter">&#8212;</span>
+<span class="lc-label">&#350;u An Online</span>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&#169; <script>document.write(new Date().getFullYear())</script> K&#305;lman Bili&#351;im Sistemleri Ltd. &#350;ti. T&#252;m haklar&#305; sakl&#305;d&#305;r.</p>
+<p style="margin-top:8px;"><a href="/gizlilik.html" style="color:var(--text-muted);font-size:0.82rem;">Gizlilik Politikas&#305;</a></p>
+</div>
 </footer>
 <script>
 const bh=document.querySelector('.blog-hamburger'),bnl=document.querySelector('.blog-nav-links'),bl=document.querySelector('.blog-lang');

@@ -280,35 +280,98 @@ def ic_link_bicimi(ham):
     return sorted(set(kotu))
 
 # ----------------------------------------------------------------------
-# 6) ICERIK DERINLIGI  (03.08.2026 eklendi)
+# 6) ICERIK DERINLIGI  (03.08.2026 eklendi, 04.08.2026 guncellendi)
 # 80 kelimelik sayfa Google'da "ince icerik" sayilir, siralanmaz.
 # CJK dillerinde bosluk olmadigi icin kelime degil KARAKTER sayilir.
+#
+# 04.08.2026 EK A: display:none icindeki metin Google'un saymadigi
+# gizli icerik — kelime sayimindan cikarilacak. Div derinligi sayilir.
+# 04.08.2026 EK B: Esik sayfa tipine gore ayrildi.
 # ----------------------------------------------------------------------
 CJK_ARALIK = [(0x4E00, 0x9FFF), (0x3040, 0x30FF), (0xAC00, 0xD7AF)]
-# Esikler 03.08.2026'da mevcut 316 sayfa uzerinde kalibre edildi:
-#   TR yazi   : en dusuk 265 · ortanca 523 · en yuksek 873 kelime
-#   zh        : en dusuk 306 · ortanca 681 · en yuksek 2535 karakter
-#   ja        : en dusuk 465 · ortanca 983
-#   ko        : en dusuk 389 · ortanca 852
-# Amac mevcut icerigi elemek DEGIL, yeni uretilen INCE sayfayi yakalamak.
-# 03.08'de hakkimizda.html 80 kelimeyle uretilmisti — hedef o tur sayfa.
-ASGARI_KELIME    = 200      # latin diller  (en dusuk mevcut yazi 241)
-ASGARI_CJK       = 280      # zh/ja/ko      (en dusuk mevcut yazi 306)
 
-def icerik_derinligi(dcoz, dil):
-    """(kelime, cjk_karakter, h2_sayisi, yetersiz_mi)"""
+ESIKLER = {
+    "blog":    {"latin": 700, "cjk": 1200},
+    "urun":    {"latin": 300, "cjk": 550},
+    "hizmet":  {"latin": 300, "cjk": 550},
+    "kurumsal":{"latin": 300, "cjk": 550},
+    "diger":   {"latin": 200, "cjk": 280},
+}
+
+def sayfa_tipi_bul(url):
+    """URL'den sayfa tipini cikar."""
+    y = url.replace(BASE, "")
+    if "/blog/" in y or y.startswith("/blog"):
+        # /blog/ liste sayfalari icin diger, blog yazilari icin blog
+        if y.rstrip("/").endswith("/blog") or re.match(r"^/blog/[a-z]{2}/?$", y):
+            return "diger"  # liste sayfasi
+        return "blog"
+    if "urunler" in y:
+        return "urun"
+    if "hizmetler" in y:
+        return "hizmet"
+    if any(k in y for k in ("hakkimizda", "sss", "iletisim", "referanslar")):
+        return "kurumsal"
+    return "diger"
+
+def _gizli_blok_kes(h, baslangic):
+    """baslangic'taki acilis etiketinden itibaren div derinligi sayarak
+    tum blogu (ic ice div'ler dahil) keser ve span olarak dondurur."""
+    derinlik = 0
+    for m in re.finditer(r'<(/?)div\b', h[baslangic:]):
+        if m.group(1) == "":
+            derinlik += 1
+        else:
+            derinlik -= 1
+            if derinlik == 0:
+                # </div> etiketinin sonuna kadar kes
+                bitis = baslangic + m.end()
+                # </div>'in > isaretini bul
+                kapa = h.find(">", bitis)
+                if kapa == -1: kapa = bitis
+                return baslangic, kapa + 1
+    return baslangic, len(h)
+
+def _gizli_bloklari_cikar(h):
+    """style='...display:none...' tasiyan tum elemanlari (ve icindeki her seyi) cikarir."""
+    sonuc = h
+    # Tekrar tekrar bul ve kes (her seferinde indeksler degisir)
+    for _ in range(20):  # en fazla 20 gizli blok
+        m = re.search(r'<div[^>]+style=["\'][^"]*display\s*:\s*none[^"]*["\']', sonuc, re.I)
+        if not m:
+            # tirnaksiz hali de kontrol et (netlify minify)
+            m = re.search(r'<div[^>]+style=[^>]*display\s*:\s*none', sonuc, re.I)
+            if not m:
+                break
+        bas, son = _gizli_blok_kes(sonuc, m.start())
+        sonuc = sonuc[:bas] + sonuc[son:]
+    return sonuc
+
+def icerik_derinligi(dcoz, dil, url=""):
+    """(kelime, cjk_karakter, h2_sayisi, yetersiz_mi, detay_str)"""
     gov = dcoz
+    # 1) head, script, style, nav, footer cikar
+    gov = re.sub(r"<head.*?</head>", "", gov, flags=re.S)
     gov = re.sub(r"<nav.*?</nav>|<footer.*?</footer>|<script.*?</script>|<style.*?</style>",
                  "", gov, flags=re.S)
+    # 2) display:none gizli bloklari cikar (div derinligi sayarak)
+    gov = _gizli_bloklari_cikar(gov)
     h2 = len(re.findall(r"<h2[^>]*>", gov))
     metin = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", gov)).strip()
-    cjk = sum(1 for c in metin if any(a <= ord(c) <= b for a, b in CJK_ARALIK))
+    cjk_dar = sum(1 for c in metin if any(a <= ord(c) <= b for a, b in CJK_ARALIK))
+    # CJK dillerde bosluklari cikarip TUM karakterleri say (Latin kelimeler, rakamlar dahil)
+    cjk_genis = len(metin.replace(" ", ""))
     kelime = len([w for w in metin.split(" ") if w])
+    # Sayfa tipine gore esik
+    tip = sayfa_tipi_bul(url)
+    esik = ESIKLER.get(tip, ESIKLER["diger"])
     if dil in ("zh", "ja", "ko"):
-        yetersiz = cjk < ASGARI_CJK
+        yetersiz = cjk_genis < esik["cjk"]
+        detay = f"{cjk_genis} kar (gorunur) · esik {esik['cjk']} · tip {tip}"
     else:
-        yetersiz = kelime < ASGARI_KELIME
-    return kelime, cjk, h2, yetersiz
+        yetersiz = kelime < esik["latin"]
+        detay = f"{kelime} kel (gorunur) · esik {esik['latin']} · tip {tip}"
+    return kelime, cjk_genis, h2, yetersiz, detay
 
 # ----------------------------------------------------------------------
 # 3) SAYFA DENETIMI
@@ -412,8 +475,8 @@ def denetle(url, ana_sayfa_mi=False):
         notlar["link"] = ", ".join(kotu_link[:5])
 
     # --- icerik derinligi ---
-    kel, cjk, h2, yetersiz = icerik_derinligi(dcoz, dil)
-    notlar["icerik"] = f"{kel} kelime · {cjk} CJK · {h2} h2"
+    kel, cjk, h2, yetersiz, detay = icerik_derinligi(dcoz, dil, url)
+    notlar["icerik"] = detay
     if yetersiz:
         bayrak.append("INCE-ICERIK")
 

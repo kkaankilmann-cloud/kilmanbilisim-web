@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-KILMAN BILISIM — SITE ICERIK DENETIM BETIGI  (v2, site geneli)
-==============================================================
+KILMAN BILISIM — SITE ICERIK DENETIM BETIGI  (v3, catch-all kalkani)
+====================================================================
 Siteye eklenen HER SEY icin (blog yazisi, urun, hizmet, sayfa) 9 dil kontrolu yapar.
 
 KULLANIM
@@ -11,8 +11,9 @@ KULLANIM
   python3 site_denetim.py --sayfa <ad>               # bir sayfanin 9 dili (orn: urun-panel)
   python3 site_denetim.py --url <adres> [<adres>...] # serbest adres listesi
   python3 site_denetim.py --yeni                     # sitemap'te olup dizinde olmayanlari bul
+  python3 site_denetim.py --kalkan-testi             # catch-all kalkanini kendi kendine test et
 
-NE KONTROL EDER (10 madde)
+NE KONTROL EDER (12 madde)
   1. HTTP durumu (200 mu)
   2. Kodlama bozulmasi  — CP857/CP437 geri-cevrim testi (30 Tem: 9 sayfa bu yuzden bozuktu)
   3. Parcalanmis emoji  — &#55357;&#56986; gibi surrogate ciftleri
@@ -23,15 +24,61 @@ NE KONTROL EDER (10 madde)
   8. JSON-LD semasi var mi
   9. GOVDE DILI sayfanin diliyle uyusuyor mu  (30 Tem: baslik EN, govde TR cikti)
  10. 9 dil tamligi — her icerigin 9 dil karsiligi var mi
+ 11. CATCH-ALL KALKANI — sayfa gercekten var mi (soft-404 parmak izi)  [04.08.2026]
+ 12. CANONICAL UYUSMAZLIGI — sayfa kendini baska adres mi saniyor    [04.08.2026]
 
 CIKIS KODU: 0 = hepsi temiz, 1 = sorun var  (CI/otomasyona baglanabilir)
 """
 
-import sys, re, html, argparse, unicodedata
+import sys, re, html, argparse, unicodedata, hashlib, random, string
 import requests
 from concurrent.futures import ThreadPoolExecutor
 
 BASE = "https://kilmanbilisim.com"
+
+# ----------------------------------------------------------------------
+# 0) CATCH-ALL KALKANI  (04.08.2026)
+# Site olmayan sayfalar icin 404 vermiyor, ana sayfayi 200 ile donduruyor.
+# Bu kalkan program basinda bir kez sahte adres cekip parmak izini saklar.
+# Her sayfa denetiminde parmak izi eslesmesi kontrol edilir.
+# ----------------------------------------------------------------------
+SOFT404 = {"hash": None, "boyut": None}
+
+def soft404_parmak_izi(base=None):
+    """Kesin olmayan bir adres cekilir, cevabinin parmak izi saklanir."""
+    if base is None: base = BASE
+    rnd = "".join(random.choices(string.ascii_lowercase, k=12))
+    url = f"{base}/__yok-{rnd}.html"
+    try:
+        r = requests.get(url, timeout=30)
+        govde = r.content  # bytes
+        SOFT404["hash"] = hashlib.sha256(govde).hexdigest()
+        SOFT404["boyut"] = len(govde)
+        print(f"[kalkan] soft-404 parmak izi alindi: {SOFT404['boyut']} bayt")
+    except Exception as e:
+        print(f"[kalkan] UYARI: parmak izi alinamadi ({e})")
+    return SOFT404
+
+def sayfa_var_mi(govde_bytes):
+    """Sayfa gercekten var mi yoksa catch-all ana sayfa mi donuyor?"""
+    if SOFT404["hash"] is None:
+        return True, ""
+    if hashlib.sha256(govde_bytes).hexdigest() == SOFT404["hash"]:
+        return False, "SAYFA YOK (catch-all: ana sayfa donuyor)"
+    return True, ""
+
+def canonical_uyusmazligi(ham, istenen_url):
+    """Canonical adresin istenen URL ile eslesip eslesmedigini kontrol et."""
+    # Tirnaksiz kalibi da yakala (netlify minify tirnak kaldirabilir)
+    m = (re.search(r'<link[^>]+rel=["\']?canonical["\']?[^>]+href=["\']?([^"\'>\s]+)', ham)
+         or re.search(r'<link[^>]+href=["\']?([^"\'>\s]+)["\']?[^>]+rel=["\']?canonical', ham))
+    if not m:
+        return ""  # canonical yoklugu mevcut kontrol #5 tarafindan zaten yakalaniyor
+    bulunan = m.group(1).rstrip("/")
+    istenen = istenen_url.rstrip("/")
+    if bulunan != istenen:
+        return f"CANONICAL UYUSMAZ (sayfa kendini {bulunan} saniyor)"
+    return ""
 DILLER = ["tr", "en", "de", "es", "fr", "ru", "ko", "zh", "ja"]
 BEKLENEN_HTML_LANG = {"zh": "zh-Hans"}
 
@@ -301,6 +348,25 @@ def denetle(url, ana_sayfa_mi=False):
     dcoz = html.unescape(ham)
     bayrak, notlar = [], {}
 
+    # --- CATCH-ALL KALKANI (madde 11) ---
+    # Ana sayfa catch-all'in dondurudugunun TA KENDISI — hash ayni cikar, atla.
+    if not ana_sayfa_mi:
+        var, acik = sayfa_var_mi(r.content)
+        if not var:
+            bayrak.append("SAYFA-YOK")
+            notlar["kalkan"] = acik
+            # Diger kontrollere girilmez — ana sayfanin hreflang'ini olcup
+            # "temiz" demek en tehlikeli hata.
+            return dict(url=url, dil=dil, kod=r.status_code, kb=len(ham.encode()) // 1024,
+                        bayrak=bayrak, notlar=notlar)
+
+    # --- CANONICAL UYUSMAZLIGI (madde 12) ---
+    if not ana_sayfa_mi:
+        cu = canonical_uyusmazligi(ham, url)
+        if cu:
+            bayrak.append("CANONICAL-UYUSMAZ")
+            notlar["canonical"] = cu
+
     if r.status_code != 200:
         bayrak.append(f"HTTP{r.status_code}")
 
@@ -421,13 +487,25 @@ def rapor(sonuclar, baslik):
     print(f"\n{'='*78}\n{baslik}\n{'='*78}")
     print(f"{'dil':4}{'HTTP':>5}{'KB':>5}  {'adres':50} sonuc")
     sorunlu = []
+    sayfa_yok_sayisi = 0
+    canonical_sayisi = 0
     for s in sonuclar:
         ad = s["url"].replace(BASE, "")
         if len(ad) > 48: ad = ad[:22] + "..." + ad[-23:]
         durum = "TEMIZ" if not s["bayrak"] else ",".join(s["bayrak"])
         print(f"{s['dil']:4}{s.get('kod','-'):>5}{s.get('kb','-'):>5}  {ad:50} {durum}")
-        if s["bayrak"]: sorunlu.append(s)
-    print(f"\ntoplam {len(sonuclar)} sayfa | temiz {len(sonuclar)-len(sorunlu)} | SORUNLU {len(sorunlu)}")
+        if s["bayrak"]:
+            sorunlu.append(s)
+            if "SAYFA-YOK" in s["bayrak"]: sayfa_yok_sayisi += 1
+            if "CANONICAL-UYUSMAZ" in s["bayrak"]: canonical_sayisi += 1
+    temiz = len(sonuclar) - len(sorunlu)
+    ozet = f"\ntoplam {len(sonuclar)} sayfa | temiz {temiz}"
+    if sayfa_yok_sayisi: ozet += f" | SAYFA YOK {sayfa_yok_sayisi}"
+    if canonical_sayisi: ozet += f" | canonical {canonical_sayisi}"
+    diger = len(sorunlu) - sayfa_yok_sayisi - canonical_sayisi
+    if diger > 0: ozet += f" | sorunlu {diger}"
+    if not sorunlu: ozet += " | SORUNLU 0"
+    print(ozet)
     if sorunlu:
         print("\n--- SORUN DETAYI ---")
         for s in sorunlu:
@@ -437,6 +515,60 @@ def rapor(sonuclar, baslik):
                 if v: print(f"     {k}: {v}")
     return sorunlu
 
+def kalkan_testi():
+    """Catch-all kalkanini kendi kendine test eder."""
+    print("=" * 78)
+    print("KALKAN TESTI")
+    print("=" * 78)
+    soft404_parmak_izi()
+    hata = 0
+
+    # Test 1: Kesin var olan sayfa
+    var_url = f"{BASE}/hizmetler.html"
+    try:
+        r = requests.get(var_url, timeout=30)
+        var, _ = sayfa_var_mi(r.content)
+        if var:
+            print(f"  OK: {var_url} -> SAYFA VAR (dogru)")
+        else:
+            print(f"  HATA: {var_url} -> SAYFA YOK dedi (yanlis!)")
+            hata += 1
+    except Exception as e:
+        print(f"  HATA: {var_url} -> erisilemedi ({e})")
+        hata += 1
+
+    # Test 2: Kesin olmayan sayfa
+    yok_url = f"{BASE}/__test-yok-99999.html"
+    try:
+        r = requests.get(yok_url, timeout=30)
+        var, acik = sayfa_var_mi(r.content)
+        if not var:
+            print(f"  OK: {yok_url} -> SAYFA YOK (dogru)")
+        else:
+            print(f"  HATA: {yok_url} -> SAYFA VAR dedi (yanlis!)")
+            hata += 1
+    except Exception as e:
+        print(f"  HATA: {yok_url} -> erisilemedi ({e})")
+        hata += 1
+
+    # Test 3: Canonical uyusmazligi
+    try:
+        r = requests.get(f"{BASE}/hizmetler.html", timeout=30)
+        cu = canonical_uyusmazligi(r.text, f"{BASE}/hizmetler.html")
+        if not cu:
+            print(f"  OK: canonical uyumlu (hizmetler.html)")
+        else:
+            print(f"  UYARI: {cu}")
+    except Exception as e:
+        print(f"  HATA: canonical testi erisilemedi ({e})")
+
+    print("=" * 78)
+    if hata:
+        print(f"KALKAN BOZUK — {hata} test basarisiz")
+        return 1
+    print("KALKAN CALISIYOR — tum testler basarili")
+    return 0
+
 def main():
     ap = argparse.ArgumentParser(add_help=False)
     ap.add_argument("--tum", action="store_true")
@@ -444,10 +576,18 @@ def main():
     ap.add_argument("--sayfa")
     ap.add_argument("--url", nargs="+")
     ap.add_argument("--yeni", action="store_true")
+    ap.add_argument("--kalkan-testi", action="store_true")
     ap.add_argument("-h", "--help", action="store_true")
     a = ap.parse_args()
+
+    if a.kalkan_testi:
+        return kalkan_testi()
+
     if a.help or not any([a.tum, a.slug, a.sayfa, a.url, a.yeni]):
         print(__doc__); return 2
+
+    # --- PARMAK IZI (her modda ilk is) ---
+    soft404_parmak_izi()
 
     if a.tum or a.yeni:
         urller = sitemap_urlleri(); baslik = f"TAM SITE TARAMASI — {len(urller)} adres"

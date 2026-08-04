@@ -60,6 +60,37 @@ body::after {
   0%,100% { opacity: 0 }
   50% { opacity: 1 }
 }
+/* --- FULL FOOTER --- */
+.footer{background:var(--surface,#0D1117);border-top:1px solid var(--border);padding:48px 5% 28px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 40px;}
+.footer-brand{display:flex;flex-direction:column;gap:14px;}
+.footer-logo-text{display:flex;flex-direction:column;line-height:1;}
+.footer-logo-kilman{font-size:2rem;font-weight:900;letter-spacing:4px;color:var(--neon);text-shadow:0 0 20px rgba(0,212,255,0.8),0 0 40px rgba(0,212,255,0.4);}
+.footer-logo-bilisim{font-size:0.75rem;font-weight:600;letter-spacing:6px;color:var(--text-muted);text-transform:uppercase;margin-top:2px;}
+.footer-brand p{font-size:1.02rem;color:var(--text-muted);max-width:280px;line-height:1.72;}
+.footer-col h4{font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;list-style:none;}
+.footer-col ul a{font-size:1.02rem;color:var(--text-muted);transition:all 0.3s;}
+.footer-col ul a:hover{color:var(--neon);}
+.footer-counter{display:flex;justify-content:center;margin:0 auto 28px;max-width:1100px;}
+.live-counter{display:flex;align-items:center;gap:20px;background:var(--bg-card,#161B22);border:1px solid var(--border);border-radius:12px;padding:12px 28px;}
+.lc-item{display:flex;align-items:center;gap:8px;}
+.lc-icon{font-size:1.2rem;}
+.lc-num{font-family:'Inter',sans-serif;font-size:1.08rem;font-weight:700;color:var(--neon);}
+.lc-label{font-size:0.78rem;color:var(--text-muted);}
+.lc-divider{width:1px;height:24px;background:var(--border);}
+.lc-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;}
+.footer-bottom p{font-size:0.95rem;color:var(--text-muted);}
+.footer-bottom a{font-size:0.95rem;color:var(--text-muted);transition:all 0.3s;}
+.footer-bottom a:hover{color:var(--neon);}
+.nav-soon{font-size:0.95rem;font-weight:500;color:var(--text-muted);padding:6px 14px;cursor:default;opacity:0.4;white-space:nowrap}
+.footer-col ul .nav-soon{padding:0}
+.ftr-etiket{display:block;font-size:.72rem;letter-spacing:.06em;color:var(--text-muted);opacity:.65;margin-bottom:2px}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
@@ -92,10 +123,58 @@ body::after {
   <p>질문이 있으신가요? <a href="https://wa.me/905421732767">WhatsApp</a> 또는 <a href="https://t.me/kilmanbilisim">Telegram</a>으로 연락하세요.</p>
 </main>
 
-<footer class="blog-footer">
-<div style="text-align:center;margin-bottom:12px;font-size:0.9rem;color:#00D4FF;">👥 <span id="lcTotalFooter">—</span> &nbsp;·&nbsp; <span style="color:#22c55e;">●</span> <span id="lcOnlineFooter">—</span></div>
-  <p>© <script>document.write(new Date().getFullYear())</script> Kılman Bilişim Sistemleri Ltd. Şti. 모든 권리 보유.</p>
-  <p style="margin-top:8px;"><a href="/gizlilik.html" style="color:#8B949E;font-size:0.82rem;">개인정보 처리방침</a></p>
+<footer class="footer" id="main-footer">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="footer-logo-text">
+<span class="footer-logo-kilman">KILMAN</span>
+<span class="footer-logo-bilisim">B&#304;L&#304;&#350;&#304;M S&#304;STEMLER&#304;</span>
+</div>
+<p>AI &#44592;&#48152; &#51088;&#46041;&#54868; &#49884;&#49828;&#53596;&#51004;&#47196; &#48708;&#51592;&#45768;&#49828; &#54532;&#47196;&#49464;&#49828;&#47484; &#48120;&#47000;&#47196; &#51060;&#45132;&#45768;&#45796;.</p>
+</div>
+<div class="footer-col">
+<h4>&#45236;&#48708;&#44172;&#51060;&#49496;</h4>
+<ul>
+<li><a href="/ko/">&#54856;</a></li>
+<li><a href="/ko/hakkimizda.html">&#49548;&#44060;</a></li>
+<li><a href="/ko/hizmetler.html">&#49436;&#48708;&#49828;</a></li>
+<li><a href="/ko/urunler.html">&#51228;&#54408;</a></li>
+<li><span class="nav-soon">&#47112;&#54140;&#47088;&#49828;</span></li>
+<li><a href="/ko/sss.html">FAQ</a></li>
+<li><span class="nav-soon">&#50672;&#46973;&#52376;</span></li>
+<li><a href="/blog/ko/">Blog</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>&#50672;&#46973;&#52376;</h4>
+<ul>
+<li><span class="ftr-etiket">Telefon</span><a href="tel:+905321732767">+90 532 173 27 67</a></li>
+<li><span class="ftr-etiket">Kurumsal WhatsApp</span><a href="tel:+905421732767">+90 542 173 27 67</a></li>
+<li><a href="https://t.me/kilmanbilisim" target="_blank" rel="noopener">Telegram: @kilmanbilisim</a></li>
+<li><a href="mailto:info@kilmanbilisim.com">info@kilmanbilisim.com</a></li>
+<li><a href="https://kilmanbilisim.com">kilmanbilisim.com</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-counter">
+<div class="live-counter" id="liveCounterFooter">
+<div class="lc-item">
+<span class="lc-icon">&#128065;</span>
+<span class="lc-num" id="lcTotalFooter">&#8212;</span>
+<span class="lc-label">&#52509; &#48169;&#47928;&#51088;</span>
+</div>
+<div class="lc-divider"></div>
+<div class="lc-item">
+<span class="lc-dot"></span>
+<span class="lc-num" id="lcOnlineFooter">&#8212;</span>
+<span class="lc-label">&#54788;&#51116; &#50728;&#46972;&#51064;</span>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&#169; <script>document.write(new Date().getFullYear())</script> K&#305;lman Bili&#351;im Sistemleri Ltd. &#350;ti. All rights reserved.</p>
+<p style="margin-top:8px;"><a href="/gizlilik.html" style="color:var(--text-muted);font-size:0.82rem;">&#44060;&#51064;&#51221;&#48372;&#52376;&#47532;&#48169;&#52840;</a></p>
+</div>
 </footer>
 <script>
 const bh=document.querySelector('.blog-hamburger'),bnl=document.querySelector('.blog-nav-links'),bl=document.querySelector('.blog-lang');

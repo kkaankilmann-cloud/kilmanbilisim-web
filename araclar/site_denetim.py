@@ -30,7 +30,7 @@ NE KONTROL EDER (12 madde)
 CIKIS KODU: 0 = hepsi temiz, 1 = sorun var  (CI/otomasyona baglanabilir)
 """
 
-import sys, re, html, argparse, unicodedata, hashlib, random, string
+import sys, re, html, json, argparse, unicodedata, hashlib, random, string
 import requests
 from concurrent.futures import ThreadPoolExecutor
 
@@ -681,6 +681,251 @@ def arsiv_listele():
     print(f"Kaynak: {_ARSIV_DOSYA}")
     return 0
 
+# ----------------------------------------------------------------------
+# 8) BLOG YAZIM STANDARDI DENETIMI  (05.08.2026)
+# --standart modu: sadece blog yazilarina uygulanir.
+# Arsivdeki eski yazilar MUAF.
+# ----------------------------------------------------------------------
+
+def _standart_dil_bul(url):
+    """URL'den dili cikar (blog icin)."""
+    y = url.replace(BASE, "")
+    m = re.match(r"^/blog/([a-z]{2})/", y)
+    if m and m.group(1) in DILLER:
+        return m.group(1)
+    return "tr"
+
+def standart_soru_h2(dcoz):
+    """Soru bicimli h2 sayisi / toplam h2."""
+    h2ler = re.findall(r'<h2[^>]*>(.*?)</h2>', dcoz, re.S)
+    temiz = [re.sub(r'<[^>]+>', '', x).strip() for x in h2ler]
+    soru = sum(1 for x in temiz if any(q in x for q in '?\uff1f\u061f'))
+    return soru, len(temiz)
+
+def standart_faqpage(ham):
+    """FAQPage schema var mi, sorular listesi."""
+    bloklar = re.findall(r'<script type="application/ld\+json">(.*?)</script>', ham, re.S)
+    for b in bloklar:
+        try:
+            j = json.loads(b)
+        except Exception:
+            return False, [], "BOZUK-JSONLD"
+        tip = j.get("@type", "")
+        if tip == "FAQPage":
+            sorular = []
+            for item in j.get("mainEntity", []):
+                if isinstance(item, dict):
+                    name = item.get("name", "")
+                    # Cift-escape edilmis Unicode'u coz: \\u00fc -> ü
+                    try:
+                        name = name.encode('utf-8').decode('unicode_escape').encode('latin1').decode('utf-8')
+                    except Exception:
+                        try:
+                            name = name.encode('utf-8').decode('unicode_escape')
+                        except Exception:
+                            pass  # orijinal haliyle birak
+                    sorular.append(name)
+            return True, sorular, ""
+    return False, [], "FAQPAGE-YOK"
+
+def standart_schema_metin(dcoz, faq_sorular):
+    """FAQPage icindeki her soru, govdede aynen geciyor mu?"""
+    uyumsuz = []
+    # Normalize: bosluk/satir farkini yut + tum entity'leri coz
+    # Ayrica literal \uXXXX escape'lerini de coz (Netlify minify bunlari birakabilir)
+    def _unicode_coz(m):
+        try: return chr(int(m.group(1), 16))
+        except: return m.group(0)
+    dcoz_temiz = re.sub(r'\\u([0-9a-fA-F]{4})', _unicode_coz, dcoz)
+    dcoz_norm = re.sub(r'\s+', ' ', dcoz_temiz).lower()
+    # Ayrica ham govdedeki entity'leri de cikar
+    dcoz_stripped = re.sub(r'&#\d+;', '', dcoz_norm)
+    for s in faq_sorular:
+        if not s:
+            continue
+        s_norm = re.sub(r'\s+', ' ', s).strip().lower()
+        s_unesc = html.unescape(s_norm)
+        # 3 farkli karsilastirma: direkt, unescape, ve kelime bazli (%80 eslesmesi)
+        if s_norm in dcoz_norm or s_unesc in dcoz_norm:
+            continue
+        # Kelime bazli esleme: kelimelerin %80'i govdede varsa eslesir
+        kelimeler = [k for k in s_unesc.split() if len(k) > 2]
+        if kelimeler:
+            bulunan = sum(1 for k in kelimeler if k in dcoz_norm)
+            oran = bulunan / len(kelimeler)
+            if oran >= 0.75:
+                continue
+        uyumsuz.append(s[:60])
+    return uyumsuz
+
+FOOTER_BEKLENEN = {
+    "tr": "Navigasyon", "en": "Navigation", "de": "Navigation", "es": "Navegaci\u00f3n",
+    "fr": "Navigation", "ru": "\u041d\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u044f",
+    "ko": "\ub0b4\ube44\uac8c\uc774\uc158", "zh": "\u5bfc\u822a", "ja": "\u30ca\u30d3\u30b2\u30fc\u30b7\u30e7\u30f3"
+}
+FOOTER_TR_IMZA = ["Toplam Ziyaret\u00e7i", "\u015eu An Online", "Ana Sayfa", "Hakk\u0131m\u0131zda"]
+TICARET_UNVAN = "KILMAN B\u0130L\u0130\u015e\u0130M S\u0130STEMLER\u0130"
+
+def standart_footer_dili(dcoz, dil):
+    """Footer dilini kontrol et."""
+    # footer blogu bul
+    fm = re.search(r'<footer[^>]*>(.*?)</footer>', dcoz, re.S)
+    if not fm:
+        return True, "footer-yok"  # footer yoksa atla
+    footer = fm.group(1)
+    # Ticari unvani cikar (her dilde Turkce)
+    footer_temiz = footer.replace(TICARET_UNVAN, "")
+    beklenen = FOOTER_BEKLENEN.get(dil, "")
+    if beklenen and beklenen not in footer_temiz:
+        return False, f"FOOTER-DIL-HATASI ({dil} icin '{beklenen}' bulunamadi)"
+    # non-TR dosyalarda Turkce imza ara
+    if dil != "tr":
+        for imza in FOOTER_TR_IMZA:
+            if imza in footer_temiz:
+                return False, f"FOOTER-TURKCE ('{imza}' bulundu)"
+    return True, "ok"
+
+YASAK_KALIPLAR = [
+    "g\u00fcn\u00fcm\u00fczde", "gunumuzde",
+    "teknolojinin geli\u015fmesiyle", "teknolojinin gelismesiyle",
+    "bilindi\u011fi \u00fczere", "bilindigi uzere",
+    "son y\u0131llarda", "son yillarda",
+    "yukar\u0131da bahsetti\u011fimiz gibi", "yukarida bahsettigimiz gibi",
+    "bir \u00f6nceki b\u00f6l\u00fcmde", "bir onceki bolumde"
+]
+
+def standart_yasak_kalip(dcoz):
+    """Yasak giris kaliplarini ara — sadece h2 altindaki ilk paragrafta."""
+    bulunan = []
+    h2_pozlar = [(m.end(), re.sub(r'<[^>]+>', '', m.group(1)).strip())
+                 for m in re.finditer(r'<h2[^>]*>(.*?)</h2>', dcoz, re.S)]
+    for i, (pos, h2_metin) in enumerate(h2_pozlar):
+        # h2'den sonraki ilk <p> blogu
+        pm = re.search(r'<p[^>]*>(.*?)</p>', dcoz[pos:pos+2000], re.S)
+        if not pm:
+            continue
+        p_metin = re.sub(r'<[^>]+>', '', pm.group(1)).strip().lower()
+        for kalip in YASAK_KALIPLAR:
+            if kalip.lower() in p_metin:
+                bulunan.append(f"'{kalip}' h2 altinda: '{h2_metin[:40]}'")
+    return bulunan
+
+def standart_ic_link(ham, dil):
+    """Blog yazisindaki ic link sayisi ve dil uyumu."""
+    # article/main icerigini al
+    article = re.search(r'<(?:article|main)[^>]*>(.*?)</(?:article|main)>', ham, re.S)
+    ic = article.group(1) if article else ham
+    ic_linkler = []
+    dil_hatalari = []
+    for m in re.finditer(r'href=["\']?(/[^"\'>\s]+)', ic):
+        href = m.group(1)
+        if href.startswith("/#") or href == "/":
+            continue
+        ic_linkler.append(href)
+        # Dil uyumu: TR dosyadaki link /blog/en/ icine gitmemeli
+        link_dil = "tr"
+        lm = re.match(r'^/blog/([a-z]{2})/', href)
+        if lm and lm.group(1) in DILLER:
+            link_dil = lm.group(1)
+        elif re.match(r'^/([a-z]{2})/', href):
+            ld = re.match(r'^/([a-z]{2})/', href).group(1)
+            if ld in DILLER and ld != "tr":
+                link_dil = ld
+        if link_dil != dil:
+            dil_hatalari.append(f"{href} ({link_dil}!={dil})")
+    return len(ic_linkler), dil_hatalari
+
+def standart_denetle(url):
+    """Tek blog yazisi icin standart denetimi."""
+    dil = _standart_dil_bul(url)
+    try:
+        r = requests.get(url, timeout=45)
+    except Exception as e:
+        return dict(url=url, dil=dil, bayrak=[f"ERISILEMEDI ({type(e).__name__})"], notlar={})
+    if r.status_code != 200:
+        return dict(url=url, dil=dil, bayrak=[f"HTTP{r.status_code}"], notlar={})
+    ham = r.text
+    dcoz = html.unescape(ham)
+    bayrak = []
+    notlar = {}
+
+    # 1) Soru bicimli h2
+    soru, toplam = standart_soru_h2(dcoz)
+    notlar["soru-h2"] = f"{soru}/{toplam}"
+    if soru < 4:
+        bayrak.append("SORU-BICIMI-EKSIK")
+
+    # 2) FAQPage schema
+    faq_var, faq_sorular, faq_hata = standart_faqpage(ham)
+    notlar["FAQPage"] = "VAR" if faq_var else faq_hata
+    if not faq_var:
+        bayrak.append(faq_hata if faq_hata else "FAQPAGE-YOK")
+
+    # 3) Schema metin uyumu
+    if faq_var:
+        uyumsuz = standart_schema_metin(dcoz, faq_sorular)
+        if uyumsuz:
+            bayrak.append("SCHEMA-METIN-UYUSMAZ")
+            notlar["schema-uyumsuz"] = uyumsuz[0]
+        else:
+            notlar["schema-metin"] = "ok"
+    else:
+        notlar["schema-metin"] = "-"
+
+    # 4) Footer dili
+    footer_ok, footer_acik = standart_footer_dili(dcoz, dil)
+    notlar["footer-dil"] = footer_acik
+    if not footer_ok:
+        bayrak.append("FOOTER-TURKCE" if "TURKCE" in footer_acik else "FOOTER-DIL-HATASI")
+
+    # 5) Yasak kaliplar (sadece TR icin anlamli, diger dillerde zaten Turkce olmamali)
+    yasak = standart_yasak_kalip(dcoz)
+    notlar["yasak-kalip"] = len(yasak)
+    if yasak:
+        bayrak.append("YASAK-KALIP")
+        notlar["yasak-detay"] = yasak[0]
+
+    # 6) Ic link sayisi ve dil uyumu
+    ic_sayi, dil_hatalari = standart_ic_link(ham, dil)
+    notlar["ic-link"] = ic_sayi
+    if ic_sayi < 3:
+        bayrak.append("IC-LINK-AZ")
+    if dil_hatalari:
+        bayrak.append("IC-LINK-DIL-HATASI")
+        notlar["link-dil"] = dil_hatalari[0]
+
+    return dict(url=url, dil=dil, bayrak=bayrak, notlar=notlar)
+
+def standart_rapor(sonuclar, slug):
+    """Standart denetim raporunu yazdir."""
+    print(f"\n{'='*78}")
+    print(f"BLOG YAZIM STANDARDI — {slug}")
+    print(f"{'='*78}")
+    print(f"{'dil':4} {'soru-h2':8} {'FAQPage':8} {'schema':14} {'footer':14} {'yasak':6} {'ic-link':8} {'sonuc'}")
+    sorunlu = 0
+    for s in sonuclar:
+        n = s.get("notlar", {})
+        durum = "TEMIZ" if not s["bayrak"] else ",".join(s["bayrak"])
+        if s["bayrak"]:
+            sorunlu += 1
+        sch = n.get("schema-metin", "-")
+        if len(sch) > 12: sch = sch[:12]
+        ftr = n.get("footer-dil", "-")
+        if len(ftr) > 12: ftr = ftr[:12]
+        print(f"{s['dil']:4} {n.get('soru-h2','-'):>8} {n.get('FAQPage','-'):>8} {sch:>14} {ftr:>14} {n.get('yasak-kalip','-'):>6} {n.get('ic-link','-'):>8}  {durum}")
+    print(f"\nSONUC: {len(sonuclar)} yazidan {sorunlu} standart disi")
+    if sorunlu:
+        print("\n--- STANDART IHLALLERI ---")
+        for s in sonuclar:
+            if s["bayrak"]:
+                print(f"  {s['url']}")
+                print(f"     {', '.join(s['bayrak'])}")
+                for k, v in s.get("notlar", {}).items():
+                    if v and v != "-" and v != "ok" and v != 0:
+                        v_safe = str(v).encode('ascii', errors='replace').decode('ascii')
+                        print(f"     {k}: {v_safe}")
+    return sorunlu
+
 def main():
     ap = argparse.ArgumentParser(add_help=False)
     ap.add_argument("--tum", action="store_true")
@@ -690,6 +935,7 @@ def main():
     ap.add_argument("--yeni", action="store_true")
     ap.add_argument("--kalkan-testi", action="store_true")
     ap.add_argument("--arsiv", action="store_true")
+    ap.add_argument("--standart", action="store_true")
     ap.add_argument("-h", "--help", action="store_true")
     a = ap.parse_args()
 
@@ -698,6 +944,30 @@ def main():
 
     if a.arsiv:
         return arsiv_listele()
+
+    # --- STANDART MODU ---
+    if a.standart:
+        if a.slug:
+            # Arsiv kontrolu
+            if a.slug in ARSIV_SLUGLAR:
+                print(f"ARSIV: {a.slug} arsiv listesinde — standart denetimi MUAF.")
+                return 0
+            urller = slug_urlleri(a.slug)
+        else:
+            # Tum blog yazilari (arsiv haric)
+            sm = sitemap_urlleri()
+            urller = [u for u in sm if "/blog/" in u
+                      and not re.match(r'.*/blog/(?:[a-z]{2}/)?$', u.rstrip('/'))
+                      and not arsiv_mi(u)]
+        with ThreadPoolExecutor(max_workers=12) as ex:
+            sonuclar = list(ex.map(standart_denetle, urller))
+        sorunlu = standart_rapor(sonuclar, a.slug or "TUM BLOG")
+        print("\n" + "="*78)
+        if sorunlu:
+            print(f"SONUC: STANDART IHLALI VAR — {sorunlu} sayfa")
+            return 1
+        print("SONUC: TUM YAZILAR STANDARDA UYGUN")
+        return 0
 
     if a.help or not any([a.tum, a.slug, a.sayfa, a.url, a.yeni]):
         print(__doc__); return 2

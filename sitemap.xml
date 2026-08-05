@@ -1964,4 +1964,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url><loc>https://kilmanbilisim.com/referanslar.html</loc></url>
+  <url><loc>https://kilmanbilisim.com/en/referanslar.html</loc></url>
+  <url><loc>https://kilmanbilisim.com/de/referanslar.html</loc></url>
+  <url><loc>https://kilmanbilisim.com/es/referanslar.html</loc></url>
+  <url><loc>https://kilmanbilisim.com/fr/referanslar.html</loc></url>
+  <url><loc>https://kilmanbilisim.com/ru/referanslar.html</loc></url>
+  <url><loc>https://kilmanbilisim.com/ko/referanslar.html</loc></url>
+  <url><loc>https://kilmanbilisim.com/zh/referanslar.html</loc></url>
+  <url><loc>https://kilmanbilisim.com/ja/referanslar.html</loc></url>
 </urlset>

@@ -32,13 +32,7 @@
   "services_sub": "Scalable digital solutions, custom-built for every project.",
   "pricing_label": "Pricing",
   "pricing_title": "Budget Planning",
-  "pricing_amount": "500",
-  "pricing_from": "Starting from USD",
-  "pricing_note": "Custom quotes prepared in USD, EUR or TRY based on scope and workload. Requesting a quote is completely free.",
   "pricing_cta": "Get a Free Quote on WhatsApp",
-  "curr_usd": "$ USD",
-  "curr_eur": "€ EUR",
-  "curr_tl": "₺ TRY",
   "person_title_tr": "AI Specialist & Entrepreneur",
   "person_bio": "Kaan Kılman founded Kılman Bilişim to bridge his deep technical expertise in AI-powered automation with real-world business needs. Drawing on experience in software development, process automation, and AI integration, he delivers tailored, sustainable solutions for every project.",
   "footer_panel": "Panel Login",
@@ -145,5 +139,12 @@
   "emlak_p4": "Sends the contract",
   "emlak_p5": "Runs the entire sales chain end-to-end in a single flow",
   "emlak_show_more": "Show All",
-  "emlak_show_less": "Show Less"
+  "emlak_show_less": "Show Less",
+  "pricing_row1_label": "Automation systems",
+  "pricing_row1_value": "From 500 USD",
+  "pricing_row2_label": "Panel and SaaS products",
+  "pricing_row2_value": "From 300 USD",
+  "pricing_note1": "Custom quotes are prepared based on scope and workload.",
+  "pricing_note2": "You can pay in USD, EUR or TL — calculated at the current exchange rate.",
+  "pricing_note3": "Getting a quote is free."
 }

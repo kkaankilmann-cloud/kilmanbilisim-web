@@ -551,12 +551,11 @@ ul { list-style: none; }
   padding: 40px 48px; text-align: center;
   box-shadow: 0 0 60px rgba(0,212,255,0.08);
 }
-.pricing-amount { font-family: var(--font-head); font-size: 3rem; font-weight: 900; color: var(--neon); text-shadow: var(--neon-glow); }
-.pricing-amount sup { font-size: 1.5rem; vertical-align: top; margin-top: 8px; }
-.pricing-label { font-family: var(--font-ui); font-size: 0.95rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
-.pricing-note { font-size: 1.08rem; color: var(--text-muted); margin: 16px 0 28px;  line-height: 1.72; }
-.pricing-currencies { display: flex; gap: 10px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
-.currency-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); font-family: var(--font-ui); font-size: 0.82rem; padding: 5px 14px; border-radius: 6px; }
+.pricing-rows { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+.pricing-row { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-radius: 12px; background: rgba(0,212,255,0.04); border: 1px solid rgba(0,212,255,0.1); }
+.pricing-row-label { font-family: var(--font-ui); font-size: 1rem; color: var(--text-main); }
+.pricing-row-value { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; color: var(--neon); white-space: nowrap; }
+.pricing-note { font-size: 1.08rem; color: var(--text-muted); margin: 0 0 28px; line-height: 1.72; }
 
 /* ─── ABOUT ──────────────────────────────── */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; max-width: 1100px; margin: 0 auto; }
@@ -933,10 +932,19 @@ body::after {
     <h2 class="section-title reveal" data-i18n="pricing_title">Bütçe Planlaması</h2>
   </div>
   <div class="pricing-banner reveal">
-    <div class="pricing-amount"><sup>$</sup>500</div>
-    <div class="pricing-label" data-i18n="pricing_from">USD'den itibaren</div>
-    <p class="pricing-note" data-i18n="pricing_note">Kapsam ve iş yüküne göre USD, EUR veya TL olarak özel teklif. Teklif almak ücretsizdir.</p>
-    <div class="pricing-currencies"><span class="currency-tag">$ USD</span><span class="currency-tag">&euro; EUR</span><span class="currency-tag">&#8378; TL</span></div>
+    <div class="pricing-rows">
+      <div class="pricing-row">
+        <span class="pricing-row-label" data-i18n="pricing_row1_label">Otomasyon sistemleri</span>
+        <span class="pricing-row-value" data-i18n="pricing_row1_value">500 USD'den itibaren</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-row-label" data-i18n="pricing_row2_label">Panel ve SaaS ürünler</span>
+        <span class="pricing-row-value" data-i18n="pricing_row2_value">300 USD'den itibaren</span>
+      </div>
+    </div>
+    <p class="pricing-note" data-i18n="pricing_note1">Kapsam ve iş yüküne göre özel teklif hazırlanır.</p>
+    <p class="pricing-note" data-i18n="pricing_note2">USD, EUR veya TL olarak ödeyebilirsiniz — güncel kurdan hesaplanır.</p>
+    <p class="pricing-note" style="font-weight:600;color:var(--text-main);" data-i18n="pricing_note3">Teklif almak ücretsizdir.</p>
     <a href="#" class="btn-primary wa-link" target="_blank"><span data-i18n="pricing_cta">WhatsApp'tan Ücretsiz Teklif Al</span></a>
   </div>
 </section>
@@ -1036,10 +1044,12 @@ const translations = {
     services_sub: 'Her projeye özel, ölçeklenebilir dijital çözümler.',
     // PRICING
     pricing_label: 'Fiyatlandırma', pricing_title: 'Bütçe Planlaması',
-    pricing_amount: '500', pricing_from: 'USD\'den itibaren',
-    pricing_note: 'Kapsam ve iş yüküne göre USD, EUR veya TL olarak özel teklif hazırlanır. Teklif almak tamamen ücretsizdir.',
+    pricing_row1_label: 'Otomasyon sistemleri', pricing_row1_value: '500 USD\'den itibaren',
+    pricing_row2_label: 'Panel ve SaaS ürünler', pricing_row2_value: '300 USD\'den itibaren',
+    pricing_note1: 'Kapsam ve iş yüküne göre özel teklif hazırlanır.',
+    pricing_note2: 'USD, EUR veya TL olarak ödeyebilirsiniz \u2014 güncel kurdan hesaplanır.',
+    pricing_note3: 'Teklif almak ücretsizdir.',
     pricing_cta: 'WhatsApp\'tan Ücretsiz Teklif Al',
-    curr_usd: '$ USD', curr_eur: '€ EUR', curr_tl: '₺ TL',
     // ABOUT PAGE
     person_title_tr: 'Yapay Zeka Uzmanı ve Girişimci',
     person_bio: 'Kaan Kılman, yapay zeka destekli otomasyon sistemleri geliştirme konusundaki derin teknik birikimini iş dünyasının ihtiyaçlarıyla buluşturmak için Kılman Bilişim\'i kurdu. Yazılım geliştirme, süreç otomasyonu ve AI entegrasyonu alanlarındaki deneyimiyle her projeye özgün ve sürdürülebilir çözümler üretiyor.',

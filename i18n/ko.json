@@ -24,12 +24,6 @@
   "lc_online": "현재 온라인",
   "pricing_label": "가격",
   "pricing_title": "예산 계획",
-  "curr_usd": "$ USD",
-  "curr_eur": "€ EUR",
-  "curr_tl": "₺ TL",
-  "pricing_amount": "500",
-  "pricing_from": "USD부터",
-  "pricing_note": "USD, EUR 또는 TRY로 맞춤 견적을 제공합니다. 견적 요청은 완전 무료입니다.",
   "pricing_cta": "WhatsApp 무료 견적",
   "status_done": "완료",
   "ref1_title": "부동산 자동화",
@@ -145,5 +139,12 @@
   "emlak_p4": "계약서를 보냅니다",
   "emlak_p5": "전체 판매 체인을 단일 흐름으로 처음부터 끝까지 실행합니다",
   "emlak_show_more": "모두 보기",
-  "emlak_show_less": "줄여서 보기"
+  "emlak_show_less": "줄여서 보기",
+  "pricing_row1_label": "자동화 시스템",
+  "pricing_row1_value": "500 USD부터",
+  "pricing_row2_label": "패널 및 SaaS 제품",
+  "pricing_row2_value": "300 USD부터",
+  "pricing_note1": "범위와 작업량에 따라 맞춤 견적이 준비됩니다.",
+  "pricing_note2": "USD, EUR 또는 TL로 결제할 수 있으며, 현재 환율로 계산됩니다.",
+  "pricing_note3": "견적 요청은 무료입니다."
 }

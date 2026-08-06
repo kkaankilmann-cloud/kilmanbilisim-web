@@ -32,13 +32,7 @@
   "services_sub": "Skalierbare digitale Lösungen, maßgeschneidert für jedes Projekt.",
   "pricing_label": "Preise",
   "pricing_title": "Budgetplanung",
-  "pricing_amount": "500",
-  "pricing_from": "ab USD",
-  "pricing_note": "Individuelle Angebote in USD, EUR oder TRY basierend auf Umfang und Arbeitsaufwand. Die Angebotsanfrage ist kostenlos.",
   "pricing_cta": "Über WhatsApp kostenloses Angebot anfordern",
-  "curr_usd": "$ USD",
-  "curr_eur": "€ EUR",
-  "curr_tl": "₺ TRY",
   "person_title_tr": "KI-Spezialist & Unternehmer",
   "person_bio": "Kaan Kılman gründete Kılman Bilişim, um seine technische Expertise in KI-Automatisierung mit realen Geschäftsanforderungen zu verbinden.",
   "footer_panel": "Zum Panel",
@@ -145,5 +139,12 @@
   "emlak_p4": "Sendet den Vertrag",
   "emlak_p5": "Führt die gesamte Verkaufskette durchgängig in einem Ablauf",
   "emlak_show_more": "Alle anzeigen",
-  "emlak_show_less": "Weniger anzeigen"
+  "emlak_show_less": "Weniger anzeigen",
+  "pricing_row1_label": "Automatisierungssysteme",
+  "pricing_row1_value": "Ab 500 USD",
+  "pricing_row2_label": "Panel- und SaaS-Produkte",
+  "pricing_row2_value": "Ab 300 USD",
+  "pricing_note1": "Individuelle Angebote werden basierend auf Umfang und Arbeitsaufwand erstellt.",
+  "pricing_note2": "Sie können in USD, EUR oder TL zahlen — berechnet zum aktuellen Wechselkurs.",
+  "pricing_note3": "Die Angebotsanfrage ist kostenlos."
 }

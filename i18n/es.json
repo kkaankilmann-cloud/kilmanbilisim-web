@@ -32,13 +32,7 @@
   "services_sub": "Soluciones digitales escalables, personalizadas para cada proyecto.",
   "pricing_label": "Precios",
   "pricing_title": "Planificación de presupuesto",
-  "pricing_amount": "500",
-  "pricing_from": "Desde USD",
-  "pricing_note": "Presupuestos personalizados en USD, EUR o TRY. Solicitar un presupuesto es totalmente gratuito.",
   "pricing_cta": "Presupuesto gratuito por WhatsApp",
-  "curr_usd": "$ USD",
-  "curr_eur": "€ EUR",
-  "curr_tl": "₺ TRY",
   "person_title_tr": "Especialista en IA y Emprendedor",
   "person_bio": "Kaan Kılman fundó Kılman Bilişim para conectar su experiencia en automatización con IA y las necesidades reales del negocio.",
   "footer_panel": "Ir al Panel",
@@ -145,5 +139,12 @@
   "emlak_p4": "Envía el contrato",
   "emlak_p5": "Ejecuta toda la cadena de venta de principio a fin en un solo flujo",
   "emlak_show_more": "Ver todo",
-  "emlak_show_less": "Ver menos"
+  "emlak_show_less": "Ver menos",
+  "pricing_row1_label": "Sistemas de automatización",
+  "pricing_row1_value": "Desde 500 USD",
+  "pricing_row2_label": "Panel y productos SaaS",
+  "pricing_row2_value": "Desde 300 USD",
+  "pricing_note1": "Se preparan presupuestos personalizados según el alcance y la carga de trabajo.",
+  "pricing_note2": "Puede pagar en USD, EUR o TL — calculado al tipo de cambio actual.",
+  "pricing_note3": "Solicitar un presupuesto es gratuito."
 }

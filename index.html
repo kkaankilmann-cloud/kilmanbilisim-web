@@ -748,15 +748,15 @@ body::after {
   </ul>
   <div style="display:flex;align-items:center;gap:8px;">
     <div class="nav-lang">
-      <button class="lang-btn active" data-lang="tr">TR</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="de">DE</button>
-      <button class="lang-btn" data-lang="es">ES</button>
-      <button class="lang-btn" data-lang="fr">FR</button>
-      <button class="lang-btn" data-lang="ru">RU</button>
-      <button class="lang-btn" data-lang="ko">KO</button>
-      <button class="lang-btn" data-lang="zh">ZH</button>
-      <button class="lang-btn" data-lang="ja">JA</button>
+      <a class="lang-btn active" href="/">TR</a>
+      <a class="lang-btn" href="/en/">EN</a>
+      <a class="lang-btn" href="/de/">DE</a>
+      <a class="lang-btn" href="/es/">ES</a>
+      <a class="lang-btn" href="/fr/">FR</a>
+      <a class="lang-btn" href="/ru/">RU</a>
+      <a class="lang-btn" href="/ko/">KO</a>
+      <a class="lang-btn" href="/zh/">ZH</a>
+      <a class="lang-btn" href="/ja/">JA</a>
     </div>
     <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
   </div>
@@ -1192,24 +1192,8 @@ function applyLang() {
 }
 
 function switchLang(lang) {
-  currentLang = lang;
-  sessionStorage.setItem('kilman_lang', lang);
-  if (translations[lang]) {
-    applyLang();
-  } else {
-    fetch('/i18n/' + lang + '.json')
-      .then(function(r){ return r.json(); })
-      .then(function(data){
-        translations[lang] = data;
-        applyLang();
-      })
-      .catch(function(){
-        // Fallback: dil dosyası yoksa TR'ye dön
-        currentLang = 'tr';
-        sessionStorage.setItem('kilman_lang', 'tr');
-        applyLang();
-      });
-  }
+  var urls = {tr:'/',en:'/en/',de:'/de/',es:'/es/',fr:'/fr/',ru:'/ru/',ko:'/ko/',zh:'/zh/',ja:'/ja/'};
+  if (urls[lang]) window.location.href = urls[lang];
 }
 
 // ─── NAVBAR ─────────────────────────────
@@ -1363,9 +1347,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => { switchLang(btn.dataset.lang); updateWaLinks(); });
-  });
+  // Lang buttons are now <a> links, no JS needed
 });
 
 

@@ -1,0 +1,356 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 2570" width="900" height="2570" role="img" aria-label="Emlak Otomasyonu — Gamze ile Örnek Müşteri Sohbeti">
+<title>Emlak Otomasyonu — Nasıl Çalışır?</title>
+<desc>Gamze asistanı ile müşteri arasındaki örnek sohbet ve arka planda çalışan otomasyon adımları</desc>
+
+<defs>
+  <clipPath id="cg"><circle cx="50" cy="50" r="47"/></clipPath>
+  <clipPath id="cm"><circle cx="50" cy="50" r="47"/></clipPath>
+  <linearGradient id="gn" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#0090C0"/></linearGradient>
+  <linearGradient id="gp" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#B44BFF"/><stop offset="100%" stop-color="#7B2FBF"/></linearGradient>
+  <radialGradient id="gl"><stop offset="0%" stop-color="#00D4FF" stop-opacity=".14"/><stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/></radialGradient>
+
+  <symbol id="gamze" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="49" fill="#0A1F2A" stroke="#00D4FF" stroke-width="2"/>
+    <g clip-path="url(#cg)">
+      <path d="M17 60C17 28 31 13 50 13s33 15 33 47v30c-6-9-18-14-33-14s-27 5-33 14z" fill="#E8B84B"/>
+      <path d="M19 58c1-24 14-38 31-38s30 14 31 38c-2-18-13-28-31-28s-29 10-31 28z" fill="#F5D26E"/>
+      <path d="M22 96c3-13 13-19 28-19s25 6 28 19v8H22z" fill="#12283A"/>
+      <path d="M32 96c2-8 8-12 18-12s16 4 18 12l-4 8H36z" fill="#0A1F2A"/>
+      <path d="M50 82l4 6-4 5-4-5z" fill="#00D4FF" opacity=".85"/>
+      <ellipse cx="50" cy="49" rx="19" ry="23" fill="#F3CDAE"/>
+      <path d="M31 44c1-15 9-23 19-23s18 8 19 23c-5-9-11-11-19-9-8 2-14 2-19 9z" fill="#E8B84B"/>
+      <path d="M33 40c3-8 9-12 17-11-7 3-13 6-17 11z" fill="#FBE49B"/>
+      <path d="M30 40c-3 12-2 22 1 28-4-10-5-22-1-28zM70 40c3 12 2 22-1 28 4-10 5-22 1-28z" fill="#E8B84B"/>
+      <ellipse cx="43" cy="49" rx="3.2" ry="3.6" fill="#fff"/>
+      <ellipse cx="57" cy="49" rx="3.2" ry="3.6" fill="#fff"/>
+      <circle cx="43" cy="49" r="2.4" fill="#2E9BD6"/><circle cx="57" cy="49" r="2.4" fill="#2E9BD6"/>
+      <circle cx="43" cy="49" r="1.1" fill="#16324A"/><circle cx="57" cy="49" r="1.1" fill="#16324A"/>
+      <circle cx="44.2" cy="47.8" r=".9" fill="#fff"/><circle cx="58.2" cy="47.8" r=".9" fill="#fff"/>
+      <path d="M39 43c2-2.5 5-2.5 7-1M54 42c2-1.5 5-1.5 7 1" stroke="#C79A3E" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M44 60c3 3 9 3 12 0" stroke="#C4735C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <ellipse cx="36" cy="55" rx="3.5" ry="2.2" fill="#EFA089" opacity=".5"/>
+      <ellipse cx="64" cy="55" rx="3.5" ry="2.2" fill="#EFA089" opacity=".5"/>
+      <path d="M28 46a22 22 0 0 1 44 0" stroke="#00D4FF" stroke-width="2.4" fill="none"/>
+      <rect x="24" y="44" width="7" height="12" rx="3.5" fill="#00D4FF"/>
+      <rect x="69" y="44" width="7" height="12" rx="3.5" fill="#00D4FF"/>
+      <path d="M27 56c0 8 3 12 8 13" stroke="#00D4FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <circle cx="36" cy="69" r="2.6" fill="#00D4FF"/>
+    </g>
+  </symbol>
+
+  <symbol id="musteri" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="49" fill="#1A222E" stroke="#3A4A5E" stroke-width="2"/>
+    <g clip-path="url(#cm)">
+      <path d="M20 96c3-13 13-19 30-19s27 6 30 19v8H20z" fill="#2E3B4D"/>
+      <path d="M36 79l14 12 14-12 6 3-8 22H38l-8-22z" fill="#1A222E"/>
+      <path d="M50 78l-5 5 5 7 5-7z" fill="#E4E9F0"/>
+      <ellipse cx="50" cy="49" rx="18" ry="22" fill="#E2AC85"/>
+      <path d="M31 45c0-15 8-23 19-23s19 8 19 23c-4-8-10-11-19-11s-15 3-19 11z" fill="#2B2117"/>
+      <path d="M31 45c1-6 3-9 6-11 6 4 20 4 26 0 3 2 5 5 6 11-2-11-9-16-19-16s-17 5-19 16z" fill="#3A2C1E"/>
+      <ellipse cx="43" cy="49" rx="2.3" ry="2.9" fill="#2A2230"/>
+      <ellipse cx="57" cy="49" rx="2.3" ry="2.9" fill="#2A2230"/>
+      <path d="M39 43c2-2 5-2 7-1M54 42c2-1 5-1 7 1" stroke="#2B2117" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M45 60c3 2 7 2 10 0" stroke="#A66A52" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </g>
+  </symbol>
+
+  <style>
+    .t{font-family:'Inter','Segoe UI',system-ui,sans-serif;fill:#E8EDF5}
+    .s{font-family:'Inter',system-ui,sans-serif;fill:#8FA5BC}
+    .h{font-family:'Orbitron','Inter',system-ui,sans-serif;font-weight:700}
+    .mus{fill:#161C26;stroke:#232E3D;stroke-width:1}
+    .gam{fill:#07242E;stroke:#00D4FF;stroke-width:1.3}
+    .pro{fill:#190E24;stroke:#B44BFF;stroke-width:1.3}
+    .sys{fill:#0B1219;stroke:#1E2A38;stroke-width:1;stroke-dasharray:4 3}
+    .ic{fill:none;stroke:#00D4FF;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .ip{fill:none;stroke:#B44BFF;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  </style>
+</defs>
+
+<rect width="900" height="2570" fill="#080B12"/>
+<ellipse cx="450" cy="160" rx="450" ry="200" fill="url(#gl)"/>
+
+<text class="h" x="450" y="44" font-size="24" fill="#00D4FF" text-anchor="middle">EMLAK OTOMASYONU</text>
+<text class="s" x="450" y="72" font-size="14" text-anchor="middle">Gamze ile örnek bir müşteri sohbeti — baştan sona</text>
+
+<!-- TANITIM -->
+<g transform="translate(40,96)">
+  <rect width="820" height="104" rx="16" fill="#0D1117" stroke="#1E2A38" stroke-width="1.5"/>
+  <use href="#gamze" x="22" y="16" width="72" height="72"/>
+  <text class="t" x="112" y="44" font-size="16" font-weight="600">Gamze</text>
+  <text class="s" x="112" y="66" font-size="12.5">Yapay zeka emlak asistanınız</text>
+  <text class="s" x="112" y="86" font-size="12.5">7/24 · Türkçe ve İngilizce · sizin marka adınızla</text>
+  <line x1="336" y1="24" x2="336" y2="80" stroke="#1E2A38" stroke-width="1.5"/>
+  <g transform="translate(364,24)">
+    <circle cx="15" cy="15" r="15" fill="#25D366"/>
+    <path fill="#fff" transform="translate(6,6) scale(.75)" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+    <text class="t" x="42" y="20" font-size="13">WhatsApp</text>
+  </g>
+  <g transform="translate(364,58)">
+    <circle cx="15" cy="15" r="15" fill="#0AF"/>
+    <path fill="#fff" transform="translate(-7,-7)" d="M29.5 14.2L26.9 28c-.2 1-.8 1.2-1.5.7l-4.2-3.1-2 1.9c-.2.2-.4.4-.9.4l.3-4.3 7.8-7c.3-.3-.1-.5-.5-.2l-9.6 6-4.2-1.3c-.9-.3-.9-.9.2-1.3l16.4-6.3c.8-.3 1.4.2 1.1 1.2z"/>
+    <text class="t" x="42" y="20" font-size="13">Telegram</text>
+  </g>
+  <g transform="translate(524,24)">
+    <circle cx="15" cy="15" r="15" fill="#0D1117" stroke="#00D4FF" stroke-width="1.4"/>
+    <path class="ic" d="M9 11c0 5 4 9 9 9l2-3 3 1v3c0 1-1 1-2 1-7 0-13-6-13-13 0-1 0-2 1-2h3l1 3z" transform="translate(-1,-1) scale(.95)"/>
+    <text class="t" x="42" y="20" font-size="13">Sesli Arama</text>
+  </g>
+  <g transform="translate(672,22)">
+    <use href="#musteri" x="0" y="0" width="52" height="52"/>
+    <text class="s" x="64" y="22" font-size="12">Müşteri hangi</text>
+    <text class="s" x="64" y="40" font-size="12">kanaldan yazarsa</text>
+    <text class="s" x="64" y="58" font-size="12">oradan yanıtlanır</text>
+  </g>
+</g>
+
+<!-- SOHBET -->
+<g transform="translate(40,224)">
+  <use href="#musteri" x="0" y="12" width="48" height="48"/>
+  <path d="M96 36l-12 8v-16z" fill="#161C26"/>
+  <rect class="mus" x="96" y="8" width="420" height="72" rx="16"/>
+  <text class="t" x="118" y="38" font-size="14">Merhaba, Kadıköy'de 2+1 kiralık daire</text>
+  <text class="t" x="118" y="62" font-size="14">arıyorum. Bütçem aylık 25.000 TL.</text>
+</g>
+
+<g transform="translate(336,320)">
+  <rect class="gam" x="0" y="8" width="424" height="72" rx="16"/>
+  <path d="M424 36l12 8v-16z" fill="#07242E"/>
+  <text class="t" x="22" y="38" font-size="14">Merhaba! Kriterlerinize uyan 3 ilanımız</text>
+  <text class="t" x="22" y="62" font-size="14">var. İlkini paylaşıyorum.</text>
+  <use href="#gamze" x="472" y="20" width="48" height="48"/>
+</g>
+
+<g transform="translate(230,418)">
+  <rect class="sys" width="440" height="30" rx="15"/>
+  <text class="s" x="220" y="20" font-size="11.5" text-anchor="middle">yalnızca sizin ilan havuzunuzdan · uydurma yok · tahmin yok</text>
+</g>
+
+<g transform="translate(336,462)">
+  <rect fill="#0D1117" stroke="#00D4FF" stroke-width="1.3" width="424" height="128" rx="16"/>
+  <rect x="16" y="16" width="98" height="96" rx="10" fill="#111C26" stroke="#1E2A38"/>
+  <path class="ic" d="M40 74l26-22 26 22M47 72v24h38V72M62 96V80h12v16" transform="translate(-16,-12) scale(.82)"/>
+  <text class="t" x="130" y="42" font-size="15" font-weight="600">Kadıköy · Caferağa</text>
+  <text class="s" x="130" y="66" font-size="12.5">2+1 · 95 m² · 3. kat · Eşyalı</text>
+  <text class="t" x="130" y="98" font-size="17" font-weight="700" fill="#00D4FF">24.500 ₺ / ay</text>
+  <rect x="312" y="78" width="94" height="28" rx="14" fill="#0A1F2A" stroke="#00D4FF"/>
+  <text class="t" x="359" y="97" font-size="12" fill="#00D4FF" text-anchor="middle">İLN-0142</text>
+</g>
+
+<g transform="translate(40,614)">
+  <use href="#musteri" x="0" y="6" width="44" height="44"/>
+  <path d="M92 30l-12 7v-14z" fill="#161C26"/>
+  <rect class="mus" x="92" y="6" width="368" height="48" rx="16"/>
+  <text class="t" x="114" y="36" font-size="14">Bu güzel görünüyor, görebilir miyim?</text>
+</g>
+
+<g transform="translate(336,686)">
+  <rect class="gam" x="0" y="6" width="424" height="94" rx="16"/>
+  <path d="M424 46l12 8v-16z" fill="#07242E"/>
+  <text class="t" x="22" y="34" font-size="14">Tabii. Görüşmeye siz mi geleceksiniz,</text>
+  <text class="t" x="22" y="58" font-size="14">yoksa başka biri mi? Ayrıca size bu</text>
+  <text class="t" x="22" y="82" font-size="14">numaradan mı ulaşalım?</text>
+  <use href="#gamze" x="472" y="28" width="48" height="48"/>
+</g>
+
+<g transform="translate(40,802)">
+  <use href="#musteri" x="0" y="6" width="44" height="44"/>
+  <path d="M92 30l-12 7v-14z" fill="#161C26"/>
+  <rect class="mus" x="92" y="6" width="400" height="70" rx="16"/>
+  <text class="t" x="114" y="34" font-size="14">Ben geleceğim. Numaram bu, e-postam</text>
+  <text class="t" x="114" y="58" font-size="14">ahmet@gmial,com</text>
+</g>
+
+<!-- VERİ DOĞRULAMA -->
+<g transform="translate(336,894)">
+  <rect class="gam" x="0" y="6" width="424" height="72" rx="16"/>
+  <path d="M424 36l12 8v-16z" fill="#07242E"/>
+  <circle cx="36" cy="42" r="17" fill="#0A1F2A" stroke="#00D4FF" stroke-width="1.3"/>
+  <path class="ic" d="M28 42l5 5 11-12"/>
+  <text class="t" x="66" y="36" font-size="13.5">Adreste hata var gibi görünüyor.</text>
+  <text class="t" x="66" y="60" font-size="13.5">“ahmet@gmail.com” olabilir mi?</text>
+  <use href="#gamze" x="472" y="18" width="48" height="48"/>
+</g>
+
+<g transform="translate(40,988)">
+  <rect class="sys" width="820" height="42" rx="14"/>
+  <text class="s" x="410" y="27" font-size="12" text-anchor="middle">Hatalı yazılmış telefon ve e-posta kabul edilmez · doğrusu teyit edilerek kaydedilir</text>
+</g>
+
+<g transform="translate(40,1046)">
+  <use href="#musteri" x="0" y="6" width="44" height="44"/>
+  <path d="M92 30l-12 7v-14z" fill="#161C26"/>
+  <rect class="mus" x="92" y="6" width="290" height="48" rx="16"/>
+  <text class="t" x="114" y="36" font-size="14">Evet doğru. Yarın 15:00 olur mu?</text>
+</g>
+
+<g transform="translate(336,1118)">
+  <rect class="gam" x="0" y="6" width="424" height="76" rx="16"/>
+  <path d="M424 38l12 8v-16z" fill="#07242E"/>
+  <circle cx="36" cy="44" r="17" fill="#0A1F2A" stroke="#00D4FF" stroke-width="1.3"/>
+  <path class="ic" d="M28 38h16v14H28zM28 42h16M32 34v5M40 34v5"/>
+  <text class="t" x="66" y="38" font-size="14">Randevunuz oluşturuldu.</text>
+  <text class="s" x="66" y="62" font-size="12.5">Yarın 15:00 · Kadıköy Caferağa · İLN-0142</text>
+  <use href="#gamze" x="472" y="22" width="48" height="48"/>
+</g>
+
+<!-- ARKA PLAN -->
+<g transform="translate(40,1218)">
+  <rect class="sys" width="820" height="92" rx="14"/>
+  <text class="s" x="24" y="24" font-size="10.5">ARKA PLANDA OTOMATİK YAPILANLAR</text>
+  <text class="t" x="796" y="24" font-size="11.5" fill="#00D4FF" text-anchor="end">Tümü müşterinin konuştuğu dilde</text>
+  <g transform="translate(24,42)">
+    <circle cx="15" cy="16" r="15" fill="#0A1F2A" stroke="#00D4FF" stroke-width="1.2"/>
+    <path class="ic" d="M7 11h16v11H7zM7 12l8 6 8-6"/>
+    <text class="t" x="38" y="21" font-size="12.5">Emlakçıya e-posta</text>
+  </g>
+  <g transform="translate(236,42)">
+    <circle cx="15" cy="16" r="15" fill="#0A1F2A" stroke="#00D4FF" stroke-width="1.2"/>
+    <path class="ic" d="M7 11h16v11H7zM7 12l8 6 8-6"/>
+    <text class="t" x="38" y="21" font-size="12.5">Müşteriye e-posta</text>
+  </g>
+  <g transform="translate(448,42)">
+    <circle cx="15" cy="16" r="15" fill="#0A1F2A" stroke="#00D4FF" stroke-width="1.2"/>
+    <path class="ic" d="M7 10h16v14H7zM7 14h16M11 7v5M19 7v5"/>
+    <text class="t" x="38" y="21" font-size="12.5">Emlakçı takvimi</text>
+  </g>
+  <g transform="translate(640,42)">
+    <circle cx="15" cy="16" r="15" fill="#0A1F2A" stroke="#00D4FF" stroke-width="1.2"/>
+    <path class="ic" d="M7 10h16v14H7zM7 14h16M11 7v5M19 7v5"/>
+    <text class="t" x="38" y="21" font-size="12.5">Müşteri takvimi</text>
+  </g>
+</g>
+
+<!-- RANDEVU DEĞİŞİRSE -->
+<g transform="translate(40,1340)">
+  <rect fill="#0D1117" stroke="#FFA726" stroke-width="1.3" width="820" height="158" rx="16"/>
+  <text class="s" x="24" y="26" font-size="10.5" fill="#FFA726">RANDEVU DEĞİŞİRSE</text>
+  <use href="#musteri" x="24" y="38" width="38" height="38"/>
+  <rect class="mus" x="80" y="38" width="300" height="38" rx="14"/>
+  <text class="t" x="98" y="62" font-size="12.5">Pardon, 15:00 değil 17:00 olsun.</text>
+  <rect class="gam" x="410" y="34" width="356" height="46" rx="16"/>
+  <text class="t" x="428" y="62" font-size="12.5">Randevunuz güncellendi: Yarın 17:00</text>
+  <use href="#gamze" x="778" y="38" width="38" height="38"/>
+  <text class="s" x="24" y="108" font-size="12.5">Mevcut takvim kaydı ve e-postalar güncellenir · ikinci bir randevu, ikinci takvim</text>
+  <text class="s" x="24" y="130" font-size="12.5">veya ikinci e-posta oluşturulmaz</text>
+</g>
+
+<!-- ZAMAN -->
+<line x1="40" y1="1548" x2="368" y2="1548" stroke="#1E2A38" stroke-width="1.5"/>
+<line x1="532" y1="1548" x2="860" y2="1548" stroke="#1E2A38" stroke-width="1.5"/>
+<g transform="translate(376,1532)">
+  <rect width="148" height="32" rx="16" fill="#0D1117" stroke="#00D4FF" stroke-width="1.2"/>
+  <path class="ic" d="M20 16a8 8 0 1 1-8-8M12 11v5l3 2" transform="translate(4,0)"/>
+  <text class="t" x="92" y="21" font-size="12" fill="#00D4FF" text-anchor="middle">3 SAAT SONRA</text>
+</g>
+
+<g transform="translate(336,1584)">
+  <rect class="gam" x="0" y="6" width="424" height="48" rx="16"/>
+  <path d="M424 30l12 7v-14z" fill="#07242E"/>
+  <text class="t" x="22" y="36" font-size="14">Merhaba, görüşme nasıl geçti?</text>
+  <use href="#gamze" x="472" y="8" width="44" height="44"/>
+</g>
+
+<!-- İKİ KOL -->
+<g transform="translate(40,1668)">
+  <rect fill="#0D1117" stroke="#FFA726" stroke-width="1.3" width="396" height="170" rx="16"/>
+  <text class="s" x="24" y="26" font-size="10.5" fill="#FFA726">BEĞENMEDİYSE</text>
+  <use href="#musteri" x="24" y="38" width="36" height="36"/>
+  <rect class="mus" x="76" y="38" width="298" height="38" rx="14"/>
+  <text class="t" x="94" y="62" font-size="12.5">Beğenmedim, biraz küçük geldi.</text>
+  <text class="s" x="24" y="106" font-size="12.5">Gamze kriterleri günceller ve kaydeder.</text>
+  <text class="s" x="24" y="128" font-size="12.5">Uygun yeni ilan geldiğinde müşterinin</text>
+  <text class="s" x="24" y="150" font-size="12.5">yazdığı kanaldan kendisi haber verir.</text>
+</g>
+<g transform="translate(464,1668)">
+  <rect fill="#0D1117" stroke="#00D4FF" stroke-width="1.3" width="396" height="170" rx="16"/>
+  <text class="h" x="24" y="26" font-size="10.5" fill="#00D4FF">BEĞENDİYSE</text>
+  <use href="#musteri" x="24" y="38" width="36" height="36"/>
+  <rect class="mus" x="76" y="38" width="298" height="38" rx="14"/>
+  <text class="t" x="94" y="62" font-size="12.5">Çok beğendim, tutmak istiyorum.</text>
+  <text class="s" x="24" y="106" font-size="12.5">Standart pakette süreç burada biter:</text>
+  <text class="s" x="24" y="128" font-size="12.5">“Emlakçımız sizinle iletişime geçecek”</text>
+  <text class="s" x="24" y="150" font-size="12.5">bilgisi verilir.</text>
+</g>
+
+<!-- KONU DIŞI -->
+<g transform="translate(40,1866)">
+  <rect class="sys" width="820" height="120" rx="14"/>
+  <text class="s" x="24" y="26" font-size="10.5">KONU DIŞI SORULARDA</text>
+  <use href="#musteri" x="24" y="42" width="38" height="38"/>
+  <rect class="mus" x="80" y="44" width="212" height="36" rx="14"/>
+  <text class="t" x="98" y="67" font-size="12.5">Bir kahve içelim mi?</text>
+  <rect class="gam" x="326" y="34" width="426" height="66" rx="16"/>
+  <text class="t" x="344" y="56" font-size="12.5">Sorduğunuz için teşekkür ederim, ancak profesyonellik</text>
+  <text class="t" x="344" y="76" font-size="12.5">gereği özel görüşme yapmıyorum. Emlak konusunda bir</text>
+  <text class="t" x="344" y="96" font-size="12.5">ihtiyacınız varsa çekinmeden sorabilirsiniz.</text>
+  <use href="#gamze" x="766" y="48" width="38" height="38"/>
+</g>
+<text class="s" x="450" y="2012" font-size="12" text-anchor="middle">Gereksiz sohbet kesilir · işletme maliyeti düşük kalır</text>
+
+<!-- PRO -->
+<line x1="40" y1="2056" x2="860" y2="2056" stroke="#B44BFF" stroke-width="1.5" stroke-dasharray="6 5" opacity=".7"/>
+<rect x="335" y="2038" width="230" height="36" rx="18" fill="#080B12" stroke="#B44BFF" stroke-width="1.5"/>
+<text class="h" x="450" y="2062" font-size="12.5" fill="#B44BFF" text-anchor="middle">PRO PAKET DEVAMI</text>
+
+<g transform="translate(40,2098)">
+  <use href="#musteri" x="0" y="6" width="44" height="44"/>
+  <path d="M92 30l-12 7v-14z" fill="#161C26"/>
+  <rect class="mus" x="92" y="6" width="330" height="48" rx="16"/>
+  <text class="t" x="114" y="36" font-size="14">Daireyi tuttum, ödemeyi yapacağım.</text>
+</g>
+
+<g transform="translate(336,2170)">
+  <rect class="pro" x="0" y="6" width="424" height="76" rx="16"/>
+  <path d="M424 38l12 8v-16z" fill="#190E24"/>
+  <circle cx="36" cy="44" r="17" fill="#1A0F26" stroke="#B44BFF" stroke-width="1.3"/>
+  <path class="ip" d="M28 38h16M28 44h11M31 34v14"/>
+  <text class="t" x="66" y="38" font-size="14">Ödeme bilgileri aşağıdadır.</text>
+  <text class="s" x="66" y="62" font-size="12.5">TR__ ____ ____ ____ ____ __ · [Emlak Ofisiniz]</text>
+  <use href="#gamze" x="472" y="22" width="48" height="48"/>
+</g>
+
+<!-- PRO ZİNCİR -->
+<g transform="translate(40,2278)">
+  <rect fill="#0B1219" stroke="#B44BFF" stroke-width="1" stroke-dasharray="4 3" width="820" height="98" rx="14"/>
+  <text class="s" x="24" y="24" font-size="10.5" fill="#B44BFF">ÖDEME SONRASI OTOMATİK ZİNCİR</text>
+  <g transform="translate(34,42)">
+    <circle cx="18" cy="20" r="18" fill="#1A0F26" stroke="#B44BFF" stroke-width="1.2"/>
+    <path class="ip" d="M11 11h14v18l-7-4-7 4z"/>
+    <text class="t" x="46" y="18" font-size="13" font-weight="600" fill="#B44BFF">DEKONT</text>
+    <text class="s" x="46" y="34" font-size="11.5">paylaşılır</text>
+  </g>
+  <path d="M198 62h30M222 57l8 5-8 5" stroke="#B44BFF" stroke-width="2" fill="#B44BFF"/>
+  <g transform="translate(272,42)">
+    <circle cx="18" cy="20" r="18" fill="#1A0F26" stroke="#B44BFF" stroke-width="1.2"/>
+    <path class="ip" d="M10 10h16v20H10zM14 16h8M14 21h8M14 26h5"/>
+    <text class="t" x="46" y="18" font-size="13" font-weight="600" fill="#B44BFF">FATURA</text>
+    <text class="s" x="46" y="34" font-size="11.5">iki tarafa kesilir</text>
+  </g>
+  <path d="M460 62h30M484 57l8 5-8 5" stroke="#B44BFF" stroke-width="2" fill="#B44BFF"/>
+  <g transform="translate(534,42)">
+    <circle cx="18" cy="20" r="18" fill="#1A0F26" stroke="#B44BFF" stroke-width="1.2"/>
+    <path class="ip" d="M10 10h16v20H10zM14 25l4 4 8-9"/>
+    <text class="t" x="46" y="18" font-size="13" font-weight="600" fill="#B44BFF">KONTRAT</text>
+    <text class="s" x="46" y="34" font-size="11.5">gönderilir</text>
+  </g>
+  <g transform="translate(700,50)">
+    <rect width="96" height="28" rx="14" fill="#1A0F26" stroke="#B44BFF" stroke-width="1"/>
+    <text class="t" x="48" y="19" font-size="12" fill="#B44BFF" text-anchor="middle">Süreç kapanır</text>
+  </g>
+</g>
+
+<!-- ÖZET -->
+<g transform="translate(40,2408)">
+  <rect width="820" height="94" rx="14" fill="#0D1117" stroke="#1E2A38" stroke-width="1.5"/>
+  <rect x="28" y="22" width="14" height="14" rx="4" fill="url(#gn)"/>
+  <text class="t" x="52" y="34" font-size="13.5" font-weight="600">Standart Paket</text>
+  <text class="s" x="52" y="54" font-size="12">Tanıma, doğrulama, eşleştirme, randevu, çift takvim, çift e-posta, güncelleme, 3 saatlik takip ve kriter hafızası</text>
+  <rect x="28" y="66" width="14" height="14" rx="4" fill="url(#gp)"/>
+  <text class="t" x="52" y="78" font-size="13.5" font-weight="600">Pro Paket</text>
+  <text class="s" x="164" y="78" font-size="12">Standart paketin tamamı + IBAN, dekont, fatura ve kontrat zinciri</text>
+</g>
+
+<text class="s" x="450" y="2522" font-size="11.5" text-anchor="middle">Asistanın adı, karşılama metni ve ofis bilgileri kurulumda sizin markanıza göre yapılandırılır.</text>
+<text class="s" x="450" y="2544" font-size="11" text-anchor="middle" opacity=".7">Örnek senaryodur · Kılman Bilişim Sistemleri · kilmanbilisim.com</text>
+</svg>

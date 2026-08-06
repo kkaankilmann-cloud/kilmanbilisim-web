@@ -756,6 +756,7 @@ body::after {
     <li><a href="/referanslar.html" onclick="showPage('references');return false;" data-i18n="nav_references">Referanslar</a></li>
     <li><a href="/sss.html" onclick="showPage('faq');return false;" data-i18n="nav_faq">SSS</a></li>
     <li><a href="/iletisim.html" onclick="showPage('contact');return false;" data-i18n="nav_contact">İletişim</a></li>
+    <li><a href="/kartvizit.html" data-i18n="nav_card">Kurumsal Kartvizitimiz</a></li>
     <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:8px;">
@@ -1631,6 +1632,9 @@ function applyLang() {
   });
   document.querySelectorAll('a[data-i18n="nav_contact"]').forEach(function(a){
     a.href = langPrefix + '/iletisim.html';
+  });
+  document.querySelectorAll('a[data-i18n="nav_card"]').forEach(function(a){
+    a.href = langPrefix + '/kartvizit.html';
   });
   // Panel urun linkini dile duyarli yap
   var panelBase = (currentLang === 'tr' ? '' : '/' + currentLang) + '/urunler/isletme-yonetim-sistemi.html';

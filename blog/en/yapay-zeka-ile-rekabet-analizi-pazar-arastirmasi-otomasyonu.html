@@ -72,10 +72,8 @@ html{scroll-behavior:smooth;font-size:18px;}
 .hamburger.active{background:rgba(0,212,255,.12);border-color:var(--neon);box-shadow:0 0 16px rgba(0,212,255,.2)}
 .nav-soon{font-size:0.95rem;font-weight:500;color:var(--text-muted);padding:6px 14px;cursor:default;opacity:0.4;white-space:nowrap}
 .footer-col ul .nav-soon{padding:0}
-.sticky-wa{display:none;position:fixed;bottom:16px;right:12px;z-index:999;opacity:0.65;flex-direction:column;gap:8px}
-.sticky-wa:hover{opacity:1}.sticky-wa a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:#25D366;border-radius:50%;box-shadow:0 2px 10px rgba(37,211,102,0.4);transition:all .3s}.sticky-wa a:hover{transform:scale(1.08)}
-
-@media(max-width:700px){.nav-lang,.nav-links{display:none}.nav-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center}.nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px}.hamburger{display:flex;z-index:1001;position:relative}.nav-wa-btn{display:none}.sticky-wa{display:flex}}
+@media(max-width:700px){.nav-lang,.nav-links{display:none}.nav-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center}.nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px}.hamburger{display:flex;z-index:1001;position:relative}.nav-wa-btn{display:none}
+.sticky-wa{display:flex}}
 
 :root{--bg-main:#0D1117;--bg-card:#161B22;--neon:#00D4FF;--text-main:#E6EDF3;--text-muted:#A3B5C9;--accent-purple:#8B5CF6;--border:rgba(255,255,255,0.06);}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -175,6 +173,11 @@ body::after {
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,212,255,0.3);opacity:1;}
 .blog-footer{text-align:center;padding:32px 24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.85rem;}
 @media(max-width:768px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
+
+.sticky-wa{display:none;position:fixed;bottom:16px;right:12px;z-index:999;opacity:0.65;transition:opacity .3s}
+.sticky-wa:hover{opacity:1}
+.sticky-wa a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:#25D366;border-radius:50%;box-shadow:0 2px 10px rgba(37,211,102,0.4);transition:all .3s}
+.sticky-wa a:hover{transform:scale(1.08)}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it legal to track my competitors?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Collecting and analyzing publicly available data is legal. You can track sources accessible to everyone, such as websites, social media accounts, price lists, and press releases. Unauthorized access to private systems or collecting personal data is illegal. AI tools only scan public sources."}}, {"@type": "Question", "name": "Does a small business need competitive analysis?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. Small businesses grow by catching niche opportunities that large firms miss. By tracking price changes, new product launches, and customer complaints, you can make the right move at the right time. Free and low-cost AI tools for this analysis are available today."}}, {"@type": "Question", "name": "What data can I collect automatically?", "acceptedAnswer": {"@type": "Answer", "text": "Competitor website price changes, new product and service announcements, social media engagement rates and content strategies, customer reviews and complaint trends, industry reports and news feeds, Google Trends and search volume data can all be collected automatically."}}, {"@type": "Question", "name": "How quickly are results obtained?", "acceptedAnswer": {"@type": "Answer", "text": "Basic price and content tracking starts working within the first week. Meaningful trend analysis requires at least 4-6 weeks of data accumulation. Comprehensive market maps that influence strategic decisions form within 2-3 months."}}]}</script>
 </head>

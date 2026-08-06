@@ -391,9 +391,9 @@ ul { list-style: none; }
   font-family: var(--font-ui); font-size: 0.82rem;
 }
 .nav-lang button {
-  background: none; border: 1px solid var(--border); color: var(--text-muted);
+  display: inline-block; background: none; border: 1px solid var(--border); color: var(--text-muted);
   padding: 4px 10px; border-radius: 6px; cursor: pointer; font-family: var(--font-ui);
-  font-size: 0.82rem; transition: var(--transition);
+  font-size: 0.82rem; font-weight: 600; line-height: 1.5; transition: var(--transition);
 }
 .nav-lang button.active, .nav-lang button:hover { color: var(--neon); border-color: var(--neon); background: var(--neon-dim); }
 
@@ -716,7 +716,7 @@ ul { list-style: none; }
 .menu-overlay { display: none; position: fixed; inset: 0; z-index: 990; background: rgba(0,0,0,0.4); }
 .nav-soon { font-size: 0.95rem; font-weight: 500; color: var(--text-muted); padding: 6px 14px; cursor: default; opacity: 0.4; white-space: nowrap; }
 .footer-col ul .nav-soon { padding: 0; }
-.nav-lang a.lang-btn { background: 0 0; border: 1px solid var(--border); color: var(--text-muted); padding: 4px 10px; border-radius: 6px; font-family: var(--font-ui); font-size: .82rem; transition: var(--transition); text-decoration: none; white-space: nowrap; }
+.nav-lang a.lang-btn { display: inline-block; background: 0 0; border: 1px solid var(--border); color: var(--text-muted); padding: 4px 10px; border-radius: 6px; font-family: var(--font-ui); font-size: .82rem; font-weight: 600; line-height: 1.5; transition: var(--transition); text-decoration: none; white-space: nowrap; }
 .nav-lang a.lang-btn.active, .nav-lang a.lang-btn:hover { color: var(--neon); border-color: var(--neon); background: var(--neon-dim); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }

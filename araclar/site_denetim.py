@@ -68,17 +68,30 @@ def sayfa_var_mi(govde_bytes):
     return True, ""
 
 def canonical_uyusmazligi(ham, istenen_url):
-    """Canonical adresin istenen URL ile eslesip eslesmedigini kontrol et."""
+    """Canonical adresin istenen URL ile eslesip eslesmedigini kontrol et.
+
+    NOT: Site Netlify "pretty URL" kullanir. /referanslar ve /referanslar.html
+    ayni sayfadir; canonical her zaman .html uzantili adresi gosterir ve bu
+    DOGRU davranistir. Karsilastirma yapilmadan once iki taraftan da .html
+    uzantisi soyulur, boylece uzantisiz URL verildiginde yanlis alarm cikmaz.
+    """
     # Tirnaksiz kalibi da yakala (netlify minify tirnak kaldirabilir)
     m = (re.search(r'<link[^>]+rel=["\']?canonical["\']?[^>]+href=["\']?([^"\'>\s]+)', ham)
          or re.search(r'<link[^>]+href=["\']?([^"\'>\s]+)["\']?[^>]+rel=["\']?canonical', ham))
     if not m:
         return ""  # canonical yoklugu mevcut kontrol #5 tarafindan zaten yakalaniyor
-    bulunan = m.group(1).rstrip("/")
-    istenen = istenen_url.rstrip("/")
-    if bulunan != istenen:
-        return f"CANONICAL UYUSMAZ (sayfa kendini {bulunan} saniyor)"
+
+    def sadelestir(u):
+        u = u.rstrip("/")
+        if u.endswith(".html"):
+            u = u[:-5]
+        return u
+
+    bulunan_ham = m.group(1)
+    if sadelestir(bulunan_ham) != sadelestir(istenen_url):
+        return f"CANONICAL UYUSMAZ (sayfa kendini {bulunan_ham} saniyor)"
     return ""
+
 DILLER = ["tr", "en", "de", "es", "fr", "ru", "ko", "zh", "ja"]
 BEKLENEN_HTML_LANG = {"zh": "zh-Hans"}
 

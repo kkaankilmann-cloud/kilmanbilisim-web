@@ -526,8 +526,8 @@ ul { list-style: none; }
 .card:hover { border-color: rgba(0,212,255,0.45); box-shadow: 0 8px 40px rgba(0,212,255,0.12); transform: translateY(-4px); }
 .card:hover::before { opacity: 1; }
 .card-icon { font-size: 2rem; }
-.card-title { font-family: var(--font-ui); font-size: 1.35rem; font-weight: 600; color: var(--text); }
-.card-desc { font-size: 1.25rem; color: var(--text-muted); line-height: 1.72; flex: 1; }
+.card-title { font-family: var(--font-ui); font-size: 1.35rem; font-weight: 600; color: var(--text); overflow-wrap: break-word; hyphens: auto; }
+.card-desc { font-size: 1.25rem; color: var(--text-muted); line-height: 1.72; flex: 1; overflow-wrap: break-word; hyphens: auto; }
 .card-cta {
   display: inline-flex; align-items: center; gap: 7px;
   color: var(--neon); font-family: var(--font-ui); font-size: 1.05rem; font-weight: 600;
@@ -1485,10 +1485,10 @@ const translations = {
     sol5_desc: 'Yapay zeka araçlarını ve otomasyon platformlarını ekibinize öğretecek kurumsal eğitimler yakında hizmetinizde. Takip etmek için bize ulaşın.',
     sol5_badge: 'Yakında', sol5_cta: 'Bilgi Al',
     sol8_title: 'İşletme Yönetim Sistemi', sol8_desc: 'Gelir, gider, kâr-zarar, müşteri ve ürünlerinizi tek sistemden yönetin. Döviz destekli, otomatik tekrarlı kayıtlar, bulut tabanlı.', sol8_f1: '✔ Çok kiracılı güvenli yapı (her işletme kendi verisini görür)', sol8_f2: '✔ Gerçek zamanlı finans takibi (net kâr otomatik)', sol8_f3: '✔ Müşteri ve ürün yönetimi', sol8_f4: '✔ Her cihazdan erişim',
-    pnl_label: 'Ürün', pnl_h1: 'İşletme Yönetim Sistemi', pnl_sub: 'İşletmenizi tek sistemden yönetin. Kâr-zarar, döviz, otomatik tekrar — bulut tabanlı, her cihazdan erişilebilir.',
+    pnl_label: 'Ürün', pnl_h1: 'İşletme Yönetim Sistemi', pnl_sub: 'İşletmenizi tek sistemden yönetin. Kâr-zarar, döviz, otomatik tekrar, bulut tabanlı, her cihazdan erişilebilir.',
     pnl_what_title: 'İşletme Yönetim Sistemi Nedir?', pnl_what_desc: 'İşletmenizin gelir, gider, kâr-zarar, müşteri ve ürün verilerini tek sistemden yönetmenizi sağlayan bulut tabanlı bir çözüm. Döviz destekli, otomatik tekrarlı kayıtlar ve görsel analizlerle her cihazdan erişilebilir; verileriniz size özel ve güvende.',
-    pnl_feat_title: 'Neler Sunar?', pnl_ft1: 'Gerçek Zamanlı Kâr-Zarar', pnl_ft1_desc: 'Gelir, gider ve net kâr anında otomatik hesaplanır', pnl_ft2: 'Gelir & Gider Yönetimi', pnl_ft2_desc: 'Kategorili takip, ekle-düzenle-sil, esnek kategoriler', pnl_ft3: 'Döviz & Çoklu Para Birimi', pnl_ft3_desc: 'USD, EUR, TL — güncel kur otomatik, kayıtta dondurulur', pnl_ft4: 'Otomatik Tekrarlı Kayıtlar', pnl_ft4_desc: 'Kira, maaş, abonelik, vergi otomatik işlenir', pnl_ft5: 'Görsel Grafik & Analiz', pnl_ft5_desc: 'Gider dağılımı, dönem filtresi, harcama özeti', pnl_ft6: 'Müşteri & Ürün Yönetimi', pnl_ft6_desc: 'Ekleme, düzenleme, silme — tek panelden', pnl_ft7: 'Gelir Ayrımı', pnl_ft7_desc: 'Tek seferlik ve düzenli gelirler ayrı takip', pnl_ft8: 'Güvenli Çok Kiracılı Yapı', pnl_ft8_desc: 'Her işletme yalnızca kendi verisini görür', pnl_ft9: 'Her Cihazdan Erişim', pnl_ft9_desc: 'Masaüstü, tablet, telefon — bulut tabanlı',
-    pnl_access_title: 'Nasıl Erişilir?', pnl_access_desc: 'Erişim, hizmet anlaşmanız kapsamında size özel açılır. Kurulum ve aylık destek dahildir. Hesabınız açıldıktan sonra e-posta adresiniz ve şifrenizle giriş yaparsınız. Kendi kendine üyelik yoktur — her hesap işletmenize özel olarak oluşturulur.',
+    pnl_feat_title: 'Neler Sunar?', pnl_ft1: 'Gerçek Zamanlı Kâr-Zarar', pnl_ft1_desc: 'Gelir, gider ve net kâr anında otomatik hesaplanır', pnl_ft2: 'Gelir & Gider Yönetimi', pnl_ft2_desc: 'Kategorili takip, ekle-düzenle-sil, esnek kategoriler', pnl_ft3: 'Döviz & Çoklu Para Birimi', pnl_ft3_desc: 'USD, EUR, TL, güncel kur otomatik, kayıtta dondurulur', pnl_ft4: 'Otomatik Tekrarlı Kayıtlar', pnl_ft4_desc: 'Kira, maaş, abonelik, vergi otomatik işlenir', pnl_ft5: 'Görsel Grafik & Analiz', pnl_ft5_desc: 'Gider dağılımı, dönem filtresi, harcama özeti', pnl_ft6: 'Müşteri & Ürün Yönetimi', pnl_ft6_desc: 'Ekleme, düzenleme, silme, tek panelden', pnl_ft7: 'Gelir Ayrımı', pnl_ft7_desc: 'Tek seferlik ve düzenli gelirler ayrı takip', pnl_ft8: 'Güvenli Çok Kiracılı Yapı', pnl_ft8_desc: 'Her işletme yalnızca kendi verisini görür', pnl_ft9: 'Her Cihazdan Erişim', pnl_ft9_desc: 'Masaüstü, tablet, telefon, bulut tabanlı',
+    pnl_access_title: 'Nasıl Erişilir?', pnl_access_desc: 'Erişim, hizmet anlaşmanız kapsamında size özel açılır. Kurulum ve aylık destek dahildir. Hesabınız açıldıktan sonra e-posta adresiniz ve şifrenizle giriş yaparsınız. Kendi kendine üyelik yoktur, her hesap işletmenize özel olarak oluşturulur.',
     pnl_wa_cta: 'WhatsApp\'tan Teklif Al', footer_panel: 'Panele Giriş', prod_isletme: 'İşletme Yönetim Sistemi',
       pnl_who_title: 'Kimler İçin Uygun?',
       pnl_who1: 'Küçük İşletmeler & Esnaflar',

@@ -124,6 +124,7 @@ a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}a:hover{opacit
 .btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.3);opacity:1;color:#fff;}
 main a,section a,.content a,p a{margin:0 3px;}
 /* Navbar */
+/* ── Navbar CSS (hakkimizda.html olcutunden kopyalandi) ── */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;flex-direction:column;align-items:stretch;padding:0 5%;background:rgba(8,11,18,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:var(--transition)}
 .navbar.scrolled{background:rgba(8,11,18,.97)}
 .nav-logo{display:flex;align-items:center}
@@ -141,14 +142,23 @@ main a,section a,.content a,p a{margin:0 3px;}
 .hex-shape{stroke-width:6;stroke:var(--neon);fill:rgba(0,212,255,0);transition:fill .45s cubic-bezier(.4,0,.2,1),filter .45s cubic-bezier(.4,0,.2,1)}
 .product-btn:hover .hex-shape{fill:rgba(0,212,255,.95);filter:drop-shadow(0 0 5px rgba(0,212,255,.9))}
 .nav-lang{display:flex;align-items:center;gap:4px;font-family:var(--font-ui);font-size:.82rem}
-.nav-lang button,.nav-lang a.lang-btn{background:0 0;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;cursor:pointer;font-family:var(--font-ui);font-size:.82rem;transition:var(--transition);text-decoration:none;white-space:nowrap}
-.nav-lang button.active,.nav-lang button:hover,.nav-lang a.lang-btn.active,.nav-lang a.lang-btn:hover{color:var(--neon);border-color:var(--neon);background:var(--neon-dim)}
-.nav-wa-btn{display:none}
-.nav-links li{list-style:none}
-.nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px}
+.nav-lang button{background:0 0;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;cursor:pointer;font-family:var(--font-ui);font-size:.82rem;transition:var(--transition)}
+.nav-lang button.active,.nav-lang button:hover{color:var(--neon);border-color:var(--neon);background:var(--neon-dim)}
+.nav-wa-btn{display:flex;align-items:center;gap:7px;background:var(--neon);color:#000!important;font-family:var(--font-ui);font-weight:600;font-size:.82rem;padding:8px 16px;border-radius:8px;transition:var(--transition);white-space:nowrap;margin-left:8px}
+.nav-wa-btn:hover{background:var(--neon);box-shadow:var(--neon-glow);transform:translateY(-1px)}
+.nav-wa-btn svg{flex-shrink:0}
 .nav-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center}
-.hamburger{display:none;width:36px;height:36px;cursor:pointer;padding:6px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.15);border-radius:8px;align-items:center;justify-content:center;flex-direction:column;gap:4px;transition:all 0.3s;border:none;}
-.hamburger span{display:block;width:18px;height:2px;background:var(--neon);border-radius:2px;transition:all 0.3s;}
+.nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px}
+.nav-wa-btn{display:none}
+.menu-overlay{display:none;position:fixed;inset:0;z-index:990;background:rgba(0,0,0,.4)}
+.hamburger{display:none;width:36px;height:36px;cursor:pointer;padding:6px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.15);border-radius:8px;position:relative;transition:var(--transition);align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.hamburger:hover{background:rgba(0,212,255,.12);border-color:rgba(0,212,255,.3);box-shadow:0 0 12px rgba(0,212,255,.15)}
+.hamburger span{display:block;width:18px;height:2px;background:var(--neon);border-radius:2px;transition:all .3s cubic-bezier(.68,-.55,.27,1.55)}
+.hamburger.active{background:rgba(0,212,255,.12);border-color:var(--neon);box-shadow:0 0 16px rgba(0,212,255,.2)}
+.nav-soon{font-size:0.95rem;font-weight:500;color:var(--text-muted);padding:6px 14px;cursor:default;opacity:0.4;white-space:nowrap}
+.footer-col ul .nav-soon{padding:0}
+.nav-lang a.lang-btn{background:0 0;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;font-family:var(--font-ui);font-size:.82rem;transition:var(--transition);text-decoration:none;white-space:nowrap}
+.nav-lang a.lang-btn.active,.nav-lang a.lang-btn:hover{color:var(--neon);border-color:var(--neon);background:var(--neon-dim)}
 /* Footer */
 .footer{background:var(--surface);border-top:1px solid var(--border);padding:48px 5% 28px;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 40px;}

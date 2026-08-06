@@ -588,21 +588,15 @@ ul { list-style: none; }
 .status-dot { width: 6px; height: 6px; background: #00C875; border-radius: 50%; animation: blink 2s infinite; }
 
 /* ─── FAQ ────────────────────────────── */
-.faq-section { max-width: 800px; margin: 0 auto; }
-.faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 12px; overflow: hidden; transition: border-color 0.3s ease; }
-.faq-item:hover, .faq-item.active { border-color: rgba(0,212,255,0.25); }
-.faq-question { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; cursor: pointer; gap: 16px; user-select: none; }
-.faq-question span { font-size: 1.12rem; font-weight: 600; color: var(--text); line-height: 1.4; flex: 1; }
+
+
 .faq-icon { width: 28px; height: 28px; min-width: 28px; border-radius: 50%; background: var(--neon-dim); display: flex; align-items: center; justify-content: center; transition: transform 0.35s ease, background 0.3s; }
 .faq-icon svg { width: 14px; height: 14px; stroke: var(--neon); stroke-width: 2; fill: none; transition: transform 0.35s ease; }
-.faq-item.active .faq-icon { background: var(--neon); }
-.faq-item.active .faq-icon svg { stroke: var(--bg); transform: rotate(180deg); }
-.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
-.faq-answer-inner { padding: 0 24px 20px; color: var(--text-muted); font-size: 1.08rem; line-height: 1.72; }
+
 
 /* ─── CONTACT ────────────────────────────── */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1000px; margin: 0 auto; }
-.contact-form { display: flex; flex-direction: column; gap: 16px; }
+
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 .form-group label { font-family: var(--font-ui); font-size: 0.95rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.04em; }
 .form-group input, .form-group textarea {
@@ -614,8 +608,7 @@ ul { list-style: none; }
 .form-group textarea { min-height: 120px; resize: vertical; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
-.contact-info { display: flex; flex-direction: column; gap: 20px; }
-.contact-info-title { font-family: var(--font-ui); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+
 .contact-item { display: flex; align-items: flex-start; gap: 14px; }
 .contact-item-icon { width: 40px; height: 40px; background: var(--neon-dim); border: 1px solid var(--border); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; }
 .contact-item-text { font-size: 1.05rem; }
@@ -652,9 +645,7 @@ ul { list-style: none; }
 .sticky-wa a:hover { transform: scale(1.08); }
 
 /* ─── PAGE HEADER ────────────────────────── */
-.page-hero { padding: 130px 5% 60px; text-align: center; background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,212,255,0.06) 0%, transparent 70%), var(--bg); border-bottom: 1px solid var(--border); }
-.page-hero h1 { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; color: var(--text); margin-bottom: 10px; }
-.page-hero p { color: var(--text-muted); font-size: 1rem; }
+
 
 /* ─── DIGITAL CARD (/kartvizit) ─────────── */
 .card-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 20px 60px; background: radial-gradient(ellipse 80% 70% at 50% 0%, rgba(0,212,255,0.08) 0%, transparent 60%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Cg stroke='%2300D4FF' fill='none' stroke-width='1' opacity='0.22' stroke-linecap='round'%3E%3Cpath d='M0 30 H35 L50 45 V80 M50 45 H85'/%3E%3Cpath d='M130 30 H100 L85 45'/%3E%3Cpath d='M65 0 V25 L80 40'/%3E%3Cpath d='M0 100 H25 L40 115 H70 M40 115 V130'/%3E%3Cpath d='M130 105 H105 L92 92 V65'/%3E%3Cpath d='M110 130 V110 H90'/%3E%3C/g%3E%3Cg fill='%2300D4FF' opacity='0.5'%3E%3Ccircle cx='35' cy='30' r='2'/%3E%3Ccircle cx='85' cy='45' r='2'/%3E%3Ccircle cx='40' cy='115' r='2'/%3E%3Ccircle cx='92' cy='65' r='2'/%3E%3C/g%3E%3Cg stroke='%2300D4FF' fill='none' stroke-width='0.9' opacity='0.18'%3E%3Crect x='46' y='41' width='14' height='9' rx='1'/%3E%3Cpath d='M49 41 V37 M53 41 V37 M57 41 V37'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 130px 130px repeat, var(--bg); }
@@ -676,8 +667,8 @@ ul { list-style: none; }
 .biz-btn.vcf .biz-btn-icon { background: rgba(180,0,255,0.1); }
 .biz-qr { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
 .biz-qr p { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px; }
-#qrcode { display: flex; justify-content: center; }
-#qrcode canvas { border-radius: 8px; border: 3px solid var(--neon-dim); }
+
+
 .biz-lang-note { margin-top: 20px; font-size: 0.72rem; color: var(--text-muted); }
 
 /* ─── ANIMATIONS ─────────────────────────── */
@@ -745,17 +736,17 @@ body::after {
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <div class="nav-top">
-  <a class="nav-logo" href="#" onclick="showPage('home')">
+  <a class="nav-logo" href="#">
     <div class="nav-logo-text">KILMAN<span>BİLİŞİM</span></div>
   </a>
   <ul class="nav-links">
-    <li><a href="/" onclick="showPage('home');return false;" data-i18n="nav_home" class="active">Ana Sayfa</a></li>
+    <li><a href="/" data-i18n="nav_home" class="active">Ana Sayfa</a></li>
     <li><a href="/hakkimizda.html" data-i18n="nav_about">Hakkımızda</a></li>
     <li><a href="/hizmetler.html" data-i18n="nav_solutions">Hizmetler</a></li>
     <li><a href="/urunler.html" data-i18n="nav_products">Ürünler</a></li>
-    <li><a href="/referanslar.html" onclick="showPage('references');return false;" data-i18n="nav_references">Referanslar</a></li>
-    <li><a href="/sss.html" onclick="showPage('faq');return false;" data-i18n="nav_faq">SSS</a></li>
-    <li><a href="/iletisim.html" onclick="showPage('contact');return false;" data-i18n="nav_contact">İletişim</a></li>
+    <li><a href="/referanslar.html" data-i18n="nav_references">Referanslar</a></li>
+    <li><a href="/sss.html" data-i18n="nav_faq">SSS</a></li>
+    <li><a href="/iletisim.html" data-i18n="nav_contact">İletişim</a></li>
     <li><a href="/kartvizit.html" data-i18n="nav_card">Kurumsal Kartvizitimiz</a></li>
     <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
   </ul>
@@ -790,7 +781,7 @@ body::after {
 <!-- ════════════════════════════════════════
      PAGE: HOME
 ════════════════════════════════════════ -->
-<div id="page-home" class="page active">
+<div id="page-home">
 <section class="hero">
   <div class="hero-bg"></div>
   <canvas id="particles" style="position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0.5;"></canvas>
@@ -855,7 +846,7 @@ body::after {
     <div class="card reveal reveal-delay-2"><div class="card-icon">📱</div><div class="card-title" data-i18n="sol3_title">Mobil Çözümler</div><div class="card-desc" data-i18n="sol3_desc">PWA ve mobil uyumlu web uygulamalarıyla her cihazda kusursuz deneyim.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
     <div class="card reveal"><div class="card-icon">🧠</div><div class="card-title" data-i18n="sol6_title">AI Destekli Web Geliştirme</div><div class="card-desc" data-i18n="sol6_desc">SEO optimizasyonlu, yapay zeka entegreli modern web siteleri.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
     <!-- GEÇICI GIZLI: NFC kart tedarik beklemede (~1 ay). Geri açmak için style içinden display:none kaldır. -->
-    <div class="card reveal reveal-delay-1" style="display:none;cursor:pointer;" onclick="showPage('kartvizit-urun')"><div class="card-icon">💳</div><div class="card-title" data-i18n="sol7_title">Dijital Kartvizit & NFC</div><div class="card-desc" data-i18n="sol7_desc">NFC destekli akıllı dijital kartvizit çözümleri. Tek dokunuşla iletişim bilgilerinizi paylaşın.</div><a href="#" class="card-cta" onclick="event.stopPropagation();showPage('kartvizit-urun')"><span data-i18n="sol7_cta">Ürünü İncele</span> →</a></div>
+    <div class="card reveal reveal-delay-1" style="display:none;cursor:pointer;"><div class="card-icon">💳</div><div class="card-title" data-i18n="sol7_title">Dijital Kartvizit & NFC</div><div class="card-desc" data-i18n="sol7_desc">NFC destekli akıllı dijital kartvizit çözümleri. Tek dokunuşla iletişim bilgilerinizi paylaşın.</div><a href="#" class="card-cta"><span data-i18n="sol7_cta">Ürünü İncele</span> →</a></div>
     <div class="card reveal reveal-delay-2"><div class="card-icon">💡</div><div class="card-title" data-i18n="sol4_title">Danışmanlık</div><div class="card-desc" data-i18n="sol4_desc">Dijital dönüşüm yolculuğunuzda stratejik iş ortağınız.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
     <div class="card coming-soon reveal"><div class="card-icon">🎓</div><div class="card-badge" data-i18n="sol5_badge">Yakında</div><div class="card-title" data-i18n="sol5_title">Eğitimler</div><div class="card-desc" data-i18n="sol5_desc">Kurumsal AI eğitimleri yakında.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol5_cta">Bilgi Al</span> →</a></div>
     <div class="card reveal" style="border:1px solid rgba(0,212,255,0.3);position:relative;cursor:pointer;" onclick="window.location.href=(currentLang==='tr'?'':'/'+currentLang)+'/urunler/isletme-yonetim-sistemi.html'"><div class="card-icon">📊</div><div class="card-title" data-i18n="sol8_title">İşletme Yönetim Sistemi</div><div class="card-desc" data-i18n="sol8_desc">Gelir, gider, kâr-zarar, müşteri ve ürünlerinizi tek sistemden yönetin.</div><div class="card-desc" style="margin-top:6px;font-size:0.85em;line-height:1.7;opacity:0.85"><span data-i18n="sol8_f1">✔ Çok kiracılı güvenli yapı</span><br><span data-i18n="sol8_f2">✔ Gerçek zamanlı finans takibi</span><br><span data-i18n="sol8_f3">✔ Müşteri ve ürün yönetimi</span><br><span data-i18n="sol8_f4">✔ Her cihazdan erişim</span></div><a class="card-cta" onclick="event.stopPropagation()" href="/urunler/isletme-yonetim-sistemi.html" data-panel-link="true"><span data-i18n="sol8_cta">Ürünü İncele</span> →</a></div>
@@ -941,428 +932,6 @@ body::after {
 </section>
 </div>
 
-<!-- ════════════════════════════════════════
-     PAGE: ABOUT
-════════════════════════════════════════ -->
-<div id="page-about" class="page">
-<div class="page-hero">
-  <div class="section-label" data-i18n="about_label">Hakkımızda</div>
-  <h1 data-i18n="about_h1">Bizi Tanıyın</h1>
-  <p style="color:var(--text-muted);margin-top:8px;">Kılman Bilişim Sistemleri Ltd. Şti.</p>
-</div>
-<section class="section">
-  <div class="about-grid">
-    <div class="about-text">
-      <p data-i18n="about_p1">Kılman Bilişim Sistemleri, yapay zeka ve otomasyon teknolojilerini her ölçekteki işletmenin hizmetine sunmak amacıyla kurulmuştur.</p>
-      <p data-i18n="about_p2">Tekrarlayan iş süreçlerini otomatikleştirerek ekiplerinizin enerjisini gerçekten değer yaratan işlere yönlendiriyoruz.</p>
-      <div class="about-values">
-        <div class="value-item"><div class="value-icon">🔭</div><div class="value-text"><strong data-i18n="about_v1_title">Vizyonumuz</strong><span data-i18n="about_v1_text">Yapay zekanın gücünü küçük işletmelerden büyük kuruluşlara taşımak.</span></div></div>
-        <div class="value-item"><div class="value-icon">🎯</div><div class="value-text"><strong data-i18n="about_v2_title">Misyonumuz</strong><span data-i18n="about_v2_text">Müşterilerimizin iş süreçlerini otomatikleştirerek rekabet avantajı yaratmalarına yardımcı olmak.</span></div></div>
-        <div class="value-item"><div class="value-icon">💎</div><div class="value-text"><strong data-i18n="about_v3_title">Değerlerimiz</strong><span data-i18n="about_v3_text">Şeffaflık, güvenilirlik ve her projede kalıcı sonuç.</span></div></div>
-      </div>
-    </div>
-    <div class="about-person">
-      <div class="person-avatar">KK</div>
-      <div class="person-name">Kaan KILMAN</div>
-      <div class="person-title-tr" data-i18n="person_title_tr">Yapay Zeka Uzmanı ve Girişimci</div>
-      <div style="font-size:0.75rem;color:var(--text-muted);font-family:var(--font-ui);margin-bottom:18px;">AI Specialist &amp; Entrepreneur</div>
-      <p class="person-bio" data-i18n="person_bio">Kaan Kılman, yapay zeka destekli otomasyon sistemleri geliştirme konusundaki derin teknik birikimini iş dünyasının ihtiyaçlarıyla buluşturmak için Kılman Bilişim'i kurdu.</p>
-      <div style="margin-top:24px;"><a href="#" class="btn-primary wa-link" target="_blank" style="width:100%;justify-content:center;"><span data-i18n="hero_cta1">AI Teklif Al</span></a></div>
-    </div>
-  </div>
-</section>
-</div>
-
-<!-- ════════════════════════════════════════
-     PAGE: SOLUTIONS
-════════════════════════════════════════ -->
-<div id="page-solutions" class="page">
-<div class="page-hero">
-  <div class="section-label" data-i18n="sol_label">Çözümler</div>
-  <h1 data-i18n="sol_h1">Hizmetlerimiz</h1>
-  <p style="color:var(--text-muted);margin-top:8px;" data-i18n="sol_sub">Her karta tıklayarak WhatsApp üzerinden ücretsiz teklif alabilirsiniz.</p>
-</div>
-<section class="section">
-  <div class="cards-grid">
-    <div class="card reveal"><div class="card-icon">🤖</div><div class="card-title" data-i18n="sol1_title">Yapay Zeka Otomasyon Sistemleri</div><div class="card-desc" data-i18n="sol1_desc">İş süreçlerinizi yapay zeka ile otomatikleştirin. Müşteri iletişiminden randevu yönetimine, fatura takibinden veri analizine kadar uçtan uca akıllı sistemler kuruyoruz.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
-    <div class="card reveal reveal-delay-1"><div class="card-icon">🌐</div><div class="card-title" data-i18n="sol2_title">Web Uygulamaları</div><div class="card-desc" data-i18n="sol2_desc">Markanıza özel, modern ve hızlı web uygulamaları geliştiriyoruz. Kurumsal sitelerden SaaS platformlarına kadar her ölçekte.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
-    <div class="card reveal reveal-delay-2"><div class="card-icon">📱</div><div class="card-title" data-i18n="sol3_title">Mobil Çözümler</div><div class="card-desc" data-i18n="sol3_desc">PWA (Progressive Web App) ve mobil uyumlu web uygulamalarıyla her cihazda kusursuz deneyim. Hızlı, güvenilir ve kurulum gerektirmeyen mobil çözümler.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
-    <div class="card reveal"><div class="card-icon">💡</div><div class="card-title" data-i18n="sol4_title">Danışmanlık</div><div class="card-desc" data-i18n="sol4_desc">Mevcut süreçlerinizi analiz eder, otomasyon fırsatlarını belirler ve size özel yol haritası hazırlarız.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
-    <div class="card coming-soon reveal reveal-delay-1"><div class="card-icon">🎓</div><div class="card-badge" data-i18n="sol5_badge">Yakında</div><div class="card-title" data-i18n="sol5_title">Eğitimler</div><div class="card-desc" data-i18n="sol5_desc">Yapay zeka araçlarını ve otomasyon platformlarını ekibinize öğretecek kurumsal eğitimler yakında.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol5_cta">Bilgi Al</span> →</a></div>
-    <div class="card reveal reveal-delay-2"><div class="card-icon">🧠</div><div class="card-title" data-i18n="sol6_title">AI Destekli Web Geliştirme</div><div class="card-desc" data-i18n="sol6_desc">SEO optimizasyonlu, yapay zeka entegreli modern web siteleri.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
-    <!-- GEÇICI GIZLI: NFC kart tedarik beklemede (~1 ay). Geri açmak için style içinden display:none kaldır. -->
-    <div class="card reveal reveal-delay-2" style="display:none;border:1px solid rgba(0,212,255,0.2);position:relative;"><div class="card-badge" style="background:linear-gradient(135deg,var(--neon),var(--purple));color:#fff;">750 ₺</div><div class="card-icon">💳</div><div class="card-title" data-i18n="sol7_title">Dijital Kartvizit & NFC</div><div class="card-desc" data-i18n="sol7_product_desc">Siyah mat NFC kart + logo/isim baskısı. Telefonunuzu dokundurun, dijital kartvizitiniz açılsın. Kargo ücretsiz.</div><a href="#" class="card-cta" onclick="showPage('kartvizit-urun')"><span data-i18n="sol7_order_btn">Sipariş Ver</span> →</a></div>
-    <div class="card reveal" style="border:1px solid rgba(0,212,255,0.3);position:relative;cursor:pointer;" onclick="window.location.href=(currentLang==='tr'?'':'/'+currentLang)+'/urunler/isletme-yonetim-sistemi.html'"><div class="card-icon">📊</div><div class="card-title" data-i18n="sol8_title">İşletme Yönetim Sistemi</div><div class="card-desc" data-i18n="sol8_desc">Gelir, gider, kâr-zarar, müşteri ve ürünlerinizi tek sistemden yönetin.</div><div class="card-desc" style="margin-top:6px;font-size:0.85em;line-height:1.7;opacity:0.85"><span data-i18n="sol8_f1">✔ Çok kiracılı güvenli yapı</span><br><span data-i18n="sol8_f2">✔ Gerçek zamanlı finans takibi</span><br><span data-i18n="sol8_f3">✔ Müşteri ve ürün yönetimi</span><br><span data-i18n="sol8_f4">✔ Her cihazdan erişim</span></div><a class="card-cta" onclick="event.stopPropagation()" href="/urunler/isletme-yonetim-sistemi.html" data-panel-link="true"><span data-i18n="sol8_cta">Ürünü İncele</span> →</a></div>
-    <div class="card reveal"><div class="card-icon">⚙️</div><div class="card-title" data-i18n="sol9_title">Özel Yazılım Geliştirme</div><div class="card-desc" data-i18n="sol9_desc">İş süreçlerinize özel CRM, ERP ve yönetim sistemleri geliştiriyoruz. Dağınık sistemleri tek platformda birleştiriyoruz.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
-    <div class="card reveal reveal-delay-1"><div class="card-icon">✨</div><div class="card-title" data-i18n="sol10_title">Yapay Zeka Geliştirme</div><div class="card-desc" data-i18n="sol10_desc">İşletmenize özel yapay zeka çözümleri: akıllı asistanlar, tahminleme modelleri, doküman işleme.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
-    <div class="card reveal reveal-delay-2"><div class="card-icon">📊</div><div class="card-title" data-i18n="sol11_title">Yapay Zeka Danışmanlığı</div><div class="card-desc" data-i18n="sol11_desc">Hangi süreçlerin otomasyona uygun olduğunu belirliyor, yol haritası çıkarıyoruz.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
-    <div class="card reveal"><div class="card-icon">🧠</div><div class="card-title" data-i18n="sol12_title">Üretken Yapay Zeka Çözümleri</div><div class="card-desc" data-i18n="sol12_desc">Metin, görsel ve içerik üretimi için üretken yapay zeka entegrasyonları.</div><a href="#" class="card-cta wa-link" target="_blank"><span data-i18n="sol_cta">WhatsApp'tan Teklif Al</span> →</a></div>
-  </div>
-</section>
-</div>
-
-<!-- ════════════════════════════════════════
-     PAGE: REFERENCES
-════════════════════════════════════════ -->
-<div id="page-references" class="page">
-<div class="page-hero">
-  <div class="section-label" data-i18n="ref_label">Referanslar</div>
-  <h1 data-i18n="ref_h1">Referanslar</h1>
-</div>
-<section class="section">
-  <div style="max-width:1000px;margin:0 auto;">
-    <div class="section-header center" style="margin-bottom:32px;"><div class="section-label" data-i18n="ref_done_label">Tamamlanan Projeler</div></div>
-    <div class="ongoing-grid">
-      <div class="ongoing-card reveal"><h4 data-i18n="ref_done1_title">Kurumsal Web Sitesi</h4><p data-i18n="ref_done1_desc">kilmanbilisim.com — SEO optimizasyonlu, çok dilli, yapay zeka entegreli kurumsal web sitesi.</p><span class="status-badge" style="background:rgba(0,200,100,0.15);color:#00C875;border-color:rgba(0,200,117,0.3);">✅ <span data-i18n="status_done">Tamamlandı</span></span></div>
-      <div class="ongoing-card reveal reveal-delay-1" style="display:none;"><h4 data-i18n="ref_done2_title">NFC Dijital Kartvizit</h4><p data-i18n="ref_done2_desc">QR kodlu, NFC destekli akıllı dijital kartvizit sistemi. Tek dokunuşla iletişim bilgisi paylaşımı.</p><span class="status-badge" style="background:rgba(0,200,100,0.15);color:#00C875;border-color:rgba(0,200,117,0.3);">✅ <span data-i18n="status_done">Tamamlandı</span></span></div>
-    <div class="ongoing-card reveal reveal-delay-1"><h4 data-i18n="ref_done3_title">İşletme Yönetim Sistemi (SaaS)</h4><p data-i18n="ref_done3_desc">panel.kilmanbilisim.com — Çok kiracılı, güvenli veri izolasyonlu bulut tabanlı işletme yönetim sistemi.</p><span class="status-badge" style="background:rgba(0,200,100,0.15);color:#00C875;border-color:rgba(0,200,117,0.3);">&#x2705; <span data-i18n="status_done">Tamamlandı</span></span></div>
-    </div>
-  </div>
-  <div style="max-width:1000px;margin:40px auto 0;">
-    <div class="section-header center" style="margin-bottom:32px;"><div class="section-label" data-i18n="ref_ongoing">Devam Eden Projeler</div></div>
-    <div class="ongoing-grid">
-      <div class="ongoing-card reveal"><h4 data-i18n="ref1_title">Emlak Otomasyon Sistemi</h4><p data-i18n="ref1_desc">Gayrimenkul sektörüne yönelik AI destekli müşteri yönetimi ve otomatik randevu sistemi.</p><span class="status-badge"><span class="status-dot"></span><span data-i18n="status_dev">🔄 Geliştirme Aşamasında</span></span></div>
-      <div class="ongoing-card reveal reveal-delay-1"><h4 data-i18n="ref2_title">Akıllı Müşteri Asistanı</h4><p data-i18n="ref2_desc">Çok kanallı AI müşteri temsilcisi entegrasyonu.</p><span class="status-badge"><span class="status-dot"></span><span data-i18n="status_pilot">🔄 Pilot Aşamasında</span></span></div>
-      <div class="ongoing-card reveal reveal-delay-2"><h4 data-i18n="ref3_title">Kurumsal Web Portalı</h4><p data-i18n="ref3_desc">Finans sektörü için AI destekli veri yönetim portalı.</p><span class="status-badge"><span class="status-dot"></span><span data-i18n="status_plan">🔄 Planlama Aşamasında</span></span></div>
-    </div>
-  </div>
-</section>
-</div>
-
-<!-- ════════════════════════════════════════
-     PAGE: FAQ
-════════════════════════════════════════ -->
-<div id="page-faq" class="page">
-<div class="page-hero">
-  <div class="section-label" data-i18n="faq_label">❓ SSS</div>
-  <h1 data-i18n="faq_title">Sık Sorulan Sorular</h1>
-  <p style="color:var(--text-muted);max-width:540px;margin:10px auto 0;" data-i18n="faq_sub">İşletmeniz için yapay zeka otomasyonu hakkında merak edilenler.</p>
-</div>
-<section style="padding:0 5% 80px;">
-  <div class="faq-section">
-    <div class="faq-item" id="faq-1">
-      <div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q1">Yapay zeka otomasyonu nedir ve işletmeme nasıl fayda sağlar?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-      <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a1">Yapay zeka otomasyonu, tekrarlayan iş süreçlerini AI destekli yazılımlarla otomatikleştirmektir. Müşteri iletişimi, randevu planlama, veri girişi gibi görevleri 7/24 hatasız yürütür. İşletmenize zaman ve maliyet tasarrufu sağlarken müşteri memnuniyetini artırır.</div></div>
-    </div>
-    <div class="faq-item" id="faq-2">
-      <div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q2">Kılman Bilişim hangi hizmetleri sunuyor?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-      <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a2">AI otomasyon sistemleri, WhatsApp ve Telegram chatbot geliştirme, web sitesi ve uygulama geliştirme, emlak sektörüne özel otomasyon çözümleri ve dijital kartvizit hizmetleri sunuyoruz. Her çözüm işletmenize özel olarak tasarlanır.</div></div>
-    </div>
-    <div class="faq-item" id="faq-3">
-      <div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q3">Otomasyon kurulumu ne kadar sürer?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-      <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a3">Projenin kapsamına göre değişmekle birlikte, temel otomasyon çözümleri 1-2 hafta içinde kurulur. Daha kapsamlı sistemler 3-4 hafta sürebilir. Kurulum sürecinde sizi her adımda bilgilendiriyoruz.</div></div>
-    </div>
-    <div class="faq-item" id="faq-4">
-      <div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q4">Fiyatlandırma nasıl çalışıyor?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-      <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a4">Her proje işletmenizin ihtiyaçlarına göre özel fiyatlandırılır. Sabit paket fiyatları yerine, ihtiyacınıza tam oturan çözümler sunuyoruz. Ücretsiz ön görüşme için bizimle iletişime geçin.</div></div>
-    </div>
-    <div class="faq-item" id="faq-5">
-      <div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q5">Teknik bilgim yok, sistemi kullanabilir miyim?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-      <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a5">Evet, tüm sistemlerimiz teknik bilgi gerektirmeyecek şekilde kullanıcı dostu tasarlanır. Kurulum sonrası eğitim veriyor ve sürekli teknik destek sağlıyoruz.</div></div>
-    </div>
-    <div class="faq-item" id="faq-6">
-      <div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q6">Hangi bölgelere hizmet veriyorsunuz?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-      <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a6">İstanbul merkezli olarak Türkiye genelinde uzaktan hizmet veriyoruz. Tüm otomasyon çözümlerimiz bulut tabanlı olduğu için lokasyon fark etmeksizin her yerden erişilebilir.</div></div>
-    </div>
-    <div class="faq-item" id="faq-7">
-      <div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q7">İş süreçlerimize özel CRM veya ERP sistemi geliştiren firma arıyorum, yapıyor musunuz?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-      <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a7">Evet. Hazır paket yerine işleyişinize göre tasarlanmış CRM, ERP ve yönetim sistemleri geliştiriyoruz. Mevcut tablolarınızı, formlarınızı ve süreçlerinizi inceleyip tek bir sistemde birleştiriyoruz. Kurulum sonrası aylık destek ve güncelleme dahildir.</div></div>
-    </div>
-    <div class="faq-item" id="faq-8">
-      <div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q8">Tedarikçi ve sistem yapımız dağınık, hepsini tek platformda toplayabilir misiniz?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-      <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a8">Bunu düzenli olarak yapıyoruz. Farklı yerlerde duran tedarikçi listeleri, sipariş takipleri, stok kayıtları ve mail trafiği tek panelde birleştirilir; aralarındaki veri akışı otomatikleştirilir. Mevcut araçlarınız çalışmaya devam eder, üzerlerine entegrasyon kurulur.</div></div>
-    </div>
-    <div class="faq-item" id="faq-9">
-      <div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q9">B2B SaaS fikrimiz var, MVP geliştirebilir misiniz?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-      <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a9">Evet. Fikri çalışan bir ürüne çevirmek için çok kiracılı (multi-tenant) mimari, kullanıcı yönetimi ve ödeme altyapısı dahil MVP geliştiriyoruz. Kendi ürünümüz KILMAN İşletme Yönetim Sistemi bu mimariyle kuruldu.</div></div>
-    </div>
-    <div class="faq-item" id="faq-10">
-      <div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q10">Dijital varlığımız dağınık ve eski, baştan toparlayacak bir partner arıyoruz.</span><div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-      <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a10">Web sitesi, panel, mobil erişim ve arama görünürlüğünü tek strateji altında birleştiriyoruz. Önce mevcut yapı incelenir, sonra hangi parçanın yenileneceği ve hangisinin entegre edileceği net bir yol haritasıyla sunulur.</div></div>
-    </div>
-    <div class="faq-item" id="faq-11">
-      <div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq_q11">Mevcut sistemlerimize yapay zeka entegrasyonu yapan güvenilir bir firma arıyoruz.</span><div class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-      <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq_a11">Mevcut yazılımlarınızı değiştirmeden üzerlerine yapay zeka katmanı ekliyoruz: otomatik yanıtlama, belge okuma, veri sınıflandırma ve tahminleme. Entegrasyon öncesi hangi süreçlerin uygun olduğunu ücretsiz değerlendiriyoruz.</div></div>
-    </div>
-  </div>
-</section>
-</div>
-
-<!-- ════════════════════════════════════════
-     PAGE: CONTACT
-════════════════════════════════════════ -->
-<div id="page-contact" class="page">
-<div class="page-hero">
-  <div class="section-label" data-i18n="con_label">İletişim</div>
-  <h1 data-i18n="con_h1">Bize Ulaşın</h1>
-  <p style="color:var(--text-muted);max-width:540px;margin:10px auto 0;" data-i18n="con_top">En hızlı yanıt için WhatsApp tercih ediniz.</p>
-</div>
-<section class="section">
-  <div class="contact-grid">
-    <div>
-      <div class="section-label" style="margin-bottom:20px;" data-i18n="con_form_title">Bize Yazın</div>
-      <form id="contactForm" class="contact-form" novalidate>
-        <div class="form-row">
-          <div class="form-group"><label data-i18n="lbl_name">Ad Soyad *</label><input type="text" name="name" required data-i18n-ph="lbl_name"/></div>
-          <div class="form-group"><label data-i18n="lbl_email">E-posta *</label><input type="email" name="email" required data-i18n-ph="lbl_email"/></div>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label data-i18n="lbl_phone">Telefon</label><input type="tel" name="phone" data-i18n-ph="lbl_phone"/></div>
-          <div class="form-group"><label data-i18n="lbl_company">Şirket</label><input type="text" name="company" data-i18n-ph="lbl_company"/></div>
-        </div>
-        <div class="form-group"><label data-i18n="lbl_message">Mesajınız *</label><textarea name="message" required data-i18n-ph="lbl_message"></textarea></div>
-        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;"><span data-i18n="btn_send">Gönder</span></button>
-        <p id="formSuccess" style="display:none;color:#00C875;font-size:0.88rem;text-align:center;margin-top:8px;" data-i18n="msg_success">Mesajınız iletildi.</p>
-      </form>
-    </div>
-    <div class="contact-info">
-      <div class="section-label" style="margin-bottom:20px;" data-i18n="con_alt_title">Diğer İletişim Yolları</div>
-      <div class="contact-item"><div class="contact-item-icon">📞</div><div class="contact-item-text"><strong>Telefon / WhatsApp</strong><span><a href="tel:+905321732767" style="color:var(--neon);">+90 532 173 27 67</a></span><br><span><a href="tel:+905421732767" style="color:var(--neon);">+90 542 173 27 67</a></span></div></div>
-      <div class="contact-item"><div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--neon)"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div><div class="contact-item-text"><strong>Telegram</strong><span><a href="https://t.me/kilmanbilisim" target="_blank" rel="noopener" style="color:var(--neon);">@kilmanbilisim</a></span></div></div>
-      <div class="contact-item"><div class="contact-item-icon">📧</div><div class="contact-item-text"><strong>E-posta</strong><span><a href="mailto:info@kilmanbilisim.com" style="color:var(--neon);">info@kilmanbilisim.com</a></span></div></div>
-      <div class="contact-item"><div class="contact-item-icon">🌐</div><div class="contact-item-text"><strong>Web</strong><span><a href="https://kilmanbilisim.com" style="color:var(--neon);">kilmanbilisim.com</a></span></div></div>
-      <div class="contact-item"><div class="contact-item-icon">📍</div><div class="contact-item-text"><strong data-i18n="con_address_label">Adres</strong><span data-i18n="con_address">Maltepe, İstanbul — Hizmet bölgesi: Türkiye geneli / Online</span></div></div>
-      <div class="contact-wa-box"><p data-i18n="con_wa_note">En hızlı yanıt için:</p>
-        <a href="#" class="btn-whatsapp wa-link" target="_blank">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          <span data-i18n="btn_wa">WhatsApp'tan Yaz</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-</div>
-
-<!-- ════════════════════════════════════════
-     PAGE: DIGITAL CARD
-════════════════════════════════════════ -->
-<div id="page-card" class="page">
-<div class="card-page">
-  <div class="biz-card">
-    <img src="/logo-300.png" alt="Kılman Bilişim" class="biz-logo" width="300" height="300"/>
-    <div class="biz-name">Kaan KILMAN</div>
-    <div class="biz-title-tr" data-i18n="person_title_tr">Yapay Zeka Uzmanı ve Girişimci</div>
-    <div class="biz-title-en">AI Specialist &amp; Entrepreneur</div>
-    <div class="biz-company">Kılman Bilişim Sistemleri Ltd. Şti.</div>
-    <div class="biz-divider"></div>
-    <div class="biz-btns">
-      <a href="tel:+905321732767" class="biz-btn call"><div class="biz-btn-icon">📞</div><span data-i18n="card_call">Ara / Call</span><span style="margin-left:auto;font-size:0.8rem;color:var(--text-muted);">+90 532 173 27 67</span></a>
-      <a href="tel:+905421732767" class="biz-btn call"><div class="biz-btn-icon">📞</div><span data-i18n="card_call">Ara / Call</span><span style="margin-left:auto;font-size:0.8rem;color:var(--text-muted);">+90 542 173 27 67</span></a>
-      <a href="#" class="biz-btn wa wa-link" target="_blank"><div class="biz-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><span>WhatsApp</span></a>
-      <a href="https://t.me/kilmanbilisim" target="_blank" rel="noopener" class="biz-btn" style="background:rgba(0,136,204,0.1);"><div class="biz-btn-icon" style="background:rgba(0,136,204,0.15);"><svg width="20" height="20" viewBox="0 0 24 24" fill="#0088cc"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div><span>Telegram</span></a>
-      <a href="mailto:info@kilmanbilisim.com" class="biz-btn mail"><div class="biz-btn-icon">📧</div><span data-i18n="card_email">E-posta / Email</span></a>
-      <a href="https://kilmanbilisim.com" target="_blank" class="biz-btn website"><div class="biz-btn-icon">🌐</div><span data-i18n="card_website">Web Sitesi / Website</span></a>
-      <a href="#" class="biz-btn" onclick="downloadVCard();return false;"><div class="biz-btn-icon" style="background:rgba(180,0,255,0.1);">💾</div><span data-i18n="card_vcard">vCard İndir / Download</span></a>
-    </div>
-    <div class="biz-qr"><p data-i18n="card_qr">QR ile paylaş / Share via QR</p><div id="qrcode"></div></div>
-    <div class="biz-lang-note">kilmanbilisim.com</div>
-  </div>
-</div>
-</div>
-
-<!-- FOOTER (shown on all pages except card) -->
-
-<div id="page-panel-urun" class="page">
-<div class="page-hero">
-  <div class="section-label" data-i18n="pnl_label">Ürün</div>
-  <h1 data-i18n="pnl_h1">İşletme Yönetim Sistemi</h1>
-  <p style="color:var(--text-muted);margin-top:8px;" data-i18n="pnl_sub">İşletmenizi tek panelden yönetin. Bulut tabanlı, güvenli, her cihazdan erişilebilir.</p>
-</div>
-
-<section class="section">
-  <!-- Açıklama -->
-  <div style="max-width:800px;margin:0 auto 40px;">
-    <h2 class="reveal" style="font-size:1.5rem;margin-bottom:16px;" data-i18n="pnl_what_title">İşletme Yönetim Sistemi Nedir?</h2>
-    <p class="reveal" style="color:var(--text-muted);line-height:1.8;font-size:0.95rem;" data-i18n="pnl_what_desc">İşletmenizin gelir, gider, müşteri ve ürün verilerini tek panelden yönetmenizi sağlayan bulut tabanlı yönetim sistemi. Her cihazdan erişilebilir, verileriniz size özel ve güvende.</p>
-  </div>
-
-  <!-- Özellikler -->
-  <div style="max-width:800px;margin:0 auto 40px;">
-    <h2 class="reveal" style="font-size:1.5rem;margin-bottom:24px;" data-i18n="pnl_feat_title">Neler Sunar?</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
-      <div class="reveal" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">📊</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="pnl_ft1">Gerçek Zamanlı Kâr-Zarar</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="pnl_ft1_desc">Gelir, gider ve net kâr anında otomatik hesaplanır</div>
-      </div>
-      <div class="reveal reveal-delay-1" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">&#x1F4B8;</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="pnl_ft2">Gelir &amp; Gider Yönetimi</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="pnl_ft2_desc">Kategorili takip, ekle-düzenle-sil, esnek kategoriler</div>
-      </div>
-      <div class="reveal reveal-delay-2" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">&#x1F4B1;</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="pnl_ft3">Döviz &amp; Çoklu Para Birimi</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="pnl_ft3_desc">USD, EUR, TL — güncel kur otomatik, kayıtta dondurulur</div>
-      </div>
-      <div class="reveal" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">&#x1F504;</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="pnl_ft4">Otomatik Tekrarlı Kayıtlar</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="pnl_ft4_desc">Kira, maaş, abonelik, vergi otomatik işlenir</div>
-      </div>
-      <div class="reveal reveal-delay-1" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">&#x1F4C8;</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="pnl_ft5">Görsel Grafik &amp; Analiz</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="pnl_ft5_desc">Gider dağılımı, dönem filtresi, harcama özeti</div>
-      </div>
-      <div class="reveal reveal-delay-2" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">&#x1F465;</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="pnl_ft6">Müşteri &amp; Ürün Yönetimi</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="pnl_ft6_desc">Ekleme, düzenleme, silme — tek panelden</div>
-      </div>
-      <div class="reveal" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">&#x1F4B0;</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="pnl_ft7">Gelir Ayrımı</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="pnl_ft7_desc">Tek seferlik ve düzenli gelirler ayrı takip</div>
-      </div>
-      <div class="reveal reveal-delay-1" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">&#x1F512;</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="pnl_ft8">Güvenli Çok Kiracılı Yapı</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="pnl_ft8_desc">Her işletme yalnızca kendi verisini görür</div>
-      </div>
-      <div class="reveal reveal-delay-2" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">&#x1F4F1;</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="pnl_ft9">Her Cihazdan Erişim</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="pnl_ft9_desc">Masaüstü, tablet, telefon — bulut tabanlı</div>
-      </div>
-    </div>
-  </div>
-
-    <!-- Kimler İçin Uygun? -->
-  <div style="max-width:800px;margin:0 auto 40px;">
-    <h2 class="reveal" style="font-size:1.5rem;margin-bottom:24px;" data-i18n="pnl_who_title">Kimler İçin Uygun?</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
-      <div class="reveal" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-weight:600;font-size:0.95rem;" data-i18n="pnl_who1">Küçük İşletmeler &amp; Esnaflar</div>
-      </div>
-      <div class="reveal reveal-delay-1" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-weight:600;font-size:0.95rem;" data-i18n="pnl_who2">Emlak Ofisleri &amp; Danışmanlar</div>
-      </div>
-      <div class="reveal reveal-delay-2" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-weight:600;font-size:0.95rem;" data-i18n="pnl_who3">Hizmet Sektörü İşletmeleri</div>
-      </div>
-      <div class="reveal" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-weight:600;font-size:0.95rem;" data-i18n="pnl_who4">Serbest Çalışanlar &amp; Freelancer'lar</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Erişim Modeli -->
-  <div style="max-width:800px;margin:0 auto 40px;">
-    <h2 class="reveal" style="font-size:1.5rem;margin-bottom:16px;" data-i18n="pnl_access_title">Nasıl Erişilir?</h2>
-    <div class="reveal" style="padding:24px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);line-height:1.8;">
-      <p style="color:var(--text-muted);font-size:0.95rem;" data-i18n="pnl_access_desc">Erişim, hizmet anlaşmanız kapsamında size özel açılır. Kurulum ve aylık destek dahildir. Hesabınız açıldıktan sonra e-posta adresiniz ve şifrenizle giriş yaparsınız. Kendi kendine üyelik yoktur — her hesap işletmenize özel olarak oluşturulur.</p>
-    </div>
-  </div>
-
-  
-  <!-- Nasıl Başlarım? -->
-  <div style="max-width:800px;margin:0 auto 40px;">
-    <h2 class="reveal" style="font-size:1.5rem;margin-bottom:24px;" data-i18n="pnl_start_title">Nasıl Başlarım?</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
-      <div class="reveal" style="padding:24px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:8px;color:var(--neon);">1</div>
-        <div style="font-weight:700;font-size:1rem;margin-bottom:6px;" data-i18n="pnl_step1">Teklif Al</div>
-        <div style="font-size:0.85rem;color:var(--text-muted);" data-i18n="pnl_step1_desc">WhatsApp'tan ihtiyacınızı paylaşın, size özel teklif hazırlayalım.</div>
-      </div>
-      <div class="reveal reveal-delay-1" style="padding:24px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:8px;color:var(--neon);">2</div>
-        <div style="font-weight:700;font-size:1rem;margin-bottom:6px;" data-i18n="pnl_step2">Kurulum</div>
-        <div style="font-size:0.85rem;color:var(--text-muted);" data-i18n="pnl_step2_desc">İhtiyacınıza göre panel kurulur, verileriniz güvenle yapılandırılır.</div>
-      </div>
-      <div class="reveal reveal-delay-2" style="padding:24px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.15);text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:8px;color:var(--neon);">3</div>
-        <div style="font-weight:700;font-size:1rem;margin-bottom:6px;" data-i18n="pnl_step3">Giriş Yap</div>
-        <div style="font-size:0.85rem;color:var(--text-muted);" data-i18n="pnl_step3_desc">E-posta ve şifrenizle giriş yapın, paneli kullanmaya başlayın.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div style="text-align:center;margin:40px 0;">
-    <a href="#" class="cta-btn wa-link" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:16px 32px;font-size:1rem;border-radius:12px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;font-weight:700;text-decoration:none;transition:all 0.3s;" onmouseover="this.style.filter='brightness(1.1)';this.style.transform='translateY(-2px)';" onmouseout="this.style.filter='brightness(1)';this.style.transform='translateY(0)';">
-      <span data-i18n="pnl_wa_cta">WhatsApp'tan Teklif Al</span> →
-    </a>
-  </div>
-</section>
-</div>
-<!-- GEÇICI GIZLI: NFC kart tedarik beklemede (~1 ay). Geri açmak için style içinden display:none kaldır. -->
-<div id="page-kartvizit-urun" class="page" style="display:none !important;">
-<div class="page-hero">
-  <div class="section-label" data-i18n="kv_label">💳 Ürün</div>
-  <h1 data-i18n="kv_h1">Dijital Kartvizit & NFC</h1>
-  <p style="color:var(--text-muted);margin-top:8px;" data-i18n="kv_sub">Akıllı NFC kartvizit ile tanışın. Tek dokunuşla dijital dünyanızı paylaşın.</p>
-</div>
-
-<section class="section">
-  <!-- Ürün Açıklaması -->
-  <div style="max-width:800px;margin:0 auto 40px;">
-    <h2 class="reveal" style="font-size:1.5rem;margin-bottom:16px;" data-i18n="kv_what_title">NFC Dijital Kartvizit Nedir?</h2>
-    <p class="reveal" style="color:var(--text-muted);line-height:1.8;font-size:0.95rem;" data-i18n="kv_what_desc">NFC destekli akıllı dijital kartvizit, telefonunuzu karta dokundurduğunuzda kişinin dijital kartvizitini açar. Ad, unvan, telefon, WhatsApp, sosyal medya linkleri ve &ldquo;Rehbere Ekle&rdquo; butonu tek ekranda. QR kod desteği de mevcuttur. Bilgilerinizi istediğiniz zaman güncelleyebilirsiniz.</p>
-  </div>
-
-  <!-- Nasıl Çalışır -->
-  <div style="max-width:800px;margin:0 auto 40px;">
-    <h2 class="reveal" style="font-size:1.5rem;margin-bottom:24px;" data-i18n="kv_how_title">Nasıl Çalışır?</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
-      <div class="reveal" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.1);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">1️⃣</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="kv_step1">Sipariş Verin</div>
-      </div>
-      <div class="reveal reveal-delay-1" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.1);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">2️⃣</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="kv_step2">Kartınız Üretilir</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="kv_step2_desc">Siyah mat NFC kart + logo/isim baskısı</div>
-      </div>
-      <div class="reveal reveal-delay-2" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.1);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">3️⃣</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="kv_step3">Adresinize Kargolanır</div>
-      </div>
-      <div class="reveal" style="padding:20px;border-radius:12px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.1);text-align:center;">
-        <div style="font-size:2rem;margin-bottom:8px;">4️⃣</div>
-        <div style="font-weight:600;margin-bottom:4px;" data-i18n="kv_step4">Dokundurun & Paylaşın</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);" data-i18n="kv_step4_desc">Bilgilerinizi istediğiniz zaman güncelleyebilirsiniz</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Baskı Renkleri -->
-  <div style="max-width:800px;margin:0 auto 40px;">
-    <h2 class="reveal" style="font-size:1.5rem;margin-bottom:24px;" data-i18n="kv_color_title">Baskı Renk Seçenekleri</h2>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <div class="reveal" style="padding:20px 32px;border-radius:12px;background:rgba(0,0,0,0.3);border:1px solid rgba(212,168,83,0.3);text-align:center;">
-        <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#D4A853,#F5D78E,#C4943A);margin:0 auto 10px;border:2px solid rgba(255,255,255,0.1);"></div>
-        <div style="font-weight:600;color:#D4A853;" data-i18n="kv_color_gold">Gold</div>
-      </div>
-      <div class="reveal reveal-delay-1" style="padding:20px 32px;border-radius:12px;background:rgba(0,0,0,0.3);border:1px solid rgba(205,127,50,0.3);text-align:center;">
-        <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#CD7F32,#E8A862,#A0612B);margin:0 auto 10px;border:2px solid rgba(255,255,255,0.1);"></div>
-        <div style="font-weight:600;color:#CD7F32;" data-i18n="kv_color_bronze">Bronze</div>
-      </div>
-      <div class="reveal reveal-delay-2" style="padding:20px 32px;border-radius:12px;background:rgba(0,0,0,0.3);border:1px solid rgba(240,240,240,0.2);text-align:center;">
-        <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#F0F0F0,#FFFFFF,#D9D9D9);margin:0 auto 10px;border:2px solid rgba(255,255,255,0.1);"></div>
-        <div style="font-weight:600;color:#F0F0F0;" data-i18n="kv_color_white">White</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Fiyat Bloğu -->
-  <div class="reveal" style="max-width:500px;margin:0 auto 40px;padding:32px;border-radius:16px;background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(139,92,246,0.08));border:1px solid rgba(0,212,255,0.2);text-align:center;">
-    <div style="font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--neon);margin-bottom:12px;" data-i18n="kv_price_label">Fiyat</div>
-    <div style="font-size:3rem;font-weight:800;color:var(--neon);margin-bottom:8px;">750 ₺</div>
-    <div style="color:var(--text-muted);font-size:0.9rem;margin-bottom:4px;">✅ <span data-i18n="kv_shipping">Kargo Ücretsiz</span></div>
-    <div style="color:var(--text-muted);font-size:0.9rem;margin-bottom:24px;">📦 <span data-i18n="kv_delivery">Teslimat: 5 gün - 1 hafta</span></div>
-    <a href="/kartvizit-siparis.html" style="display:inline-block;padding:14px 40px;background:linear-gradient(135deg,var(--neon),var(--purple));color:#fff;font-weight:700;font-size:1rem;border-radius:12px;text-decoration:none;transition:filter 0.3s ease,transform 0.2s ease;" onmouseover="this.style.filter='brightness(1.15)';this.style.transform='translateY(-2px)';" onmouseout="this.style.filter='brightness(1)';this.style.transform='translateY(0)';">
-      <span data-i18n="kv_order_btn">Sipariş Ver</span> →
-    </a>
-  </div>
-
-  <!-- Not -->
-  <div style="max-width:600px;margin:0 auto;text-align:center;">
-    <p class="reveal" style="color:var(--text-muted);font-size:0.85rem;line-height:1.7;" data-i18n="kv_note">Ödeme havale/EFT ile yapılır. Sipariş sonrası IBAN bilgileri paylaşılır. Ödemeniz kontrol edildikten sonra kartınız üretilir ve adresinize kargolanır.</p>
-  </div>
-</section>
-</div>
-
 
 <footer class="footer" id="main-footer">
   <div class="footer-grid">
@@ -1376,13 +945,13 @@ body::after {
     <div class="footer-col">
       <h4 data-i18n="footer_nav">Navigasyon</h4>
       <ul>
-        <li><a href="#" onclick="showPage('home')" data-i18n="nav_home">Ana Sayfa</a></li>
+        <li><a href="#" data-i18n="nav_home">Ana Sayfa</a></li>
         <li><a href="/hakkimizda.html" data-i18n="nav_about">Hakkımızda</a></li>
         <li><a href="/hizmetler.html" data-i18n="nav_solutions">Hizmetler</a></li>
-        <li><a href="#" onclick="showPage('references')" data-i18n="nav_references">Referanslar</a></li>
-        <li><a href="#" onclick="showPage('faq')" data-i18n="nav_faq">SSS</a></li>
-    <li><a href="#" onclick="showPage('contact')" data-i18n="nav_contact">İletişim</a></li>
-        <li><a href="#" onclick="showPage('card')" data-i18n="footer_card">Kurumsal Kartvizitimiz</a></li>
+        <li><a href="/referanslar.html" data-i18n="nav_references">Referanslar</a></li>
+        <li><a href="/sss.html" data-i18n="nav_faq">SSS</a></li>
+    <li><a href="/iletisim.html" data-i18n="nav_contact">İletişim</a></li>
+        <li><a href="/kartvizit.html" data-i18n="footer_card">Kurumsal Kartvizitimiz</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1462,75 +1031,18 @@ const translations = {
     pricing_cta: 'WhatsApp\'tan Ücretsiz Teklif Al',
     curr_usd: '$ USD', curr_eur: '€ EUR', curr_tl: '₺ TL',
     // ABOUT PAGE
-    about_label: 'Hakkımızda', about_h1: 'Bizi Tanıyın',
-    about_p1: 'Kılman Bilişim Sistemleri, yapay zeka ve otomasyon teknolojilerini her ölçekteki işletmenin hizmetine sunmak amacıyla kurulmuştur. Gayrimenkulden e-ticarete, sağlıktan finansal hizmetlere kadar farklı sektörlerdeki firmalara akıllı sistemler geliştiriyoruz.',
-    about_p2: 'Tekrarlayan iş süreçlerini otomatikleştirerek ekiplerinizin enerjisini gerçekten değer yaratan işlere yönlendirmelerine yardımcı oluyoruz. Her projede şeffaflık, güvenilirlik ve kalıcı sonuç odaklı çalışıyoruz.',
-    about_v1_title: 'Vizyonumuz', about_v1_text: 'Yapay zekanın gücünü küçük işletmelerden büyük kuruluşlara taşımak.',
-    about_v2_title: 'Misyonumuz', about_v2_text: 'Müşterilerimizin iş süreçlerini otomatikleştirerek rekabet avantajı yaratmalarına yardımcı olmak.',
-    about_v3_title: 'Değerlerimiz', about_v3_text: 'Şeffaflık, güvenilirlik ve her projede kalıcı sonuç.',
     person_title_tr: 'Yapay Zeka Uzmanı ve Girişimci',
     person_bio: 'Kaan Kılman, yapay zeka destekli otomasyon sistemleri geliştirme konusundaki derin teknik birikimini iş dünyasının ihtiyaçlarıyla buluşturmak için Kılman Bilişim\'i kurdu. Yazılım geliştirme, süreç otomasyonu ve AI entegrasyonu alanlarındaki deneyimiyle her projeye özgün ve sürdürülebilir çözümler üretiyor.',
     // SOLUTIONS PAGE
-    sol_label: 'Çözümler', sol_h1: 'Hizmetlerimiz',
-    sol_sub: 'Her karta tıklayarak WhatsApp üzerinden ücretsiz teklif alabilirsiniz.',
-    sol_cta: 'WhatsApp\'tan Teklif Al',
-    sol1_title: 'Yapay Zeka Otomasyon Sistemleri',
-    sol1_desc: 'İş süreçlerinizi yapay zeka ile otomatikleştirin. Müşteri iletişiminden randevu yönetimine, fatura takibinden veri analizine kadar uçtan uca akıllı sistemler kuruyoruz. Tekrarlayan görevlerden kurtulun, ekibinizin enerjisini değer yaratan işlere yönlendirin.',
-    sol2_title: 'Web Uygulamaları',
-    sol2_desc: 'Markanıza özel, modern ve hızlı web uygulamaları geliştiriyoruz. Kurumsal sitelerden SaaS platformlarına, e-ticaret çözümlerinden özel panollara kadar her ölçekte proje üretiyoruz.',
-    sol3_title: 'Mobil Çözümler',
-    sol3_desc: 'PWA (Progressive Web App) ve mobil uyumlu web uygulamalarıyla her cihazda kusursuz deneyim. Hızlı, güvenilir ve kurulum gerektirmeyen mobil çözümler.',
-    sol6_title: 'AI Destekli Web Geliştirme',
-    sol6_desc: 'SEO optimizasyonlu, yapay zeka entegreli modern web siteleri. Canlı ziyaretçi takibi, çok dilli destek ve akıllı form yönetimi dahil.',
-    sol7_title: 'Dijital Kartvizit & NFC',
-    sol7_desc: 'NFC destekli akıllı dijital kartvizit çözümleri. QR kod, vCard indirme ve tek dokunuşla iletişim bilgisi paylaşımı.',
-    sol4_title: 'Danışmanlık',
-    sol4_desc: 'Mevcut süreçlerinizi analiz eder, otomasyon fırsatlarını belirler ve size özel bir yol haritası hazırlarız. Tek seferlik danışmanlıktan uzun vadeli iş ortaklığına her model mevcuttur.',
-    sol5_title: 'Eğitimler',
-    sol5_desc: 'Yapay zeka araçlarını ve otomasyon platformlarını ekibinize öğretecek kurumsal eğitimler yakında hizmetinizde. Takip etmek için bize ulaşın.',
-    sol5_badge: 'Yakında', sol5_cta: 'Bilgi Al',
-    sol8_title: 'İşletme Yönetim Sistemi', sol8_desc: 'Gelir, gider, kâr-zarar, müşteri ve ürünlerinizi tek sistemden yönetin. Döviz destekli, otomatik tekrarlı kayıtlar, bulut tabanlı.', sol8_f1: '✔ Çok kiracılı güvenli yapı (her işletme kendi verisini görür)', sol8_f2: '✔ Gerçek zamanlı finans takibi (net kâr otomatik)', sol8_f3: '✔ Müşteri ve ürün yönetimi', sol8_f4: '✔ Her cihazdan erişim',
-    pnl_label: 'Ürün', pnl_h1: 'İşletme Yönetim Sistemi', pnl_sub: 'İşletmenizi tek sistemden yönetin. Kâr-zarar, döviz, otomatik tekrar, bulut tabanlı, her cihazdan erişilebilir.',
-    pnl_what_title: 'İşletme Yönetim Sistemi Nedir?', pnl_what_desc: 'İşletmenizin gelir, gider, kâr-zarar, müşteri ve ürün verilerini tek sistemden yönetmenizi sağlayan bulut tabanlı bir çözüm. Döviz destekli, otomatik tekrarlı kayıtlar ve görsel analizlerle her cihazdan erişilebilir; verileriniz size özel ve güvende.',
-    pnl_feat_title: 'Neler Sunar?', pnl_ft1: 'Gerçek Zamanlı Kâr-Zarar', pnl_ft1_desc: 'Gelir, gider ve net kâr anında otomatik hesaplanır', pnl_ft2: 'Gelir & Gider Yönetimi', pnl_ft2_desc: 'Kategorili takip, ekle-düzenle-sil, esnek kategoriler', pnl_ft3: 'Döviz & Çoklu Para Birimi', pnl_ft3_desc: 'USD, EUR, TL, güncel kur otomatik, kayıtta dondurulur', pnl_ft4: 'Otomatik Tekrarlı Kayıtlar', pnl_ft4_desc: 'Kira, maaş, abonelik, vergi otomatik işlenir', pnl_ft5: 'Görsel Grafik & Analiz', pnl_ft5_desc: 'Gider dağılımı, dönem filtresi, harcama özeti', pnl_ft6: 'Müşteri & Ürün Yönetimi', pnl_ft6_desc: 'Ekleme, düzenleme, silme, tek panelden', pnl_ft7: 'Gelir Ayrımı', pnl_ft7_desc: 'Tek seferlik ve düzenli gelirler ayrı takip', pnl_ft8: 'Güvenli Çok Kiracılı Yapı', pnl_ft8_desc: 'Her işletme yalnızca kendi verisini görür', pnl_ft9: 'Her Cihazdan Erişim', pnl_ft9_desc: 'Masaüstü, tablet, telefon, bulut tabanlı',
-    pnl_access_title: 'Nasıl Erişilir?', pnl_access_desc: 'Erişim, hizmet anlaşmanız kapsamında size özel açılır. Kurulum ve aylık destek dahildir. Hesabınız açıldıktan sonra e-posta adresiniz ve şifrenizle giriş yaparsınız. Kendi kendine üyelik yoktur, her hesap işletmenize özel olarak oluşturulur.',
-    pnl_wa_cta: 'WhatsApp\'tan Teklif Al', footer_panel: 'Panele Giriş', prod_isletme: 'İşletme Yönetim Sistemi',
-      pnl_who_title: 'Kimler İçin Uygun?',
-      pnl_who1: 'Küçük İşletmeler & Esnaflar',
-      pnl_who2: 'Emlak Ofisleri & Danışmanlar',
-      pnl_who3: 'Hizmet Sektörü İşletmeleri',
-      pnl_who4: 'Serbest Çalışanlar & Freelancer\'lar',
-      pnl_start_title: 'Nasıl Başlarım?',
-      pnl_step1: 'Teklif Al',
-      pnl_step1_desc: 'WhatsApp\'tan ihtiyacınızı paylaşın, size özel teklif hazırlayalım.',
-      pnl_step2: 'Kurulum',
-      pnl_step2_desc: 'İhtiyacınıza göre panel kurulur, verileriniz güvenle yapılandırılır.',
-      pnl_step3: 'Giriş Yap',
-      pnl_step3_desc: 'E-posta ve şifrenizle giriş yapın, paneli kullanmaya başlayın.',
-    sol8_cta: 'Ürünü İncele',
     // REFERENCES PAGE
-    ref_label: 'Referanslar', ref_h1: 'Referanslar',
-    ref_done_label: 'Tamamlanan Projeler',
-    ref_done1_title: 'Kurumsal Web Sitesi', ref_done1_desc: 'kilmanbilisim.com — SEO optimizasyonlu, çok dilli, yapay zeka entegreli kurumsal web sitesi.',
-    ref_done2_title: 'NFC Dijital Kartvizit', ref_done2_desc: 'QR kodlu, NFC destekli akıllı dijital kartvizit sistemi. Tek dokunuşla iletişim bilgisi paylaşımı.',
-      ref_done3_title: 'İşletme Yönetim Sistemi (SaaS)',
-      ref_done3_desc: 'panel.kilmanbilisim.com — Çok kiracılı, güvenli veri izolasyonlu bulut tabanlı işletme yönetim sistemi.',
     status_done: 'Tamamlandı',
-    ref_ongoing: 'Devam Eden Projeler',
     ref1_title: 'Emlak Otomasyon Sistemi', ref1_desc: 'Gayrimenkul sektörüne yönelik AI destekli müşteri yönetimi, otomatik randevu ve takip sistemi.',
     ref2_title: 'Akıllı Müşteri Asistanı', ref2_desc: 'Çok kanallı (Telegram, WhatsApp, Web) AI müşteri temsilcisi entegrasyonu.',
     ref3_title: 'Kurumsal Web Portalı', ref3_desc: 'Finans sektörü için özel geliştirilmiş, AI destekli kurumsal veri yönetim portalı.',
     status_dev: '🔄 Geliştirme Aşamasında', status_pilot: '🔄 Pilot Aşamasında', status_plan: '🔄 Planlama Aşamasında',
     // CONTACT PAGE
-    con_label: 'İletişim', con_h1: 'Bize Ulaşın',
-    con_top: 'Projeniz için teklif almak, iş birliği kurmak veya soru sormak için bize ulaşın. En hızlı yanıt için WhatsApp tercih ediniz.',
-    con_form_title: 'Bize Yazın',
     lbl_name: 'Ad Soyad *', lbl_email: 'E-posta *', lbl_phone: 'Telefon', lbl_company: 'Şirket / Kurum', lbl_message: 'Mesajınız *',
     btn_send: 'Gönder', msg_success: 'Mesajınız iletildi. En kısa sürede dönüş yapacağız.',
-    con_alt_title: 'Diğer İletişim Yolları',
-    con_wa_note: 'En hızlı yanıt için:',
-      con_address_label: 'Adres',
-      con_address: 'Maltepe, İstanbul — Hizmet bölgesi: Türkiye geneli / Online',
     btn_wa: 'WhatsApp\'tan Yaz',
     // FOOTER
     footer_desc: 'Yapay zeka destekli otomasyon sistemleri ile iş süreçlerinizi geleceğe taşıyoruz.',
@@ -1547,38 +1059,8 @@ const translations = {
     emlak_pro_badge: 'Önerilen', emlak_pro_label: 'Pro Paket', emlak_pro_title: 'Emlak Pro',
     emlak_p1: 'AI müşteri asistanı (çok kanallı)', emlak_p2: 'Otomatik randevu + takip sistemi', emlak_p3: 'IBAN & dekont yönetimi', emlak_p4: 'Fatura & kontrat otomasyonu', emlak_p5: 'Günlük performans raporu + analitik', emlak_p6: 'Öncelikli 7/24 destek', emlak_p7: 'Özel dashboard',
     emlak_cta: 'Teklif Al',
-    card_call: 'Ara', card_email: 'E-posta', card_website: 'Web Sitesi', card_vcard: 'vCard İndir', card_qr: 'QR ile paylaş',
     nav_faq: 'SSS',
-    faq_label: '❓ SSS', faq_title: 'Sık Sorulan Sorular', faq_sub: 'İşletmeniz için yapay zeka otomasyonu hakkında merak edilenler.',
-    faq_q1: 'Yapay zeka otomasyonu nedir ve işletmeme nasıl fayda sağlar?', faq_a1: 'Yapay zeka otomasyonu, tekrarlayan iş süreçlerini AI destekli yazılımlarla otomatikleştirmektir. Müşteri iletişimi, randevu planlama, veri girişi gibi görevleri 7/24 hatasız yürütür. İşletmenize zaman ve maliyet tasarrufu sağlarken müşteri memnuniyetini artırır.',
-    faq_q2: 'Kılman Bilişim hangi hizmetleri sunuyor?', faq_a2: 'AI otomasyon sistemleri, WhatsApp ve Telegram chatbot geliştirme, web sitesi ve uygulama geliştirme, emlak sektörüne özel otomasyon çözümleri ve dijital kartvizit hizmetleri sunuyoruz. Her çözüm işletmenize özel olarak tasarlanır.',
-    faq_q3: 'Otomasyon kurulumu ne kadar sürer?', faq_a3: 'Projenin kapsamına göre değişmekle birlikte, temel otomasyon çözümleri 1-2 hafta içinde kurulur. Daha kapsamlı sistemler 3-4 hafta sürebilir. Kurulum sürecinde sizi her adımda bilgilendiriyoruz.',
-    faq_q4: 'Fiyatlandırma nasıl çalışıyor?', faq_a4: 'Her proje işletmenizin ihtiyaçlarına göre özel fiyatlandırılır. Sabit paket fiyatları yerine, ihtiyacınıza tam oturan çözümler sunuyoruz. Ücretsiz ön görüşme için bizimle iletişime geçin.',
-    faq_q5: 'Teknik bilgim yok, sistemi kullanabilir miyim?', faq_a5: 'Evet, tüm sistemlerimiz teknik bilgi gerektirmeyecek şekilde kullanıcı dostu tasarlanır. Kurulum sonrası eğitim veriyor ve sürekli teknik destek sağlıyoruz.',
-    faq_q6: 'Hangi bölgelere hizmet veriyorsunuz?', faq_a6: 'İstanbul merkezli olarak Türkiye genelinde uzaktan hizmet veriyoruz. Tüm otomasyon çözümlerimiz bulut tabanlı olduğu için lokasyon fark etmeksizin her yerden erişilebilir.',
-    kv_label: '💳 Ürün', kv_h1: 'Dijital Kartvizit & NFC', kv_sub: 'Akıllı NFC kartvizit ile tanışın. Tek dokunuşla dijital dünyanızı paylaşın.',
-    kv_what_title: 'NFC Dijital Kartvizit Nedir?', kv_what_desc: 'NFC destekli akıllı dijital kartvizit, telefonunuzu karta dokundurduğunuzda kişinin dijital kartvizitini açar. Ad, unvan, telefon, WhatsApp, sosyal medya linkleri ve “Rehbere Ekle” butonu tek ekranda. QR kod desteği de mevcuttur. Bilgilerinizi istediğiniz zaman güncelleyebilirsiniz.',
-    kv_how_title: 'Nasıl Çalışır?', kv_step1: 'Sipariş Verin', kv_step2: 'Kartınız Üretilir', kv_step2_desc: 'Siyah mat NFC kart + logo/isim baskısı', kv_step3: 'Adresinize Kargolanır', kv_step4: 'Dokundurun & Paylaşın', kv_step4_desc: 'Bilgilerinizi istediğiniz zaman güncelleyebilirsiniz',
-    kv_color_title: 'Baskı Renk Seçenekleri', kv_color_gold: 'Gold', kv_color_bronze: 'Bronze', kv_color_white: 'White',
-    kv_price_label: 'Fiyat', kv_shipping: 'Kargo Ücretsiz', kv_delivery: 'Teslimat: 5 gün - 1 hafta', kv_order_btn: 'Sipariş Ver',
-    kv_note: 'Ödeme havale/EFT ile yapılır. Sipariş sonrası IBAN bilgileri paylaşılır. Ödemeniz kontrol edildikten sonra kartınız üretilir ve adresinize kargolanır.',
-    sol7_cta: 'Ürünü İncele', sol7_product_desc: 'Siyah mat NFC kart + logo/isim baskısı. Telefonunuzu dokundurun, dijital kartvizitiniz açılsın. Kargo ücretsiz.', sol7_order_btn: 'Sipariş Ver',
     // FAQ 7-11 (AEO problem-bicimli)
-    faq_q7: 'İş süreçlerimize özel CRM veya ERP sistemi geliştiren firma arıyorum, yapıyor musunuz?',
-    faq_a7: 'Evet. Hazır paket yerine işleyişinize göre tasarlanmış CRM, ERP ve yönetim sistemleri geliştiriyoruz. Mevcut tablolarınızı, formlarınızı ve süreçlerinizi inceleyip tek bir sistemde birleştiriyoruz. Kurulum sonrası aylık destek ve güncelleme dahildir.',
-    faq_q8: 'Tedarikçi ve sistem yapımız dağınık, hepsini tek platformda toplayabilir misiniz?',
-    faq_a8: 'Bunu düzenli olarak yapıyoruz. Farklı yerlerde duran tedarikçi listeleri, sipariş takipleri, stok kayıtları ve mail trafiği tek panelde birleştirilir; aralarındaki veri akışı otomatikleştirilir. Mevcut araçlarınız çalışmaya devam eder, üzerlerine entegrasyon kurulur.',
-    faq_q9: 'B2B SaaS fikrimiz var, MVP geliştirebilir misiniz?',
-    faq_a9: 'Evet. Fikri çalışan bir ürüne çevirmek için çok kiracılı (multi-tenant) mimari, kullanıcı yönetimi ve ödeme altyapısı dahil MVP geliştiriyoruz. Kendi ürünümüz KILMAN İşletme Yönetim Sistemi bu mimariyle kuruldu.',
-    faq_q10: 'Dijital varlığımız dağınık ve eski, baştan toparlayacak bir partner arıyoruz.',
-    faq_a10: 'Web sitesi, panel, mobil erişim ve arama görünürlüğünü tek strateji altında birleştiriyoruz. Önce mevcut yapı incelenir, sonra hangi parçanın yenileneceği ve hangisinin entegre edileceği net bir yol haritasıyla sunulur.',
-    faq_q11: 'Mevcut sistemlerimize yapay zeka entegrasyonu yapan güvenilir bir firma arıyoruz.',
-    faq_a11: 'Mevcut yazılımlarınızı değiştirmeden üzerlerine yapay zeka katmanı ekliyoruz: otomatik yanıtlama, belge okuma, veri sınıflandırma ve tahminleme. Entegrasyon öncesi hangi süreçlerin uygun olduğunu ücretsiz değerlendiriyoruz.',
-    // SOL 9-12 (AEO yeni hizmet kartlari)
-    sol9_title: 'Özel Yazılım Geliştirme', sol9_desc: 'İş süreçlerinize özel CRM, ERP ve yönetim sistemleri geliştiriyoruz. Dağınık sistemleri tek platformda birleştiriyoruz.',
-    sol10_title: 'Yapay Zeka Geliştirme', sol10_desc: 'İşletmenize özel yapay zeka çözümleri: akıllı asistanlar, tahminleme modelleri, doküman işleme.',
-    sol11_title: 'Yapay Zeka Danışmanlığı', sol11_desc: 'Hangi süreçlerin otomasyona uygun olduğunu belirliyor, yol haritası çıkarıyoruz.',
-    sol12_title: 'Üretken Yapay Zeka Çözümleri', sol12_desc: 'Metin, görsel ve içerik üretimi için üretken yapay zeka entegrasyonları.',
   }
 };
 
@@ -1881,45 +1363,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // /kartvizit yolu ile gelindiyse dijital kartvizit sayfasini ac
-  if (window.location.pathname.replace(/\/$/, '') === '/kartvizit') {
-    showPage('card');
-  } else {
-    showPage('home');
-  }
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => { switchLang(btn.dataset.lang); updateWaLinks(); });
   });
 });
 
-
-// ── SPA ROUTING ──────────────────────────
-function showPage(name) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const page = document.getElementById('page-' + name);
-  if (page) {
-    page.classList.add('active');
-    window.scrollTo(0,0);
-    // Re-trigger reveal animations
-    setTimeout(() => {
-      document.querySelectorAll('#page-' + name + ' .reveal').forEach(el => {
-        el.classList.remove('visible');
-        setTimeout(() => el.classList.add('visible'), 50);
-      });
-    }, 50);
-  }
-  // Update active nav link
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    const onc = a.getAttribute('onclick') || '';
-    a.classList.toggle('active', onc.includes("'" + name + "'") || onc.includes('"' + name + '"'));
-  });
-  // Footer visibility
-  const footer = document.getElementById('main-footer');
-  if (footer) footer.style.display = name === 'card' ? 'none' : 'block';
-  // Close mobile menu fully
-  closeMenu();
-}
 
 // QR Code
 document.addEventListener('DOMContentLoaded', function() {

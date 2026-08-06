@@ -31,15 +31,8 @@
 <meta name="twitter:image" content="https://kilmanbilisim.com/og-image.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
-
-
-
-
-
-
-
 
 html{scroll-behavior:smooth;font-size:18px;}
 :root{--bg-main:#0D1117;--bg-card:#161B22;--neon:#00D4FF;--text-main:#E6EDF3;--text-muted:#A3B5C9;--accent-purple:#8B5CF6;--border:rgba(255,255,255,0.06);}
@@ -48,24 +41,7 @@ body{font-family:'Inter',sans-serif;background:url("data:image/svg+xml,%3Csvg xm
 a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}
 a:hover{opacity:0.8;}
 
-.blog-nav{background:rgba(13,17,23,0.95);border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(20px);}
-.blog-nav-inner{max-width:1700px;gap:14px;margin:0 auto;padding:0 3%;height:70px;display:flex;align-items:center;justify-content:space-between;}
-.blog-nav-left{display:flex;align-items:center;gap:16px;}
-.blog-nav-logo{white-space:nowrap;font-weight:700;font-size:1.1rem;color:var(--neon);}
-.blog-nav-links{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;}
-.blog-nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted);padding:6px 10px;white-space:nowrap;border-radius:6px;transition:all 0.2s;}
-.blog-nav-links a:hover{color:var(--neon);background:rgba(0,212,255,0.08);opacity:1;}.blog-nav-links a.active{background:var(--neon);color:var(--bg-main);opacity:1;}
-.blog-nav-right{display:flex;align-items:center;gap:8px;}
-.blog-lang{display:flex;gap:3px;flex-wrap:nowrap;}
-.blog-lang button{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:4px 10px;border-radius:6px;cursor:pointer;font-size:0.75rem;font-weight:600;font-family:'Inter',sans-serif;transition:all 0.2s;}
-.blog-lang button:hover{border-color:var(--neon);color:var(--neon);}
-.blog-lang button.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
-.blog-hamburger{display:none;width:36px;height:36px;cursor:pointer;padding:6px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.15);border-radius:8px;align-items:center;justify-content:center;flex-direction:column;gap:4px;transition:all 0.3s;}
-.blog-hamburger:hover{background:rgba(0,212,255,0.12);border-color:rgba(0,212,255,0.3);box-shadow:0 0 12px rgba(0,212,255,0.15);}
-.blog-hamburger span{display:block;width:18px;height:2px;background:var(--neon);border-radius:2px;transition:all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55);}
-.blog-hamburger.active{background:rgba(0,212,255,0.12);border-color:var(--neon);box-shadow:0 0 16px rgba(0,212,255,0.2);}
-
-.blog-hero{text-align:center;padding:110px 24px 40px;max-width:900px;margin:0 auto;}
+.blog-hero{text-align:center;padding:140px 24px 40px;max-width:900px;margin:0 auto;}
 .blog-hero h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;letter-spacing:.04em;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,var(--neon),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .blog-hero p{color:var(--text);font-size:clamp(1.3rem,2.6vw,2rem);font-weight:600;line-height:1.45;max-width:760px;margin:0 auto;}
 
@@ -83,38 +59,12 @@ a:hover{opacity:0.8;}
 
 .blog-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.95rem;}
 
-@media(max-width:1500px){
-  .blog-nav-links,.blog-lang{display:none;}
-  .blog-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center;}
-  .blog-nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(13,17,23,0.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px;}
-  .blog-hamburger{display:flex;z-index:1001;position:relative;}
+
+  
   
   .blog-card{padding:24px;}
 }
 
-.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:3px 6px;border-radius:6px;font-size:.7rem;letter-spacing:0;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
-.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
-.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
-
-.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:3px 6px;border-radius:6px;font-size:.7rem;letter-spacing:0;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
-.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
-.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
-
-.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:3px 6px;border-radius:6px;font-size:.7rem;letter-spacing:0;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
-.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
-.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
-
-.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:3px 6px;border-radius:6px;font-size:.7rem;letter-spacing:0;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
-.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
-.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
-
-.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:3px 6px;border-radius:6px;font-size:.7rem;letter-spacing:0;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
-.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
-.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
-
-.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:3px 6px;border-radius:6px;font-size:.7rem;letter-spacing:0;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
-.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
-.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
 /* == VIEWPORT DIS KENAR GLOW == */
 body::after {
   content: ""; position: fixed; inset: 0;
@@ -128,13 +78,6 @@ body::after {
   50% { opacity: 1 }
 }
 
-.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:3px 6px;border-radius:6px;font-size:.7rem;letter-spacing:0;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
-.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
-.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
-
-.blog-lang a.lang-btn{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:3px 6px;border-radius:6px;font-size:.7rem;letter-spacing:0;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:all 0.2s;}
-.blog-lang a.lang-btn:hover{border-color:var(--neon);color:var(--neon);opacity:1;}
-.blog-lang a.lang-btn.active{background:var(--neon);color:var(--bg-main);border-color:var(--neon);}
 /* --- FULL FOOTER --- */
 .footer{background:var(--surface,#0D1117);border-top:1px solid var(--border);padding:48px 5% 28px;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 40px;}
@@ -190,26 +133,48 @@ body::after {
 </head>
 <body>
 
-<nav class="blog-nav">
-  <div class="blog-nav-inner">
-    <div class="blog-nav-left">
-      <a href="/" class="blog-nav-logo">Kılman Bilişim</a>
+<nav class="navbar" id="navbar">
+  <div class="nav-top">
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-text">KILMAN<span>B&#304;L&#304;&#350;&#304;M</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/ru/hakkimizda.html">О нас</a></li>
+    <li><a href="/ru/hizmetler.html">Услуги</a></li>
+    <li><a href="/ru/urunler.html">Продукты</a></li>
+    <li><a href="/ru/referanslar.html">Рекомендации</a></li>
+    <li><a href="/ru/sss.html">ЧЗВ</a></li>
+    <li><a href="/ru/iletisim.html">Контакты</a></li>
+    <li><a href="/ru/kartvizit.html">Наша корпоративная визитка</a></li>
+    <li><a href="/blog/ru/" class="active">Блог</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <div class="nav-lang">
+      <a href="/blog/ru/" class="lang-btn active">TR</a>
+      <a href="/blog/en/" class="lang-btn">EN</a>
+      <a href="/blog/de/" class="lang-btn">DE</a>
+      <a href="/blog/es/" class="lang-btn">ES</a>
+      <a href="/blog/fr/" class="lang-btn">FR</a>
+      <a href="/blog/ru/" class="lang-btn active">RU</a>
+      <a href="/blog/ko/" class="lang-btn">KO</a>
+      <a href="/blog/zh/" class="lang-btn">ZH</a>
+      <a href="/blog/ja/" class="lang-btn">JA</a>
     </div>
-    <ul class="blog-nav-links">
-      <li style="list-style:none;"><a href="/">Главная</a></li>
-      <li style="list-style:none;"><a href="/ru/hakkimizda.html">О нас</a></li>
-      <li style="list-style:none;"><a href="/ru/hizmetler.html">Услуги</a></li>
-      <li style="list-style:none;"><a href="/ru/urunler.html">Продукты</a></li>
-      <li style="list-style:none;"><a href="/ru/referanslar.html">&#1056;&#1077;&#1082;&#1086;&#1084;&#1077;&#1085;&#1076;&#1072;&#1094;&#1080;&#1080;</a></li>
-      <li style="list-style:none;"><a href="/ru/sss.html">FAQ</a></li>
-      <li style="list-style:none;"><a href="/ru/iletisim.html">Контакт</a></li>
-      <li style="list-style:none;"><a href="/blog/ru/" class="active">Blog</a></li>
-    </ul>
-    <div class="blog-nav-right">
-      <div class="blog-lang"><a href="/blog/" class="lang-btn">TR</a><a href="/blog/en/" class="lang-btn">EN</a><a href="/blog/de/" class="lang-btn">DE</a><a href="/blog/es/" class="lang-btn">ES</a><a href="/blog/fr/" class="lang-btn">FR</a><a href="/blog/ru/" class="lang-btn active">RU</a><a href="/blog/ko/" class="lang-btn">KO</a><a href="/blog/zh/" class="lang-btn">ZH</a><a href="/blog/ja/" class="lang-btn">JA</a></div>
-      <button class="blog-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
+    <button class="hamburger" aria-label="Men&#252;"><span></span><span></span><span></span></button>
   </div>
+  </div>
+  <div class="nav-products">
+    <a href="/ru/urunler/isletme-yonetim-sistemi.html" target="_blank" rel="noopener" class="product-btn">
+      <svg class="hex-svg" viewBox="0 0 100 100"><polygon class="hex-shape" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5"/></svg>
+      <span>&#304;&#351;letme Y&#246;netim Sistemi</span>
+    </a>
+    <a href="https://wa.me/905421732767?text=Merhaba%2C%20bilgi%20almak%20istiyorum." class="nav-wa-btn wa-link" style="margin-left:auto;" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span>Получить предложение через WhatsApp</span>
+    </a>
+  </div>
+  <div class="menu-overlay" id="menuOverlay"></div>
 </nav>
 
 <div class="blog-hero">
@@ -650,34 +615,9 @@ body::after {
 </footer>
 
 <script>
-// Hamburger toggle
-const blogHamburger = document.querySelector('.blog-hamburger');
-const blogNavLinks = document.querySelector('.blog-nav-links');
-const blogLang = document.querySelector('.blog-lang');
-if (blogHamburger) {
-  blogHamburger.addEventListener('click', () => {
-    const isOpen = !blogNavLinks.classList.contains('open');
-    blogNavLinks.classList.toggle('open', isOpen);
-    blogLang && blogLang.classList.toggle('open', isOpen);
-    const spans = blogHamburger.querySelectorAll('span');
-    blogHamburger.classList.toggle('active', isOpen);
-    if (isOpen) {
-      spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
-      spans[1].style.opacity = '0';
-      spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
-    } else {
-      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-    }
-  });
-  window.addEventListener('scroll', () => {
-    if (blogNavLinks.classList.contains('open')) {
-      blogNavLinks.classList.remove('open');
-      blogLang && blogLang.classList.remove('open');
-      blogHamburger.classList.remove('active');
-      blogHamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-    }
-  });
-}
+const hamburger=document.querySelector('.hamburger'),navLinks=document.querySelector('.nav-links'),navLang=document.querySelector('.nav-lang'),menuOverlay=document.getElementById('menuOverlay');
+function closeMenu(){if(navLinks){navLinks.classList.remove('open');navLang&&navLang.classList.remove('open');hamburger&&hamburger.classList.remove('active');hamburger&&hamburger.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity='';});menuOverlay&&(menuOverlay.style.display='none');}}
+if(hamburger){hamburger.addEventListener('click',()=>{const isOpen=!navLinks.classList.contains('open');navLinks.classList.toggle('open',isOpen);navLang&&navLang.classList.toggle('open',isOpen);const spans=hamburger.querySelectorAll('span');hamburger.classList.toggle('active',isOpen);if(isOpen){spans[0].style.transform='rotate(45deg) translate(5px,5px)';spans[1].style.opacity='0';spans[2].style.transform='rotate(-45deg) translate(5px,-5px)';menuOverlay&&(menuOverlay.style.display='block');}else{closeMenu();}});window.addEventListener('scroll',()=>{if(navLinks.classList.contains('open'))closeMenu();});if(menuOverlay){menuOverlay.addEventListener('click',closeMenu);}}
 </script>
 
 <script>
@@ -712,5 +652,10 @@ if (blogHamburger) {
   else { const readOnline = () => rpc('get_online').then(online => { if (online != null) setOnline(online); }).catch(()=>{}); readOnline(); setInterval(readOnline, 20000); }
 })();
 </script>
+<div class="sticky-wa">
+<a href="https://wa.me/905421732767" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:#25D366;border-radius:50%;box-shadow:0 2px 10px rgba(37,211,102,0.4);">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+</div>
 </body>
 </html>

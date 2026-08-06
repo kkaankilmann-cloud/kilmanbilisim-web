@@ -748,10 +748,10 @@ body::after {
     <li><a href="#" onclick="showPage('home')" data-i18n="nav_home" class="active">Ana Sayfa</a></li>
     <li><a href="/hakkimizda.html" data-i18n="nav_about">Hakkımızda</a></li>
     <li><a href="/hizmetler.html" data-i18n="nav_solutions">Hizmetler</a></li>
+    <li><a href="/urunler.html" data-i18n="nav_products">Ürünler</a></li>
     <li><a href="#" onclick="showPage('references')" data-i18n="nav_references">Referanslar</a></li>
     <li><a href="#" onclick="showPage('faq')" data-i18n="nav_faq">SSS</a></li>
     <li><a href="#" onclick="showPage('contact')" data-i18n="nav_contact">İletişim</a></li>
-    <li><a href="#" onclick="showPage('card')" data-i18n="nav_card">Kurumsal Kartvizitimiz</a></li>
     <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:8px;">
@@ -1431,7 +1431,7 @@ const translations = {
   tr: {
     // NAVBAR
     nav_home: 'Ana Sayfa', nav_about: 'Hakkımızda', nav_solutions: 'Hizmetler',
-    nav_references: 'Referanslar', nav_contact: 'İletişim', nav_card: 'Kurumsal Kartvizitimiz',
+    nav_products: 'Ürünler', nav_references: 'Referanslar', nav_contact: 'İletişim', nav_card: 'Kurumsal Kartvizitimiz',
     nav_wa: 'WhatsApp\'tan Teklif Al',
     // HERO
     hero_eyebrow: 'Yapay Zeka & Otomasyon',
@@ -1607,6 +1607,17 @@ function applyLang() {
   // Blog linkini dile duyarli yap
   document.querySelectorAll('a[data-i18n="nav_blog"]').forEach(function(a){
     a.href = (currentLang === 'tr') ? '/blog/' : '/blog/' + (currentLang === 'zh' ? 'zh' : currentLang) + '/';
+  });
+  // Ic sayfa linklerini dile duyarli yap (urunler, hakkimizda, hizmetler)
+  var langPrefix = (currentLang === 'tr') ? '' : '/' + currentLang;
+  document.querySelectorAll('a[data-i18n="nav_products"]').forEach(function(a){
+    a.href = langPrefix + '/urunler.html';
+  });
+  document.querySelectorAll('a[data-i18n="nav_about"]').forEach(function(a){
+    a.href = langPrefix + '/hakkimizda.html';
+  });
+  document.querySelectorAll('a[data-i18n="nav_solutions"]').forEach(function(a){
+    a.href = langPrefix + '/hizmetler.html';
   });
   // Panel urun linkini dile duyarli yap
   var panelBase = (currentLang === 'tr' ? '' : '/' + currentLang) + '/urunler/isletme-yonetim-sistemi.html';

@@ -885,17 +885,28 @@ body::after {
 
   <!-- Paketler -->
   <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;">
-    <!-- Standart Paket -->
+        <!-- Standart Paket -->
     <div class="reveal" style="border-radius:16px;border:1px solid rgba(0,212,255,0.15);padding:32px;background:rgba(0,212,255,0.03);position:relative;">
       <div style="font-size:0.8rem;color:var(--neon);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;" data-i18n="emlak_std_label">Standart Paket</div>
       <h3 style="font-size:1.6rem;margin-bottom:16px;color:var(--text-main);" data-i18n="emlak_std_title">Emlak Standart</h3>
-      <ul style="list-style:none;padding:0;margin-bottom:24px;display:flex;flex-direction:column;gap:10px;font-size:0.92rem;color:var(--text-muted);">
-        <li>✅ <span data-i18n="emlak_s1">AI müşteri asistanı (tek kanal)</span></li>
-        <li>✅ <span data-i18n="emlak_s2">Otomatik randevu sistemi</span></li>
-        <li>✅ <span data-i18n="emlak_s3">Müşteri takip paneli</span></li>
-        <li>✅ <span data-i18n="emlak_s4">Haftalık performans raporu</span></li>
-        <li>✅ <span data-i18n="emlak_s5">E-posta / WhatsApp destek</span></li>
+      <ul id="std-list" style="list-style:none;padding:0;margin-bottom:16px;display:flex;flex-direction:column;gap:10px;font-size:0.92rem;color:var(--text-muted);">
+        <li>✅ <span data-i18n="emlak_s1">Yalnızca sizin ilanlarınızı gösterir, başka emlakçının ilanını asla göstermez</span></li>
+        <li>✅ <span data-i18n="emlak_s2">Sistemde olmayan ilanı uydurmaz</span></li>
+        <li>✅ <span data-i18n="emlak_s3">Fiyat, konum veya özellik hakkında tahmin yürütmez, sadece kayıtlı bilgiyi verir</span></li>
+        <li>✅ <span data-i18n="emlak_s4">Yazan müşteriyi tanır, isteğini anlar</span></li>
+        <li>✅ <span data-i18n="emlak_s5">İlan havuzundan uygun mülkü bulup gösterir</span></li>
+        <li>✅ <span data-i18n="emlak_s6">Beğenilen mülk için randevu oluşturur</span></li>
+        <li>✅ <span data-i18n="emlak_s7">Emlakçıya ve müşteriye ayrı ayrı e-posta gönderir</span></li>
+        <li>✅ <span data-i18n="emlak_s8">Her ikisine de Google Takvim kaydı açar</span></li>
+        <li class="std-extra" style="display:none;">✅ <span data-i18n="emlak_s9">Görüşmeden 3 saat sonra sonucu sorar</span></li>
+        <li class="std-extra" style="display:none;">✅ <span data-i18n="emlak_s10">Olumsuz yanıtta çözüm önerir, memnun edene kadar sürer</span></li>
+        <li class="std-extra" style="display:none;">✅ <span data-i18n="emlak_s11">Beğenilmezse kriterleri kaydeder, uygun ilan gelince kendi haber verir</span></li>
+        <li class="std-extra" style="display:none;">✅ <span data-i18n="emlak_s12">Konu dışı sorulara kibar ama net şekilde konuyu emlağa döndürür</span></li>
+        <li class="std-extra" style="display:none;">✅ <span data-i18n="emlak_s13">Gereksiz sohbeti keser, işletme maliyetini düşük tutar</span></li>
+        <li class="std-extra" style="display:none;">✅ <span data-i18n="emlak_s14">WhatsApp, Telegram ve sesli arama üzerinden çalışır</span></li>
+        <li class="std-extra" style="display:none;">✅ <span data-i18n="emlak_s15">Türkçe ve İngilizce</span></li>
       </ul>
+      <button onclick="toggleEmlak('std')" id="std-toggle" style="background:none;border:1px solid rgba(0,212,255,0.3);color:var(--neon);padding:8px 20px;border-radius:8px;cursor:pointer;font-size:0.85rem;margin-bottom:16px;width:100%;transition:all .3s;" data-i18n="emlak_show_more">Tümünü Gör</button>
       <a href="#" class="btn-primary wa-link" target="_blank" style="width:100%;justify-content:center;"><span data-i18n="emlak_cta">Teklif Al</span></a>
     </div>
     <!-- Pro Paket -->
@@ -903,14 +914,13 @@ body::after {
       <div style="position:absolute;top:-12px;right:20px;background:var(--neon);color:var(--surface);font-size:0.75rem;font-weight:700;padding:4px 14px;border-radius:20px;" data-i18n="emlak_pro_badge">Önerilen</div>
       <div style="font-size:0.8rem;color:var(--neon);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;" data-i18n="emlak_pro_label">Pro Paket</div>
       <h3 style="font-size:1.6rem;margin-bottom:16px;color:var(--text-main);" data-i18n="emlak_pro_title">Emlak Pro</h3>
+      <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:16px;font-style:italic;" data-i18n="emlak_pro_inc">Standart paketteki her şey, ayrıca:</p>
       <ul style="list-style:none;padding:0;margin-bottom:24px;display:flex;flex-direction:column;gap:10px;font-size:0.92rem;color:var(--text-muted);">
-        <li>✅ <span data-i18n="emlak_p1">AI müşteri asistanı (çok kanallı)</span></li>
-        <li>✅ <span data-i18n="emlak_p2">Otomatik randevu + takip sistemi</span></li>
-        <li>✅ <span data-i18n="emlak_p3">IBAN & dekont yönetimi</span></li>
-        <li>✅ <span data-i18n="emlak_p4">Fatura & kontrat otomasyonu</span></li>
-        <li>✅ <span data-i18n="emlak_p5">Günlük performans raporu + analitik</span></li>
-        <li>✅ <span data-i18n="emlak_p6">Öncelikli 7/24 destek</span></li>
-        <li>✅ <span data-i18n="emlak_p7">Özel dashboard</span></li>
+        <li>✅ <span data-i18n="emlak_p1">Mülk tutulduğunda emlakçının IBAN’ını iletir</span></li>
+        <li>✅ <span data-i18n="emlak_p2">Ödeme sonrası dekontu paylaşır</span></li>
+        <li>✅ <span data-i18n="emlak_p3">Emlakçıya ve müşteriye otomatik fatura keser</span></li>
+        <li>✅ <span data-i18n="emlak_p4">Kontratı gönderir</span></li>
+        <li>✅ <span data-i18n="emlak_p5">Satış zincirini baştan sona tek akışta yürütür</span></li>
       </ul>
       <a href="#" class="btn-primary wa-link" target="_blank" style="width:100%;justify-content:center;"><span data-i18n="emlak_cta">Teklif Al</span></a>
     </div>
@@ -1055,9 +1065,30 @@ const translations = {
     emlak_b1: 'AI destekli müşteri yönetimi', emlak_b2: 'Otomatik randevu planlama', emlak_b3: 'Potansiyel müşteri analizi',
     emlak_b4: 'Çok kanallı iletişim (WhatsApp, Telegram, Web)', emlak_b5: 'Akıllı takip ve hatırlatma', emlak_b6: 'Performans raporlama',
     emlak_std_label: 'Standart Paket', emlak_std_title: 'Emlak Standart',
-    emlak_s1: 'AI müşteri asistanı (tek kanal)', emlak_s2: 'Otomatik randevu sistemi', emlak_s3: 'Müşteri takip paneli', emlak_s4: 'Haftalık performans raporu', emlak_s5: 'E-posta / WhatsApp destek',
     emlak_pro_badge: 'Önerilen', emlak_pro_label: 'Pro Paket', emlak_pro_title: 'Emlak Pro',
-    emlak_p1: 'AI müşteri asistanı (çok kanallı)', emlak_p2: 'Otomatik randevu + takip sistemi', emlak_p3: 'IBAN & dekont yönetimi', emlak_p4: 'Fatura & kontrat otomasyonu', emlak_p5: 'Günlük performans raporu + analitik', emlak_p6: 'Öncelikli 7/24 destek', emlak_p7: 'Özel dashboard',
+    emlak_s1: 'Yalnızca sizin ilanlarınızı gösterir, başka emlakçının ilanını asla göstermez',
+    emlak_s2: 'Sistemde olmayan ilanı uydurmaz',
+    emlak_s3: 'Fiyat, konum veya özellik hakkında tahmin yürütmez, sadece kayıtlı bilgiyi verir',
+    emlak_s4: 'Yazan müşteriyi tanır, isteğini anlar',
+    emlak_s5: 'İlan havuzundan uygun mülkü bulup gösterir',
+    emlak_s6: 'Beğenilen mülk için randevu oluşturur',
+    emlak_s7: 'Emlakçıya ve müşteriye ayrı ayrı e-posta gönderir',
+    emlak_s8: 'Her ikisine de Google Takvim kaydı açar',
+    emlak_s9: 'Görüşmeden 3 saat sonra sonucu sorar',
+    emlak_s10: 'Olumsuz yanıtta çözüm önerir, memnun edene kadar sürer',
+    emlak_s11: 'Beğenilmezse kriterleri kaydeder, uygun ilan gelince kendi haber verir',
+    emlak_s12: 'Konu dışı sorulara kibar ama net şekilde konuyu emlağa döndürür',
+    emlak_s13: 'Gereksiz sohbeti keser, işletme maliyetini düşük tutar',
+    emlak_s14: 'WhatsApp, Telegram ve sesli arama üzerinden çalışır',
+    emlak_s15: 'Türkçe ve İngilizce',
+    emlak_pro_inc: 'Standart paketteki her şey, ayrıca:',
+    emlak_p1: 'Mülk tutulduğunda emlakçının IBAN\u2019ını iletir',
+    emlak_p2: 'Ödeme sonrası dekontu paylaşır',
+    emlak_p3: 'Emlakçıya ve müşteriye otomatik fatura keser',
+    emlak_p4: 'Kontratı gönderir',
+    emlak_p5: 'Satış zincirini baştan sona tek akışta yürütür',
+    emlak_show_more: 'Tümünü Gör',
+    emlak_show_less: 'Daha Az Göster',
     emlak_cta: 'Teklif Al',
     nav_faq: 'SSS',
     // FAQ 7-11 (AEO problem-bicimli)
@@ -1495,6 +1526,21 @@ function downloadVCard() {
     setInterval(readOnline, 20000);
   }
 })();
+
+// Emlak toggle
+function toggleEmlak(type) {
+  var items = document.querySelectorAll('.' + type + '-extra');
+  var btn = document.getElementById(type + '-toggle');
+  var hidden = items[0] && items[0].style.display === 'none';
+  items.forEach(function(li) {
+    li.style.display = hidden ? 'list-item' : 'none';
+    if (hidden) { li.style.opacity = '0'; li.style.transition = 'opacity .3s'; setTimeout(function(){ li.style.opacity = '1'; }, 30); }
+  });
+  var key = hidden ? 'emlak_show_less' : 'emlak_show_more';
+  btn.setAttribute('data-i18n', key);
+  btn.textContent = t(key);
+}
+
 </script>
 </body>
 </html>

@@ -1147,7 +1147,6 @@ function applyLang() {
     const key = el.getAttribute('data-i18n-href');
     el.href = t(key);
   });
-  document.documentElement.lang = currentLang;
   // Blog linkini dile duyarli yap
   document.querySelectorAll('a[data-i18n="nav_blog"]').forEach(function(a){
     a.href = (currentLang === 'tr') ? '/blog/' : '/blog/' + (currentLang === 'zh' ? 'zh' : currentLang) + '/';
@@ -1257,12 +1256,6 @@ function initNavbar() {
     link.addEventListener('click', closeMenu);
   });
 
-  // Active link
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    const href = a.getAttribute('href');
-    a.classList.toggle('active', href === path || (path === '' && href === 'index.html'));
-  });
 }
 
 // ─── SCROLL REVEAL ───────────────────────
@@ -1334,25 +1327,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initReveal();
   initParticles();
-  // Dil translations icinde yoksa fetch ile indir, sonra applyLang
-  if (translations[currentLang]) {
-    applyLang();
-    updateWaLinks();
-  } else {
-    fetch('/i18n/' + currentLang + '.json')
-      .then(function(r){ return r.json(); })
-      .then(function(data){
-        translations[currentLang] = data;
-        applyLang();
-        updateWaLinks();
-      })
-      .catch(function(){
-        currentLang = 'tr';
-        sessionStorage.setItem('kilman_lang', 'tr');
-        applyLang();
-        updateWaLinks();
-      });
-  }
+
 
 
   // Lang buttons are now <a> links, no JS needed

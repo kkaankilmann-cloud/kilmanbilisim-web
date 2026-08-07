@@ -235,23 +235,33 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
   </a>
   <ul class="nav-links">
     <li><a href="/">Ana Sayfa</a></li>
-    <li><a href="/hakkimizda.html">Hakk&#305;m&#305;zda</a></li>
+    <li><a href="/hakkimizda.html">Hakkımızda</a></li>
     <li><a href="/hizmetler.html">Hizmetler</a></li>
-    <li><a href="/urunler.html" class="active">&#220;r&#252;nler</a></li>
+    <li><a href="/urunler.html">Ürünler</a></li>
     <li><a href="/referanslar.html">Referanslar</a></li>
     <li><a href="/sss.html">SSS</a></li>
-    <li><a href="/iletisim.html">&#304;leti&#351;im</a></li>
-<li><a href="/kartvizit.html">Kurumsal Kartvizitimiz</a></li>
+    <li><a href="/iletisim.html">İletişim</a></li>
+    <li><a href="/kartvizit.html">Kurumsal Kartvizitimiz</a></li>
     <li><a href="/blog/">Blog</a></li>
   </ul>
-  <div style="display:flex;align-items:center;gap:8px;">
+  <div style="display:flex;align-items:center;gap:6px;">
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
     <div class="nav-lang">
-      <a href="/urunler/isletme-yonetim-sistemi.html" class="lang-btn active">TR</a> <a href="/en/urunler/isletme-yonetim-sistemi.html" class="lang-btn">EN</a> <a href="/de/urunler/isletme-yonetim-sistemi.html" class="lang-btn">DE</a> <a href="/es/urunler/isletme-yonetim-sistemi.html" class="lang-btn">ES</a> <a href="/fr/urunler/isletme-yonetim-sistemi.html" class="lang-btn">FR</a> <a href="/ru/urunler/isletme-yonetim-sistemi.html" class="lang-btn">RU</a> <a href="/ko/urunler/isletme-yonetim-sistemi.html" class="lang-btn">KO</a> <a href="/zh/urunler/isletme-yonetim-sistemi.html" class="lang-btn">ZH</a> <a href="/ja/urunler/isletme-yonetim-sistemi.html" class="lang-btn">JA</a> 
+    <a class="lang-btn active" href="/">TR</a>
+    <a class="lang-btn" href="/en/">EN</a>
+    <a class="lang-btn" href="/de/">DE</a>
+    <a class="lang-btn" href="/es/">ES</a>
+    <a class="lang-btn" href="/fr/">FR</a>
+    <a class="lang-btn" href="/ru/">RU</a>
+    <a class="lang-btn" href="/ko/">KO</a>
+    <a class="lang-btn" href="/zh/">ZH</a>
+    <a class="lang-btn" href="/ja/">JA</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   </div>
-<div class="nav-products">
+  <div class="nav-products">
     <div class="product-dropdown">
       <button class="product-dropdown-toggle">
         <svg class="hex-svg" viewBox="0 0 100 100"><polygon class="hex-shape" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5"/></svg>
@@ -268,7 +278,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
       <span>WhatsApp'tan Teklif Al</span>
     </a>
   </div>
-
+  <div class="menu-overlay" id="menuOverlay"></div>
 </nav>
 
 <!-- HERO -->

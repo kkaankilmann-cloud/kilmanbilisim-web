@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Sayfa Bulunamad&#305; &#8212; K&#305;lman Bili&#351;im</title>
+<style>
+:root{--bg:#080B12;--surface:#0D1117;--border:rgba(0,212,255,.15);--neon:#00D4FF;--neon-dim:rgba(0,212,255,.08);--text:#E6EDF3;--text-muted:#8B949E;--radius:16px;--font-head:'Orbitron',sans-serif;--font-ui:'Space Grotesk','Inter',sans-serif;--font-body:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+.wrap{max-width:520px}
+.logo{width:120px;height:120px;margin:0 auto 32px;opacity:.9}
+.code{font-family:var(--font-head);font-size:clamp(3rem,10vw,5rem);font-weight:900;color:var(--neon);letter-spacing:.08em;margin-bottom:12px;text-shadow:0 0 32px rgba(0,212,255,.3)}
+.msg{font-size:1.12rem;color:var(--text-muted);line-height:1.72;margin-bottom:8px}
+.msg-en{font-size:1.12rem;color:var(--text-muted);line-height:1.72;margin-bottom:32px;opacity:.7}
+.btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:var(--radius);font-family:var(--font-ui);font-size:1.12rem;font-weight:600;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn-primary{background:linear-gradient(135deg,var(--neon),#0090b0);color:#080B12;box-shadow:0 4px 24px rgba(0,212,255,.25)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,212,255,.4)}
+.btn-outline{border:1px solid var(--border);color:var(--neon);background:var(--neon-dim)}
+.btn-outline:hover{transform:translateY(-2px);background:rgba(0,212,255,.12)}
+.line{width:60px;height:2px;background:var(--border);margin:0 auto 24px;border-radius:2px}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap">
+<link rel="icon" href="/favicon.ico">
+</head>
+<body>
+<div class="wrap">
+  <img src="/logo-300.png" alt="K&#305;lman Bili&#351;im" class="logo" width="120" height="120">
+  <div class="code">404</div>
+  <div class="line"></div>
+  <p class="msg">Arad&#305;&#287;&#305;n&#305;z sayfa bulunamad&#305; veya ta&#351;&#305;nm&#305;&#351; olabilir.</p>
+  <p class="msg-en">The page you are looking for could not be found.</p>
+  <div class="btns">
+    <a href="/" class="btn btn-primary">Ana Sayfa</a>
+    <a href="/en/" class="btn btn-outline">Home</a>
+  </div>
+</div>
+</body>
+</html>

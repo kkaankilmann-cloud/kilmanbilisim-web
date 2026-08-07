@@ -301,7 +301,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
   <p style="color:var(--text-muted);font-size:1.08rem;line-height:1.72;max-width:800px;">The opening screen is your business summary: this month&#8217;s revenue, expenses, and net profit at the top; how your expenses are distributed across categories at the bottom. You switch between this month, this year, and all time with a single click.</p>
   <p style="color:var(--text-muted);font-size:1.08rem;line-height:1.72;max-width:800px;margin-top:16px;">Figures are TRY-based, with the dollar equivalent shown alongside. The exchange rate is pulled live; you don&#8217;t update it manually.</p>
   <div class="screenshot-wrap">
-    <img src="/gorseller/panel/genel-bakis.png" alt="KILMAN Business Management System &#8212; Dashboard overview screen" loading="lazy"/>
+    <img src="/gorseller/panel/genel-bakis.png" alt="KILMAN Business Management System &#8212; Dashboard overview screen" loading="eager" fetchpriority="high" width="1424" height="904"/>
     <div class="screenshot-cap">Sample view &#8212; the panel is configured according to your business.</div>
   </div>
 </section>
@@ -315,7 +315,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
     <p>Your customer portfolio in a single list. Next to each record, you see its status (active, demo, passive), associated product, contact information, and the amount it earns you.</p>
   </div>
   <div class="screenshot-wrap">
-    <img src="/gorseller/panel/musteriler.png" alt="KILMAN Business Management System &#8212; Customers screen" loading="lazy"/>
+    <img src="/gorseller/panel/musteriler.png" alt="KILMAN Business Management System &#8212; Customers screen" loading="lazy" width="1424" height="1266"/>
     <div class="screenshot-cap">Sample view &#8212; the panel is configured according to your business.</div>
   </div>
 
@@ -324,7 +324,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
     <p>A list of the products or services you sell. You see how many active customers each has, how much it brings in monthly, and how much it costs you monthly, side by side.</p>
   </div>
   <div class="screenshot-wrap">
-    <img src="/gorseller/panel/urunler.png" alt="KILMAN Business Management System &#8212; Products screen" loading="lazy"/>
+    <img src="/gorseller/panel/urunler.png" alt="KILMAN Business Management System &#8212; Products screen" loading="lazy" width="1424" height="1147"/>
     <div class="screenshot-cap">Sample view &#8212; the panel is configured according to your business.</div>
   </div>
 
@@ -333,7 +333,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
     <p>A table showing how much you earned from each customer. Revenue, cost, and profit in three columns, with a total row at the bottom. You see at a glance which customer is profitable and which is borderline.</p>
   </div>
   <div class="screenshot-wrap">
-    <img src="/gorseller/panel/finans.png" alt="KILMAN Business Management System &#8212; Finance screen" loading="lazy"/>
+    <img src="/gorseller/panel/finans.png" alt="KILMAN Business Management System &#8212; Finance screen" loading="lazy" width="1424" height="771"/>
     <div class="screenshot-cap">Sample view &#8212; the panel is configured according to your business.</div>
   </div>
 
@@ -342,7 +342,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
     <p>Non-recurring revenue such as setup fees and one-time sales are kept separate. This way, your monthly recurring revenue doesn&#8217;t get mixed with one-time income &#8212; you see your actual monthly turnover.</p>
   </div>
   <div class="screenshot-wrap">
-    <img src="/gorseller/panel/tek-seferlik-gelirler.png" alt="KILMAN Business Management System &#8212; One-Time Revenue screen" loading="lazy"/>
+    <img src="/gorseller/panel/tek-seferlik-gelirler.png" alt="KILMAN Business Management System &#8212; One-Time Revenue screen" loading="lazy" width="1424" height="1050"/>
     <div class="screenshot-cap">Sample view &#8212; the panel is configured according to your business.</div>
   </div>
 
@@ -351,7 +351,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
     <p>Expenses are recorded by category: personnel, utility bills, inventory, insurance, transportation, and categories you add yourself. It supports foreign currency; you enter items paid in dollars or euros in their own currency.</p>
   </div>
   <div class="screenshot-wrap">
-    <img src="/gorseller/panel/sirket-giderleri.png" alt="KILMAN Business Management System &#8212; Company Expenses screen" loading="lazy"/>
+    <img src="/gorseller/panel/sirket-giderleri.png" alt="KILMAN Business Management System &#8212; Company Expenses screen" loading="lazy" width="1424" height="1686"/>
     <div class="screenshot-cap">Sample view &#8212; the panel is configured according to your business.</div>
   </div>
 
@@ -360,7 +360,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
     <p>All revenue items such as sales, consulting, and subscriptions are listed in chronological order. You mark regularly recurring revenues, and the system records them automatically each month.</p>
   </div>
   <div class="screenshot-wrap">
-    <img src="/gorseller/panel/sirket-gelirleri.png" alt="KILMAN Business Management System &#8212; Company Revenue screen" loading="lazy"/>
+    <img src="/gorseller/panel/sirket-gelirleri.png" alt="KILMAN Business Management System &#8212; Company Revenue screen" loading="lazy" width="1424" height="1358"/>
     <div class="screenshot-cap">Sample view &#8212; the panel is configured according to your business.</div>
   </div>
 </section>
@@ -531,7 +531,7 @@ if(bh){bh.addEventListener('click',()=>{const o=!bnl.classList.contains('open');
 })();
 </script>
 <script>
-(function(){if(!("IntersectionObserver" in window))return;var secici=".section, .service-group, .product-card, .about-grid, .faq-item, .footer-grid";var ogeler=document.querySelectorAll(secici);if(!ogeler.length)return;ogeler.forEach(function(o){o.classList.add("reveal")});var g=new IntersectionObserver(function(girdiler){girdiler.forEach(function(x){if(x.isIntersecting){x.target.classList.add("gorunur");g.unobserve(x.target)}})},{threshold:.12,rootMargin:"0px 0px -40px 0px"});ogeler.forEach(function(o){g.observe(o)})})();
+(function(){if(!("IntersectionObserver" in window))return;var secici=".section, .service-group, .product-card, .about-grid, .faq-item, .footer-grid";var ogeler=document.querySelectorAll(secici);if(!ogeler.length)return;ogeler.forEach(function(o){o.classList.add("reveal")});var rect;ogeler.forEach(function(o){rect=o.getBoundingClientRect();if(rect.top<window.innerHeight){o.classList.remove("reveal");o.classList.add("gorunur")}});var g=new IntersectionObserver(function(girdiler){girdiler.forEach(function(x){if(x.isIntersecting){x.target.classList.add("gorunur");g.unobserve(x.target)}})},{threshold:.12,rootMargin:"300px 0px 0px 0px"});ogeler.forEach(function(o){if(!o.classList.contains("gorunur")){g.observe(o)}})})();
 
 // --- PRODUCT DROPDOWN ---
 document.querySelectorAll('.product-dropdown-toggle').forEach(function(btn){

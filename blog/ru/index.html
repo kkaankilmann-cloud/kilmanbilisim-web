@@ -149,6 +149,19 @@ body::after {
 .sticky-wa:hover{opacity:1}
 .sticky-wa a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:#25D366;border-radius:50%;box-shadow:0 2px 10px rgba(37,211,102,0.4);transition:all .3s}
 .sticky-wa a:hover{transform:scale(1.08)}
+
+/* -- Product Dropdown -- */
+.product-dropdown{position:relative}
+.product-dropdown-toggle{cursor:pointer;display:inline-flex;align-items:center;gap:9px;background:rgba(15,52,96,.35);color:var(--neon);border:1.5px solid var(--neon);font-family:var(--font-ui);font-weight:700;font-size:.82rem;padding:7px 16px;border-radius:8px;box-shadow:var(--neon-glow-sm);transition:all .3s}
+.product-dropdown-toggle:hover{box-shadow:var(--neon-glow);transform:translateY(-1px);background:rgba(0,212,255,.08)}
+.dd-arrow{font-size:.7rem;transition:transform .3s;margin-left:2px}
+.product-dropdown.open .dd-arrow{transform:rotate(180deg)}
+.product-dropdown-menu{display:none;position:absolute;top:calc(100% + 6px);left:0;background:rgba(8,11,18,.97);border:1px solid var(--border);border-radius:10px;padding:6px 0;min-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.5);z-index:1001;backdrop-filter:blur(12px)}
+.product-dropdown.open .product-dropdown-menu{display:block;animation:ddFade .2s ease}
+@keyframes ddFade{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.product-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 18px;color:var(--text-muted);font-family:var(--font-ui);font-size:.82rem;font-weight:600;transition:var(--transition);text-decoration:none;white-space:nowrap}
+.product-dropdown-menu a:hover{color:var(--neon);background:var(--neon-dim)}
+.product-dropdown-menu a .hex-svg{width:16px;height:16px;flex-shrink:0}
 </style>
 <script type="application/ld+json">
 {
@@ -204,16 +217,24 @@ body::after {
     <button class="hamburger" aria-label="Men&#252;"><span></span><span></span><span></span></button>
   </div>
   </div>
-  <div class="nav-products">
-    <a href="/ru/urunler/isletme-yonetim-sistemi.html" target="_blank" rel="noopener" class="product-btn">
-      <svg class="hex-svg" viewBox="0 0 100 100"><polygon class="hex-shape" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5"/></svg>
-      <span>&#304;&#351;letme Y&#246;netim Sistemi</span>
-    </a>
-    <a href="https://wa.me/905421732767?text=Merhaba%2C%20bilgi%20almak%20istiyorum." class="nav-wa-btn wa-link" style="margin-left:auto;" target="_blank" rel="noopener">
+<div class="nav-products">
+    <div class="product-dropdown">
+      <button class="product-dropdown-toggle">
+        <svg class="hex-svg" viewBox="0 0 100 100"><polygon class="hex-shape" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5"/></svg>
+        <span>Продукты</span>
+        <span class="dd-arrow">&#9662;</span>
+      </button>
+      <div class="product-dropdown-menu">
+        <a href="/ru/urunler/isletme-yonetim-sistemi.html"><svg class="hex-svg" viewBox="0 0 100 100"><polygon class="hex-shape" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5"/></svg> <span>Система управления бизнесом</span></a>
+        <a href="/ru/urunler/emlak-otomasyon-sistemi.html"><svg class="hex-svg" viewBox="0 0 100 100"><polygon class="hex-shape" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5"/></svg> <span>Автоматизация недвижимости</span></a>
+      </div>
+    </div>
+    <a href="#" class="nav-wa-btn wa-link" style="margin-left:auto;" target="_blank" rel="noopener">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      <span>Получить предложение через WhatsApp</span>
+      <span>Запрос через WhatsApp</span>
     </a>
   </div>
+
   <div class="menu-overlay" id="menuOverlay"></div>
 </nav>
 
@@ -691,6 +712,17 @@ if(hamburger){hamburger.addEventListener('click',()=>{const isOpen=!navLinks.cla
   if (!isInternal) { beat(); setInterval(beat, 20000); }
   else { const readOnline = () => rpc('get_online').then(online => { if (online != null) setOnline(online); }).catch(()=>{}); readOnline(); setInterval(readOnline, 20000); }
 })();
+
+// --- PRODUCT DROPDOWN ---
+document.querySelectorAll('.product-dropdown-toggle').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.preventDefault();e.stopPropagation();
+    btn.closest('.product-dropdown').classList.toggle('open');
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.product-dropdown.open').forEach(function(d){d.classList.remove('open');});
+});
 </script>
 
 <div class="sticky-wa" style="display:flex;flex-direction:column;gap:8px;">

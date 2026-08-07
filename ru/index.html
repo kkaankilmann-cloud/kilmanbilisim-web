@@ -311,13 +311,14 @@
 </script>
 <link rel="icon" href="/logo-300.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap">
 <style>
 /* ============================================
    KILMAN BİLİŞİM — ANA STİL DOSYASI
    Tema: Siyah + Neon Mavi + Glow
    ============================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap');
 
 /* ─── TOKENS ─────────────────────────────── */
 :root {
@@ -1292,12 +1293,23 @@ function initNavbar() {
 
 // ─── SCROLL REVEAL ───────────────────────
 function initReveal() {
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
+  var secici = '.reveal';
+  var ogeler = document.querySelectorAll(secici);
+  if (!ogeler.length) return;
+  ogeler.forEach(function(o) {
+    var rect = o.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      o.classList.add('visible');
+    }
+  });
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
       if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
     });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  }, { threshold: 0, rootMargin: "300px 0px 300px 0px" });
+  ogeler.forEach(function(el) {
+    if (!el.classList.contains('visible')) { obs.observe(el); }
+  });
 }
 
 // ─── PARTICLES (hero) ────────────────────

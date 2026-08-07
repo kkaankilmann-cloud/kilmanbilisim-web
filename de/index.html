@@ -1169,10 +1169,6 @@ function applyLang() {
     const key = el.getAttribute('data-i18n-href');
     el.href = t(key);
   });
-  // update lang buttons
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === currentLang);
-  });
   document.documentElement.lang = currentLang;
   // Blog linkini dile duyarli yap
   document.querySelectorAll('a[data-i18n="nav_blog"]').forEach(function(a){

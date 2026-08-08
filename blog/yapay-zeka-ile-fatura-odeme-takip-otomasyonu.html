@@ -36,8 +36,6 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-
-
 html{scroll-behavior:smooth;font-size:18px;}
 /* ── Navbar (olcut: hakkimizda.html) ── */
 :root{--bg:#080B12;--surface:#0D1117;--surface2:#111827;--neon:#00D4FF;--neon-dim:rgba(0,212,255,0.15);--neon-glow:0 0 18px rgba(0,212,255,0.55),0 0 40px rgba(0,212,255,0.25);--neon-glow-sm:0 0 10px rgba(0,212,255,0.4);--blue-deep:#0F3460;--text:#E8EDF4;--text-muted:#A3B5C9;--border:rgba(0,212,255,0.18);--radius:12px;--accent-purple:#8B5CF6;--font-head:'Orbitron',monospace;--font-body:'Inter',sans-serif;--font-ui:'Space Grotesk',sans-serif;--transition:0.3s cubic-bezier(0.4,0,0.2,1);}
@@ -74,20 +72,15 @@ html{scroll-behavior:smooth;font-size:18px;}
 .footer-col ul .nav-soon{padding:0}
 @media(max-width:700px){.nav-lang,.nav-links{display:none}.nav-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center}.nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px}.hamburger{display:flex;z-index:1001;position:relative}.nav-wa-btn{display:none}
 .sticky-wa{display:flex}}
-
 :root{--bg-main:#0D1117;--bg-card:#161B22;--neon:#00D4FF;--text-main:#E6EDF3;--text-muted:#A3B5C9;--accent-purple:#8B5CF6;--border:rgba(255,255,255,0.06);}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Cg stroke='%2300D4FF' fill='none' stroke-width='1' opacity='0.22' stroke-linecap='round'%3E%3Cpath d='M0 30 H35 L50 45 V80 M50 45 H85'/%3E%3Cpath d='M130 30 H100 L85 45'/%3E%3Cpath d='M65 0 V25 L80 40'/%3E%3Cpath d='M0 100 H25 L40 115 H70 M40 115 V130'/%3E%3Cpath d='M130 105 H105 L92 92 V65'/%3E%3Cpath d='M110 130 V110 H90'/%3E%3C/g%3E%3Cg fill='%2300D4FF' opacity='0.5'%3E%3Ccircle cx='35' cy='30' r='2'/%3E%3Ccircle cx='85' cy='45' r='2'/%3E%3Ccircle cx='40' cy='115' r='2'/%3E%3Ccircle cx='92' cy='65' r='2'/%3E%3C/g%3E%3Cg stroke='%2300D4FF' fill='none' stroke-width='0.9' opacity='0.18'%3E%3Crect x='46' y='41' width='14' height='9' rx='1'/%3E%3Cpath d='M49 41 V37 M53 41 V37 M57 41 V37'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 130px 130px repeat,var(--bg-main);color:var(--text-main);line-height:1.7;}
 a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}
 a:hover{opacity:0.8;}
-
-
 .blog-hero{text-align:center;padding:140px 24px 40px;max-width:900px;margin:0 auto;}
 .blog-hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:.04em;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,var(--neon),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .blog-hero p{color:var(--text);font-size:clamp(1.3rem,2.6vw,2rem);font-weight:600;line-height:1.45;max-width:760px;margin:0 auto;}
-
 .blog-grid{max-width:900px;margin:0 auto;padding:0 24px 80px;display:grid;gap:32px;}
-
 .blog-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:transform 0.3s,border-color 0.3s;}
 .blog-card:hover{transform:translateY(-4px);border-color:rgba(0,212,255,0.3);}
 .blog-card-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:0.82rem;color:var(--text-muted);}
@@ -97,12 +90,8 @@ a:hover{opacity:0.8;}
 .blog-card h2 a:hover{filter:brightness(1.3);}
 .blog-card p{color:var(--text-muted);font-size:1.15rem;margin-bottom:20px;}
 .blog-card .read-more{font-weight:600;font-size:0.9rem;color:var(--neon);display:inline-flex;align-items:center;gap:6px;}
-
 .blog-footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.95rem;}
-
 @media(max-width:1500px){.blog-card{padding:24px;}}
-
-
 /* == VIEWPORT DIS KENAR GLOW == */
 body::after {
   content: ""; position: fixed; inset: 0;
@@ -115,7 +104,6 @@ body::after {
   0%,100% { opacity: 0 }
   50% { opacity: 1 }
 }
-
 /* --- FULL FOOTER --- */
 .footer{background:var(--surface,#0D1117);border-top:1px solid var(--border);padding:48px 5% 28px;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 40px;}
@@ -146,13 +134,10 @@ body::after {
 .ftr-etiket{display:block;font-size:.72rem;letter-spacing:.06em;color:var(--text-muted);opacity:.65;margin-bottom:2px}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr;}}
-
-
 .sticky-wa{display:none;position:fixed;bottom:16px;right:12px;z-index:999;opacity:0.65;transition:opacity .3s}
 .sticky-wa:hover{opacity:1}
 .sticky-wa a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:#25D366;border-radius:50%;box-shadow:0 2px 10px rgba(37,211,102,0.4);transition:all .3s}
 .sticky-wa a:hover{transform:scale(1.08)}
-
 /* --- YAZI STILI --- */
 .post-header{max-width:800px;margin:0 auto;padding:140px 24px 32px;text-align:center;}
 .post-tag{background:rgba(0,212,255,0.1);color:var(--neon);padding:10px 26px;border-radius:20px;font-size:1.3rem;font-weight:600;letter-spacing:.02em;display:inline-block;margin-bottom:16px;}
@@ -181,7 +166,6 @@ body::after {
 .blog-footer{text-align:center;padding:32px 24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.85rem;}
 @media(max-width:768px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
 </style>
-
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Mevcut muhasebe yazılımımız ile entegre olur mu?","acceptedAnswer":{"@type":"Answer","text":"Evet. Türkiye'deki başlıca muhasebe yazılımları (Logo, Mikro, Luca, Paraşüt, Bizim Hesap) ile API üzerinden entegrasyon sağlanır."}},{"@type":"Question","name":"Küçük işletmeler için uygun mu?","acceptedAnswer":{"@type":"Answer","text":"Kesinlikle. Aylık 50-100 fatura çıkaran bir işletme bile otomatik faturalama ile ayda 15-20 saat tasarruf eder."}},{"@type":"Question","name":"Geç ödeme hatırlatmaları müşteri ilişkisini bozar mı?","acceptedAnswer":{"@type":"Answer","text":"AI destekli hatırlatmalar kişiselleştirilmiş ve nazik tondadır. Müşterinin geçmiş ödeme davranışına göre en uygun zamanlama ve kanal seçilir."}},{"@type":"Question","name":"KVKK ve mali mevzuata uygunluk nasıl sağlanır?","acceptedAnswer":{"@type":"Answer","text":"Tüm veriler Türkiye'deki sunucularda saklanır. E-fatura zorunlulukları ve VUK gereksinimleri otomatik karşılanır."}}]}</script>
 </head>
 <body>
@@ -228,19 +212,13 @@ body::after {
   </div>
   <div class="menu-overlay" id="menuOverlay"></div>
 </nav>
-
 <header class="post-header"><span class="post-tag">&#128179; Fatura ve &#214;deme</span><h1>Yapay Zeka ile Fatura ve &#214;deme Takip Otomasyonu: KOB&#304;&#8217;ler &#304;&#231;in 2026 Rehberi</h1><div class="post-meta"><span>&#128197; 7 A&#287;ustos 2026</span><span>&#9201;&#65039; 8 dk okuma</span><span>&#9997;&#65039; K&#305;lman Bili&#351;im</span></div></header>
 <main class="post-content">
-
  <p>T&#252;rkiye'deki KOB&#304;'lerin &#246;nemli bir b&#246;l&#252;m&#252; fatura ve &#246;deme s&#252;re&#231;lerini hala manuel y&#246;netiyor. Ge&#231; &#246;demeler, tahsilat takibi, nakit ak&#305;&#351;&#305; sorunlar&#305; ve muhasebe hatalar&#305; i&#351;letmelerin b&#252;y&#252;mesini yava&#351;lat&#305;yor. Yapay zeka destekli otomasyon sistemleri bu s&#252;re&#231;leri u&#231;tan uca dijitalle&#351;tirerek hem zaman hem para tasarrufu sa&#287;l&#305;yor.</p>
-
  <div class="stat-grid">
- <div class="stat-card"><span class="stat-num">&#8595;</span><span class="stat-label">Ge&#231; &#246;deme oran&#305; d&#252;&#351;&#252;&#351;&#252;</span></div>
- <div class="stat-card"><span class="stat-num">&#8595;</span><span class="stat-label">Manuel i&#351;lem azalmas&#305;</span></div>
  <div class="stat-card"><span class="stat-num">7/24</span><span class="stat-label">Otomatik tahsilat takibi</span></div>
  <div class="stat-card"><span class="stat-num">2 ay</span><span class="stat-label">Ortalama yat&#305;r&#305;m d&#246;n&#252;&#351;&#252;</span></div>
  </div>
-
  <h2>Fatura otomasyonu hangi sorunlar&#305; &#231;&#246;zer?</h2>
  <p>Geleneksel fatura y&#246;netiminde tekrarlayan hatalar ka&#231;&#305;n&#305;lmazd&#305;r. Yanl&#305;&#351; tutar, eksik bilgi, ge&#231; g&#246;nderim gibi hatalar hem gelir kayb&#305;na hem m&#252;&#351;teri memnuniyetsizli&#287;ine yol a&#231;ar. Yapay zeka bu hatalar&#305; ortadan kald&#305;r&#305;r ve s&#252;reci h&#305;zland&#305;r&#305;r.</p>
  <ul>
@@ -248,7 +226,6 @@ body::after {
  <li><strong>E-fatura entegrasyonu:</strong> G&#304;B (Gelir &#304;daresi Ba&#351;kanl&#305;&#287;&#305;) sistemine otomatik g&#246;nderim ve durum takibi sa&#287;lan&#305;r.</li>
  <li><strong>Tekrarlayan faturalar:</strong> Ayl&#305;k abonelik veya kira gibi d&#252;zenli fatural&#305; m&#252;&#351;teriler i&#231;in otomatik olu&#351;turma ve g&#246;nderim yap&#305;l&#305;r.</li>
  </ul>
-
  <h2>&#214;deme takibi nas&#305;l otomatikle&#351;tirilir?</h2>
  <p>AI destekli &#246;deme takip sistemi, m&#252;&#351;teri &#246;deme davran&#305;&#351;lar&#305;n&#305; analiz ederek proaktif tahsilat y&#246;netimi sa&#287;lar. Geleneksel y&#246;ntemlerde &#246;deme takibi genellikle vade ge&#231;tikten sonra ba&#351;lar. AI ise sorun olu&#351;madan &#246;nce m&#252;dahale eder.</p>
  <ul>
@@ -256,9 +233,6 @@ body::after {
  <li><strong>&#214;deme tahmini:</strong> AI, ge&#231;mi&#351; &#246;deme verilerinden m&#252;&#351;terinin ne zaman &#246;deyece&#287;ini tahmin eder. Risk skoru y&#252;ksek m&#252;&#351;teriler i&#231;in erken uyar&#305; verir.</li>
  <li><strong>Otomatik hat&#305;rlatma:</strong> E-posta, SMS veya WhatsApp &#252;zerinden kademeli hat&#305;rlatma zincirleri olu&#351;turulur.</li>
  </ul>
-
- 
-
  <h2>Nakit ak&#305;&#351;&#305; y&#246;netiminde AI ne yapar?</h2>
  <p>Nakit ak&#305;&#351;&#305; tahmini, KOB&#304;'lerin en kritik finansal ihtiyac&#305;d&#305;r. Nakit ak&#305;&#351;&#305; d&#252;zensizli&#287;i i&#351;letmelerin en s&#305;k kar&#351;&#305;la&#351;t&#305;&#287;&#305; finansal risktir. AI bu alanda &#252;&#231; temel i&#351;lev sunar.</p>
  <ul>
@@ -266,7 +240,6 @@ body::after {
  <li><strong>Gider tahmini:</strong> D&#252;zenli giderler, tedarik&#231;i &#246;demeleri ve vergi takvimini analiz ederek &#231;&#305;k&#305;&#351; projeksiyonu yapar.</li>
  <li><strong>Likidite uyar&#305;s&#305;:</strong> Nakit a&#231;&#305;&#287;&#305; riski tespit edildi&#287;inde &#246;nceden uyar&#305; vererek &#246;nlem al&#305;nmas&#305;n&#305; sa&#287;lar.</li>
  </ul>
-
  <h2>Hangi sekt&#246;rde nas&#305;l uygulan&#305;r?</h2>
  <table class="comparison-table"><tr><th>Sekt&#246;r</th><th>Ana Sorun</th><th>AI &#199;&#246;z&#252;m&#252;</th><th>Beklenen Sonu&#231;</th></tr>
  <tr><td>Toptan ticaret</td><td>Vadeli sat&#305;&#351; takibi</td><td>Otomatik hat&#305;rlatma + risk skoru</td><td>Ge&#231; &#246;deme azalma</td></tr>
@@ -274,7 +247,6 @@ body::after {
  <tr><td>&#220;retim</td><td>Tedarik&#231;i &#246;demeleri</td><td>Vade uyumu + nakit ak&#305;&#351;&#305; tahmini</td><td>Likidite krizi azalma</td></tr>
  <tr><td>E-ticaret</td><td>&#199;oklu &#246;deme kanal&#305;</td><td>Otomatik mutabakat + raporlama</td><td>Muhasebe hatas&#305; azalma</td></tr>
  <tr><td>&#304;n&#351;aat</td><td>Hakedi&#351; takibi</td><td>&#304;lerleme bazl&#305; faturalama</td><td>Tahsilat s&#252;resi k&#305;salma</td></tr></table>
-
  <h2>Kurulum nas&#305;l ilerler?</h2>
  <ol>
  <li><strong>Mevcut s&#252;re&#231; analizi:</strong> Fatura, &#246;deme ve tahsilat ak&#305;&#351;&#305;n&#305;z&#305; inceleyin. Darbo&#287;azlar&#305; ve tekrarlayan hatalar&#305; belirleyin.</li>
@@ -283,20 +255,16 @@ body::after {
  <li><strong>Tam ge&#231;i&#351;:</strong> Pilot sonu&#231;lar&#305;na g&#246;re t&#252;m m&#252;&#351;teri portf&#246;y&#252;ne yay&#305;n.</li>
  <li><strong>S&#252;rekli iyile&#351;tirme:</strong> AI modeli &#246;deme verilerinden &#246;&#287;renerek tahmin do&#287;rulu&#287;unu art&#305;r&#305;r.</li>
  </ol>
-
  <h2>Maliyeti nedir, ne kadar s&#252;rede geri d&#246;ner?</h2>
  <table class="comparison-table"><tr><th>Mod&#252;l</th><th>Kurulum Maliyeti</th><th>Ayl&#305;k &#304;&#351;letme</th><th>ROI S&#252;resi</th></tr>
  <tr><td>Otomatik faturalama</td><td>2.000-6.000 USD</td><td>150-400 USD</td><td>1-3 ay</td></tr>
  <tr><td>&#214;deme takip + hat&#305;rlatma</td><td>1.500-4.000 USD</td><td>100-300 USD</td><td>1-2 ay</td></tr>
  <tr><td>Nakit ak&#305;&#351;&#305; tahmini</td><td>3.000-8.000 USD</td><td>200-500 USD</td><td>2-4 ay</td></tr>
  <tr><td>Tam entegre platform</td><td>8.000-20.000 USD</td><td>400-1.000 USD</td><td>3-6 ay</td></tr></table>
-
  <div class="highlight-box"><p>&#128161; <strong>Maliyet kar&#351;&#305;la&#351;t&#305;rmas&#305;:</strong> Orta &#246;l&#231;ekli bir KOB&#304;'de ge&#231; &#246;demeler ve tahsilat sorunlar&#305; y&#305;lda ortalama 50.000-150.000 TL kay&#305;p yarat&#305;yor. AI destekli fatura otomasyonunun y&#305;ll&#305;k maliyeti bu kayb&#305;n küçük bir kesri kadard&#305;r.</p></div>
-
  <p>&#x1F449; <a href="/hizmetler.html">AI destekli otomasyon &#231;&#246;z&#252;mlerimiz</a></p>
  <p>&#x1F4D6; <a href="/blog/yapay-zeka-ile-muhasebe-finans-otomasyonu-kobi-rehberi.html">muhasebe ve finans otomasyonu rehberimiz</a></p>
  <p>&#x1F4D6; <a href="/blog/yapay-zeka-ile-satis-surecleri-otomasyonu.html">sat&#305;&#351; s&#252;re&#231;leri otomasyonu yaz&#305;m&#305;z</a></p>
-
  <h2>S&#305;k Sorulan Sorular</h2>
  <div class="faq-section">
  <h3>Mevcut muhasebe yaz&#305;l&#305;m&#305;m&#305;z ile entegre olur mu?</h3>
@@ -308,9 +276,7 @@ body::after {
  <h3>KVKK ve mali mevzuata uygunluk nas&#305;l sa&#287;lan&#305;r?</h3>
  <p>T&#252;m veriler T&#252;rkiye'deki sunucularda saklan&#305;r. E-fatura zorunluluklar&#305; ve VUK (Vergi Usul Kanunu) gereksinimleri otomatik kar&#351;&#305;lan&#305;r. KVKK uyumlu veri i&#351;leme politikalar&#305; sistem taraf&#305;ndan uygulan&#305;r.</p>
  </div>
-
  <div class="cta-box"><h3>Fatura ve &#246;deme s&#252;re&#231;lerinizi otomatikle&#351;tirin</h3><p>&#304;&#351;letmenizin fatura ve tahsilat s&#252;re&#231;lerini analiz ediyor, size &#246;zel otomasyon &#231;&#246;z&#252;m&#252; sunuyoruz. &#304;lk g&#246;r&#252;&#351;me &#252;cretsiz.</p><a href="https://wa.me/905421732767" class="cta-btn" target="_blank" rel="noopener">&#128172; WhatsApp'tan &#220;cretsiz Dan&#305;&#351;&#305;n</a></div>
-
 </main>
 <footer class="footer" id="main-footer">
 <div class="footer-grid">

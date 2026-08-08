@@ -151,6 +151,22 @@ Aşağıdaki konular zaten yazılmış — yeni blog yazarken bu listedeki konuy
 
 30. Yapay Zeka ile Üretim ve İmalat Otomasyonu: KOBİ'ler İçin 2026 Rehberi (slug: yapay-zeka-ile-uretim-imalat-otomasyonu)
 
+31. Yapay Zeka ile Enerji Yönetimi ve Akıllı Bina Otomasyonu: KOBİ'ler İçin 2026 Rehberi (slug: yapay-zeka-ile-enerji-yonetimi-akilli-bina-otomasyonu)
+
+32. Yapay Zeka ile Perakende Sektörü Otomasyonu: KOBİ'ler İçin 2026 Rehberi (slug: yapay-zeka-ile-perakende-sektoru-otomasyonu)
+
+33. Yapay Zeka ile Hukuk ve Sözleşme Yönetimi Otomasyonu: KOBİ'ler İçin 2026 Rehberi (slug: yapay-zeka-ile-hukuk-sozlesme-yonetimi-otomasyonu)
+
+34. Yapay Zeka ile Tarım ve Sera Otomasyonu: KOBİ'ler İçin 2026 Rehberi (slug: yapay-zeka-ile-tarim-sera-otomasyonu)
+
+35. Özel Yazılım mı Hazır Paket mi? İşletmeniz İçin Doğru Seçim Rehberi (slug: isletmeniz-icin-ozel-yazilim-mi-hazir-paket-mi)
+
+36. Yapay Zeka ile İş Güvenliği ve İSG Otomasyonu: KOBİ'ler İçin 2026 Rehberi (slug: yapay-zeka-ile-is-guvenligi-isg-otomasyonu)
+
+37. Yapay Zeka ile Rekabet Analizi ve Pazar Araştırması Otomasyonu: KOBİ'ler İçin 2026 Rehberi (slug: yapay-zeka-ile-rekabet-analizi-pazar-arastirmasi-otomasyonu)
+
+38. Yapay Zeka ile Fatura ve Ödeme Takip Otomasyonu: KOBİ'ler İçin 2026 Rehberi (slug: yapay-zeka-ile-fatura-odeme-takip-otomasyonu)
+
 ## "blog" Komutu — Talep Üzerine Blog Yazısı
 
 Zamanlanmış blog İPTAL EDİLDİ (vardiyalı çalışma nedeniyle sabit saat tutmaz).

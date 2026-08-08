@@ -86,7 +86,7 @@ html{scroll-behavior:smooth;font-size:18px;}
 .hamburger.active{background:rgba(0,212,255,.12);border-color:var(--neon);box-shadow:0 0 16px rgba(0,212,255,.2)}
 .nav-soon{font-size:0.95rem;font-weight:500;color:var(--text-muted);padding:6px 14px;cursor:default;opacity:0.4;white-space:nowrap}
 .footer-col ul .nav-soon{padding:0}
-@media(max-width:700px){.nav-lang,.nav-links{display:none}.nav-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center}.nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px}.hamburger{display:flex;z-index:1001;position:relative}.nav-wa-btn{display:none}
+@media(max-width:700px){.page-hero-logo{width:180px;height:180px}.nav-lang,.nav-links{display:none}.nav-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center}.nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px}.hamburger{display:flex;z-index:1001;position:relative}.nav-wa-btn{display:none}
 .sticky-wa{display:flex}}
 
 :root{--bg-main:#0D1117;--bg-card:#161B22;--neon:#00D4FF;--text-main:#E6EDF3;--text-muted:#A3B5C9;--accent-purple:#8B5CF6;--border:rgba(255,255,255,0.06);}
@@ -171,6 +171,8 @@ body::after {
 .post-header{max-width:800px;margin:0 auto;padding:140px 24px 32px;text-align:center;}
 .post-tag{background:rgba(0,212,255,0.1);color:var(--neon);padding:10px 26px;border-radius:20px;font-size:1.3rem;font-weight:600;letter-spacing:.02em;display:inline-block;margin-bottom:16px;}
 .post-header h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.15;letter-spacing:.01em;margin-bottom:16px;background:linear-gradient(135deg,var(--neon),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-hero-logo{display:block;margin:0 auto 24px;width:260px;height:260px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(0,212,255,.45))}
+
 .post-meta{color:var(--text-muted);font-size:1rem;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
 .post-content{max-width:800px;margin:0 auto;padding:0 24px 80px;}
 .post-content h2{font-size:1.85rem;font-weight:700;margin:48px 0 16px;color:var(--neon);}
@@ -241,7 +243,7 @@ body::after {
   <div class="menu-overlay" id="menuOverlay"></div>
 </nav>
 
-<header class="post-header"><span class="post-tag">&#128722; Perakende Otomasyonu</span><h1>Yapay Zeka ile Perakende Sekt&#246;r&#252; Otomasyonu: KOB&#304;'ler &#304;&#231;in 2026 Rehberi</h1><div class="post-meta"><span>&#128197; 2 A&#287;ustos 2026</span><span>&#9201;&#65039; 13 dk okuma</span><span>&#9997;&#65039; K&#305;lman Bili&#351;im</span></div></header>
+<header class="post-header"><picture><source srcset="/logo-300.webp" type="image/webp"><img src="/logo-300.png" alt="Kılman Bilişim" class="page-hero-logo" width="300" height="300" loading="eager" fetchpriority="high"></picture><span class="post-tag">&#128722; Perakende Otomasyonu</span><h1>Yapay Zeka ile Perakende Sekt&#246;r&#252; Otomasyonu: KOB&#304;'ler &#304;&#231;in 2026 Rehberi</h1><div class="post-meta"><span>&#128197; 2 A&#287;ustos 2026</span><span>&#9201;&#65039; 13 dk okuma</span><span>&#9997;&#65039; K&#305;lman Bili&#351;im</span></div></header>
 <main class="post-content">
   <p>Perakende sekt&#246;r&#252; d&#252;nyada en h&#305;zl&#305; dijital d&#246;n&#252;&#351;&#252;m ya&#351;ayan alanlardan biri. B&#252;y&#252;k zincir ma&#287;azalar yapay zekay&#305; y&#305;llard&#305;r kullan&#305;rken, 2026'da bu teknolojiler k&#252;&#231;&#252;k ve orta &#246;l&#231;ekli perakendeciler i&#231;in de eri&#351;ilebilir hale geldi. Ak&#305;ll&#305; stok y&#246;netimi, ki&#351;iselle&#351;tirilmi&#351; m&#252;&#351;teri deneyimi, dinamik fiyatland&#305;rma ve talep tahmini &#8212; t&#252;m bunlar art&#305;k mahalle bakkal&#305;ndan butik ma&#287;azaya kadar herkesin kullanabilece&#287;i bulut tabanl&#305; &#231;&#246;z&#252;mlerle m&#252;mk&#252;n.</p>
   <div class="stat-grid"><div class="stat-card"><span class="stat-num">%25</span><span class="stat-label">Sat&#305;&#351; art&#305;&#351;&#305;</span></div><div class="stat-card"><span class="stat-num">%40</span><span class="stat-label">Stok maliyeti d&#252;&#351;&#252;&#351;&#252;</span></div><div class="stat-card"><span class="stat-num">%35</span><span class="stat-label">M&#252;&#351;teri memnuniyeti art&#305;&#351;&#305;</span></div><div class="stat-card"><span class="stat-num">%50</span><span class="stat-label">Manuel i&#351; y&#252;k&#252; azalmas&#305;</span></div></div>

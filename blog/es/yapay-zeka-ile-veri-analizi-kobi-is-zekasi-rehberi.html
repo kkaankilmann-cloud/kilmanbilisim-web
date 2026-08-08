@@ -85,7 +85,7 @@ html{scroll-behavior:smooth;font-size:18px;}
 .hamburger.active{background:rgba(0,212,255,.12);border-color:var(--neon);box-shadow:0 0 16px rgba(0,212,255,.2)}
 .nav-soon{font-size:0.95rem;font-weight:500;color:var(--text-muted);padding:6px 14px;cursor:default;opacity:0.4;white-space:nowrap}
 .footer-col ul .nav-soon{padding:0}
-@media(max-width:700px){.nav-lang,.nav-links{display:none}.nav-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center}.nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px}.hamburger{display:flex;z-index:1001;position:relative}.nav-wa-btn{display:none}
+@media(max-width:700px){.page-hero-logo{width:180px;height:180px}.nav-lang,.nav-links{display:none}.nav-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center}.nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px}.hamburger{display:flex;z-index:1001;position:relative}.nav-wa-btn{display:none}
 .sticky-wa{display:flex}}
 
 :root{--bg-main:#0D1117;--bg-card:#161B22;--neon:#00D4FF;--text-main:#E6EDF3;--text-muted:#A3B5C9;--accent-purple:#8B5CF6;--border:rgba(255,255,255,0.06);}
@@ -170,6 +170,8 @@ body::after {
 .post-header{max-width:800px;margin:0 auto;padding:140px 24px 32px;text-align:center;}
 .post-tag{background:rgba(0,212,255,0.1);color:var(--neon);padding:10px 26px;border-radius:20px;font-size:1.3rem;font-weight:600;letter-spacing:.02em;display:inline-block;margin-bottom:16px;}
 .post-header h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.15;letter-spacing:.01em;margin-bottom:16px;background:linear-gradient(135deg,var(--neon),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-hero-logo{display:block;margin:0 auto 24px;width:260px;height:260px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(0,212,255,.45))}
+
 .post-meta{color:var(--text-muted);font-size:1rem;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
 .post-content{max-width:800px;margin:0 auto;padding:0 24px 80px;}
 .post-content h2{font-size:1.85rem;font-weight:700;margin:48px 0 16px;color:var(--neon);}
@@ -240,7 +242,7 @@ body::after {
   <div class="menu-overlay" id="menuOverlay"></div>
 </nav>
 
-<header class="post-header"><span class="post-tag">📊 Análisis de Datos & BI</span><h1>Análisis de Datos con IA: Guía de Inteligencia de Negocios 2026 para PYMES</h1><div class="post-meta"><span>📅 9 de julio de 2026</span><span>⏱️ 9 min lectura</span><span>✍️ Kılman Bilişim</span></div></header>
+<header class="post-header"><picture><source srcset="/logo-300.webp" type="image/webp"><img src="/logo-300.png" alt="Kılman Bilişim" class="page-hero-logo" width="300" height="300" loading="eager" fetchpriority="high"></picture><span class="post-tag">📊 Análisis de Datos & BI</span><h1>Análisis de Datos con IA: Guía de Inteligencia de Negocios 2026 para PYMES</h1><div class="post-meta"><span>📅 9 de julio de 2026</span><span>⏱️ 9 min lectura</span><span>✍️ Kılman Bilişim</span></div></header>
 <main class="post-content">
   <p>Imagine un dueño de PYME: Cada mes se pierde entre decenas de hojas Excel, registros de facturas, listas de clientes e informes de ventas. Dar una respuesta fiable a «¿Cuánto ganamos el mes pasado?» toma horas. <strong>La IA convierte estos datos caóticos en información útil en 10 minutos.</strong></p>
   <div class="stat-grid"><div class="stat-card"><span class="stat-num">67 %</span><span class="stat-label">PYMES subutilizan sus datos</span></div><div class="stat-card"><span class="stat-num">5×</span><span class="stat-label">Decisiones más rápidas con IA</span></div><div class="stat-card"><span class="stat-num">23 %</span><span class="stat-label">Aumento de rentabilidad (empresas data-driven)</span></div><div class="stat-card"><span class="stat-num">80 %</span><span class="stat-label">Ahorro en tiempo de reportes</span></div></div>

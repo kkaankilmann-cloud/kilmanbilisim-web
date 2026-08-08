@@ -74,7 +74,9 @@ a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}a:hover{opacit
 /* --- BIZ-CARD CSS (index.html'den kopyalandi) --- */
 .card-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 20px 60px;background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(0,212,255,0.08) 0%,transparent 60%),var(--bg);}
 .biz-card{max-width:420px;width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 0 60px rgba(0,212,255,0.1);}
-.biz-logo{width:140px;height:140px;object-fit:contain;margin:0 auto 20px;filter:drop-shadow(0 0 16px rgba(0,212,255,0.6));}
+.biz-logo{width:200px;height:200px;object-fit:contain;margin:0 auto 20px;filter:drop-shadow(0 0 16px rgba(0,212,255,0.6));}
+@media(max-width:700px){.biz-logo{width:150px;height:150px}}
+
 .biz-name{font-family:var(--font-head);font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:4px;}
 .biz-title-tr{font-size:0.85rem;color:var(--neon);font-family:var(--font-ui);}
 .biz-title-en{font-size:0.78rem;color:var(--text-muted);font-family:var(--font-ui);margin-bottom:6px;}

@@ -117,6 +117,8 @@ a{color:var(--neon);text-decoration:none;transition:opacity 0.2s;}a:hover{opacit
 .page-hero{padding:130px 5% 60px;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,212,255,0.06) 0%,transparent 70%);border-bottom:1px solid var(--border);}
 .page-hero h1{font-family:var(--font-body);font-size:clamp(1.3rem,2.6vw,2rem);font-weight:600;color:var(--text);line-height:1.45;max-width:760px;margin:0 auto 12px;}
 .page-hero p{color:var(--text-muted);font-size:1.2rem;max-width:700px;margin:0 auto 24px;}
+.page-hero-logo{display:block;margin:0 auto 24px;width:110px;height:110px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(0,212,255,.45))}
+
 .section-label{font-family:var(--font-head);font-size:clamp(2.4rem,6vw,4rem);font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-bottom:16px;line-height:1.1;background:linear-gradient(135deg,var(--neon),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .section{max-width:1100px;margin:0 auto;padding:80px 5%;}
 .section:has(>.screenshot-wrap:last-child),.section:has(>.infographic-wrap:last-child){padding-bottom:0}
@@ -194,7 +196,7 @@ main a,section a,.content a,p a{margin:0 3px;}
 .footer-col ul li a{white-space:nowrap}
 /* Responsive */
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}.nav-products{padding:6px 0 8px;}}
-@media(max-width:700px){.nav-lang,.nav-links{display:none;}.nav-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center;}.nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px;}.hamburger{display:flex;z-index:1001;position:relative;}.footer-grid{grid-template-columns:1fr;}.method-grid{grid-template-columns:1fr;}
+@media(max-width:700px){.page-hero-logo{width:80px;height:80px}.nav-lang,.nav-links{display:none;}.nav-lang.open{display:flex;flex-wrap:wrap;position:fixed;top:70px;left:0;right:0;padding:10px 5% 10px;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:1000;gap:6px;justify-content:center;}.nav-links.open{display:flex;flex-direction:column;position:fixed;left:0;right:0;background:rgba(8,11,18,.98);backdrop-filter:blur(16px);padding:12px 5% 16px;border-bottom:1px solid var(--border);z-index:999;gap:4px;}.hamburger{display:flex;z-index:1001;position:relative;}.footer-grid{grid-template-columns:1fr;}.method-grid{grid-template-columns:1fr;}
 .sticky-wa{display:flex}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}}
 /* Animations */
@@ -304,6 +306,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;b
 
 <!-- HERO -->
 <div class="page-hero">
+<picture>
+<source srcset="/logo-300.webp" type="image/webp">
+<img src="/logo-300.png" alt="Kılman Bilişim" class="page-hero-logo" width="300" height="300" loading="eager" fetchpriority="high">
+</picture>
   <div class="section-label">房地产自动化</div>
   <h1>KILMAN 房地产自动化系统</h1>
   <p>AI驱动的房地产自动化。识别潜在客户，推荐房源，创建预约，跟进处理。通过WhatsApp、Telegram和语音通话工作。</p>
